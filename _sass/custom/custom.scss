@@ -1,3 +1,29 @@
 .site-footer {
     display: none;
+    width: 256px !important;
+}
+
+.site-header, .site-nav, .side-bar {
+    width: 256px !important;
+}
+
+.site-logo {
+    background-position: left center;
+    max-height: 24px;
+}
+
+.site-header {
+    background-color: white;
+    height: 80px;
+    max-height: 80px;
+}
+
+.side-bar .site-header .site-title::after {
+    white-space: nowrap;
+    content: "Documentation";
+    font-size: 15px;
+    line-height: 40px;
+    font-weight: 600;
+    display: block;
+    padding-left: 20px;
 }
