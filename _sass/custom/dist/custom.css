@@ -1,0 +1,97 @@
+body {
+  font-family: "Roboto", "sans-serif";
+  color: #0E1111;
+}
+
+a {
+  color: #0E1111;
+}
+
+a.active {
+  color: #F00078;
+  font-weight: bold;
+}
+
+.site-footer {
+  display: none;
+  width: 256px !important;
+}
+
+.site-header, .site-nav, .side-bar {
+  width: 256px !important;
+}
+
+.site-logo {
+  background-position: left center;
+  max-height: 25px;
+  background-size: auto;
+}
+
+.site-header {
+  background-color: white;
+  height: 80px;
+  max-height: 80px;
+}
+
+/*.side-bar .site-header .site-title::after {
+    white-space: nowrap;
+    content: "Documentation";
+    font-size: 16px;
+    line-height: 40px;
+    font-weight: 600;
+    display: block;
+    padding-left: 20px;
+    font-family: "Roboto","sans-serif";
+    border-left: 1px solid #cecece;
+}*/
+.aux-nav .aux-nav-list-item {
+  display: flex !important;
+  align-content: center;
+  align-items: center;
+}
+
+.aux-nav .aux-nav-list-item .site-button {
+  display: block;
+  height: 40px;
+  padding: 10px 20px;
+  align-items: center;
+  width: 150px;
+  text-align: center;
+  border-radius: 20px;
+  background-color: #F00078;
+  font-size: 15px;
+  line-height: 20px;
+  font-weight: 500;
+  color: #fff;
+  transition: background-color 0.4s ease-out;
+}
+
+.side-bar {
+  border: none;
+}
+
+@media print {
+  .side-bar, .page-header {
+    display: none;
+  }
+
+  .main-content {
+    max-width: auto;
+    margin: 1em;
+  }
+}
+@media (min-width: 50rem) {
+  .main {
+    margin-left: 256px !important;
+    max-width: 100%;
+  }
+
+  .main-header {
+    height: 80px;
+  }
+}
+@media (min-width: 66.5rem) {
+  .side-bar {
+    min-width: 256px;
+  }
+}
