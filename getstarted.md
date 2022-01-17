@@ -1,6 +1,8 @@
 ---
 title: Getting Started
 nav_order: 2
+has_toc: false
+has_children: true
 ---
 # Getting Started
 ## Installing the CLI
