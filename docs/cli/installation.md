@@ -18,10 +18,10 @@ $> brew install raito-io/tap/cli
 
 To get an overview of the possibilities of the CLI, execute:
 ```bash
-$> ./raito --help
+$> raito --help
 ```
 
 or to check the version:
 ```bash
-$> ./raito --version
+$> raito --version
 ```

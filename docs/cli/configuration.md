@@ -116,6 +116,12 @@ To connect the CLI to your Raito instance, you'll also need to specify the follo
  Note: this users needs to have the necessary permissions on the data source or identity store it needs to interact with.
  - **api-secret** *(optional)*: The secret API token for the API user to authenticate against Raito.
 
+## Command specific parameters
+A specific command can have its own parameters. These can be revealed by doing
+```bash
+$> raito <command> --help
+```
+
 ## Connector specific parameters
 Each connector will have its specific parameters. These can either be specified under the target definition in the configuration file, as seen in the example configuration file above, or directly on the command line (when the single target is specified there).
 
@@ -125,9 +131,3 @@ For example:
 ```bash
 $> raito <command> --connector snowflake --name snowflake1 --data-source-id xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -- --sf-account yyyyyy.eu-central-1 --sf-user <youruser> --sf-password <yourpassword>
 ```
-
-## Overview
-| Parameter name | Description | Applies To |
-|----------------|-------------|------------|
-|                |             |            |
-|                |             |            |
