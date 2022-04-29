@@ -1,6 +1,7 @@
 ---
 title: Home
 nav_order: 1
+permalink: /
 ---
 [![Raito](/assets/images/Raito_Logo_Vertical_Color1.svg)](https://raito.io){:target="_blank"}
 

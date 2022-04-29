@@ -1,9 +1,10 @@
 ---
-title: Concepts
 nav_order: 2
+permalink: /concepts
 ---
 # Concepts
 
+<!--- 
 ### Raito Cloud
 *Raito Cloud* refers to the Raito SaaS offering. It provides the full functionality that Raito has to offer to protect your data without slowing it down.
 
@@ -48,3 +49,4 @@ To Do
 
 ### Data Access
 To Do
+--->
