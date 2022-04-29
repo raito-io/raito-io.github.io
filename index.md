@@ -1,9 +1,0 @@
----
-title: Home
-nav_order: 1
----
-Welcome to the Raito documentation.
-
-It's all still very new here. You'll see a lot of changes coming up in the next couple of months.
-
-For more information about Raito, please visit the [Raito website](https://raito.io)
