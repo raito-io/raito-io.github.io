@@ -1,10 +1,10 @@
 ---
-nav_order: 2
+title: Concepts
+nav_order: 3
 permalink: /concepts
 ---
 # Concepts
 
-<!--- 
 ### Raito Cloud
 *Raito Cloud* refers to the Raito SaaS offering. It provides the full functionality that Raito has to offer to protect your data without slowing it down.
 
@@ -14,10 +14,13 @@ The *Raito Graph* is the graph structure that is built inside of Raito Cloud. It
 ### Raito CLI
 The *Raito CLI* is the bridge between your infrastructure (data sources, identity stores, data catalog ...) and *Raito Cloud*. It can run safely on your own infrastructure to handle all the connections to your infrastructure in a secure way, without the need to have credentials to your data sources in *Raito Cloud*.
 
+<!-- 
+re-enable when it's available in the UI
 ### Tags
 Meta data is highly important in Raito. Within *Raito Cloud* meta data is represented as tags. 
 
-Tags can be specified on most elements in the *Raito Graph*. Tags will be inherited by other nodes in the graph where it makes sense.
+Tags can be specified on most elements in the *Raito Graph*. Tags will be inherited by other nodes in the graph where it makes sense. 
+-->
 
 ### Data Source
 A data source is an instance of a data warehouse, database, reporting tool ... or any other source of data. You can have muliple data sources of the same type (e.g: multiple Snowflake setups).
@@ -41,12 +44,17 @@ Typically, this is the data source itself (for internal users) and/or an externa
 Inside *Raito Cloud*, users under different identity stores are intelligently matched together to mark them as one physical person. <br>
 For example: User 'm.scott' in Snowflake can be marked as the same person as 'michael.scott@dundermifflin.com'. This way, the meta data from one user is also available for the user.
 
+<!-- 
+TODO: re-enable when it's available in the UI
 ### Group
-(User) Groups are imported as is into *Raito Cloud*, from the identity stores. Users will inherited the meta data from the groups they are in.
+(User) Groups are imported as is into *Raito Cloud*, from the identity stores. Users will inherited the meta data from the groups they are in. 
+-->
 
-### Data Policy
-To Do
+### Access Provider
+An access provider describes which users have access to what with which permissions. Initially, when you ingest the access providers from your data warehouse, it will be 
+very concrete, e.g. a role in Snowflake will map 1-to-1 to an access provider. But its goal is to represent information at a higher level than available in the data warehouses. 
 
-### Data Access
-To Do
---->
+#### Access
+
+Access is a concrete instantiation that provides access to objects in a data warehouse. For instance, your role might promise you access to certain data sets. This is describes in an 
+access provider, but it doesn't give you actual access. To get this access you need to create an access request; depending on your organization this might automatically grant you access since a corresponding access provider exists, but your access request might need some manual approvals as well.

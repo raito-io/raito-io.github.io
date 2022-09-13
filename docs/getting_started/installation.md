@@ -1,8 +1,8 @@
 ---
-title: Installation
-parent: Raito CLI-deprecated
-nav_order: 20
-permalink: /cli/install
+title: CLI Installation
+parent: Get Started
+nav_order: 2
+permalink: /get_started/cli_installation
 ---
 # Get Started
 ## Installing the CLI

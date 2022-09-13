@@ -1,6 +1,22 @@
+// colors:
+// purple: #3E0A91
+// pink: #CF0863
+// almost white: #f6f6f8
+
+@font-face {
+    font-family: 'GT Walsheim Pro';
+    // src: url('GTWalsheimPro-Light.eot');
+    // src: local('GT Walsheim Pro Light'), local('GTWalsheimPro-Light'),
+    //     url('GTWalsheimPro-Light.eot?#iefix') format('embedded-opentype'),
+    //     url('GTWalsheimPro-Light.woff2') format('woff2'),
+    //     url('GTWalsheimPro-Light.woff') format('woff'),
+    //     url('GTWalsheimPro-Light.ttf') format('truetype');
+    src: url("../../assets/fonts/GTWalsheimPro-Black.woff2") format('woff2');
+    font-weight: 100;
+    font-style: normal;
+}
+
 body {
-    font-family: "Roboto","sans-serif";
-    font-weight: 300;
     color: #0E1111;
     font-size: 16px;
 }
@@ -10,7 +26,7 @@ b, strong {
 }
 
 a {
-    color: #282878;
+    color: #3E0A91;
     text-decoration: underline;
     font-weight: 300;
 }
@@ -25,7 +41,7 @@ a:not([class]):hover {
 }
 
 a.active {
-    color: #F00078;
+    color: #CF0863;
     font-weight: bold;
 }
 
@@ -49,7 +65,7 @@ h3 {
 }
 
 .breadcrumb-nav-list-item a {
-    color: #F00078;
+    color: #CF0863;
 }
 
 .site-footer {
@@ -63,8 +79,8 @@ h3 {
 
 .site-logo {
     background-position: left center;
-    max-height: 25px;
-    background-size: auto;
+    max-height: 50px;
+    background-size: 100%;
 }
 
 .site-header {
@@ -85,12 +101,13 @@ h3 {
 
 .nav-list .nav-list-item.active .nav-list-link.active,
 .nav-list .nav-list-item > .nav-list .nav-list-item.active .nav-list-link.active { 
-    color: #F00078 !important; 
+    transition: color .4s ease-out;
+    color: #CF0863 !important; 
 }
 
 .nav-list .nav-list-item:hover .nav-list-link:hover,
 .nav-list .nav-list-item > .nav-list .nav-list-item:hover .nav-list-link:hover { 
-    color: #282878 !important; 
+    color: #3E0A91 !important; 
     font-weight: 600;
 }
 
@@ -101,7 +118,7 @@ h3 {
 
 .side-bar {
     border: none;
-    background-color: #FAF9F6;
+    background-color: #f6f6f8;
 }
 
 .aux-nav .aux-nav-list-item {
@@ -118,18 +135,18 @@ h3 {
     width: 150px;
     text-align: center;
     border-radius: 20px;
-    background-color: #F00078;
+    background-color: #CF0863;
     font-size: 15px;
     line-height: 20px;
     font-weight: 500;
-    color: #fff;
+    color: #f6f6f8;
     transition: background-color .4s ease-out;
     text-decoration: none;
 }
 
 .aux-nav .aux-nav-list-item .site-button:hover { 
     background-image: none;
-    background-color: #282878 !important; 
+    background-color: #3E0A91 !important; 
 }
 
 .nav-list .nav-list-item .nav-list-link,
@@ -142,7 +159,7 @@ h3 {
     font-weight: 500;
     font-size: 28px;
     margin-top: 50px;
-    color: #282878;
+    color: #3E0A91;
 }
 
 .main-content ol > li::before {
@@ -211,5 +228,86 @@ h3 {
 
     .main .main-content-wrap .breadcrumb-nav, .main .main-content-wrap .main-content > *:not(.docs-html-content) {
         max-width: 800px;
+    }
+}
+
+// main page
+
+.main-html-content {
+    margin-top: calc( 80px - 1rem );
+}
+
+.main-section {
+    padding-top: 100px;
+
+    margin-left: 0px;
+    margin-right: 50px;   
+
+    @media (min-width: 66.5rem) {
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+}
+
+.main-section-row {
+    position: relative;
+    margin-left: 0px;
+    margin-right: 20px;
+    max-width: 688px;
+
+    @media (min-width: 50rem) {
+        margin-left: 0px;
+        margin-right: 50px;
+    }
+
+
+    @media (min-width: 66.5rem) {
+        margin-left: 0px;
+        margin-right: 90px;
+    }
+}
+
+.main-grid-3cols {
+    display: grid;
+    grid-column-gap: 30px;
+    grid-row-gap: 60px;
+    grid-template-columns: auto;
+    margin-bottom: 70px;
+
+    @media (min-width: 50rem) {
+        grid-template-columns: auto auto;
+    }
+
+    @media (min-width: 66.5rem) {
+        grid-template-columns: auto auto auto;
+    }
+
+    div {
+        img {
+            display: block;
+        }
+
+        h2 {
+            margin-top: 10px !important;
+            margin-bottom: 5px;
+        }
+
+        a {
+            display: block;
+            font-size: 15px;
+            line-height: 25px;
+            color: #3E0A91;
+            font-weight: 500;
+            text-decoration: none !important;
+            border: none;
+            background: none;
+            transition: color .5s ease-out;
+
+            &:hover {
+                color: #CF0863;
+                background: none;
+                border: none;
+            }
+        }
     }
 }

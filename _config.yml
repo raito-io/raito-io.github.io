@@ -1,14 +1,20 @@
 title: Raito Documentation
 email: info@raito.io
-url: "https://docs.raito.io" # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://docs.raito.io" 
 
-exclude: README.md
-
-# Build settings
-remote_theme: pmarsceill/just-the-docs
+permalink: pretty
+exclude: ["Dockerfile", "docker-compose.yml", "node_modules/", "*.gemspec", "*.gem", "Gemfile", "Gemfile.lock", "package.json", "package-lock.json", "_temp" ,"script/", "LICENSE.txt", "lib/", "bin/", "README.md", "Rakefile", "vendor", "_archive"]
 
 # Just the docs stuff
-logo: "/assets/images/raito-logo.webp"
+logo: "/assets/images/raito-logo-quarter.png"
+
+# Theme
+theme: "just-the-docs"
+
+# markdown: kramdown
+# kramdown:
+#   parse_block_html: true
 
 search_enabled: true
 
@@ -37,7 +43,7 @@ search:
   button: false
 
 aux_links:
-  "Raito on GitHub":
+  "GitHub":
     - "https://github.com/raito-io/"
 
 # Makes Aux links open in a new tab. Default is false
