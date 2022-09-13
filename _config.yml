@@ -10,7 +10,8 @@ exclude: ["Dockerfile", "docker-compose.yml", "node_modules/", "*.gemspec", "*.g
 logo: "/assets/images/raito-logo-quarter.png"
 
 # Theme
-theme: "just-the-docs"
+# theme: "just-the-docs"
+remote_theme: just-the-docs/just-the-docs
 
 # markdown: kramdown
 # kramdown:
