@@ -1,7 +1,7 @@
 ---
 title: Configuration
-parent: CLI
-nav_order: 4
+parent: Raito CLI
+nav_order: 30
 permalink: /cli/configuration
 ---
 # Configuration
@@ -31,8 +31,8 @@ The Raito CLI works against one or more [targets](/cli/intro#targets).
 A target has the following parameters:
  - **connector**: the name of the connector (plugin) to use to connect to the data source or identity store.
  - **name** *(optional)*: the name of this specific target. This name is used during logging to understand which target is active at that time. If not specified, the *target-connector* value is used.
- - **data-source-id**: the id (UUID) of the data source in Raito the target corresponds to. This parameter only needs to be specified for actions that require it.
- - **identity-store-id**: the id (UUID) of the data source in Raito that the target corresponds to. This is not necessary when the target is a data source only or when not connecting to Raito (e.g. the *access* command).
+ - **data-source-id**: the id (NanoID) of the data source in Raito the target corresponds to. This parameter only needs to be specified for actions that require it.
+ - **identity-store-id**: the id (NanoID) of the data source in Raito that the target corresponds to. This is not necessary when the target is a data source only or when not connecting to Raito (e.g. the *access* command).
 
 There are two options to specify targets:
 
