@@ -1,10 +1,26 @@
 ---
-title: Github Actions
-parent: Continuous Integration
-grand_parent: Raito CLI
-nav_order: 1
-permalink: /cli/ci/github-actions
+title: CI/CD integration
+nav_order: 10
+parent: Guides
+permalink: /guide/access
 ---
+
+<div class="wip" style="text-align: center">
+  <img src="/assets/images/logo-wait-128.png" alt="Work in Progress"/>
+  <br/>
+  Work in Progress
+</div>
+
+
+In this guide we'll guide you through a complete end-to-end example of 
+
+- set up repository in Github, project structure
+- access.yml
+- Github action file
+- end
+
+
+
 
 There is a [Github Action available](https://github.com/raito-io/cli-setup){:target="_blank"} which allows you to easily use the Raito CLI in your own pipelines. You can use this to
 store access information in a repository and automatically deploy it to your data warehouse through the `raito access` command, but also e.g. to run a nightly sync of your warehouse environment through the `raito run` command.
