@@ -6,6 +6,8 @@ nav_order: 1
 permalink: /cli/connectors/snowflake
 ---
 
+# Snowflake connector
+
 [Snowflake](https://www.snowflake.com){:target="_blank"} is a cloud-based data warehouse that you can use without having to worry about infrastructure. Its data object hierarchy is 
 `database` > `schema` > `table` > `column`. Additionally, you need access to a compute resource, or `warehouse`, to run queries. Snowflake uses role-based access controls.
 
@@ -15,13 +17,15 @@ The current connector supports
 * Export of data objects
 * Export of data usage information
 
+## Snowflake-specific parameters
+
 To see all parameters, type 
 ```bash
 $> raito info raito-io/cli-plugin-snowflake
 ```
 in a terminal window.
 
-At this point there is:
+Currently, the following configuration parameters are available:
 * **sf-account** (mandatory): The account name of the Snowflake account to connect to. For example, xy123456.eu-central-1
 * **sf-user** (mandatory): The username to authenticate against the Snowflake account.
 * **sf-password** (mandatory): The username to authenticate against the Snowflake account.
