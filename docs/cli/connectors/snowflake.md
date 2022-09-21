@@ -30,7 +30,6 @@ Currently, the following configuration parameters are available:
 * **sf-user** (mandatory): The username to authenticate against the Snowflake account.
 * **sf-password** (mandatory): The username to authenticate against the Snowflake account.
 * **sf-role** (optional): The name of the role to use for executing the necessary queries. If not specified 'ACCOUNTADMIN' is used.
-* **sf-database** (mandatory): The name of the main database to connect to. This is necessary for building the connection string.
 * **sf-excluded-databases** (optional): The optional comma-separated list of databases that should be skipped.
 * **sf-excluded-schemas** (optional): The optional comma-separated list of schemas that should be skipped. This can either be in a specific database (as <database>.<schema>) or a just a schema name that should be skipped in all databases (e.g. `INFORMATION_SCHEMA`).
 * **sf-excluded-owners** (optional): The optional comma-separated list of owners that need to be skipped when syncing users or marked as read-only when importing roles as Access Providers. This is typically used to not synchronize the users that were imported from an external Identity Store (like Okta, Active Directory, ...).

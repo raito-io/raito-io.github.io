@@ -2,16 +2,16 @@
 title: Installation
 parent: Raito CLI
 nav_order: 20
-permalink: /cli/get_started
+permalink: /cli/installation
 ---
-# Get started
+# Installation
 
 ## Installing the CLI
 ### Using Homebrew
 
-To install the Raito CLI on MacOS or Linux, the easiest way is using Homebrew.
+To install the Raito CLI on macOS or Linux, the easiest way is using Homebrew.
 
-Simply execute the following the do the installation:
+Simply execute the following in a terminal window:
 ```bash
 $> brew install raito-io/tap/cli
 ```
@@ -26,9 +26,9 @@ $> tar -xzvf raito-0.19.0-darwin_arm64.tar.gz
 $> ./raito --help
 ```
 
-Currently we release for Linux and Mac OS.
+Currently we release for Linux and macOS.
 
-## Install Raito CLI
+## Check installation
 
 To get the version you have installed:
 ```bash
@@ -40,11 +40,7 @@ or an overview of the possibilities of the CLI, execute:
 $> raito --help
 ```
 
-There are two main operation modes for the CLI through the 
-- [**access** command](/cli/commands/access). Push access controls to your data warehouses using (versioned) yaml files.
-- [**run** command](/cli/commands/run). Export information from your data warehouse into Raito Cloud and push access controls from Raito Cloud to your data warehouse.
-
-Find out more [here](/cli/commands). For the rest of this get started we'll make sure that everything is working properly.
+Find out more about the different actions you can perform with the CLI [here](/cli/commands). For the rest of this installation guide we'll make sure that everything is working properly.
 
 ## Connect Raito CLI ...
 
@@ -69,7 +65,7 @@ Successfully connected to Raito Cloud
 
 ### ... to a data source
 
-We will try to connect to a Snowflake data warehouse in this section. To do this, you'll need to use the Snowflake connector. It can be automatically downloaded (from Github)[https://github.com/raito-io/cli-plugin-snowflake]{:target="_blank"}
+We will try to connect to a Snowflake data warehouse in this section. To do this, you'll need to use the Snowflake connector. It can be automatically downloaded [from Github](https://github.com/raito-io/cli-plugin-snowflake){:target="_blank"}
 by adding the following configuration to `raito.yml`
 ```js
 repositories:
@@ -83,7 +79,6 @@ To actually test the connection, make sure the following parameters are specifie
 sf-account: <e.g. xy123456.eu-central-1>
 sf-user: <youruser>
 sf-password: <yourpassword>
-sf-database: <yourdatabase>
 ```
 and then test the connection with
 ```bash

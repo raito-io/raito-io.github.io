@@ -28,7 +28,7 @@ e.g. parameter *--config-file* as command line flag becomes *RAITO_CONFIG_FILE* 
 
 The recommended way is to use the configuration through file, whereas configuration flags are convenient for development and testing. The different parameters can be divided into the following categories:
 - [Global parameters](#global-parameters). Parameters applicable to `raito` command, like logging. 
-- [Command-specific parameters](#command-specific-parameters). Parameters applicable to a subc-command, e.g. `raito access`.
+- [Command-specific parameters](#command-specific-parameters). Parameters applicable to a sub-command, e.g. `raito access`.
 - [Raito parameters](#raito-parameters). Parameters required to connect to Raito Cloud. 
 - [Target parameters](#target-parameters). Parameters to configure a target.
 - [Connector specific parameters](#connector-specific-parameters). Parameters specific to a connector.

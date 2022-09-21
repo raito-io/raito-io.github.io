@@ -3,7 +3,17 @@ title: Concepts
 nav_order: 3
 permalink: /concepts
 ---
-# Concepts
+# Introduction
+
+## Overview
+
+
+Raito Cloud
+
+Raito CLI => targets, connectors
+
+
+## Glossary
 
 ### Raito Cloud
 *Raito Cloud* refers to the Raito SaaS offering. It provides the full functionality that Raito has to offer to protect your data without slowing it down.
@@ -23,7 +33,7 @@ Tags can be specified on most elements in the *Raito Graph*. Tags will be inheri
 -->
 
 ### Data Source
-A data source is an instance of a data warehouse, database, reporting tool ... or any other source of data. You can have muliple data sources of the same type (e.g: multiple Snowflake setups).
+A data source is an instance of a data warehouse, database, reporting tool, ..., or any other source of data. You can have muliple data sources of the same type (e.g: multiple Snowflake setups).
 
 Every data source is also represented by a node in the *Raito Graph*.
 
