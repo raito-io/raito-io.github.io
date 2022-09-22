@@ -2,7 +2,7 @@
 title: Installation
 parent: Raito CLI
 nav_order: 20
-permalink: /cli/get_started
+permalink: /docs/cli/get_started
 ---
 # Get started
 
@@ -41,15 +41,15 @@ $> raito --help
 ```
 
 There are two main operation modes for the CLI through the 
-- [**access** command](/cli/commands/access). Push access controls to your data warehouses using (versioned) yaml files.
-- [**run** command](/cli/commands/run). Export information from your data warehouse into Raito Cloud and push access controls from Raito Cloud to your data warehouse.
+- [**access** command](/docs/cli/commands/access). Push access controls to your data warehouses using (versioned) yaml files.
+- [**run** command](/docs/cli/commands/run). Export information from your data warehouse into Raito Cloud and push access controls from Raito Cloud to your data warehouse.
 
-Find out more [here](/cli/commands). For the rest of this get started we'll make sure that everything is working properly.
+Find out more [here](/docs/cli/commands). For the rest of this get started we'll make sure that everything is working properly.
 
 ## Connect Raito CLI ...
 
-The Raito CLI uses a yaml configuration; [an example here](/cli/configuration#2-configuration-file){:target="_blank"}. By default it will look for a file called
-`raito.yml` in the working directory, or in the `~/.raito` directory. See [here](/cli/configuration#2-configuration-file) for more details.  
+The Raito CLI uses a yaml configuration; [an example here](/docs/cli/configuration#2-configuration-file){:target="_blank"}. By default it will look for a file called
+`raito.yml` in the working directory, or in the `~/.raito` directory. See [here](/docs/cli/configuration#2-configuration-file) for more details.  
 
 ### .... to Raito Cloud [optional]
 
@@ -98,4 +98,4 @@ If that didn't work, try making a connection through a tool like  `curl`, e.g. f
 
 ## Further reading
 
-If you want to know more, go to the [CLI section](/cli) or read about [general Raito concepts](/concepts). 
+If you want to know more, go to the [CLI section](/docs/cli) or read about [general Raito concepts](/docs/concepts). 

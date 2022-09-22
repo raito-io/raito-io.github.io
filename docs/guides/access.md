@@ -2,7 +2,7 @@
 title: CI/CD integration
 nav_order: 10
 parent: Guides
-permalink: /guide/access
+permalink: /docs/guide/access
 ---
 
 <div class="wip" style="text-align: center">

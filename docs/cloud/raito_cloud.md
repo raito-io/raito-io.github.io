@@ -3,14 +3,14 @@ title: Raito Cloud
 nav_order: 15
 has_children: false
 has_toc: false
-permalink: /cloud
+permalink: /docs/cloud
 ---
 
 # Raito Cloud
 
 *TODO: Bart, Wannes, insert sales pitch here, without sound too sales-pitchy.* 
 
-**Raito Cloud** supercharges all the information gathered from the [Raito CLI](/cli). Its main purpose is to *visualize* and *connect* the different types of information, so that you can clearly see
+**Raito Cloud** supercharges all the information gathered from the [Raito CLI](/docs/cli). Its main purpose is to *visualize* and *connect* the different types of information, so that you can clearly see
 - the information available in your data warehouses,
 - who has access to what,
 - which data assets are accessible by few or many people,
