@@ -2,7 +2,7 @@
 title: CLI with Cloud
 nav_order: 20
 parent: Guides
-permalink: /guide/run
+permalink: /docs/guide/run
 ---
 
 In this guide we'll walk you through an example of how to connect Raito Cloud to a Snowflake data warehouse through the Raito CLI. We'll 

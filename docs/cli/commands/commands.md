@@ -3,7 +3,7 @@ title: Commands
 parent: Raito CLI
 has_children: false
 nav_order: 25
-permalink: /cli/commands
+permalink: /docs/cli/commands
 ---
 
 TODO: don't make subsections for the different commands

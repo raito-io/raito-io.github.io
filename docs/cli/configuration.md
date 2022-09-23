@@ -2,7 +2,7 @@
 title: Configuration
 parent: Raito CLI
 nav_order: 30
-permalink: /cli/configuration
+permalink: /docs/cli/configuration
 ---
 # Configuration
 ## Introduction
@@ -78,7 +78,7 @@ To connect the CLI to your Raito instance, you'll also need to specify the follo
 
 ## Target parameters
 
-The Raito CLI works against one or more [targets](/cli/intro#targets). A target is a system or server like a data warehouse, identity provider, etc.
+The Raito CLI works against one or more [targets](/docs/cli/intro#targets). A target is a system or server like a data warehouse, identity provider, etc.
 
 A target has the following parameters:
 - **name** *(optional)*: a name you can choose for this specific target. This name is used during logging to understand which target is active at that time. If not specified, the *target-connector* value is used.
@@ -95,7 +95,7 @@ Each connector will have its specific set of parameters. These are defined in th
 ```bash
 $> raito info <connector-name> <connector-version>
 ```
-The value for `<connector-name>` is as defined in the target configuration, e.g. `raito.io/cli-plugin-snowflake`. If `<connector-version>` is not specified, it will use the latest version. The Snowflake connector's parameters are documented [here](/cli/connectors/snowflake#snowflake-specific-parameters).
+The value for `<connector-name>` is as defined in the target configuration, e.g. `raito.io/cli-plugin-snowflake`. If `<connector-version>` is not specified, it will use the latest version. The Snowflake connector's parameters are documented [here](/docs/cli/connectors/snowflake#snowflake-specific-parameters).
 
 These can either be specified under the target definition in the configuration file, as seen in the [example configuration file](#configuration-file), or directly on the command line (when the single target is specified there).
 

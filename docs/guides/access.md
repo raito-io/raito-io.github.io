@@ -2,7 +2,7 @@
 title: Versioned access
 nav_order: 10
 parent: Guides
-permalink: /guide/access
+permalink: /docs/guide/access
 ---
 
 In this guide we'll walk you through an end-to-end example of versioning access to your Snowflake data warehouse using continuous integration. We will

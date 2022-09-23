@@ -2,7 +2,7 @@
 title: Installation
 parent: Raito CLI
 nav_order: 20
-permalink: /cli/installation
+permalink: /docs/cli/get_started
 ---
 # Installation
 
@@ -44,8 +44,8 @@ Find out more about the different actions you can perform with the CLI [here](/c
 
 ## Connect Raito CLI ...
 
-The Raito CLI uses a yaml configuration; [an example here](/cli/configuration#2-configuration-file){:target="_blank"}. By default it will look for a file called
-`raito.yml` in the working directory, or in the `~/.raito` directory. See [here](/cli/configuration#2-configuration-file) for more details.  
+The Raito CLI uses a yaml configuration; [an example here](/docs/cli/configuration#2-configuration-file){:target="_blank"}. By default it will look for a file called
+`raito.yml` in the working directory, or in the `~/.raito` directory. See [here](/docs/cli/configuration#2-configuration-file) for more details.  
 
 ### .... to Raito Cloud [optional]
 
@@ -93,4 +93,4 @@ If that didn't work, try making a connection through a tool like  `curl`, e.g. f
 
 ## Further reading
 
-If you want to know more, go to the [CLI section](/cli) or read about [general Raito concepts](/concepts). 
+If you want to know more, go to the [CLI section](/docs/cli) or read about [general Raito concepts](/docs/concepts). 
