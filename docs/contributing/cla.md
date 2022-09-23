@@ -3,7 +3,7 @@ title: Contribute
 nav_order: 100
 has_children: false
 has_toc: false
-permalink: /contribute
+permalink: /docs/contribute
 ---
 
 # Contribute

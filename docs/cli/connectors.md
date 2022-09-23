@@ -3,7 +3,7 @@ title: Connectors
 parent: Raito CLI
 nav_order: 40
 has_children: true
-permalink: /cli/connectors
+permalink: /docs/cli/connectors
 ---
 
 The Raito CLI is built to be extensible with different connectors. 

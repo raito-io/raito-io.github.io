@@ -3,7 +3,7 @@ title: Snowflake
 parent: Connectors
 grand_parent: Raito CLI
 nav_order: 1
-permalink: /cli/connectors/snowflake
+permalink: /docs/cli/connectors/snowflake
 ---
 
 # Snowflake connector

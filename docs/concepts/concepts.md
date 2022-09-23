@@ -1,7 +1,7 @@
 ---
 title: Concepts
 nav_order: 3
-permalink: /concepts
+permalink: /docs/concepts
 ---
 # Concepts
 

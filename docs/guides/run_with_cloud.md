@@ -2,7 +2,7 @@
 title: CLI with Cloud
 nav_order: 20
 parent: Guides
-permalink: /guide/run
+permalink: /docs/guide/run
 ---
 
 <div class="wip" style="text-align: center">
