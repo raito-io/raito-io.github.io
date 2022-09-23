@@ -9,8 +9,8 @@ permalink: /docs/cli/commands
 TODO: don't make subsections for the different commands
 
 There are two main operation modes for the CLI through the 
-- [**access** command](/cli/commands/access). Push access controls to your data warehouses using (versioned) yaml files.
-- [**run** command](/cli/commands/run). Export information from your data warehouse into Raito Cloud and push access controls from Raito Cloud to your data warehouse.
+- [**access** command](/docs/cli/commands/access). Push access controls to your data warehouses using (versioned) yaml files.
+- [**run** command](/docs/cli/commands/run). Export information from your data warehouse into Raito Cloud and push access controls from Raito Cloud to your data warehouse.
 
 There are three important commands in the Raito CLI
 - [Info](#info)

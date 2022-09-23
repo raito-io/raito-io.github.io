@@ -27,7 +27,7 @@ Check that everything is correctly installed by running
 $> raito --version
 ```
 
-If you want more information about the installation process, or you need to troubleshoot an issue, you can find [more information here](/cli/installation). Also make sure that you have the Snowflake connector installed, [see here](/cli/installation#-to-a-data-source). 
+If you want more information about the installation process, or you need to troubleshoot an issue, you can find [more information here](/docs/cli/installation). Also make sure that you have the Snowflake connector installed, [see here](/docs/cli/installation#-to-a-data-source). 
 
 
 ## Repository setup
@@ -67,9 +67,9 @@ targets:
 ```
 {% endraw %}
 
-This is a minimal configuration needed for this tutorial, extra [general parameters](/cli/configuration) and [Snowflake-specific](/cli/connectors/snowflake) ones are in their respective sections. `sf-role` is not required as 'ACCOUNTADMIN' is the default role if none is specified. Also `connector-version` will default to latest if not specified.
+This is a minimal configuration needed for this tutorial, extra [general parameters](/docs/cli/configuration) and [Snowflake-specific](/docs/cli/connectors/snowflake) ones are in their respective sections. `sf-role` is not required as 'ACCOUNTADMIN' is the default role if none is specified. Also `connector-version` will default to latest if not specified.
 
-The 'repositories' section is required to download the Snowflake connector from GitHub; you'll need to create a GitHub Personal Access Token for this, [see here](/cli/installation#-to-a-data-source) for more details. 
+The 'repositories' section is required to download the Snowflake connector from GitHub; you'll need to create a GitHub Personal Access Token for this, [see here](/docs/cli/installation#-to-a-data-source) for more details. 
 
 <!-- TODO: Double check if this is required for public repos.  -->
 
@@ -137,7 +137,7 @@ Beware that the `access.yml` file acts as a single source of truth; if you remov
 ## GitHub Actions workflow
 
 There is a [GitHub Action available](https://github.com/raito-io/cli-setup){:target="_blank"} which allows you to easily use the Raito CLI in your own pipelines. You can use this GitHub Action to
-store access information in a repository and automatically deploy it to your data warehouse through the `raito access` command, but also e.g. to run a nightly sync of your warehouse environment through the `raito run` command). See [this guide](/guide/run) for `raito run`. 
+store access information in a repository and automatically deploy it to your data warehouse through the `raito access` command, but also e.g. to run a nightly sync of your warehouse environment through the `raito run` command). See [this guide](/docs/guide/run) for `raito run`. 
 
 In the example GitHub workflow yaml file below the version of the Raito CLI can be specified with `with: version` in the `Setup Raito CLI` step, but if not specified, it will use the latest available version. We show it, but commented it out, for completeness. 
 

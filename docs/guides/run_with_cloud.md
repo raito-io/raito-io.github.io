@@ -28,7 +28,7 @@ Check that everything is correctly installed by running
 $> raito --version
 ```
 
-If you want more information about the installation process, or you need to troubleshoot an issue, you can find [more information here](/cli/installation). Also make sure that you have the Snowflake connector installed, [see here](/cli/installation#-to-a-data-source). 
+If you want more information about the installation process, or you need to troubleshoot an issue, you can find [more information here](/docs/cli/installation). Also make sure that you have the Snowflake connector installed, [see here](/docs/cli/installation#-to-a-data-source). 
 
 ## Create a data source in Raito Cloud
 
@@ -72,7 +72,7 @@ targets:
 ## GitHub Actions workflow
 
 There is a [GitHub Action available](https://github.com/raito-io/cli-setup){:target="_blank"} which allows you to easily use the Raito CLI in your own pipelines. You can use this GitHub Action to
-store access information in a repository and automatically deploy it to your data warehouse through the `raito access` command, but also e.g. to run a nightly sync of your warehouse environment through the `raito run` command). See [this guide](/guide/run) for `raito run`. 
+store access information in a repository and automatically deploy it to your data warehouse through the `raito access` command, but also e.g. to run a nightly sync of your warehouse environment through the `raito run` command). See [this guide](/docs/guide/run) for `raito run`. 
 
 In the example GitHub workflow yaml file below the version of the Raito CLI can be specified with `with: version` in the `Setup Raito CLI` step, but if not specified, it will use the latest available version. We show it, but commented it out, for completeness. 
 

@@ -2,7 +2,7 @@
 title: Raito Cloud UI
 parent: Raito Cloud
 nav_order: 10
-permalink: /cloud/details
+permalink: /docs/cloud/details
 ---
 
 

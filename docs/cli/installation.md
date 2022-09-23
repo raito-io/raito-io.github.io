@@ -40,7 +40,7 @@ or an overview of the possibilities of the CLI, execute:
 $> raito --help
 ```
 
-Find out more about the different actions you can perform with the CLI [here](/cli/commands). For the rest of this installation guide we'll make sure that everything is working properly.
+Find out more about the different actions you can perform with the CLI [here](/docs/cli/commands). For the rest of this installation guide we'll make sure that everything is working properly.
 
 ## Connect Raito CLI ...
 
