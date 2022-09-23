@@ -2,8 +2,8 @@
 title: Guides
 nav_order: 5
 has_children: true
-has_toc: true
-permalink: /guide
+has_toc: false
+permalink: /docs/guide
 ---
 
 <div class="wip" style="text-align: center">

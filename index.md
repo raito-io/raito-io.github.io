@@ -18,14 +18,14 @@ permalink: /
             <div class="main-grid-3cols">                
                 <div>
                     <h2>Raito Cloud</h2>
-                    <a href="/cloud">Introduction</a>
-                    <a href="/concepts">General concepts</a>
+                    <a href="/docs/cloud">Introduction</a>
+                    <a href="/docs/concepts">General concepts</a>
                 </div>
                 <div>
                     <h2>Raito CLI</h2>
-                    <a href="/get_started">Get started</a>                    
-                    <a href="/cli/configuration">Configuration</a>
-                    <a href="/cli/connectors">Connectors</a>
+                    <a href="/docs/cli/installation">Get started</a>                    
+                    <a href="/docs/cli/configuration">Configuration</a>
+                    <a href="/docs/cli/connectors">Connectors</a>
                 </div>
                 <div>
                  <div>
@@ -38,7 +38,7 @@ permalink: /
         </div>
 <section markdown="1">
 
-**Some to do's**
+<!-- **Some TODOs**
 
 - ~~Front page layout with three columns~~
 - Logo front page???
@@ -50,7 +50,7 @@ permalink: /
   - ~~Concepts~~
   - ~~Get started, write as if done~~ (more debugging tips?)
   - ~~Github Actions~~
-  - ~~Cloud~~
+  - ~~Cloud~~ -->
           
 </section>
 </div>
