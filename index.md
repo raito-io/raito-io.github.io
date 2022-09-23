@@ -35,7 +35,7 @@ permalink: /
         </div>
 <section markdown="1">
 
-**Some to do's**
+<!-- **Some TODOs**
 
 - ~~Front page layout with three columns~~
 - Logo front page???
@@ -47,7 +47,7 @@ permalink: /
   - ~~Concepts~~
   - ~~Get started, write as if done~~ (more debugging tips?)
   - ~~Github Actions~~
-  - ~~Cloud~~
+  - ~~Cloud~~ -->
           
 </section>
 </div>
