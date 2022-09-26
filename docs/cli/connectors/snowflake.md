@@ -13,9 +13,11 @@ permalink: /docs/cli/connectors/snowflake
 
 The current connector supports
 * Import and export of Snowflake roles
-* Export of users
-* Export of data objects
-* Export of data usage information
+* Import into Raito Cloud of users
+* Import into Raito Cloud of data objects
+* Import into Raito Cloud of data usage information
+
+The connector is available [here](https://github.com/raito-io/cli-plugin-snowflake){:target="_blank"}.
 
 ## Snowflake-specific parameters
 

@@ -1,6 +1,6 @@
 ---
 title: Raito Cloud
-nav_order: 15
+nav_order: 40
 has_children: true
 has_toc: false
 permalink: /docs/cloud
