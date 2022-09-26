@@ -1,18 +1,18 @@
 ---
-title: Versioned access
+title: Access as Code
 nav_order: 10
 parent: Guides
 permalink: /docs/guide/access
 ---
 
-In this guide we'll walk you through an end-to-end example of versioning access to your Snowflake data warehouse using continuous integration. We will
+In this guide we'll walk you through an end-to-end example of how to use the Raito CLI to implement an access-as-code system with your Snowflake data warehouse using continuous integration. We will
 - set up a new repository in GitHub
 - set up the configuration of the Raito CLI
 - test and bring everything together locally
 - synchronize the defined access providers using GitHub Actions
   
 We will assume some familiarity with Git and GitHub. These steps, except for the GitHub Actions step, can easily be reproduced using another version control system (or no version control system at all). You also need access to a Snowflake data warehouse. 
-If you don't have that, you can request a 30-day free trial. For this way of working, you don't need access to Raito Cloud.
+If you don't have that, you can request a 30-day free trial. For this access-as-code usecase, you don't need access to Raito Cloud.
 
 
 ## Raito installation
@@ -27,7 +27,7 @@ Check that everything is correctly installed by running
 $> raito --version
 ```
 
-If you want more information about the installation process, or you need to troubleshoot an issue, you can find [more information here](/docs/cli/installation). Also make sure that you have the Snowflake connector installed, [see here](/docs/cli/installation#-to-a-data-source). 
+If you want more information about the installation process, or you need to troubleshoot an issue, you can find [more information here](/docs/cli/installation). 
 
 
 ## Repository setup
@@ -52,10 +52,6 @@ access.yml
 {% raw %}
 Copy/paste the following configuration into `raito.yml`:
 ```yaml
-repositories:
-  - name: raito-io
-    token: "{{GITHUB_PERSONAL_ACCESS_TOKEN}}"
-
 targets:
   - name: snowflake1
     connector-name: raito-io/cli-plugin-snowflake
@@ -67,13 +63,9 @@ targets:
 ```
 {% endraw %}
 
-This is a minimal configuration needed for this tutorial, extra [general parameters](/docs/cli/configuration) and [Snowflake-specific](/docs/cli/connectors/snowflake) ones are in their respective sections. `sf-role` is not required as 'ACCOUNTADMIN' is the default role if none is specified. Also `connector-version` will default to latest if not specified.
+This is a minimal configuration needed for this tutorial, extra [general parameters](/docs/cli/configuration) and [Snowflake-specific](/docs/cli/connectors/snowflake) ones are in their respective sections. 
 
-The 'repositories' section is required to download the Snowflake connector from GitHub; you'll need to create a GitHub Personal Access Token for this, [see here](/docs/cli/installation#-to-a-data-source) for more details. 
-
-<!-- TODO: Double check if this is required for public repos.  -->
-
-
+Note: `sf-role` is not required as 'ACCOUNTADMIN' is the default role if none is specified. Also `connector-version` will default to latest if not specified.
 
 
 ## Raito access file
@@ -84,9 +76,9 @@ accessProviders:
   -
     name: Access guide test
     description: A role used for testing raito access
+    namingHint: "DATA_SCIENTIST"
     access:
       - 
-        namingHint: "DATA_SCIENTIST"
         who:
           users:
             - <user>
@@ -98,9 +90,13 @@ accessProviders:
               - select
 ```
 
-The access file contains a list of access providers. Every access provider contains a list of Access elements (which correspond to roles in Snowflake). Each of those defines *who* has access to *what*, with which permissions. The *who list* can be a list of users or other access elements.
+The access file contains a list of access providers. You can give it a *name* and *description*. They are purely for documentation reasons and will be used to generate a comment on the created role. 
+The *namingHint* will help determine the name of the role that will be created in Snowflake.
+Every access provider contains a list of Access elements (which correspond to roles in Snowflake). Each of those defines *who* has access to *what*, with which permissions. The *who list* can be a list of users or other access elements.
  <!-- (TODO: these can't be groups, right?).  -->
- The *what list* is a list of data objects with their full name, and associated permissions.  The *namingHint* for the Access element will determine the name of the role in Snowflake. 
+ The *what list* is a list of data objects with their full name, and associated permissions. 
+
+ Note: for this use case, it is recommended to only define one Access element under eacht access provider. Otherwise the naming hint will be suffixed with a random string to make it unique for each access element.
 
 In the Snowflake connector 'boilerplate permissions' don't need to be specified. E.g. if you want to give SELECT permissions on a table, you don't need to specify USAGE on the schema or database, this is handled by the Snowflake connector internally. This can, however, vary by connector.
 
@@ -121,25 +117,25 @@ Go to the Snowflake UI, create a new worksheet and execute `SHOW ROLES;` You sho
 |            | USERADMIN | N  | ... |
 | ... | ... | ... | ... |
 
-Now in a terminal, 
-* make sure the environment variables specified in the configuration file are available (i.e. `SF_ACCOUNT`, `SF_USER`, `SF_PASSWORD`, and `GITHUB_PERSONAL_ACCESS_TOKEN` if needed), and
+Now in a terminal on your local machine, 
+* make sure the environment variables specified in the configuration file are available (i.e. `SF_ACCOUNT`, `SF_USER` and `SF_PASSWORD`), and
 * run the Raito CLI
 ```bash
-$> raito access --config-file raito.yml --access-file access.yml
+$> raito access
 ```
 
+Note: you can specify the `--config-file` and/or `--access-file` parameters to use different file names than `raito.yml` and/or `access.yml`.
 
-Now go back to Snowflake and try `SHOW ROLES;` again. In the list you should the role we've specified in the `access.yml` configuration. Roles coming from Raito will be have the `R_` prefix. Therefore, the `DATA_SCIENTIST` name specified will translate to the Snowflake role name
-`R_DATA_SCIENTIST`. 
+Now go back to Snowflake and try `SHOW ROLES;` again. In the list you should see the role we've specified in the `access.yml` configuration. Roles coming from the Raito CLI *access* command will have the `R_` prefix. Therefore, the `DATA_SCIENTIST` *namingHint* specified will translate to the Snowflake role name `R_DATA_SCIENTIST`. 
 
-Beware that the `access.yml` file acts as a single source of truth; if you remove everything from the `access.yml` file except for the first line, `accessProviders:` all roles that Raito provisioned in Snowflake will be removed. The advantage of this is that your Snowflake roles configuration will not get cluttered with unused roles. 
+Beware that the `access.yml` file acts as a single source of truth; if you remove everything from the `access.yml` file except for the first line, `accessProviders:` all roles that Raito CLI provisioned through the *access* command in Snowflake will be removed (i.e. all roles with prefix `R_`). The advantage of this is that your Snowflake roles configuration will not get cluttered with unused roles. 
 
 ## GitHub Actions workflow
 
 There is a [GitHub Action available](https://github.com/raito-io/cli-setup){:target="_blank"} which allows you to easily use the Raito CLI in your own pipelines. You can use this GitHub Action to
 store access information in a repository and automatically deploy it to your data warehouse through the `raito access` command, but also e.g. to run a nightly sync of your warehouse environment through the `raito run` command). See [this guide](/docs/guide/cloud) for `raito run`. 
 
-In the example GitHub workflow yaml file below the version of the Raito CLI can be specified with `with: version` in the `Setup Raito CLI` step, but if not specified, it will use the latest available version. We show it, but commented it out, for completeness. 
+In the example GitHub workflow yaml file below, the version of the Raito CLI can be specified with `with: version` in the `Setup Raito CLI` step, but if not specified, it will use the latest available version. We show it, but commented it out, for completeness. 
 
 {% raw %}
 ```yaml
@@ -163,11 +159,11 @@ jobs:
         //   version: "v${{ steps.raito_version.outputs.CLI_VERSION }}"
 
       - name: access sync 
-        run: raito access --config-file raito.yml --access-file access.yml
+        run: raito access
 ``` 
 {% endraw %}
 
-Now that all files have been created, you can commit them and push them to a remote branch. You can test if everything that has been tested locally is also working in the GitHub environment. Merge your changes to the `main` branch, and you should see a successful run of the Raito CLI in the GitHub Actions environment. 
+Now that all files have been created, you can commit them and push them to a remote branch. Once you merge your changes into the `main` branch of your repository, the workflow will start and call the Raito CLI to update the roles in Snowflake. You should be able to see the Github Actions workflow run and the logs of the Raito CLI under the 'Actions' tab on the Github page of your repository. 
 
 ## Feedback 
 
