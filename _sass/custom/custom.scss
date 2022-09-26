@@ -185,6 +185,9 @@ h3 {
     }
 
     .main-header {
+        position: fixed;
+        width: calc( 100% - 256px);
+        z-index: 2 !important;
         height: 80px;
     }
 
@@ -199,7 +202,7 @@ h3 {
     }
 
     .main-content-wrap {
-        padding: 48px 80px 20px 80px;
+        padding: 100px 80px 20px 80px;
     }
 
     .main-content {

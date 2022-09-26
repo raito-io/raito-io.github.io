@@ -9,6 +9,9 @@ permalink: /
     <!-- <section class="main-section"> -->
         <div class="main-section-row">
             <div>
+                <h1>Preview branch</h1>
+            </div>
+            <div>
                 Raito makes it easy to get the right access to your data, wherever it lives. Your data access control center with observability functionality 
                 is located in the cloud, by communicating with a command-line tool, the <b>Raito CLI</b>, wherever you deploy it. <br>
             </div>
@@ -35,7 +38,7 @@ permalink: /
         </div>
 <section markdown="1">
 
-**Some to do's**
+<!-- **Some TODOs**
 
 - ~~Front page layout with three columns~~
 - Logo front page???
@@ -47,7 +50,7 @@ permalink: /
   - ~~Concepts~~
   - ~~Get started, write as if done~~ (more debugging tips?)
   - ~~Github Actions~~
-  - ~~Cloud~~
+  - ~~Cloud~~ -->
           
 </section>
 </div>

@@ -1,14 +1,17 @@
 ---
+parent: Overview
 title: Concepts
-nav_order: 3
-permalink: /docs/concepts
+nav_order: 10
+permalink: /docs/overview/concepts
 ---
+
 # Concepts
 
 ### Raito Cloud
 *Raito Cloud* refers to the Raito SaaS offering. It provides the full functionality that Raito has to offer to protect your data without slowing it down.
 
-### Raito Graph
+### Raito Graph 
+[TODO: is this relevant for the end user?] <br>
 The *Raito Graph* is the graph structure that is built inside of Raito Cloud. It contains and interconnects the metadata of all data sources, the users and groups from the identity stores, the data policies, ...
 
 ### Raito CLI
@@ -23,7 +26,7 @@ Tags can be specified on most elements in the *Raito Graph*. Tags will be inheri
 -->
 
 ### Data Source
-A data source is an instance of a data warehouse, database, reporting tool ... or any other source of data. You can have muliple data sources of the same type (e.g: multiple Snowflake setups).
+A data source is an instance of a data warehouse, database, reporting tool, ..., or any other source of data. You can have muliple data sources of the same type (e.g: multiple Snowflake setups).
 
 Every data source is also represented by a node in the *Raito Graph*.
 
@@ -40,7 +43,8 @@ An identity store can be either an external identity provider (e.g. Okta, Active
 Every data source should have 1 or more identity stores configured in *Raito Cloud*, indicating that this data source contains users from these identity stores.<br>
 Typically, this is the data source itself (for internal users) and/or an external identity provider (e.g. Okta, Active Directory, ...)
 
-### User
+### User 
+TODO: update to current state<br>
 Inside *Raito Cloud*, users under different identity stores are intelligently matched together to mark them as one physical person. <br>
 For example: User 'm.scott' in Snowflake can be marked as the same person as 'michael.scott@dundermifflin.com'. This way, the meta data from one user is also available for the user.
 

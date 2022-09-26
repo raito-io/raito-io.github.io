@@ -26,32 +26,37 @@ clean_backup() {
 
 # necessary substitutions to have everything from _preview point to things in _preview
 
-# no substitutions for cla.md, otherwise https://docs.google.com get screwed up
-grep -r -l . * | grep -E -v 'jpg|ico|svg|png|webp|woff2|ttf' | grep -v contrib | xargs sed -i"$BACKUP_EXTENSION" 's|/docs|/_preview/docs|g'
+# main substituion replacing all the obvious /docs/ links
+grep -r -l . * | grep -E -v 'jpg|ico|svg|png|webp|woff2|ttf' | xargs sed -i"$BACKUP_EXTENSION" 's|/docs/|/_preview/docs/|g'
 clean_backup
 
+# also substitute links to assets
 grep -r -l . * | grep -E -v 'jpg|ico|svg|png|webp|woff2|ttf' | xargs sed -i"$BACKUP_EXTENSION" 's|/assets|/_preview/assets|g'
 clean_backup
 
+# substitute some trailing links (like / for navigation)
 grep -r -l . * | grep -E -v 'jpg|ico|svg|png|webp|woff2|ttf'| xargs sed -i"$BACKUP_EXTENSION" 's|href="/"|href="/_preview/"|g'
 clean_backup
 
+# favicon substitution
 grep -r -l . * | grep -E -v 'jpg|ico|svg|png|webp|woff2|ttf'| xargs sed -i"$BACKUP_EXTENSION" 's|href="/favicon.ico"|href="/_preview/favicon.ico"|g'
 clean_backup
 
+# for some of the css files
 grep -r -l . * | grep -E -v 'jpg|ico|svg|png|webp|woff2|ttf'| xargs sed -i"$BACKUP_EXTENSION" 's|content: "/"|content: "/_preview/"|g'
 clean_backup
 
+# for search.json
 grep -r -l . * | grep -E -v 'jpg|ico|svg|png|webp|woff2|ttf'| xargs sed -i"$BACKUP_EXTENSION" 's|rl": "/"|rl": "/_preview"|g'
 clean_backup
 
+# change theme to make it obvious that you're on a preview page
 grep -r -l . * | grep -E -v 'jpg|ico|svg|png|webp|woff2|ttf'| xargs sed -i"$BACKUP_EXTENSION" 's|3E0A91|669900|g'
 clean_backup
-
 grep -r -l . * | grep -E -v 'jpg|ico|svg|png|webp|woff2|ttf' | xargs sed -i"$BACKUP_EXTENSION" 's|CF0863|FFCC00|g'
 clean_backup
 
 
 if [[ $(cat 404.html  | grep _preview | wc -l) -gt 0 ]]; then
-    echo "Substituion successful"
+    echo "Substitution successful"
 fi
