@@ -10,10 +10,6 @@ permalink: /docs/overview/concepts
 ### Raito Cloud
 *Raito Cloud* refers to the Raito SaaS offering. It provides the full functionality that Raito has to offer to protect your data without slowing it down.
 
-### Raito Graph 
-[TODO: is this relevant for the end user?] <br>
-The *Raito Graph* is the graph structure that is built inside of Raito Cloud. It contains and interconnects the metadata of all data sources, the users and groups from the identity stores, the data policies, ...
-
 ### Raito CLI
 The *Raito CLI* is the bridge between your infrastructure (data sources, identity stores, data catalog ...) and *Raito Cloud*. It can run safely on your own infrastructure to handle all the connections to your infrastructure in a secure way, without the need to have credentials to your data sources in *Raito Cloud*.
 
@@ -43,10 +39,13 @@ An identity store can be either an external identity provider (e.g. Okta, Active
 Every data source should have 1 or more identity stores configured in *Raito Cloud*, indicating that this data source contains users from these identity stores.<br>
 Typically, this is the data source itself (for internal users) and/or an external identity provider (e.g. Okta, Active Directory, ...)
 
+<!-- 
+TODO: re-enable when it's available in the UI
 ### User 
 TODO: update to current state<br>
 Inside *Raito Cloud*, users under different identity stores are intelligently matched together to mark them as one physical person. <br>
 For example: User 'm.scott' in Snowflake can be marked as the same person as 'michael.scott@dundermifflin.com'. This way, the meta data from one user is also available for the user.
+-->
 
 <!-- 
 TODO: re-enable when it's available in the UI
@@ -55,10 +54,26 @@ TODO: re-enable when it's available in the UI
 -->
 
 ### Access Provider
-An access provider describes which users have access to what with which permissions. Initially, when you ingest the access providers from your data warehouse, it will be 
-very concrete, e.g. a role in Snowflake will map 1-to-1 to an access provider. But its goal is to represent information at a higher level than available in the data warehouses. 
+Access Provider is the main concept used within Raito to describe access controls. There is different flavors of access providers, which will be covered later.
+
+When a data source is synced with Raito Cloud using the Raito CLI, the access controls in the data source are mapped to access providers. For example, for every role in Snowflake, an access provider is created in Raito Cloud. These imported access providers are marked as *external* to indicate that they are managed in the data source itself (and not by Raito Cloud).
+
+Next to that, also *internal* access providers can be defined within Raito Cloud. These are then converted into access controls in the data source during a sync with the Raito CLI. For example, for these *internal* access providers a role (or multiple) is created in Snowflake.
+
+<!-- 
+TODO: We currently only support a small subset of what is possible later.
+Talk about access providers that cover multiple data sources. Also cover static vs dynamic (ABAC), ...
+We probably best have a separate page to go deeper into access providers.
+-->
 
 #### Access
 
-Access is a concrete instantiation that provides access to objects in a data warehouse. For instance, your role might promise you access to certain data sets. This is describes in an 
-access provider, but it doesn't give you actual access. To get this access you need to create an access request; depending on your organization this might automatically grant you access since a corresponding access provider exists, but your access request might need some manual approvals as well.
+An Access Provider will have 1 or more Access elements. An access element describes *who* has access to *what*.
+Currently, access providers will only have 1 access element. However, in the future we will support access providers with multiple access elements to cover multiple data sources and provide more flexibility.
+
+<!-- 
+TODO: Update the above when we change this
+-->
+
+### Raito Graph 
+The *Raito Graph* is the graph structure that is built inside of Raito Cloud. It contains and interconnects the metadata of all data sources, the users and groups from the identity stores, the data policies, ...
