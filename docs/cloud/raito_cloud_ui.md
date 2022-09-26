@@ -5,6 +5,8 @@ nav_order: 10
 permalink: /docs/cloud/details
 ---
 
+[TODO: Does it even make sense to explain the UI, it's intuitive, no? :-)] <br>
+[Also, screenshots are to be avoided if possible (they very quickly become out-of-date), which makes this section a bit boring] <br>
 
 ## Dashboard
 

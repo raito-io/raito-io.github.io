@@ -2,7 +2,7 @@
 title: Installation
 parent: Raito CLI
 nav_order: 20
-permalink: /docs/cli/get_started
+permalink: /docs/cli/installation
 ---
 # Installation
 
@@ -93,4 +93,4 @@ If that didn't work, try making a connection through a tool like  `curl`, e.g. f
 
 ## Further reading
 
-If you want to know more, go to the [CLI section](/docs/cli) or read about [general Raito concepts](/docs/concepts). 
+If you want to know more, go to the [CLI section](/docs/cli) or read about [general Raito concepts](/docs/overview). 
