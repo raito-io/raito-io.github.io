@@ -1,0 +1,30 @@
+{
+  "spaces": {
+    "0": {
+      "type": "space",
+      "value": "0"
+    },
+    "1": {
+      "type": "space",
+      "value": "0.25rem"
+    },
+    "2": { "type": "space", "value": "0.5rem" },
+    "3": { "type": "space", "value": "0.75rem" },
+    "4": { "type": "space", "value": "1rem" },
+    "5": { "type": "space", "value": "1.5rem" },
+    "6": { "type": "space", "value": "2rem" },
+    "7": { "type": "space", "value": "2.5rem" },
+    "8": { "type": "space", "value": "3rem" },
+    "9": { "type": "space", "value": "3.5rem" },
+    "10": { "type": "space", "value": "4rem" },
+    "11": { "type": "space", "value": "4.5rem" },
+    "12": { "type": "space", "value": "5rem" },
+    "13": { "type": "space", "value": "6rem" },
+    "14": { "type": "space", "value": "7rem" },
+    "15": { "type": "space", "value": "8rem" },
+    "16": { "type": "space", "value": "9rem" },
+    "17": { "type": "space", "value": "10rem" },
+    "18": { "type": "space", "value": "11rem" },
+    "19": { "type": "space", "value": "12.5rem" }
+  }
+}
