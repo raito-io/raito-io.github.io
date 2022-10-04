@@ -1,0 +1,26 @@
+{
+  "name": "raito-io.github.io",
+  "version": "1.0.0",
+  "description": "<h1 align=\"center\">   <img height=\"180px\" src=\"https://github.com/raito-io/docs/raw/main/images/Raito_Logo_Vertical_RGB.png\" alt=\"Raito\" /> </h1>",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "devDependencies": {
+    "style-dictionary": "^3.7.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "style-tokens:generate": "npx style-dictionary build -c ./style-dictionary.config.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/raito-io/raito-io.github.io.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/raito-io/raito-io.github.io/issues"
+  },
+  "homepage": "https://github.com/raito-io/raito-io.github.io#readme"
+}
