@@ -1,5 +1,5 @@
 ---
-title: Releases
+title: Release history
 parent: Raito CLI
 nav_order: 50
 has_children: false

@@ -1,9 +1,11 @@
 ---
-title: CLI with Cloud
+title: Getting started with Raito Cloud
 nav_order: 20
 parent: Guides
 permalink: /docs/guide/cloud
 ---
+
+# Getting started with Raito Cloud
 
 In this guide we'll walk you through an example of how to connect Raito Cloud to a Snowflake data warehouse through the Raito CLI. We'll 
 - make sure that Raito CLI is installed and available

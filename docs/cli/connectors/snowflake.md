@@ -6,7 +6,7 @@ nav_order: 1
 permalink: /docs/cli/connectors/snowflake
 ---
 
-# Snowflake connector
+# Snowflake
 
 [Snowflake](https://www.snowflake.com){:target="_blank"} is a cloud-based data warehouse that you can use without having to worry about infrastructure. Its data object hierarchy is 
 `database` > `schema` > `table` > `column`. Additionally, you need access to a compute resource, or `warehouse`, to run queries. Snowflake uses role-based access controls.

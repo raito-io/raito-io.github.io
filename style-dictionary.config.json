@@ -1,0 +1,15 @@
+{
+  "source": ["theme/tokens/**/*.json"],
+  "platforms": {
+    "scss": {
+      "transformGroup": "scss",
+      "buildPath": "_sass/custom/",
+      "files": [
+        {
+          "destination": "style-tokens.scss",
+          "format": "scss/variables"
+        }
+      ]
+    }
+  }
+}
