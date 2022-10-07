@@ -6,6 +6,8 @@ has_children: true
 permalink: /docs/cli/connectors
 ---
 
+# Connectors
+
 The Raito CLI is built to be extensible with different connectors. 
 
 

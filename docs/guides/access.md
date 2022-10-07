@@ -1,9 +1,11 @@
 ---
-title: Access as Code
+title: Access-as-code guide
 nav_order: 10
 parent: Guides
 permalink: /docs/guide/access
 ---
+
+# Access-as-code guide
 
 In this guide we'll walk you through an end-to-end example of how to use the Raito CLI to implement an access-as-code system with your Snowflake data warehouse using continuous integration. We will
 - set up a new repository in GitHub
