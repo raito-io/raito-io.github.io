@@ -117,9 +117,9 @@ $typography-line-heights-2: 40;
 $typography-line-heights-3: 32;
 $typography-line-heights-4: 24;
 $typography-line-heights-5: 20;
-$typography-font-weights-400: Regular;
-$typography-font-weights-700: Bold;
-$typography-font-weights-900: Black;
+$typography-font-weights-400: regular;
+$typography-font-weights-700: bold;
+$typography-font-weights-900: black;
 $typography-font-size-0: 14;
 $typography-font-size-1: 16;
 $typography-font-size-2: 20;
@@ -141,12 +141,37 @@ $typography-body-sm: [object Object];
 $typography-text-case-none: none;
 $typography-text-decoration-none: none;
 
+// overwrite just-the-docs variables
+$feedback-color: $colors-violet-7;
+$body-font-family: $typography-font-families-gt-walsheim-pro;
+// $mono-font-family: $typography-font-families-gt-walsheim-pro;
+// $root-font-size: 16px !default; // Base font-size for rems
+// $body-line-height: 1.4 !default;
+// $content-line-height: 1.6 !default;
+// $body-heading-line-height: 1.25 !default;
 
+
+// font definitions
 @font-face {
-  font-family: 'GT Walsheim Pro';
-  src: url("../../assets/fonts/GTWalsheimPro-Light.woff2") format('woff2');
-  font-weight: 300;
+  font-family: $typography-font-families-gt-walsheim-pro;
+  src: url('https://assets.raito.io/fonts/GTWalsheimPro-Regular.woff2') format('woff2'), url('https://assets.raito.io/fonts/GTWalsheimPro-Regular.eot') format('embedded-opentype'), url('https://assets.raito.io/fonts/GTWalsheimPro-Regular.woff') format('woff'), url('https://assets.raito.io/fonts/GTWalsheimPro-Regular.ttf') format('truetype');
+  font-weight: 400;
   font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: $typography-font-families-gt-walsheim-pro;
+  src: url('https://assets.raito.io/fonts/GTWalsheimPro-Bold.woff2') format('woff2'), url('https://assets.raito.io/fonts/GTWalsheimPro-Bold.eot') format('embedded-opentype'), url('https://assets.raito.io/fonts/GTWalsheimPro-Bold.woff') format('woff'), url('https://assets.raito.io/fonts/GTWalsheimPro-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: $typography-font-families-gt-walsheim-pro;
+  src: url('https://assets.raito.io/fonts/GTWalsheimPro-Black.woff2') format('woff2'), url('https://assets.raito.io/fonts/GTWalsheimPro-Black.eot') format('embedded-opentype'), url('https://assets.raito.io/fonts/GTWalsheimPro-Black.woff') format('woff'), url('https://assets.raito.io/fonts/GTWalsheimPro-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
 }
 
 * {
@@ -165,30 +190,31 @@ strong {
 }
 
 a {
-  color: #3E0A91;
-  text-decoration: underline;
-  font-weight: 300;
+  color: $colors-violet-10;
+  text-decoration: none;
+  font-weight: 400;
 }
 
 a:not([class]) {
-  text-decoration: underline;
+  text-decoration: none;
+  color: $colors-violet-10;
+  font-weight: 400;
   background-image: none;
 }
 
-a:not([class]):hover {
-  background-image: none;
-}
+// a:not([class]):hover {
+//   background-image: none;
+// }
 
-a.active {
-  color: #CF0863;
-  font-weight: bold;
-}
+// a.active {
+//   color: #CF0863;
+//   font-weight: bold;
+// }
 
 h1 {
   font-size: $typography-font-size-5 px !important;
   font-weight: $typography-font-weights-700 !important;
   line-height: $typography-line-heights-1 px;
-  font-style: normal;
   color: $colors-grey-12;
 }
 
@@ -196,7 +222,6 @@ h2 {
   font-size: $typography-font-size-4 px !important;
   font-weight: $typography-font-weights-700 !important;
   line-height: $typography-line-heights-1 px;  
-  font-style: normal;
   color: $colors-grey-12;
 }
 
@@ -205,7 +230,6 @@ h3 {
 }
 
 p {
-  font-style: normal;
   color: $colors-grey-12;
   font-size: $typography-font-size-1 px !important;
   font-weight: $typography-font-weights-400 !important;
@@ -217,10 +241,6 @@ p {
 .breadcrumb-nav .breadcrumb-nav-list-item {
   font-size: 14px !important;
   font-weight: 300;
-}
-
-.breadcrumb-nav-list-item a {
-  color: #CF0863;
 }
 
 .site-footer {
@@ -269,6 +289,10 @@ p {
   border-radius: 8px;
 }
 
+.search-icon {
+  margin-bottom: 8px;
+}
+
 .search-label {
   padding: 0px 0px 0px 56px;
 }
@@ -277,26 +301,22 @@ p {
   text-decoration: none;
 }
 
-.nav-list .nav-list-item .nav-list-link:hover,
-.nav-list .nav-list-item .nav-list-link.active {
-  background-image: linear-gradient(-90deg, #ebedf5 0%, rgba(235, 237, 245, 0.8) 80%, rgba(235, 237, 245, 0) 100%);
-}
-
-.nav-list .nav-list-item.active .nav-list-link.active,
-.nav-list .nav-list-item>.nav-list .nav-list-item.active .nav-list-link.active {
-  transition: color .4s ease-out;
-  color: #CF0863 !important;
-}
-
-.nav-list .nav-list-item:hover .nav-list-link:hover,
-.nav-list .nav-list-item>.nav-list .nav-list-item:hover .nav-list-link:hover {
-  color: #3E0A91 !important;
-  font-weight: 600;
-}
-
 .nav-list .nav-list-item .nav-list-link,
 .nav-list .nav-list-item>.nav-list .nav-list-item .nav-list-link {
-  color: #0E1111 !important;
+  color: $colors-grey-9 !important;
+  transition-duration: .5s;
+}
+
+.nav-list .nav-list-item .nav-list-link:hover,
+.nav-list .nav-list-item .nav-list-link.active {
+  background-color: $colors-grey-2;
+  background-image: none;
+  transition-duration: .15s;
+  transition-property: color,background-color,border-color,fill,stroke,-webkit-text-decoration-color;
+  transition-property: color,background-color,border-color,text-decoration-color,fill,stroke;
+  transition-property: color,background-color,border-color,text-decoration-color,fill,stroke,-webkit-text-decoration-color;
+  transition-timing-function: cubic-bezier(.4,0,.2,1);
+  font-weight: normal;
 }
 
 .side-bar {
@@ -311,59 +331,26 @@ p {
 }
 
 .site-button {
-  // display: block;
-  // height: 40px;
-  // padding: 10px 20px;
-  // align-items: center;
-  // width: 150px;
-  // text-align: center;
-  // border-radius: 20px;
-  // background-color: #CF0863;
-  // font-size: 15px;
-  // line-height: 20px;
-  // font-weight: 500;
-  // color: #f6f6f8;
-  // transition: background-color .4s ease-out;
-  // text-decoration: none;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  padding: 12px 16px;
-  gap: 12px;
-
-  width: 240px;
-  height: 48px;
-
-  /* Violet/8 */
-
   background: $colors-violet-8;
   border-radius: 8px;
+  border-style: none;
 
-  /* Inside auto layout */
+  padding: 10px 20px; 
+  align-items: center;
+  height: 48px;
 
-  flex: none;
-  order: 1;
-  flex-grow: 0;
-
+  line-height: $typography-line-heights-4 px; 
   font-family: $typography-font-families-gt-walsheim-pro;
-  font-style: normal;
   font-weight: $typography-font-weights-700;
   font-size: $typography-font-size-1;
-  line-height: $typography-line-heights-4 px;
-  /* identical to box height, or 150% */
   color: $colors-violet-1;
-  text: $colors-violet-1;
+  text-decoration: none;
+  text-emphasis-style: bold;    
 }
 
-.aux-nav .aux-nav-list-item .site-button:hover {
+.site-button:hover {
+  background-color: $colors-violet-7;
   background-image: none;
-  background-color: #3E0A91 !important;
-}
-
-.nav-list .nav-list-item .nav-list-link,
-.nav-list .nav-list-item>.nav-list .nav-list-item .nav-list-link {
-  color: #0E1111 !important;
 }
 
 .wip {
@@ -492,19 +479,32 @@ p {
   }
 }
 
+$width-two-columns: 1100px;
+$width-three-columns: 1550px;
+
 .main-grid-3cols {
   display: grid;
   grid-column-gap: 30px;
   grid-row-gap: 60px;
   grid-template-columns: auto;
   margin-bottom: 70px;
+  width: 420px;
+  grid-template-columns: auto;
 
-  @media (min-width: 50rem) {
+  // @media (min-width: 50rem) {
+  //   grid-template-columns: auto auto;
+  //   width: 420px;
+  // }
+
+  // @media (min-width: 66.5rem) {
+  @media (min-width: $width-two-columns) {
     grid-template-columns: auto auto;
+    width: 870px;
   }
 
-  @media (min-width: 66.5rem) {
+  @media (min-width: $width-three-columns) {
     grid-template-columns: auto auto auto;
+    width: 1320px;
   }
 
   div {
@@ -537,8 +537,38 @@ p {
   }
 }
 
-.main-grid-card,
-.main-grid-card-highlight {
+.main-grid-1-col {
+  display: grid;
+  grid-column-gap: 30px;
+  margin-bottom: 70px;
+  background-color: $colors-indigo-2;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.06);
+  border-radius: 40px;
+  height: 216px;
+  align-items: center;
+  padding-left: 64px;
+
+  width: 420px;
+  grid-template-columns: auto auto auto;  
+
+  @media (min-width: $width-two-columns) {  
+    width: 870px;
+  }
+
+  @media (min-width: $width-three-columns) {
+    width: 1320px;
+  }
+
+  div {
+
+    h2 {
+      margin-top: 10px !important;
+      margin-bottom: 5px;
+    }
+  }
+}
+
+.main-grid-card {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -553,15 +583,15 @@ p {
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.06);
   border-radius: 16px;
 
-  /* Inside auto layout */
-  flex: none;
-  order: 0;
-  flex-grow: 0;
 }
 
-.main-grid-card-highlight {
-  background: $colors-indigo-2 !important;
-  width: 200% !important;
+.slack-icon {
+  vertical-align:middle; 
+  text-align:right;
+  padding-right: 48px;
+  @media (max-width: $width-two-columns) {  
+    visibility: hidden;
+  }
 }
 
 .main-icon {
@@ -601,4 +631,68 @@ p {
   background: $colors-green-2;
 }
 
+// .language-bash {
+//   background-color: black !important;
+// }
 
+// footer stuff
+.footer{
+  padding-top:24px;
+  padding-bottom:40px
+}
+
+.copyright{
+  display:block;
+  color: $colors-grey-9;
+  font-size:14px;
+  line-height:20px
+}
+
+.logotype{
+  height:32px;
+  margin-bottom:16px
+}
+
+.footer-logo-link{
+  padding:8px;
+  border-radius:40px;
+  -webkit-transition:background-color .3s;
+  transition:background-color .3s
+}
+
+.footer-logo-link:hover{
+  background-color: $colors-grey-3;
+}
+
+.footer-logo-link.last{
+  margin-right:0
+}
+
+.w-layout-grid{
+  text-align: center;
+  display:grid;
+  grid-auto-columns:1fr;
+  grid-template-columns:1fr 1fr 1fr 1fr;
+  grid-template-rows:auto auto auto auto;
+  grid-row-gap:16px;
+  grid-column-gap:16px;
+  position: absolute;
+  width: 80%;
+
+  @media (max-width: 860px) {
+    grid-template-columns:1fr;
+    grid-template-rows:auto;
+  }
+
+  div, ul, li {
+    text-align: left;
+  }
+}
+
+.w-dyn-items a {
+  color: $colors-grey-11;
+}
+
+.w-dyn-items a:hover {
+  color: $colors-violet-10;
+}
