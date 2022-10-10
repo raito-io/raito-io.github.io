@@ -414,13 +414,6 @@ p {
     padding: 100px 80px 20px 80px;
   }
 
-  .main-icon {
-    // padding: px;
-    // margin: 12px;
-    // width: 40px;
-    // height: 40px;
-  }
-
   .breadcrumb-nav {
     margin-top: 0px;
   }
@@ -631,14 +624,35 @@ $width-three-columns: 1550px;
   background: $colors-green-2;
 }
 
-// .language-bash {
-//   background-color: black !important;
+// to make sure the 
+.main-content {
+  min-height: 92vh;
+  display:flex; 
+  flex-direction:column;
+
+  hr {
+    visibility: hidden;
+    flex: 1;
+    // min-height: 100vh;
+  }
+}
+
+
+
+
+
+// .footer {
+//   margin-top: 0px; 
+
+//   @media(max-height:720px) {
+//     margin-top: 80%;
+//   }
 // }
 
-// footer stuff
 .footer{
   padding-top:24px;
-  padding-bottom:40px
+  padding-bottom:40px;
+  position: bottom;
 }
 
 .copyright{
@@ -695,4 +709,44 @@ $width-three-columns: 1550px;
 
 .w-dyn-items a:hover {
   color: $colors-violet-10;
+}
+
+$code-background-color: white;
+
+.language-bash {
+  background-color: white !important;
+  font-size: 1.0em;
+
+  code {
+    background-color: white !important;
+    font-size: 0.9em;
+  }
+}
+
+.language-yaml {
+  background-color: white !important;
+  font-size: 1.0em;
+
+  code {
+    background-color: white !important;
+    font-size: 1.0em;
+  }
+}
+
+.language-js, .language-js.code {
+  background-color: white !important;
+  font-size: 1.0em;
+
+  code {
+    background-color: white !important;
+    font-size: 1.0em;
+  }
+}
+
+code { 
+  padding: 0.2em 0.15em;   
+  font-weight: 400; 
+  background-color: $colors-grey-1;
+  border: 1px solid $colors-red-9 opacity($color: $colors-red-9); 
+  border-radius: 4px; 
 }
