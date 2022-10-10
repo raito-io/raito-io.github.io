@@ -31,7 +31,7 @@ grep -r -l . * | grep -E -v 'jpg|ico|svg|png|webp|woff2|ttf' | xargs sed -i"$BAC
 clean_backup
 
 # also substitute links to assets
-grep -r -l . * | grep -E -v 'jpg|ico|svg|png|webp|woff2|ttf' | xargs sed -i"$BACKUP_EXTENSION" 's|/assets|/_preview/assets|g'
+grep -r -l . * | grep -E -v 'jpg|ico|svg|png|webp|woff2|ttf' | xargs sed -i"$BACKUP_EXTENSION" 's|/assets/|/_preview/assets/|g'
 clean_backup
 
 # substitute some trailing links (like / for navigation)
