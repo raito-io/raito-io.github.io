@@ -1,7 +1,8 @@
 ---
-title: Raito Cloud UI
-parent: Raito Cloud
+# title: Raito Cloud UI
+# parent: Raito Cloud
 nav_order: 10
+nav_exclude: true
 permalink: /docs/cloud/details
 ---
 

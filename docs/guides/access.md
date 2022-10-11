@@ -1,11 +1,11 @@
 ---
-title: Access-as-code guide
-nav_order: 10
+title: Access-as-code
+nav_order: 20
 parent: Guides
 permalink: /docs/guide/access
 ---
 
-# Access-as-code guide
+# Access-as-code
 
 In this guide we'll walk you through an end-to-end example of how to use the Raito CLI to implement an access-as-code system with your Snowflake data warehouse using continuous integration. We will
 - set up a new repository in GitHub
@@ -76,9 +76,8 @@ Copy/paste the following configuration into `access.yml`:
 ```yaml
 accessProviders:
   -
-    name: Access guide test
+    name: DATA_SCIENTIST
     description: A role used for testing raito access
-    namingHint: "DATA_SCIENTIST"
     access:
       - 
         who:
@@ -119,6 +118,9 @@ Go to the Snowflake UI, create a new worksheet and execute `SHOW ROLES;` You sho
 |            | USERADMIN | N  | ... |
 | ... | ... | ... | ... |
 
+In the Snowflake UI, make sure that the user you will be using, i.e. `SF_USER`, has a default warehouse configured. In the left naviagation bar, go to *Admin* > *Users & Roles*, then click on the user.  Otherwise you will get an error along the lines of 
+`No active warehouse selected in the current session. Select an active warehouse with the 'use warehouse' command.`
+
 Now in a terminal on your local machine, 
 * make sure the environment variables specified in the configuration file are available (i.e. `SF_ACCOUNT`, `SF_USER` and `SF_PASSWORD`), and
 * run the Raito CLI
@@ -157,8 +159,6 @@ jobs:
 
       - name: Setup Raito CLI
         uses: raito-io/cli-setup@v1.0.3
-        // with:
-        //   version: "v${{ steps.raito_version.outputs.CLI_VERSION }}"
 
       - name: access sync 
         run: raito access
