@@ -129,15 +129,6 @@ $typography-font-size-5: 40;
 $typography-font-size-6: 48;
 $typography-letter-spacing-0: 0%;
 $typography-paragraph-spacing-0: 0;
-$typography-title-2xl: [object Object];
-$typography-title-xl: [object Object];
-$typography-title-lg: [object Object];
-$typography-title-md: [object Object];
-$typography-title-sm: [object Object];
-$typography-body-lg: [object Object];
-$typography-body-md-bold: [object Object];
-$typography-body-md: [object Object];
-$typography-body-sm: [object Object];
 $typography-text-case-none: none;
 $typography-text-decoration-none: none;
 
@@ -149,6 +140,10 @@ $body-font-family: $typography-font-families-gt-walsheim-pro;
 // $body-line-height: 1.4 !default;
 // $content-line-height: 1.6 !default;
 // $body-heading-line-height: 1.25 !default;
+
+
+// other variables used in this file
+$top-bar-height: 72px;
 
 
 // font definitions
@@ -181,24 +176,24 @@ $body-font-family: $typography-font-families-gt-walsheim-pro;
 body {
   color: $colors-grey-11;
   background-color: $colors-grey-2;
-  font-size: 16px;
+  font-size: $typography-font-size-1 px;
 }
 
 b,
 strong {
-  font-weight: bold !important;
+  font-weight: $typography-font-weights-700 !important;
 }
 
 a {
   color: $colors-violet-10;
   text-decoration: none;
-  font-weight: 400;
+  font-weight: $typography-font-weights-400;
 }
 
 a:not([class]) {
   text-decoration: none;
   color: $colors-violet-10;
-  font-weight: 400;
+  font-weight: $typography-font-weights-400;
   background-image: none;
 }
 
@@ -221,12 +216,15 @@ h1 {
 h2 {
   font-size: $typography-font-size-4 px !important;
   font-weight: $typography-font-weights-700 !important;
-  line-height: $typography-line-heights-1 px;  
+  line-height: $typography-line-heights-2 px;  
   color: $colors-grey-12;
 }
 
 h3 {
   font-weight: bold;
+  font-size: $typography-font-size-3 px !important;
+  line-height: $typography-line-heights-3 px;  
+  color: $colors-grey-12;
 }
 
 p {
@@ -239,8 +237,9 @@ p {
 }
 
 .breadcrumb-nav .breadcrumb-nav-list-item {
-  font-size: 14px !important;
-  font-weight: 300;
+  font-size: $typography-font-size-0 px !important;
+  font-weight: $typography-font-weights-400;
+  visibility: hidden;
 }
 
 .site-footer {
@@ -257,8 +256,8 @@ p {
 .site-header {
   background: $colors-grey-1;
   border-bottom: 1px solid $colors-grey-3;
-  height: 80px;
-  max-height: 80px;
+  height: $top-bar-height;
+  max-height: $top-bar-height;
 }
 
 .site-nav {
@@ -334,6 +333,7 @@ p {
 
 .site-button {
   background: $colors-violet-8;
+  color: $colors-violet-1;
   border-radius: 8px;
   border-style: none;
 
@@ -397,7 +397,7 @@ p {
     position: fixed;
     width: calc(100% - 256px);
     z-index: 2 !important;
-    height: 80px;
+    height: $top-bar-height;
     background: $colors-grey-1;
     border-bottom: 1px solid $colors-grey-3;
   }
@@ -416,10 +416,6 @@ p {
     padding: 100px 80px 20px 80px;
   }
 
-  .breadcrumb-nav {
-    margin-top: 0px;
-  }
-
   .side-bar {
     min-width: 256px;
     width: 256px !important;
@@ -432,7 +428,7 @@ p {
     width: 256px !important;
   }
 
-  .main .main-content-wrap .breadcrumb-nav,
+  .main .main-content-wrap,
   .main .main-content-wrap .main-content>*:not(.docs-html-content) {
     max-width: 800px;
   }
@@ -682,6 +678,10 @@ $width-three-columns: 1550px;
 
 .footer-logo-link.last{
   margin-right:0
+}
+
+.footer-item-title {
+  color: $colors-grey-11;
 }
 
 .w-layout-grid{
