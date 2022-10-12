@@ -111,24 +111,24 @@ $colors-red-10: #930b24;
 $colors-red-11: #6a081a;
 $colors-red-12: #5f0717;
 $typography-font-families-gt-walsheim-pro: GT Walsheim Pro;
-$typography-line-heights-0: 56;
-$typography-line-heights-1: 48;
-$typography-line-heights-2: 40;
-$typography-line-heights-3: 32;
-$typography-line-heights-4: 24;
-$typography-line-heights-5: 20;
+$typography-line-heights-0: 56px;
+$typography-line-heights-1: 48px;
+$typography-line-heights-2: 40px;
+$typography-line-heights-3: 32px;
+$typography-line-heights-4: 24px;
+$typography-line-heights-5: 20px;
 $typography-font-weights-400: regular;
 $typography-font-weights-700: bold;
 $typography-font-weights-900: black;
-$typography-font-size-0: 14;
-$typography-font-size-1: 16;
-$typography-font-size-2: 20;
-$typography-font-size-3: 24;
-$typography-font-size-4: 32;
-$typography-font-size-5: 40;
-$typography-font-size-6: 48;
+$typography-font-size-0: 14px;
+$typography-font-size-1: 16px;
+$typography-font-size-2: 20px;
+$typography-font-size-3: 24px;
+$typography-font-size-4: 32px;
+$typography-font-size-5: 40px;
+$typography-font-size-6: 48px;
 $typography-letter-spacing-0: 0%;
-$typography-paragraph-spacing-0: 0;
+$typography-paragraph-spacing-0: 0px;
 $typography-text-case-none: none;
 $typography-text-decoration-none: none;
 
@@ -144,7 +144,14 @@ $body-font-family: $typography-font-families-gt-walsheim-pro;
 
 // other variables used in this file
 $top-bar-height: 72px;
+$sidebar-width: 256px;
 
+$grid-gap: 32px;
+$grid-card-width: 420px;
+$grid-two-card-width: 872px; //calc(($grid-card-width * 2) + $grid-gap);
+$grid-three-card-width: 1324px; //calc(($grid-card-width * 3) + ($grid-gap * 2));
+$grid-two-card-media-width: 1128px; // calc($grid-two-card-width + $sidebar-width)
+$grid-three-card-media-width: 1580px; // calc($grid-three-card-width + $sidebar-width)
 
 // font definitions
 @font-face {
@@ -169,14 +176,11 @@ $top-bar-height: 72px;
   font-display: swap;
 }
 
-* {
-  font-family: $typography-font-families-gt-walsheim-pro;
-}
-
 body {
+  font-family: $typography-font-families-gt-walsheim-pro;
   color: $colors-grey-11;
   background-color: $colors-grey-2;
-  font-size: $typography-font-size-1 px;
+  font-size: $typography-font-size-1;
 }
 
 b,
@@ -192,59 +196,52 @@ a {
 
 a:not([class]) {
   text-decoration: none;
-  color: $colors-violet-10;
-  font-weight: $typography-font-weights-400;
-  background-image: none;
 }
 
-// a:not([class]):hover {
-//   background-image: none;
-// }
-
-// a.active {
-//   color: #CF0863;
-//   font-weight: bold;
-// }
+a:not(.site-button, .nav-list-link):hover {
+  text-decoration: underline;
+}
 
 h1 {
-  font-size: $typography-font-size-5 px !important;
+  font-size: $typography-font-size-5 !important;
   font-weight: $typography-font-weights-700 !important;
-  line-height: $typography-line-heights-1 px;
+  line-height: $typography-line-heights-1;
   color: $colors-grey-12;
 }
 
-h2 {
-  font-size: $typography-font-size-4 px !important;
+// .text-delta  is used for just-the-docs table of contents title
+h2, .text-delta {
+  font-size: $typography-font-size-4 !important;
   font-weight: $typography-font-weights-700 !important;
-  line-height: $typography-line-heights-2 px;  
+  line-height: $typography-line-heights-2;  
   color: $colors-grey-12;
 }
 
 h3 {
   font-weight: bold;
-  font-size: $typography-font-size-3 px !important;
-  line-height: $typography-line-heights-3 px;  
+  font-size: $typography-font-size-3 !important;
+  line-height: $typography-line-heights-3;  
   color: $colors-grey-12;
 }
 
 p {
   color: $colors-grey-12;
-  font-size: $typography-font-size-1 px !important;
+  font-size: $typography-font-size-1 !important;
   font-weight: $typography-font-weights-400 !important;
-  line-height: $typography-line-heights-4 px;  
+  line-height: $typography-line-heights-4;  
   color: $colors-grey-11;
 
 }
 
 .breadcrumb-nav .breadcrumb-nav-list-item {
-  font-size: $typography-font-size-0 px !important;
+  font-size: $typography-font-size-0 !important;
   font-weight: $typography-font-weights-400;
   visibility: hidden;
 }
 
 .site-footer {
   display: none;
-  width: 256px !important;
+  width: $sidebar-width !important;
 }
 
 .site-header,
@@ -288,10 +285,6 @@ p {
   border-radius: 8px;
 }
 
-.search-icon {
-  margin-bottom: 8px;
-}
-
 .search-label {
   padding: 0px 0px 0px 56px;
 }
@@ -306,8 +299,10 @@ p {
   transition-duration: .15s;
 }
 
-.nav-list .nav-list-item .nav-list-link:hover {
+.nav-list .nav-list-item .nav-list-link:hover,
+.nav-list .nav-list-item>.nav-list .nav-list-item .nav-list-link:hover {
   background-color: $colors-grey-2;
+  color: $colors-grey-12;
   background-image: none;
   transition-property: color,background-color;
   transition-timing-function: cubic-bezier(.4,0,.2,1);
@@ -341,7 +336,7 @@ p {
   align-items: center;
   height: 48px;
 
-  line-height: $typography-line-heights-4 px; 
+  line-height: $typography-line-heights-4; 
   font-family: $typography-font-families-gt-walsheim-pro;
   font-weight: $typography-font-weights-700;
   font-size: $typography-font-size-1;
@@ -363,15 +358,21 @@ p {
   color: #3E0A91;
 }
 
-.main-content ol>li::before {
-  color: #0E1111;
-  font-weight: normal;
-  font-size: 16px !important;
-  top: 0em !important;
+// .main-content .main-html-content {
+//   max-width: $grid-three-card-width;
+//   margin: auto;
+// }
+
+.main-content  {
+  max-width: 960px;
+  margin: auto;
 }
+
 
 .mainpage-topmatter {
   font-size: $typography-font-size-2;
+  margin: auto;
+  overflow-wrap: break-word;
 }
 
 @media print {
@@ -389,13 +390,13 @@ p {
 
 @media (min-width: 50rem) {
   .main {
-    margin-left: 256px !important;
+    margin-left: $sidebar-width !important;
     max-width: 100%;
   }
 
   .main-header {
     position: fixed;
-    width: calc(100% - 256px);
+    width: calc(100% - $sidebar-width);
     z-index: 2 !important;
     height: $top-bar-height;
     background: $colors-grey-1;
@@ -417,20 +418,15 @@ p {
   }
 
   .side-bar {
-    min-width: 256px;
-    width: 256px !important;
+    min-width: $sidebar-width;
+    width: $sidebar-width !important;
   }
 }
 
 @media (min-width: 66.5rem) {
   .side-bar {
-    min-width: 256px;
-    width: 256px !important;
-  }
-
-  .main .main-content-wrap,
-  .main .main-content-wrap .main-content>*:not(.docs-html-content) {
-    max-width: 800px;
+    min-width: $sidebar-width;
+    width: $sidebar-width !important;
   }
 }
 
@@ -444,7 +440,6 @@ p {
   padding-top: 100px;
 
   margin-left: 0px;
-  margin-right: 50px;
 
   @media (min-width: 66.5rem) {
     margin-left: 0px;
@@ -453,49 +448,27 @@ p {
 }
 
 .main-section-row {
-  position: relative;
-  margin-left: 0px;
-  margin-right: 20px;
-  max-width: 1324px;;
-
-  @media (min-width: 50rem) {
-    margin-left: 0px;
-    margin-right: 50px;
-  }
-
-
-  @media (min-width: 66.5rem) {
-    margin-left: 0px;
-    margin-right: 90px;
-  }
+  margin: auto;
 }
-
-$width-two-columns: 1100px;
-$width-three-columns: 1550px;
 
 .main-grid-3cols {
   display: grid;
-  grid-column-gap: 30px;
-  grid-row-gap: 60px;
+  grid-column-gap: $grid-gap;
+  grid-row-gap: $grid-gap;
   grid-template-columns: auto;
+  margin: auto;
   margin-bottom: 70px;
-  width: 420px;
+  width: $grid-card-width;
   grid-template-columns: auto;
 
-  // @media (min-width: 50rem) {
-  //   grid-template-columns: auto auto;
-  //   width: 420px;
-  // }
-
-  // @media (min-width: 66.5rem) {
-  @media (min-width: $width-two-columns) {
+  @media (min-width: $grid-two-card-media-width) {
     grid-template-columns: auto auto;
-    width: 870px;
+    width: 872px;
   }
 
-  @media (min-width: $width-three-columns) {
+  @media (min-width: $grid-three-card-media-width) {
     grid-template-columns: auto auto auto;
-    width: 1320px;
+    width: $grid-three-card-width;
   }
 
   div {
@@ -506,25 +479,7 @@ $width-three-columns: 1550px;
     h2 {
       margin-top: 10px !important;
       margin-bottom: 5px;
-    }
-
-    a {
-      display: block;
-      font-size: 15px;
-      line-height: 25px;
-      color: #3E0A91;
-      font-weight: 500;
-      text-decoration: none !important;
-      border: none;
-      background: none;
-      transition: color .5s ease-out;
-
-      &:hover {
-        color: #CF0863;
-        background: none;
-        border: none;
-      }
-    }
+    }   
   }
 }
 
@@ -532,22 +487,25 @@ $width-three-columns: 1550px;
   display: grid;
   grid-column-gap: 30px;
   margin-bottom: 70px;
+  margin: auto;
   background-color: $colors-indigo-2;
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.06);
   border-radius: 40px;
-  height: 216px;
+  height: 284px;
   align-items: center;
   padding-left: 64px;
 
   width: 420px;
   grid-template-columns: auto auto auto;  
 
-  @media (min-width: $width-two-columns) {  
-    width: 870px;
+  @media (min-width: $grid-two-card-media-width) {  
+    height: 216px;
+    width: $grid-two-card-width;
   }
 
-  @media (min-width: $width-three-columns) {
-    width: 1320px;
+  @media (min-width: $grid-three-card-media-width) {
+    height: 216px;
+    width: $grid-three-card-width;
   }
 
   div {
@@ -573,14 +531,24 @@ $width-three-columns: 1550px;
   /* shadow-sm */
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.06);
   border-radius: 16px;
+  -webkit-transition:box-shadow .3s;
+}
 
+.main-grid-card:hover {
+  box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1), 0px 4px 6px -2px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+}
+
+.main-grid-card:active {
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
 }
 
 .slack-icon {
   vertical-align:middle; 
   text-align:right;
   padding-right: 48px;
-  @media (max-width: $width-two-columns) {  
+  @media (max-width: $grid-two-card-media-width) {  
     visibility: hidden;
   }
 }
@@ -597,7 +565,6 @@ $width-three-columns: 1550px;
 
 .icon-blue {
   fill: $colors-blue-9 !important;
-  // color: $colors-blue-9 !important;
   background: $colors-blue-2;
 }
 
@@ -622,7 +589,7 @@ $width-three-columns: 1550px;
   background: $colors-green-2;
 }
 
-// to make sure the 
+// to make sure the footer stays at the bottom of the page
 .main-content {
   min-height: 92vh;
   display:flex; 
@@ -631,26 +598,15 @@ $width-three-columns: 1550px;
   hr {
     visibility: hidden;
     flex: 1;
-    // min-height: 100vh;
   }
 }
-
-
-
-
-
-// .footer {
-//   margin-top: 0px; 
-
-//   @media(max-height:720px) {
-//     margin-top: 80%;
-//   }
-// }
 
 .footer{
   padding-top:24px;
   padding-bottom:40px;
   position: bottom;
+  margin: auto;
+  max-width: 1280px;
 }
 
 .copyright{
@@ -665,11 +621,19 @@ $width-three-columns: 1550px;
   margin-bottom:16px
 }
 
-.footer-logo-link{
-  padding:8px;
-  border-radius:40px;
+a.footer-logo-link{
+  height: 40px;
+  width: 40px;
+  padding: 8px;
+  border-radius:80px;
+  display: inline-block;
   -webkit-transition:background-color .3s;
   transition:background-color .3s
+}
+
+img.footer-logo-link {
+  height:24px;
+	width:24px;
 }
 
 .footer-logo-link:hover{
@@ -682,9 +646,10 @@ $width-three-columns: 1550px;
 
 .footer-item-title {
   color: $colors-grey-11;
+  margin-bottom: 16px !important;
 }
 
-.w-layout-grid{
+.footer-grid{
   text-align: center;
   display:grid;
   grid-auto-columns:1fr;
@@ -692,8 +657,6 @@ $width-three-columns: 1550px;
   grid-template-rows:auto auto auto auto;
   grid-row-gap:16px;
   grid-column-gap:16px;
-  position: absolute;
-  width: 80%;
 
   @media (max-width: 860px) {
     grid-template-columns:1fr;
@@ -705,48 +668,26 @@ $width-three-columns: 1550px;
   }
 }
 
-.w-dyn-items a {
+.footer-items a {
   color: $colors-grey-11;
 }
 
-.w-dyn-items a:hover {
+.footer-items a:hover {
   color: $colors-violet-10;
 }
 
-$code-background-color: white;
-
-.language-bash {
-  background-color: white !important;
-  font-size: 1.0em;
-
-  code {
-    background-color: white !important;
-    font-size: 0.9em;
-  }
-}
-
-.language-yaml {
-  background-color: white !important;
-  font-size: 1.0em;
-
-  code {
-    background-color: white !important;
-    font-size: 1.0em;
-  }
-}
-
-.language-js, .language-js.code {
-  background-color: white !important;
-  font-size: 1.0em;
-
-  code {
-    background-color: white !important;
-    font-size: 1.0em;
-  }
+[class^="language-"] {
+  background-color: $colors-grey-1 !important;
+  font-family: ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace;
+  font-size: $typography-font-size-1;
+  line-height: $typography-line-heights-4;
+  tab-size: 4;
+  white-space: pre;
 }
 
 code { 
   padding: 0.2em 0.15em;   
+  font-size: $typography-font-size-1;
   font-weight: 400; 
   background-color: $colors-grey-1;
   border: 1px solid $colors-red-9 opacity($color: $colors-red-9); 
