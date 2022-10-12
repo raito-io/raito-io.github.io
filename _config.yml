@@ -1,4 +1,4 @@
-title: Raito Documentation
+title: "Raito Docs"
 email: info@raito.io
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://docs.raito.io" 
@@ -44,8 +44,8 @@ search:
   button: false
 
 aux_links:
-  "GitHub":
-    - "https://github.com/raito-io/"
+  "Visit raito.io":
+    - "https://www.raito.io"
 
 # Makes Aux links open in a new tab. Default is false
 aux_links_new_tab: true

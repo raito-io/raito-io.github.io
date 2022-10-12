@@ -31,7 +31,7 @@ grep -r -l . * | grep -E -v 'jpg|ico|svg|png|webp|woff2|ttf' | xargs sed -i"$BAC
 clean_backup
 
 # also substitute links to assets
-grep -r -l . * | grep -E -v 'jpg|ico|svg|png|webp|woff2|ttf' | xargs sed -i"$BACKUP_EXTENSION" 's|/assets|/_preview/assets|g'
+grep -r -l . * | grep -E -v 'jpg|ico|svg|png|webp|woff2|ttf' | xargs sed -i"$BACKUP_EXTENSION" 's|/assets/|/_preview/assets/|g'
 clean_backup
 
 # substitute some trailing links (like / for navigation)
@@ -51,10 +51,10 @@ grep -r -l . * | grep -E -v 'jpg|ico|svg|png|webp|woff2|ttf'| xargs sed -i"$BACK
 clean_backup
 
 # change theme to make it obvious that you're on a preview page
-grep -r -l . * | grep -E -v 'jpg|ico|svg|png|webp|woff2|ttf'| xargs sed -i"$BACKUP_EXTENSION" 's|3E0A91|669900|g'
-clean_backup
-grep -r -l . * | grep -E -v 'jpg|ico|svg|png|webp|woff2|ttf' | xargs sed -i"$BACKUP_EXTENSION" 's|CF0863|FFCC00|g'
-clean_backup
+# grep -r -l . * | grep -E -v 'jpg|ico|svg|png|webp|woff2|ttf'| xargs sed -i"$BACKUP_EXTENSION" 's|570ECA|669900|g'
+# clean_backup
+# grep -r -l . * | grep -E -v 'jpg|ico|svg|png|webp|woff2|ttf' | xargs sed -i"$BACKUP_EXTENSION" 's|CF0863|FFCC00|g'
+# clean_backup
 
 
 if [[ $(cat 404.html  | grep _preview | wc -l) -gt 0 ]]; then

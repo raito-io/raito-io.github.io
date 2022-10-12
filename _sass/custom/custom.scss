@@ -1,5 +1,6 @@
+
 // Do not edit directly
-// Generated on Tue, 04 Oct 2022 09:41:40 GMT
+// Generated on Thu, 06 Oct 2022 07:53:54 GMT
 
 $colors-grey-1: #fcfcfc;
 $colors-grey-2: #f6f6f8;
@@ -116,9 +117,9 @@ $typography-line-heights-2: 40;
 $typography-line-heights-3: 32;
 $typography-line-heights-4: 24;
 $typography-line-heights-5: 20;
-$typography-font-weights-400: Regular;
-$typography-font-weights-700: Bold;
-$typography-font-weights-900: Black;
+$typography-font-weights-400: regular;
+$typography-font-weights-700: bold;
+$typography-font-weights-900: black;
 $typography-font-size-0: 14;
 $typography-font-size-1: 16;
 $typography-font-size-2: 20;
@@ -130,75 +131,115 @@ $typography-letter-spacing-0: 0%;
 $typography-paragraph-spacing-0: 0;
 $typography-text-case-none: none;
 $typography-text-decoration-none: none;
-// colors:
-// purple: #3E0A91
-// pink: #CF0863
-// almost white: #f6f6f8
 
+// overwrite just-the-docs variables
+$feedback-color: $colors-violet-7;
+$body-font-family: $typography-font-families-gt-walsheim-pro;
+// $mono-font-family: $typography-font-families-gt-walsheim-pro;
+// $root-font-size: 16px !default; // Base font-size for rems
+// $body-line-height: 1.4 !default;
+// $content-line-height: 1.6 !default;
+// $body-heading-line-height: 1.25 !default;
+
+
+// other variables used in this file
+$top-bar-height: 72px;
+
+
+// font definitions
 @font-face {
-  font-family: 'GT Walsheim Pro';
-  // src: url('GTWalsheimPro-Light.eot');
-  // src: local('GT Walsheim Pro Light'), local('GTWalsheimPro-Light'),
-  //     url('GTWalsheimPro-Light.eot?#iefix') format('embedded-opentype'),
-  //     url('GTWalsheimPro-Light.woff2') format('woff2'),
-  //     url('GTWalsheimPro-Light.woff') format('woff'),
-  //     url('GTWalsheimPro-Light.ttf') format('truetype');
-  src: url("../../assets/fonts/GTWalsheimPro-Black.woff2") format('woff2');
-  font-weight: 100;
+  font-family: $typography-font-families-gt-walsheim-pro;
+  src: url('https://assets.raito.io/fonts/GTWalsheimPro-Regular.woff2') format('woff2'), url('https://assets.raito.io/fonts/GTWalsheimPro-Regular.eot') format('embedded-opentype'), url('https://assets.raito.io/fonts/GTWalsheimPro-Regular.woff') format('woff'), url('https://assets.raito.io/fonts/GTWalsheimPro-Regular.ttf') format('truetype');
+  font-weight: 400;
   font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: $typography-font-families-gt-walsheim-pro;
+  src: url('https://assets.raito.io/fonts/GTWalsheimPro-Bold.woff2') format('woff2'), url('https://assets.raito.io/fonts/GTWalsheimPro-Bold.eot') format('embedded-opentype'), url('https://assets.raito.io/fonts/GTWalsheimPro-Bold.woff') format('woff'), url('https://assets.raito.io/fonts/GTWalsheimPro-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: $typography-font-families-gt-walsheim-pro;
+  src: url('https://assets.raito.io/fonts/GTWalsheimPro-Black.woff2') format('woff2'), url('https://assets.raito.io/fonts/GTWalsheimPro-Black.eot') format('embedded-opentype'), url('https://assets.raito.io/fonts/GTWalsheimPro-Black.woff') format('woff'), url('https://assets.raito.io/fonts/GTWalsheimPro-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+* {
+  font-family: $typography-font-families-gt-walsheim-pro;
 }
 
 body {
   color: $colors-grey-11;
-  font-size: 16px;
+  background-color: $colors-grey-2;
+  font-size: $typography-font-size-1 px;
 }
 
 b,
 strong {
-  font-weight: bold !important;
+  font-weight: $typography-font-weights-700 !important;
 }
 
 a {
-  color: #3E0A91;
-  text-decoration: underline;
-  font-weight: 300;
+  color: $colors-violet-10;
+  text-decoration: none;
+  font-weight: $typography-font-weights-400;
 }
 
 a:not([class]) {
-  text-decoration: underline;
+  text-decoration: none;
+  color: $colors-violet-10;
+  font-weight: $typography-font-weights-400;
   background-image: none;
 }
 
-a:not([class]):hover {
-  background-image: none;
-}
+// a:not([class]):hover {
+//   background-image: none;
+// }
 
-a.active {
-  color: #CF0863;
-  font-weight: bold;
-}
+// a.active {
+//   color: #CF0863;
+//   font-weight: bold;
+// }
 
 h1 {
-  font-size: 50px !important;
-  font-weight: 500 !important;
+  font-size: $typography-font-size-5 px !important;
+  font-weight: $typography-font-weights-700 !important;
+  line-height: $typography-line-heights-1 px;
+  color: $colors-grey-12;
 }
 
 h2 {
-  font-size: 28px !important;
-  font-weight: bold;
+  font-size: $typography-font-size-4 px !important;
+  font-weight: $typography-font-weights-700 !important;
+  line-height: $typography-line-heights-2 px;  
+  color: $colors-grey-12;
 }
 
 h3 {
   font-weight: bold;
+  font-size: $typography-font-size-3 px !important;
+  line-height: $typography-line-heights-3 px;  
+  color: $colors-grey-12;
+}
+
+p {
+  color: $colors-grey-12;
+  font-size: $typography-font-size-1 px !important;
+  font-weight: $typography-font-weights-400 !important;
+  line-height: $typography-line-heights-4 px;  
+  color: $colors-grey-11;
+
 }
 
 .breadcrumb-nav .breadcrumb-nav-list-item {
-  font-size: 14px !important;
-  font-weight: 300;
-}
-
-.breadcrumb-nav-list-item a {
-  color: #CF0863;
+  font-size: $typography-font-size-0 px !important;
+  font-weight: $typography-font-weights-400;
+  visibility: hidden;
 }
 
 .site-footer {
@@ -212,47 +253,76 @@ h3 {
   width: 100% !important;
 }
 
+.site-header {
+  background: $colors-grey-1;
+  border-bottom: 1px solid $colors-grey-3;
+  height: $top-bar-height;
+  max-height: $top-bar-height;
+}
+
+.site-nav {
+    background: $colors-grey-1;
+    border-right: 1px solid $colors-grey-3;
+}
+
 .site-logo {
   background-position: left center;
   max-height: 50px;
   background-size: 100%;
 }
 
-.site-header {
-  background-color: white;
-  height: 80px;
-  max-height: 80px;
+.search-input-wrap {
+  vertical-align: middle;
+}
+
+.search-input {
+  display: inline-block;
+  margin: 12px 0px 12px 48px;
+  padding: 12px 36px;
+  font-size: $typography-font-size-1;
+
+  width: 720px;
+  height: 48px;
+
+  background: $colors-grey-2;
+  border-radius: 8px;
+}
+
+.search-icon {
+  margin-bottom: 8px;
+}
+
+.search-label {
+  padding: 0px 0px 0px 56px;
 }
 
 .nav-list a {
   text-decoration: none;
 }
 
-.nav-list .nav-list-item .nav-list-link:hover,
-.nav-list .nav-list-item .nav-list-link.active {
-  background-image: linear-gradient(-90deg, #ebedf5 0%, rgba(235, 237, 245, 0.8) 80%, rgba(235, 237, 245, 0) 100%);
-}
-
-.nav-list .nav-list-item.active .nav-list-link.active,
-.nav-list .nav-list-item>.nav-list .nav-list-item.active .nav-list-link.active {
-  transition: color .4s ease-out;
-  color: #CF0863 !important;
-}
-
-.nav-list .nav-list-item:hover .nav-list-link:hover,
-.nav-list .nav-list-item>.nav-list .nav-list-item:hover .nav-list-link:hover {
-  color: #3E0A91 !important;
-  font-weight: 600;
-}
-
 .nav-list .nav-list-item .nav-list-link,
 .nav-list .nav-list-item>.nav-list .nav-list-item .nav-list-link {
-  color: #0E1111 !important;
+  color: $colors-grey-9;
+  transition-duration: .15s;
+}
+
+.nav-list .nav-list-item .nav-list-link:hover {
+  background-color: $colors-grey-2;
+  background-image: none;
+  transition-property: color,background-color;
+  transition-timing-function: cubic-bezier(.4,0,.2,1);
+}
+
+.nav-list .nav-list-item .nav-list-link.active,
+.nav-list .nav-list-item>.nav-list .nav-list-item .nav-list-link.active {
+  color: $colors-violet-10;
+  background-image: none;  
+  font-weight: $typography-font-weights-700;
 }
 
 .side-bar {
   border: none;
-  background-color: #f6f6f8;
+  background-color: $colors-grey-1;
 }
 
 .aux-nav .aux-nav-list-item {
@@ -262,30 +332,27 @@ h3 {
 }
 
 .site-button {
-  display: block;
-  height: 40px;
-  padding: 10px 20px;
+  background: $colors-violet-8;
+  color: $colors-violet-1;
+  border-radius: 8px;
+  border-style: none;
+
+  padding: 10px 20px; 
   align-items: center;
-  width: 150px;
-  text-align: center;
-  border-radius: 20px;
-  background-color: #CF0863;
-  font-size: 15px;
-  line-height: 20px;
-  font-weight: 500;
-  color: #f6f6f8;
-  transition: background-color .4s ease-out;
+  height: 48px;
+
+  line-height: $typography-line-heights-4 px; 
+  font-family: $typography-font-families-gt-walsheim-pro;
+  font-weight: $typography-font-weights-700;
+  font-size: $typography-font-size-1;
+  color: $colors-violet-1;
   text-decoration: none;
+  text-emphasis-style: bold;    
 }
 
-.aux-nav .aux-nav-list-item .site-button:hover {
+.site-button:hover {
+  background-color: $colors-violet-7;
   background-image: none;
-  background-color: #3E0A91 !important;
-}
-
-.nav-list .nav-list-item .nav-list-link,
-.nav-list .nav-list-item>.nav-list .nav-list-item .nav-list-link {
-  color: #0E1111 !important;
 }
 
 .wip {
@@ -303,8 +370,8 @@ h3 {
   top: 0em !important;
 }
 
-.main-content img {
-  padding: 20px 0 20px 0;
+.mainpage-topmatter {
+  font-size: $typography-font-size-2;
 }
 
 @media print {
@@ -330,7 +397,9 @@ h3 {
     position: fixed;
     width: calc(100% - 256px);
     z-index: 2 !important;
-    height: 80px;
+    height: $top-bar-height;
+    background: $colors-grey-1;
+    border-bottom: 1px solid $colors-grey-3;
   }
 
   .nav-list .nav-list-item .nav-list-link {
@@ -347,18 +416,6 @@ h3 {
     padding: 100px 80px 20px 80px;
   }
 
-  .main-content {
-    padding-top: 40px;
-  }
-
-  .main-content img {
-    padding: 20px;
-  }
-
-  .breadcrumb-nav {
-    margin-top: 0px;
-  }
-
   .side-bar {
     min-width: 256px;
     width: 256px !important;
@@ -371,7 +428,7 @@ h3 {
     width: 256px !important;
   }
 
-  .main .main-content-wrap .breadcrumb-nav,
+  .main .main-content-wrap,
   .main .main-content-wrap .main-content>*:not(.docs-html-content) {
     max-width: 800px;
   }
@@ -399,7 +456,7 @@ h3 {
   position: relative;
   margin-left: 0px;
   margin-right: 20px;
-  max-width: 688px;
+  max-width: 1324px;;
 
   @media (min-width: 50rem) {
     margin-left: 0px;
@@ -413,19 +470,32 @@ h3 {
   }
 }
 
+$width-two-columns: 1100px;
+$width-three-columns: 1550px;
+
 .main-grid-3cols {
   display: grid;
   grid-column-gap: 30px;
   grid-row-gap: 60px;
   grid-template-columns: auto;
   margin-bottom: 70px;
+  width: 420px;
+  grid-template-columns: auto;
 
-  @media (min-width: 50rem) {
+  // @media (min-width: 50rem) {
+  //   grid-template-columns: auto auto;
+  //   width: 420px;
+  // }
+
+  // @media (min-width: 66.5rem) {
+  @media (min-width: $width-two-columns) {
     grid-template-columns: auto auto;
+    width: 870px;
   }
 
-  @media (min-width: 66.5rem) {
+  @media (min-width: $width-three-columns) {
     grid-template-columns: auto auto auto;
+    width: 1320px;
   }
 
   div {
@@ -456,4 +526,229 @@ h3 {
       }
     }
   }
+}
+
+.main-grid-1-col {
+  display: grid;
+  grid-column-gap: 30px;
+  margin-bottom: 70px;
+  background-color: $colors-indigo-2;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.06);
+  border-radius: 40px;
+  height: 216px;
+  align-items: center;
+  padding-left: 64px;
+
+  width: 420px;
+  grid-template-columns: auto auto auto;  
+
+  @media (min-width: $width-two-columns) {  
+    width: 870px;
+  }
+
+  @media (min-width: $width-three-columns) {
+    width: 1320px;
+  }
+
+  div {
+
+    h2 {
+      margin-top: 10px !important;
+      margin-bottom: 5px;
+    }
+  }
+}
+
+.main-grid-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 40px 24px;
+  gap: 16px;
+
+  width: 420px;
+  height: 240px;
+
+  background: $colors-grey-1;
+  /* shadow-sm */
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.06);
+  border-radius: 16px;
+
+}
+
+.slack-icon {
+  vertical-align:middle; 
+  text-align:right;
+  padding-right: 48px;
+  @media (max-width: $width-two-columns) {  
+    visibility: hidden;
+  }
+}
+
+.main-icon {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 8px;
+  width: 48px;
+  height: 48px;
+  border-radius: 48px;
+}
+
+.icon-blue {
+  fill: $colors-blue-9 !important;
+  // color: $colors-blue-9 !important;
+  background: $colors-blue-2;
+}
+
+.icon-purple {
+  fill: $colors-violet-9;
+  color: $colors-violet-9;
+  background: $colors-violet-2;
+}
+
+.icon-red {
+  fill: $colors-pink-9;
+  background: $colors-pink-2;
+}
+
+.icon-indigo {
+  fill: $colors-indigo-9;
+  background: $colors-indigo-2;
+}
+
+.icon-green {
+  fill: $colors-green-8;
+  background: $colors-green-2;
+}
+
+// to make sure the 
+.main-content {
+  min-height: 92vh;
+  display:flex; 
+  flex-direction:column;
+
+  hr {
+    visibility: hidden;
+    flex: 1;
+    // min-height: 100vh;
+  }
+}
+
+
+
+
+
+// .footer {
+//   margin-top: 0px; 
+
+//   @media(max-height:720px) {
+//     margin-top: 80%;
+//   }
+// }
+
+.footer{
+  padding-top:24px;
+  padding-bottom:40px;
+  position: bottom;
+}
+
+.copyright{
+  display:block;
+  color: $colors-grey-9;
+  font-size:14px;
+  line-height:20px
+}
+
+.logotype{
+  height:32px;
+  margin-bottom:16px
+}
+
+.footer-logo-link{
+  padding:8px;
+  border-radius:40px;
+  -webkit-transition:background-color .3s;
+  transition:background-color .3s
+}
+
+.footer-logo-link:hover{
+  background-color: $colors-grey-3;
+}
+
+.footer-logo-link.last{
+  margin-right:0
+}
+
+.footer-item-title {
+  color: $colors-grey-11;
+}
+
+.w-layout-grid{
+  text-align: center;
+  display:grid;
+  grid-auto-columns:1fr;
+  grid-template-columns:1fr 1fr 1fr 1fr;
+  grid-template-rows:auto auto auto auto;
+  grid-row-gap:16px;
+  grid-column-gap:16px;
+  position: absolute;
+  width: 80%;
+
+  @media (max-width: 860px) {
+    grid-template-columns:1fr;
+    grid-template-rows:auto;
+  }
+
+  div, ul, li {
+    text-align: left;
+  }
+}
+
+.w-dyn-items a {
+  color: $colors-grey-11;
+}
+
+.w-dyn-items a:hover {
+  color: $colors-violet-10;
+}
+
+$code-background-color: white;
+
+.language-bash {
+  background-color: white !important;
+  font-size: 1.0em;
+
+  code {
+    background-color: white !important;
+    font-size: 0.9em;
+  }
+}
+
+.language-yaml {
+  background-color: white !important;
+  font-size: 1.0em;
+
+  code {
+    background-color: white !important;
+    font-size: 1.0em;
+  }
+}
+
+.language-js, .language-js.code {
+  background-color: white !important;
+  font-size: 1.0em;
+
+  code {
+    background-color: white !important;
+    font-size: 1.0em;
+  }
+}
+
+code { 
+  padding: 0.2em 0.15em;   
+  font-weight: 400; 
+  background-color: $colors-grey-1;
+  border: 1px solid $colors-red-9 opacity($color: $colors-red-9); 
+  border-radius: 4px; 
 }

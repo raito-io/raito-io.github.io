@@ -1,9 +1,11 @@
 ---
-title: CLI with Cloud
-nav_order: 20
+title: First sync with Raito Cloud
+nav_order: 10
 parent: Guides
 permalink: /docs/guide/cloud
 ---
+
+# First sync with Raito Cloud
 
 In this guide we'll walk you through an example of how to connect Raito Cloud to a Snowflake data warehouse through the Raito CLI. We'll 
 - make sure that Raito CLI is installed and available
@@ -63,17 +65,18 @@ targets:
     identity-store-id: <identity-store-id>
     
     # Specifying the Snowflake specific config parameters
-    sf-account: <account-name>
-    sf-user: <user-name>
-    sf-password: <password>
+    sf-account: "{{SF_ACCOUNT}}"
+    sf-user: "{{SF_USER}}"
+    sf-password: "{{SF_PASSWORD}}"
 ```
 {% endraw %}
 
 It contains
-- a section to configure the connection to Raito Cloud: `api-user`, `api-secret`, and `domain`. `domain` is the part of the URL from your Raito Cloud instance (e.g. https://`domain`.raito.cloud).
-- `targets` has one Snowflake target defined. You can copy paste this section from the snippet that is shown on the page of the newly created data source in Raito cloud. The first part defines the target, connector and corresponding object ID's in Raito Cloud (i.e. *data-source-id* and *identity-store-id*). The second part is the configuration to connect to your Snowflake instance.
+- a section to configure the connection to Raito Cloud: `api-user`, `api-secret`, and `domain`. `domain` is the part of the URL from your Raito Cloud instance (e.g. https://`domain`.raito.cloud). `api-user` and `api-secret` are the login credentials for your Raito Cloud instance.
+- `targets` has one Snowflake target defined. You can copy paste this section from the snippet that is shown on the page of the newly created data source in Raito cloud. The first part defines the target, connector and corresponding object ID's in Raito Cloud (i.e. `data-source-id` and `identity-store-id`). The second part is the configuration to connect to your Snowflake instance.
 
-Feel free to customize this configuration further. Remember that you can use double curly brackets to reference environment variables, like we did for the `api-user` field and others in the example.
+Feel free to customize this configuration further. Find more information in the sections about [general configuration](/docs/cli/configuration#command-specific-parameters) and [Snowflake-specific configuration](/docs/cli/connectors/snowflake#snowflake-specific-parameters). 
+Remember that you can use double curly brackets to reference environment variables, like we did for the `api-user` field and others in the example.
 
 ## Raito run
 
