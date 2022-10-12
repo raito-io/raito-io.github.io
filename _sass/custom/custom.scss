@@ -198,9 +198,19 @@ a:not([class]) {
   text-decoration: none;
 }
 
-a:not(.site-button, .nav-list-link):hover {
-  text-decoration: underline;
+a.main-grid-card {
+  color: $colors-grey-11;
+  text-decoration: none;
 }
+
+a.main-grid-card:hover {
+  color: $colors-grey-11;
+  text-decoration: none;
+}
+
+// a:not(.site-button, .nav-list-link):hover {
+//   text-decoration: underline;
+// }
 
 h1 {
   font-size: $typography-font-size-5 !important;
@@ -266,6 +276,10 @@ p {
   background-position: left center;
   max-height: 50px;
   background-size: 100%;
+
+  @media (max-width: 800px) {
+    width: 50%;
+  }
 }
 
 .search-input-wrap {
@@ -358,16 +372,10 @@ p {
   color: #3E0A91;
 }
 
-// .main-content .main-html-content {
-//   max-width: $grid-three-card-width;
-//   margin: auto;
-// }
-
-.main-content  {
-  max-width: 960px;
+.main-content {
+  max-width: 1240px;
   margin: auto;
 }
-
 
 .mainpage-topmatter {
   font-size: $typography-font-size-2;
@@ -407,6 +415,7 @@ p {
     min-height: 2rem;
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
+    font-size: $typography-font-size-1;
   }
 
   .site-nav {
@@ -458,17 +467,14 @@ p {
   grid-template-columns: auto;
   margin: auto;
   margin-bottom: 70px;
-  width: $grid-card-width;
   grid-template-columns: auto;
 
   @media (min-width: $grid-two-card-media-width) {
     grid-template-columns: auto auto;
-    width: 872px;
   }
 
   @media (min-width: $grid-three-card-media-width) {
     grid-template-columns: auto auto auto;
-    width: $grid-three-card-width;
   }
 
   div {
@@ -477,8 +483,8 @@ p {
     }
 
     h2 {
-      margin-top: 10px !important;
-      margin-bottom: 5px;
+      margin-top: 16px !important;
+      margin-bottom: 8px;
     }   
   }
 }
@@ -488,25 +494,14 @@ p {
   grid-column-gap: 30px;
   margin-bottom: 70px;
   margin: auto;
+  padding: 40px 72px;
   background-color: $colors-indigo-2;
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.06);
   border-radius: 40px;
-  height: 284px;
   align-items: center;
-  padding-left: 64px;
 
-  width: 420px;
+  width: 100%;
   grid-template-columns: auto auto auto;  
-
-  @media (min-width: $grid-two-card-media-width) {  
-    height: 216px;
-    width: $grid-two-card-width;
-  }
-
-  @media (min-width: $grid-three-card-media-width) {
-    height: 216px;
-    width: $grid-three-card-width;
-  }
 
   div {
 
@@ -518,14 +513,10 @@ p {
 }
 
 .main-grid-card {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
   padding: 40px 24px;
   gap: 16px;
-
-  width: 420px;
-  height: 240px;
+  flex: 1 1 0px;
+  min-width: 0px;
 
   background: $colors-grey-1;
   /* shadow-sm */
@@ -547,7 +538,6 @@ p {
 .slack-icon {
   vertical-align:middle; 
   text-align:right;
-  padding-right: 48px;
   @media (max-width: $grid-two-card-media-width) {  
     visibility: hidden;
   }
@@ -622,11 +612,13 @@ p {
 }
 
 a.footer-logo-link{
+  background-color: $colors-grey-3;
   height: 40px;
   width: 40px;
   padding: 8px;
   border-radius:80px;
   display: inline-block;
+  margin-right: 16px;
   -webkit-transition:background-color .3s;
   transition:background-color .3s
 }
@@ -637,7 +629,7 @@ img.footer-logo-link {
 }
 
 .footer-logo-link:hover{
-  background-color: $colors-grey-3;
+  background-color: $colors-grey-5;
 }
 
 .footer-logo-link.last{
@@ -674,6 +666,14 @@ img.footer-logo-link {
 
 .footer-items a:hover {
   color: $colors-violet-10;
+}
+
+.footer h2 {
+  margin-top: 0px;
+}
+
+.footer h3 {
+  margin-top: 7px;
 }
 
 [class^="language-"] {
