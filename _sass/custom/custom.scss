@@ -195,7 +195,11 @@ a {
 }
 
 a:not([class]) {
-  text-decoration: none;
+  text-decoration: $typography-text-decoration-none;
+}
+
+a:not([class]):hover {
+  text-decoration: underline;
 }
 
 a.main-grid-card {
@@ -208,9 +212,6 @@ a.main-grid-card:hover {
   text-decoration: none;
 }
 
-// a:not(.site-button, .nav-list-link):hover {
-//   text-decoration: underline;
-// }
 
 h1 {
   font-size: $typography-font-size-5 !important;
@@ -361,6 +362,11 @@ p {
 
 .site-button:hover {
   background-color: $colors-violet-7;
+  background-image: none;
+}
+
+.site-button:active {
+  background-color: $colors-violet-9;
   background-image: none;
 }
 
