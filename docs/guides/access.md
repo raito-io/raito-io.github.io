@@ -167,6 +167,4 @@ jobs:
 
 Now that all files have been created, you can commit them and push them to a remote branch. Once you merge your changes into the `main` branch of your repository, the workflow will start and call the Raito CLI to update the roles in Snowflake. You should be able to see the Github Actions workflow run and the logs of the Raito CLI under the 'Actions' tab on the Github page of your repository. 
 
-## Feedback 
-
-We welcome any questions or feedback on [Slack](https://raitocommunity.slack.com)
+{% include slack.html %}

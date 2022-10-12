@@ -30,3 +30,5 @@ You can find these at
 [Individual Contributor License Agreement ("Agreement") V2.0](http://www.apache.org/licenses/icla.txt){:target="_blank"}
 
 [Software Grant and Corporate Contributor License Agreement ("Agreement") v r190612](http://www.apache.org/licenses/cla-corporate.txt){:target="_blank"}
+
+{% include slack.html %}

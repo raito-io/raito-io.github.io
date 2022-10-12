@@ -8,8 +8,6 @@ permalink: /docs/cloud
 
 # Raito Cloud
 
-*TODO: Bart, Wannes, insert sales pitch here, without sound too sales-pitchy.* 
-
 **Raito Cloud** supercharges all the information gathered from the [Raito CLI](/docs/cli). Its main purpose is to *visualize* and *connect* the different types of information, so that you can clearly see
 - the information available in your data warehouses,
 - who has access to what,

@@ -135,6 +135,4 @@ jobs:
 {% endraw %}
 
 
-## Feedback 
-
-We welcome any questions or feedback on [Slack](https://raitocommunity.slack.com)
+{% include slack.html %}
