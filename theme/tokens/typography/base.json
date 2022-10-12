@@ -8,71 +8,71 @@
     },
     "lineHeights": {
       "0": {
-        "value": "56",
+        "value": "56px",
         "type": "lineHeights"
       },
       "1": {
-        "value": "48",
+        "value": "48px",
         "type": "lineHeights"
       },
       "2": {
-        "value": "40",
+        "value": "40px",
         "type": "lineHeights"
       },
       "3": {
-        "value": "32",
+        "value": "32px",
         "type": "lineHeights"
       },
       "4": {
-        "value": "24",
+        "value": "24px",
         "type": "lineHeights"
       },
       "5": {
-        "value": "20",
+        "value": "20px",
         "type": "lineHeights"
       }
     },
     "fontWeights": {
       "400": {
-        "value": "Regular",
+        "value": "regular",
         "type": "fontWeights"
       },
       "700": {
-        "value": "Bold",
+        "value": "bold",
         "type": "fontWeights"
       },
       "900": {
-        "value": "Black",
+        "value": "black",
         "type": "fontWeights"
       }
     },
     "fontSize": {
       "0": {
-        "value": "14",
+        "value": "14px",
         "type": "fontSizes"
       },
       "1": {
-        "value": "16",
+        "value": "16px",
         "type": "fontSizes"
       },
       "2": {
-        "value": "20",
+        "value": "20px",
         "type": "fontSizes"
       },
       "3": {
-        "value": "24",
+        "value": "24px",
         "type": "fontSizes"
       },
       "4": {
-        "value": "32",
+        "value": "32px",
         "type": "fontSizes"
       },
       "5": {
-        "value": "40",
+        "value": "40px",
         "type": "fontSizes"
       },
       "6": {
-        "value": "48",
+        "value": "48px",
         "type": "fontSizes"
       }
     },
@@ -84,7 +84,7 @@
     },
     "paragraphSpacing": {
       "0": {
-        "value": "0",
+        "value": "0px",
         "type": "paragraphSpacing"
       }
     },
