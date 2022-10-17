@@ -7,12 +7,10 @@ permalink: /docs/cli/intro
 # Introduction
 The Raito Command-Line Interface (CLI) has two main purposes:
 
-1. Used in continuous integration (CI) pipelines to easily and immediately apply access controls to the target data source(s) right from your source code repository. It enables an easy to use access-as-code (GitOps) mechanism for (data) engineers to locally manage the access controls for the data objects. 
-For this, you can use the *access* command.
+1. Used in continuous integration (CI) pipelines to easily and immediately apply access controls to the target data source(s) right from your source code repository. It enables an easy to use access-as-code (GitOps) mechanism for (data) engineers to locally manage the access controls for the data objects. For this, you can use the *access* command.
 [![CLI GitOps Overview](/assets/images/cli-gitops-overview.png)](/assets/images/cli-gitops-overview.png){:target="_blank"}
    
-1. Used as an edge component to synchronize data between your data sources and identity stores, and Raito Cloud. 
-For this, you can use the *run* command.
+1. Used as an edge component to synchronize data between your data sources and identity stores, and Raito Cloud. For this, you can use the *run* command.
 [![CLI GitOps Overview](/assets/images/raito-integration-overview.png)](/assets/images/raito-integration-overview.png){:target="_blank"}
 Basically, the run command will execute a list of actions on each of the targets:
     1. Fetch all users and groups from the identity store targets (e.g. Okta, Active Directory, ...) and synchronize this with the matching identity store in Raito Cloud. Note that a data source can also be an identity store when it manages its own users & groups (e.g. Snowflake).<br>

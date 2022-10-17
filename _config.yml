@@ -50,5 +50,6 @@ aux_links:
 # Makes Aux links open in a new tab. Default is false
 aux_links_new_tab: true
 
-ga_tracking: G-S8V41213MK
-ga_tracking_anonymize_ip: true
+# is done manually in _includes/head_custom.html for cookie consent
+# ga_tracking: G-S8V41213MK
+# ga_tracking_anonymize_ip: true
