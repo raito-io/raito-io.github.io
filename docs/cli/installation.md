@@ -40,12 +40,19 @@ or an overview of the possibilities of the CLI, execute:
 $> raito --help
 ```
 
-Find out more about the different actions you can perform with the CLI [here](/docs/cli/commands). For the rest of this installation guide we'll make sure that everything is working properly.
+Find out more about the different actions you can perform with the CLI [here](/docs/cli/commands). 
+<!-- 
+TODO: implement and re-enable documentation
+For the rest of this installation guide we'll make sure that everything is working properly.
+
+
+
 
 ## Connect Raito CLI ...
 
 The Raito CLI uses a yaml configuration; [an example here](/docs/cli/configuration#2-configuration-file){:target="_blank"}. By default it will look for a file called
-`raito.yml` in the working directory, or in the `~/.raito` directory. See [here](/docs/cli/configuration#2-configuration-file) for more details.  
+`raito.yml` in the working directory, or in the `~/.raito` directory. See [here](/docs/cli/configuration#2-configuration-file) for more details. 
+
 
 ### .... to Raito Cloud [optional]
 
@@ -89,7 +96,7 @@ If a connection could be established, you should see a message like
 Successfully connected to target snowflake1
 ```
 
-If that didn't work, try making a connection through a tool like  `curl`, e.g. from the [Snowflake community](https://community.snowflake.com/s/article/Normal-responses-on-curl-v-k-requests){:target="_blank"}.
+If that didn't work, try making a connection through a tool like  `curl`, e.g. from the [Snowflake community](https://community.snowflake.com/s/article/Normal-responses-on-curl-v-k-requests){:target="_blank"}. -->
 
 ## Further reading
 
