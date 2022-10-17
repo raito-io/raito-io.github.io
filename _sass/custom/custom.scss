@@ -222,7 +222,7 @@ h1 {
 
 // .text-delta  is used for just-the-docs table of contents title
 h2, .text-delta {
-  font-size: $typography-font-size-4 !important;
+  font-size: $typography-font-size-3 !important;
   font-weight: $typography-font-weights-700 !important;
   line-height: $typography-line-heights-2;  
   color: $colors-grey-12;
@@ -267,6 +267,11 @@ p {
   height: $top-bar-height;
   max-height: $top-bar-height;
 }
+
+.site-header .site-button {
+  margin-right: 12px;
+}
+
 
 .site-nav {
     background: $colors-grey-1;

@@ -57,10 +57,10 @@ $> raito <command> --help
 - **skip-data-source-sync**: If set, the data source meta data synchronization step to Raito Cloud will be skipped for each of the targets.
 - **skip-data-usage-sync**: If set, the data usage information synchronization step to Raito Cloud  will be skipped for each of the targets.
 - **skip-identity-store-sync**: If set, the identity store synchronization step to Raito Cloud will be skipped for each of the targets.
-- **delete-untouched**
-- **replace-tags**
-- **delete-temp-files**
-- **replace-groups**
+- **delete-untouched**: false by default. Removes objects that have not been updated during the CLI sync. For instance, if set to false during a data source sync, data objects that do not exist anymore in the target will not be removed from Raito Cloud. 
+<!-- - **replace-tags**:  TODO: should we document this as we do not support groups right now?  -->
+- **delete-temp-files**: false by default. Delete temporary files that contain the information extracted from the  target and are uploaded to Raito Cloud. 
+<!-- - **replace-groups**: TODO: should we document this as we do not support groups right now?  -->
 
 ### *access*
 
