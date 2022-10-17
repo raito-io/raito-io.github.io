@@ -47,9 +47,9 @@ raito help run
 
 ## Info
 
-[TODO: double check]
+This command let's you retrieve information that is provided by a connector. 
 
-For example
+For example, to get more information about the Snowflake connector you can run
 ```bash
-$> raito info raito-io/cli-plugin-snowflake latest
+$> raito info raito-io/cli-plugin-snowflake
 ```
