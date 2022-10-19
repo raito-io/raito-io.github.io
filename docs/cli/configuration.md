@@ -31,7 +31,7 @@ The recommended way is to use the configuration through file, whereas configurat
 - [Command-specific parameters](#command-specific-parameters). Parameters applicable to a sub-command, e.g. `raito access`.
 - [Raito parameters](#raito-parameters). Parameters required to connect to Raito Cloud. 
 - [Target parameters](#target-parameters). Parameters to configure a target.
-- [Connector specific parameters](#connector-specific-parameters). Parameters specific to a connector.
+- [Connector-specific parameters](#connector-specific-parameters). Parameters specific to a connector.
 
 In the case of configuration through a file; some of the global, command-specific, and raito parameters can also be specified at the target level, this means they will only be available and used when executing that target. See the [example configuration file](#configuration-file) below. 
 
@@ -41,8 +41,17 @@ In the case of configuration through a file; some of the global, command-specifi
  - **debug** *(optional)*: a boolean flag to request extra debug output. Can be useful when building a plugin or when something is wrong.
  - **only-targets** *(optional)*: comma-separated list of targets that need to be run. If left empty, all targets will be run. 
  <!-- - **environment**: does not need to mentioned I guess. -->
- - **log-output**
- - **repositories**, name and token (??? can this be passed as a flag? TODO: test)
+ - **log-output** enable full line-by-line logging instead of the logging summary.
+ - **repositories** allows you to specity a Github Personal Account Token to download a connector from a private repository. It can be configured like
+
+
+ {% raw %}
+```yaml
+repositories:
+  - name: raito-io
+    token: "{{GITHUB_PERSONAL_ACCOUNT_TOKEN}}"
+```
+ {% endraw %}
 
 ## Command specific parameters
 A specific command can have its own parameters. These can be revealed by doing
@@ -57,10 +66,10 @@ $> raito <command> --help
 - **skip-data-source-sync**: If set, the data source meta data synchronization step to Raito Cloud will be skipped for each of the targets.
 - **skip-data-usage-sync**: If set, the data usage information synchronization step to Raito Cloud  will be skipped for each of the targets.
 - **skip-identity-store-sync**: If set, the identity store synchronization step to Raito Cloud will be skipped for each of the targets.
-- **delete-untouched**
-- **replace-tags**
-- **delete-temp-files**
-- **replace-groups**
+<!-- - **delete-untouched**: false by default. Removes objects that have not been updated during the CLI sync. For instance, if set to false during a data source sync, data objects that do not exist anymore in the target will not be removed from Raito Cloud.  -->
+<!-- - **replace-tags**:  TODO: should we document this as we do not support groups right now?  -->
+<!-- - **delete-temp-files**: false by default. Delete temporary files that contain the information extracted from the  target and are uploaded to Raito Cloud.  -->
+<!-- - **replace-groups**: TODO: should we document this as we do not support groups right now?  -->
 
 ### *access*
 
@@ -135,13 +144,6 @@ targets:
     sf-account: yyyyyy.eu-central-1
     sf-user: <youruser>
     sf-password: <yourpassword>
-    sf-database: <database>
-
-    # Action specific parameters. These can also be specified globally. 
-    delete-temp-files: true
-    replace-tags: true
-    replace-groups: true
-    delete-untouched: true
 
     # These allow you to skip certain actions during the 'run' command. These can also be specified globally.
     skip-data-source-sync: false
@@ -160,9 +162,10 @@ $> raito <command> --only-targets snowflake_global
 ```
 
 ### Command-line
-You can specify your target directly with the command-line arguments. This only allows you to specify one target.
+You can specify your target directly with the command-line arguments. This only allows you to specify one target. Connector-specific parameters
+need to be included after a double dash.
 
 For example:
 ```bash
-$> raito <command> --connector snowflake --name production-snowflake --data-source-id xxxx ...
+$> raito <command> --connector-name raito-io/cli-plugin-snowflake --name snowflake_global --data-source-id xxxx -- --sf-account yyyyyy.eu-central-1 ...
 ```

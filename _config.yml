@@ -7,7 +7,7 @@ permalink: pretty
 exclude: ["theme", "node_modules", "CNAME","*.sh", "Dockerfile", "docker-compose.yml", "node_modules/", "*.gemspec", "*.gem", "Gemfile", "Gemfile.lock", "package.json", "package-lock.json", "_temp" ,"script/", "LICENSE.txt", "lib/", "bin/", "README.md", "Rakefile", "vendor", "_archive"]
 
 # Just the docs stuff
-logo: "/assets/images/raito-logo-quarter.png"
+logo: "/assets/images/raito_docs.svg"
 
 # Theme
 # theme: "just-the-docs"
@@ -49,6 +49,7 @@ aux_links:
 
 # Makes Aux links open in a new tab. Default is false
 aux_links_new_tab: true
+
 
 ga_tracking: G-S8V41213MK
 ga_tracking_anonymize_ip: true

@@ -16,7 +16,7 @@ In this guide we'll walk you through an example of how to connect Raito Cloud to
   
 For this guide you will need access to Raito Cloud and you also need access to a Snowflake data warehouse. 
 If you don't have the latter, you can request a 30-day free trial. 
-If you don't have access to Raito Cloud, [request a trail](https://www.raito.io/trial){:target="_blank"}. 
+If you don't have access to Raito Cloud, [request a trial](https://www.raito.io/trial){:target="_blank"}. 
 
 
 ## Raito CLI installation
@@ -135,6 +135,4 @@ jobs:
 {% endraw %}
 
 
-## Feedback 
-
-We welcome any questions or feedback on [Slack](https://raitocommunity.slack.com)
+{% include slack.html %}
