@@ -37,7 +37,7 @@ permalink: /
                     <img src="/assets/icons/internet/outline.svg" alt="" class="main-icon icon-red">
                     <h2>Raito Cloud</h2>
                     Manage Least Privilege principles at scale with our web interface.
-                    <!-- <a href="https://raitocommunity.slack.com" target="_blank">Talk to us on Slack</a>
+                    <!-- <a href="https://join.slack.com/t/raitocommunity/shared_invite/zt-13ti14ezm-RsGFyJq4FU9IEfjqg_POag" target="_blank">Talk to us on Slack</a>
                     <a href="https://github.com/raito-io/cli/blob/main/CONTRIBUTING.md" target="_blank">Contribute to Raito CLI</a>
                     <a href="https://raito.io"  target="_blank">Raito website</a> -->
                 </div>
@@ -64,7 +64,7 @@ permalink: /
                 <div>
                     <h2>Can't find what you need?</h2>
                     We welcome any questions or feedback on Slack.<br><br>
-                    <a href="https://raitocommunity.slack.com" target="_blank" class="site-button" style="width: 240px; text-align: center;">Join our Slack community</a>
+                    <a href="https://join.slack.com/t/raitocommunity/shared_invite/zt-13ti14ezm-RsGFyJq4FU9IEfjqg_POag" target="_blank" class="site-button" style="width: 240px; text-align: center;">Join our Slack community</a>
                 </div>
             </div>
             <div></div>
