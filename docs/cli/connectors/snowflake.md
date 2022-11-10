@@ -35,5 +35,5 @@ Currently, the following configuration parameters are available:
 * **sf-excluded-databases** (optional): The optional comma-separated list of databases that should be skipped.
 * **sf-excluded-schemas** (optional): The optional comma-separated list of schemas that should be skipped. This can either be in a specific database (as <database>.<schema>) or a just a schema name that should be skipped in all databases (e.g. `INFORMATION_SCHEMA`).
 * **sf-excluded-owners** (optional): The optional comma-separated list of owners that need to be skipped when syncing users or marked as read-only when importing roles as Access Providers. This is typically used to not synchronize the users that were imported from an external Identity Store (like Okta, Active Directory, ...).
-* **sf-standard-edition** (optional, `false` (default) | `true`): If set to `true`, Enterprise features will not be used. Relevant features to Raito that the Standard edition does not support are row access and masking policies, and tagging in the future. 
+* **sf-standard-edition** (optional, `false` (default) or `true`): If set to `true`, Enterprise features will not be used. Relevant features to Raito that the Standard edition does not support are row access and masking policies, and tagging in the future. 
 			
