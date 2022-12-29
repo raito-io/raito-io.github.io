@@ -1,5 +1,5 @@
 ---
-title: First sync with Raito Cloud
+title: Snowflake - First sync with Raito Cloud
 nav_order: 10
 parent: Guides
 permalink: /docs/guide/cloud
