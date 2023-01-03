@@ -1,5 +1,5 @@
 ---
-title: First sync with Raito Cloud
+title: Snowflake - First sync with Raito Cloud
 nav_order: 10
 parent: Guides
 permalink: /docs/guide/cloud
@@ -95,7 +95,7 @@ See [here](/docs/cli/intro) for more information about what happens exactly.
 When the `raito run` command finished successfully, go back to 
 Raito Cloud. 
 
-On the dashboard you will now some initial insights that we extract from the data that was synchronized. If you go to *Data Sources > Snowflake Test* (i.e. the data source that we've created before), you should be able to see when the last sync was in the *General information*. When you scroll down you can also navigate through the data objects in your Snowflake warehouse.
+On the dashboard you will now see some initial insights that we extract from the data that was synchronized. If you go to *Data Sources > Snowflake Test* (i.e. the data source that you have created before), you should be able to see when the last sync was done in the *General information* section. When you scroll down you can also navigate through the data objects in your Snowflake warehouse.
 
 When you go to *Users* in the navigation bar, you can see all the users of the Snowflake instance under *Identity Store* 'Snowflake Test'. Finally, in *Access Providers* you have an overview of all the roles in your Snowflake instance. If you click on one, you get a detailed view of who belongs to that role, and what they have access to with which permissions. 
 
