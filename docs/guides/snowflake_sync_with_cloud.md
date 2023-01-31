@@ -49,7 +49,7 @@ Once the data source has been created, you are ready to connect the Raito CLI wi
 
 While it is possible (and the default) to use the `ACCOUNTADMIN` role, it is highly recommended to create a custom role and accompanying user in Snowflake to be used by the Snowflake CLI connector.
 
-Therfore, we'll create a role (named `RAITO_SYNC`) and provide it with the necessary permissions. Execute the following queries in your Snowflake account:
+Therfore, we'll create a role (named `RAITO_SYNC`) and provide it with the necessary permissions. To do this, execute the following queries in your Snowflake account:
 
 ```sql
 CREATE OR REPLACE ROLE RAITO_SYNC;

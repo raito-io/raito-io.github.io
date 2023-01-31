@@ -14,11 +14,13 @@ For example:
 ```bash
 $> raito <command> --config-file myconfig.yaml
 ```
-The configuration file allows you to specify multiple targets instead of only 1 (see later). Environment variables can be used in the configuration file by using double curly brackets, e.g. {% raw %}
+
+The configuration file allows you to specify multiple targets instead of only 1 (see later). Environment variables can be used in the configuration file by using double curly brackets, e.g. 
+
 ```js
 sf-password: "{{SNOWFLAKE_PASSWORD}}"
 ```
-{% endraw %}
+
 1. **Flags**: you can use the command line flags directly on the CLI to pass in configuration parameters.<br>
 Note: this limits you to only one target (see later).
 
@@ -45,13 +47,11 @@ In the case of configuration through a file; some of the global, command-specifi
  - **repositories** allows you to specity a Github Personal Account Token to download a connector from a private repository. It can be configured like
 
 
- {% raw %}
 ```yaml
 repositories:
   - name: raito-io
     token: "{{GITHUB_PERSONAL_ACCOUNT_TOKEN}}"
 ```
- {% endraw %}
 
 ## Command specific parameters
 A specific command can have its own parameters. These can be revealed by doing
@@ -105,6 +105,7 @@ Each connector will have its specific set of parameters. These are defined in th
 ```bash
 $> raito info <connector-name> <connector-version>
 ```
+
 The value for `<connector-name>` is as defined in the target configuration, e.g. `raito.io/cli-plugin-snowflake`. If `<connector-version>` is not specified, it will use the latest version. The Snowflake connector's parameters are documented [here](/docs/cli/connectors/snowflake#snowflake-specific-parameters).
 
 These can either be specified under the target definition in the configuration file, as seen in the [example configuration file](#configuration-file), or directly on the command line (when the single target is specified there).

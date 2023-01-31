@@ -8,21 +8,21 @@ permalink: /docs/cli/connectors/snowflake
 
 # Snowflake
 
-[Snowflake](https://www.snowflake.com){:target="_blank"} is a cloud-based data warehouse that you can use without having to worry about infrastructure. Its data object hierarchy is 
-`database` > `schema` > `table` > `column`. Additionally, you need access to a compute resource, or `warehouse`, to run queries. Snowflake uses role-based access controls.
+[Snowflake](https://www.snowflake.com){:target="_blank"} is a cloud-based data warehouse that you can use without having to worry about infrastructure. 
+Using the Raito CLI Snowflake Connector you can easily enable data access management for Snowflake.
 
-The current connector supports
-* Import and export of Snowflake roles
-* Import into Raito Cloud of users
-* Import into Raito Cloud of data objects
-* Import into Raito Cloud of data usage information
+The connector supports
+* Import of existing Snowflake roles into Raito Cloud
+* Import into Raito Cloud of users into Raito Cloud
+* Import into Raito Cloud of data objects into Raito Cloud
+* Import into Raito Cloud of data usage information into Raito Cloud
+* Updating Snowflake roles as defined in Raito Cloud or using access-as-code
 
 The connector is available [here](https://github.com/raito-io/cli-plugin-snowflake){:target="_blank"}.
 
 ## Prerequisites
-
 The Snowflake connector requires the credentials to a user in your Snowflake account with the necessary permissions to execute the queries needed to perform its task.
-The Snowflake connector will sign in with those credentials and assume a Snowflake Role. By default, the `ACCOUNTADMIN` role is used, however it is highly recommended to define a custom role to use for this purpose. The `sf-role` parameter can be used to specify the role to use.
+The Snowflake connector will sign in using the credentials you provide and assume a Snowflake Role. By default, the `ACCOUNTADMIN` role is used, however it is highly recommended to define a custom role to use for this purpose. The `sf-role` parameter can be used to specify the role to use.
 
 The table below describes the permissions that are required by this role.
 
