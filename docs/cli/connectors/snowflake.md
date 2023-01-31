@@ -29,8 +29,8 @@ The table below describes the permissions that are required by this role.
 | Permission  | Object  | Purpose  |
 |---|---|---|
 | IMPORTED PRIVILEGES  | SNOWFLAKE database  | To get usage data  |
-| CREATE ROLE  | ACCOUNT  | To create the necessary roles in Snowflake  |
-| MANAGE GRANTS  | ACCOUNT  | To create and update the necessary roles in Snowflake  |
+| CREATE ROLE  | ACCOUNT  | To create new roles in Snowflake  |
+| MANAGE GRANTS  | ACCOUNT  | To configure the roles in Snowflake  |
 | APPLY MASKING POLICY  | ACCOUNT  | To read and apply column masking policies + provides permission to fetch database,schema and table metadata  |
 | APPLY ROW ACCESS POLICY  | ACCOUNT  | To read and apply row-level security policies + provides permission to fetch database,schema and table metadata  |
 | USAGE  | Warehouse  | To run queries for fetching all the meta data. This permission should be set on the default warehouse for this user  |

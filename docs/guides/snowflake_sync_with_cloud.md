@@ -62,14 +62,17 @@ GRANT USAGE ON WAREHOUSE COMPUTE_WH TO ROLE RAITO_SYNC;
 
 ```
 
+Note: we're using the `COMPUTE_WH` warehouse here. You can use another warehouse as long as this is the default warehouse for the user.
+
 Next, we'll create a user (named `raito`) and assign it to the newly created role:
 
 ```sql
-CREATE USER raito PASSWORD='abc123' MUST_CHANGE_PASSWORD = false;
+CREATE USER raito PASSWORD='abc123' MUST_CHANGE_PASSWORD = false DEFAULT_WAREHOUSE=COMPUTE_WH;
 GRANT ROLE RAITO_SYNC TO USER raito;
 ```
 
-You should, of course, pick a secure password instead of `abc123` to protect the user account.
+You should, of course, pick a secure password instead of `abc123` to protect the user account. 
+As described above, you can also use another warehouse.
 
 ## Raito CLI Configuration
 
