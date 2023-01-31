@@ -14,11 +14,14 @@ For example:
 ```bash
 $> raito <command> --config-file myconfig.yaml
 ```
-The configuration file allows you to specify multiple targets instead of only 1 (see later). Environment variables can be used in the configuration file by using double curly brackets, e.g. {% raw %}
+
+The configuration file allows you to specify multiple targets instead of only 1 (see later). Environment variables can be used in the configuration file by using double curly brackets, e.g. 
+{% raw %}
 ```js
 sf-password: "{{SNOWFLAKE_PASSWORD}}"
 ```
 {% endraw %}
+
 1. **Flags**: you can use the command line flags directly on the CLI to pass in configuration parameters.<br>
 Note: this limits you to only one target (see later).
 
@@ -44,14 +47,13 @@ In the case of configuration through a file; some of the global, command-specifi
  - **log-output** enable full line-by-line logging instead of the logging summary.
  - **repositories** allows you to specity a Github Personal Account Token to download a connector from a private repository. It can be configured like
 
-
- {% raw %}
+{% raw %}
 ```yaml
 repositories:
   - name: raito-io
     token: "{{GITHUB_PERSONAL_ACCOUNT_TOKEN}}"
 ```
- {% endraw %}
+{% endraw %}
 
 ## Command specific parameters
 A specific command can have its own parameters. These can be revealed by doing
@@ -66,6 +68,7 @@ $> raito <command> --help
 - **skip-data-source-sync**: If set, the data source meta data synchronization step to Raito Cloud will be skipped for each of the targets.
 - **skip-data-usage-sync**: If set, the data usage information synchronization step to Raito Cloud  will be skipped for each of the targets.
 - **skip-identity-store-sync**: If set, the identity store synchronization step to Raito Cloud will be skipped for each of the targets.
+- **disable-websocket**: When the frequency parameter is defined, by default, the CLI will set up a websocket connection to Raito Cloud to continuously listen to changes to access providers to be able to apply them within seconds. If this flag is set, the websocket connection will not be created and only the full syncs will run regularly. This flag has only effect if **frequency** is set.
 <!-- - **delete-untouched**: false by default. Removes objects that have not been updated during the CLI sync. For instance, if set to false during a data source sync, data objects that do not exist anymore in the target will not be removed from Raito Cloud.  -->
 <!-- - **replace-tags**:  TODO: should we document this as we do not support groups right now?  -->
 <!-- - **delete-temp-files**: false by default. Delete temporary files that contain the information extracted from the  target and are uploaded to Raito Cloud.  -->
@@ -104,6 +107,7 @@ Each connector will have its specific set of parameters. These are defined in th
 ```bash
 $> raito info <connector-name> <connector-version>
 ```
+
 The value for `<connector-name>` is as defined in the target configuration, e.g. `raito.io/cli-plugin-snowflake`. If `<connector-version>` is not specified, it will use the latest version. The Snowflake connector's parameters are documented [here](/docs/cli/connectors/snowflake#snowflake-specific-parameters).
 
 These can either be specified under the target definition in the configuration file, as seen in the [example configuration file](#configuration-file), or directly on the command line (when the single target is specified there).

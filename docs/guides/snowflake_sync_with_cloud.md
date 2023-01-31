@@ -10,6 +10,7 @@ permalink: /docs/guide/cloud
 In this guide we'll walk you through an example of how to connect Raito Cloud to a Snowflake data warehouse through the Raito CLI. We'll 
 - make sure that Raito CLI is installed and available
 - log into Raito Cloud and create a data source
+- create a role and user in Snowflake to use with the CLI
 - configure Raito CLI to connect to Raito Cloud and synchronize with the previously-created data source
 - run a first sync
 - run the synchronization periodically using GitHb Actions
@@ -44,6 +45,35 @@ In the left navigation pane go to `Data Sources` > `All data sources`. You shoul
 
 Once the data source has been created, you are ready to connect the Raito CLI with it. 
 
+## Create Snowflake role and user
+
+While it is possible (and the default) to use the `ACCOUNTADMIN` role, it is highly recommended to create a custom role and accompanying user in Snowflake to be used by the Snowflake CLI connector.
+
+Therfore, we'll create a role (named `RAITO_SYNC`) and provide it with the necessary permissions. To do this, execute the following queries in your Snowflake account:
+
+```sql
+CREATE OR REPLACE ROLE RAITO_SYNC;
+GRANT CREATE ROLE ON ACCOUNT TO ROLE RAITO_SYNC;
+GRANT MANAGE GRANTS ON ACCOUNT TO ROLE RAITO_SYNC;
+GRANT APPLY MASKING POLICY ON ACCOUNT TO ROLE RAITO_SYNC;
+GRANT APPLY ROW ACCESS POLICY ON ACCOUNT TO ROLE RAITO_SYNC;
+GRANT IMPORTED PRIVILEGES ON DATABASE SNOWFLAKE TO ROLE RAITO_SYNC;
+GRANT USAGE ON WAREHOUSE COMPUTE_WH TO ROLE RAITO_SYNC;
+
+```
+
+Note: we're using the `COMPUTE_WH` warehouse here. You can use another warehouse as long as this is the default warehouse for the user.
+
+Next, we'll create a user (named `raito`) and assign it to the newly created role:
+
+```sql
+CREATE USER raito PASSWORD='abc123' MUST_CHANGE_PASSWORD = false DEFAULT_WAREHOUSE=COMPUTE_WH;
+GRANT ROLE RAITO_SYNC TO USER raito;
+```
+
+You should, of course, pick a secure password instead of `abc123` to protect the user account. 
+As described above, you can also use another warehouse.
+
 ## Raito CLI Configuration
 
 On the main page of the newly created data source, you will see a configuration snippet with the necessary information to connect the Raito CLI to this data source.
@@ -66,14 +96,15 @@ targets:
     
     # Specifying the Snowflake specific config parameters
     sf-account: "{{SF_ACCOUNT}}"
-    sf-user: "{{SF_USER}}"
+    sf-user: "raito"
     sf-password: "{{SF_PASSWORD}}"
+    sf-role: "RAITO_SYNC"
 ```
 {% endraw %}
 
 It contains
 - a section to configure the connection to Raito Cloud: `api-user`, `api-secret`, and `domain`. `domain` is the part of the URL from your Raito Cloud instance (e.g. https://`domain`.raito.cloud). `api-user` and `api-secret` are the login credentials for your Raito Cloud instance.
-- `targets` has one Snowflake target defined. You can copy paste this section from the snippet that is shown on the page of the newly created data source in Raito cloud. The first part defines the target, connector and corresponding object ID's in Raito Cloud (i.e. `data-source-id` and `identity-store-id`). The second part is the configuration to connect to your Snowflake instance.
+- `targets` has one Snowflake target defined. You can copy paste this section from the snippet that is shown on the page of the newly created data source in Raito cloud. The first part defines the target, connector and corresponding object ID's in Raito Cloud (i.e. `data-source-id` and `identity-store-id`). The second part is the configuration to connect to your Snowflake instance. We're using the newly created `raito` user and `RAITO_SYNC` role.
 
 Feel free to customize this configuration further. Find more information in the sections about [general configuration](/docs/cli/configuration#command-specific-parameters) and [Snowflake-specific configuration](/docs/cli/connectors/snowflake#snowflake-specific-parameters). 
 Remember that you can use double curly brackets to reference environment variables, like we did for the `api-user` field and others in the example.
@@ -103,9 +134,11 @@ When you go to *Users* in the navigation bar, you can see all the users of the S
 
 There is a [GitHub Action available](https://github.com/raito-io/cli-setup){:target="_blank"} which allows you to easily use the Raito CLI in your own pipelines. 
 
-You can use this GitHub Action to store access information in a repository and automatically deploy it to your data warehouse through the `raito access` command (as explained in [this guide](/docs/guide/access)), but also, for example, to run a nightly sync of your warehouse environment through the `raito run` command.
+You can use this GitHub Action to store access information in a repository and automatically deploy it to your data warehouse through the `raito access` command (as explained in [this guide](/docs/guide/access)), but also for example, to run a nightly sync of your warehouse environment through the `raito run` command.
 
-In the example GitHub Actions workflow yaml file below, we run the `raito run` command every night at 3am.
+In this case, the near real-time sync (using websockets) will not be active as the CLI will only run one full synchronization.
+
+In the example GitHub Actions workflow YAML file below, we run the `raito run` command every night at 3am.
 The version of the Raito CLI can be specified with `with: version` in the `Setup Raito CLI` step, but if not specified, it will use the latest available version. We show it, but commented it out, for completeness.
 
 {% raw %}
