@@ -602,6 +602,17 @@ p {
   }
 }
 
+.main-content h1,
+.main-content h2,
+.main-content h3,
+.main-content h4,
+.main-content h5,
+.main-content h6,
+#toctitle {
+  margin-top: 1em;
+}
+
+
 .footer{
   padding-top:24px;
   padding-bottom:40px;
