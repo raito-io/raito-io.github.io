@@ -18,7 +18,7 @@ $> brew install raito-io/tap/cli
 
 ### Manual installation
 
-If you don't have Brew you can also manually install. To do this, go to [the Github releases](https://github.com/raito-io/cli/releases){:target="_blank"}, find the version you want (the latest is always recommended) and find the build that corresponds to your operating system. Right-click on the file and copy the link URL. 
+If you don't have Brew you can also install it manually. To do this, go to [the Github releases](https://github.com/raito-io/cli/releases){:target="_blank"}, find the version you want (the latest is always recommended) and find the build that corresponds to your operating system. Right-click on the file and copy the link URL. 
 The following snippet shows and example of how you can then use that URL to download and unpack the Raito CLI.
 
 ```bash
