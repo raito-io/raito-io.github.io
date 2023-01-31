@@ -711,7 +711,7 @@ img.footer-logo-link {
 }
 
 [class^="language-"] {
-  background-color: $colors-grey-1 !important;
+  background-color: white !important;
   font-family: ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace;
   font-size: $typography-font-size-1;
   line-height: $typography-line-heights-4;
@@ -723,7 +723,7 @@ code {
   padding: 0.2em 0.15em;   
   font-size: $typography-font-size-1;
   font-weight: 400; 
-  background-color: $colors-grey-1;
+  background-color: white;
   border: 1px solid $colors-red-9 opacity($color: $colors-red-9); 
   border-radius: 4px; 
 }
