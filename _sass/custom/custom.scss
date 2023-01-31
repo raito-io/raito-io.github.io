@@ -617,6 +617,12 @@ p {
   margin-bottom: 0.5em;
 }
 
+.highlight pre,
+.hightlight,
+.pre.highlight {
+  background-color: white;
+}
+
 
 .footer{
   padding-top:24px;
