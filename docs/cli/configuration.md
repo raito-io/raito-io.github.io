@@ -16,10 +16,11 @@ $> raito <command> --config-file myconfig.yaml
 ```
 
 The configuration file allows you to specify multiple targets instead of only 1 (see later). Environment variables can be used in the configuration file by using double curly brackets, e.g. 
-
+{% raw %}
 ```js
 sf-password: "{{SNOWFLAKE_PASSWORD}}"
 ```
+{% endraw %}
 
 1. **Flags**: you can use the command line flags directly on the CLI to pass in configuration parameters.<br>
 Note: this limits you to only one target (see later).
@@ -46,12 +47,13 @@ In the case of configuration through a file; some of the global, command-specifi
  - **log-output** enable full line-by-line logging instead of the logging summary.
  - **repositories** allows you to specity a Github Personal Account Token to download a connector from a private repository. It can be configured like
 
-
+{% raw %}
 ```yaml
 repositories:
   - name: raito-io
     token: "{{GITHUB_PERSONAL_ACCOUNT_TOKEN}}"
 ```
+{% endraw %}
 
 ## Command specific parameters
 A specific command can have its own parameters. These can be revealed by doing
