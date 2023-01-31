@@ -9,27 +9,18 @@ permalink: /docs/cli/configuration
 Configuration parameters can be passed into the CLI in two different ways:
 
 
-1. **File**: you can specify the configuration parameters in a YAML file. By default, *raito.yml* or *raito.yaml* (in the working directory or '~/.raito') is used. The file to use, can be specified using the *config-file* flag.<br> 
+1. **File**: you can specify the configuration parameters in a YAML file. By default, *raito.yml* or *raito.yaml* (in the working directory or '~/.raito') is used.<br>
+The configuration file allows you to specify multiple targets instead of only 1 (see later). Environment variables can be used in the configuration file by using double curly brackets, e.g. {% raw %} `sf-password: "{{SNOWFLAKE_PASSWORD}}"` {% endraw %}<br>
+The file to use, can be specified using the *config-file* flag.<br> 
 For example:
 ```bash
 $> raito <command> --config-file myconfig.yaml
 ```
 
-The configuration file allows you to specify multiple targets instead of only 1 (see later). Environment variables can be used in the configuration file by using double curly brackets, e.g. 
-{% raw %}
-```js
-sf-password: "{{SNOWFLAKE_PASSWORD}}"
-```
-{% endraw %}
-
 1. **Flags**: you can use the command line flags directly on the CLI to pass in configuration parameters.<br>
 Note: this limits you to only one target (see later).
 
-
-<!-- 1. **Environment Variables**: the flags can also be specified as environment variables. The name of the environment variable is constructed by taking the command line flag name, convert it to upper-case, replace dashes (-) to underscores (\_) and prefix with *RAITO\_*.<br>
-e.g. parameter *--config-file* as command line flag becomes *RAITO_CONFIG_FILE* as an environment variable. -->
-
-The recommended way is to use the configuration through file, whereas configuration flags are convenient for development and testing. The different parameters can be divided into the following categories:
+The recommended way is to use the configuration file, whereas configuration flags are convenient for development and testing. The different parameters can be divided into the following categories:
 - [Global parameters](#global-parameters). Parameters applicable to `raito` command, like logging. 
 - [Command-specific parameters](#command-specific-parameters). Parameters applicable to a sub-command, e.g. `raito access`.
 - [Raito parameters](#raito-parameters). Parameters required to connect to Raito Cloud. 
@@ -43,7 +34,6 @@ In the case of configuration through a file; some of the global, command-specifi
  - **log-file** *(optional)*: the file path of the log file to use. If not specified, no logging to file is done.
  - **debug** *(optional)*: a boolean flag to request extra debug output. Can be useful when building a plugin or when something is wrong.
  - **only-targets** *(optional)*: comma-separated list of targets that need to be run. If left empty, all targets will be run. 
- <!-- - **environment**: does not need to mentioned I guess. -->
  - **log-output** enable full line-by-line logging instead of the logging summary.
  - **repositories** allows you to specity a Github Personal Account Token to download a connector from a private repository. It can be configured like
 
