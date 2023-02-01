@@ -13,9 +13,11 @@ Configuration parameters can be passed into the CLI in two different ways:
 The configuration file allows you to specify multiple targets instead of only 1 (see later). Environment variables can be used in the configuration file by using double curly brackets, e.g. {% raw %} `sf-password: "{{SNOWFLAKE_PASSWORD}}"` {% endraw %}<br>
 The file to use, can be specified using the *config-file* flag.<br> 
 For example:
+{% raw %}
 ```bash
 $> raito <command> --config-file myconfig.yaml
 ```
+{% endraw %}
 
 1. **Flags**: you can use the command line flags directly on the CLI to pass in configuration parameters.<br>
 Note: this limits you to only one target (see later).
