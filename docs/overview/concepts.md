@@ -36,7 +36,7 @@ Each data source have one *native* identity store linked to it, which cannot be 
 
 Next to that, also external (standalone) identity stores can be imported (e.g. Okta, Active Directory, ...). These can provide additional information about the users. When such an external identity store is linked to a data source, the groups from that identity store can also be used when providing access to that data source.
 
-An identity store can also me marked as *master* which indicates that this is the main identity store of your company. The groups in this identity store can be used everywhere.
+An identity store can also be marked as *master* which indicates that this is the main identity store of your company. The groups in this identity store can be used everywhere.
 
 ### Account
 An account is a representation of a user in a single Identity Store.
