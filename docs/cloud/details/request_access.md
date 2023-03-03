@@ -19,8 +19,6 @@ To start a request, you need to select which type of request you want to raise. 
 
 - **Access to an access provider**: you know to which access provider(s) you want to be added
 - **Access to a data object:** you know to which data object(s) you want to obtain access to
-- ~~**Access like your colleague**: you know who’s data access rights you want to inherit~~
-- ~~**Free text**: you don’t know which access you require~~
 
 ## Why
 
@@ -32,8 +30,6 @@ Now you will be selecting what data you want access to. Depending on the type of
 
 - **Access to an access provider**: select 1 or more access providers
 - **Access to a data object:** select 1 or more data objects and define the permissions you want to obtain.
-- ~~**Access like your colleague**: select a colleague~~
-- ~~**Free text**: free text field~~
 
 ## Who
 
