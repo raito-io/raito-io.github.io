@@ -17,8 +17,8 @@ In setting up a data source, you provide details such as database access credent
 
 ![Data Source overview](/assets/images/cloud/ds_overview_add.png)
 
-{: .note }
-ℹ️ To add a data source, you will need the Admin role in Raito. See [Raito user management](/docs/cloud/user_management) for more information on roles in Raito.
+{: .info }
+> ℹ️ To add a data source, you will need the Admin role in Raito. See [Raito user management](/docs/cloud/user_management) for more information on roles in Raito.
 
 To add a new data source in Raito Cloud, take the following steps:
 
@@ -32,4 +32,5 @@ Note: This choice is purely meant to guide you through setting up this specific 
 
 ![Data Source details](/assets/images/cloud/ds_config.png)
 
-Once your data source is connected and a first synchronization ran successfully, you’ll be able to start exploring the current state of your [access controls](/docs/cloud/finegrained_access) and [usage](/docs/cloud/usage_observability).
+Once your data source is connected and a first synchronization ran successfully, you’ll be able to start exploring the current state of your access controls and [usage](/docs/cloud/usage_observability).
+<!-- TODO: add link to access controls when available -->

@@ -6,3 +6,5 @@ has_children: false
 has_toc: false
 permalink: /docs/cloud/policy_recommender
 ---
+
+# Policy recommender

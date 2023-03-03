@@ -16,8 +16,8 @@ Managing data access starts with observing existing access to data. Raito Cloud 
 - **Dashboard**: the dashboard provides an aggregated overview of access, both based on data objects and users.
 
 
-{: .note }
-ℹ️ To view observability insights, you need the necessary permissions. See [Raito user management](/docs/cloud/user_management) for more information on which roles can see what in Raito.
+{: .info }
+> ℹ️ To view observability insights, you need the necessary permissions. See [Raito user management](/docs/cloud/user_management) for more information on which roles can see what in Raito.
 
 ## Access insights
 

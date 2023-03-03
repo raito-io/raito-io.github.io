@@ -15,8 +15,8 @@ You can add intelligence to managing data access by observing data usage. Raito 
 - **Users**: all usage from a given user is grouped on the `Usage` tab of a user
 - **Dashboard**: the dashboard provides an aggregated overview of usage, both based on data objects as users.
 
-{: .note }
-ℹ️ To view observability insights, you need the necessary permissions. See [Raito user management](/docs/cloud/user_management) for more information on which roles can see what in Raito.
+{: .info }
+> ℹ️ To view observability insights, you need the necessary permissions. See [Raito user management](/docs/cloud/user_management) for more information on which roles can see what in Raito.
 
 
 ## Usage insights
