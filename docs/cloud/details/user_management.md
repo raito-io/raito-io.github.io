@@ -9,19 +9,19 @@ permalink: /docs/cloud/user_management
 
 # Raito user management
 
-Raito user management in Raito is the responsibility of an admin. Such an admin can provide access to users on the user management page in the admin pane. An admin can provide access via:
+<!-- Raito user management in Raito is the responsibility of an admin. Such an admin can provide access to users on the user management page in the admin pane. An admin can provide access via:
 
 - Setting up SSO to Raito
 - Granting access to domains: e.g. everyone with a *@raito.io address
 - Personal invite on email
 
-By default, every new user has no Raito roles assigned, which means he is a plain user in the system.
+By default, every new user has no Raito roles assigned, which means he is a plain user in the system. -->
 
-# Roles and rights
+## Roles and rights
 
 Raito has two types of roles, namely global and local roles. A global role provides you certain permissions within Raito, a local role provides you certain permissions with regards to a specific asset.
 
-## Raito roles
+### Raito roles
 
 Raito considers the following global roles:
 
@@ -37,11 +37,11 @@ Next to this global role, we have a local role, owner. An owner can own the foll
 - **Owner of an identity store**: an owner of the identity store is the only one that can remove the identity store
 - **Owner of a data object**: an owner of a data object is the one responsible to manage the access to the data object. Both via approving in the access request workflow as via edition of access providers to the data object.
 
-## Role assignment
+### Role assignment
 
 Global roles can be assigned through the user management page in the admin pane by clicking the three dots next to someones name. Local roles, like ownership of a data object, can be assigned on the assets page. This local assignment can be performed by an admin or via someone with the same local role.
 
-## Role permissions - global roles
+### Role permissions - global roles
 
 | Permission | Admin | Integrator | Creator | Observer | User |
 | --- | --- | --- | --- | --- | --- |
@@ -59,7 +59,7 @@ Global roles can be assigned through the user management page in the admin pane 
 | Approve an access request | ⛔️ | ⛔️ | ⛔️ | ⛔️ | ⛔️ |
 | Manage Access Providers | ⛔️ | ✅ | ✅ | ⛔️ | ⛔️ |
 
-## Role permissions - local roles
+### Role permissions - local roles
 
 | Permission | Data Source owner (*) | Identity Store owner | Data Object owner |
 | --- | --- | --- | --- |
@@ -74,17 +74,17 @@ Global roles can be assigned through the user management page in the admin pane 
 
 (**) Explained in the following section
 
-## Data Object owners & Access Providers
+### Data Object owners & Access Providers
 
 Owners of Data Objects can manage Access Providers within the scope of the Data Objects they own. The same applies for a Data Source owner, as he or she also owns all Data Objects in the Data Source.
 
-### An owner owns all Data Objects of an Access Provider
+#### An owner owns all Data Objects of an Access Provider
 
 ✅ Sees everything 
 
 ☑️ Can edit everything, but cannot add Data Objects which he does not own
 
-### An owner owns at least 1 Data Object anywhere in the system
+#### An owner owns at least 1 Data Object anywhere in the system
 
 ✅ Sees everything
 

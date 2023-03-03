@@ -53,3 +53,9 @@ aux_links_new_tab: true
 
 ga_tracking: G-S8V41213MK
 ga_tracking_anonymize_ip: true
+
+
+callouts:
+  info:
+    title: 
+    color: indigo
