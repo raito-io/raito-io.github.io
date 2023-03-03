@@ -1,23 +1,43 @@
 ---
 title: Raito Cloud
 nav_order: 40
-has_children: false
+has_children: true
 has_toc: false
 permalink: /docs/cloud
 ---
 
 # Raito Cloud
 
-**Raito Cloud** supercharges all the information gathered from the [Raito CLI](/docs/cli). Its main purpose is to *visualize* and *connect* the different types of information, so that you can clearly see
-- the information available in your data warehouses,
-- who has access to what,
-- which data assets are accessible by few or many people,
-- which data assets are barely used,
-- ...
+✅ Insights into existing data access and usage
 
-At this point we import information about the data objects, users, access providers and data usage from the data warehouse. The only information that is pushed to the data warehouse
-is the data access. For the initial release there is a one-to-one relationship between access providers and the granted access (concretely: roles in Snowflake). This will allow, in the future, to
-- more holistically manage access in the UI that can be translated to granular access for the CLI
-- minimize the blast radius; certain people might have the right to access certain data, but why give them this access all the time? 
-- ABAC or attribute-based access controls where people can get access to data through metadata tags.
-- Manage access across all your data warehouses in a uniform way, even if they're using a different technology. 
+✅ Request access to the data you require
+
+✅ Manage access across all your data sources through collaboration
+
+✅ Guidance towards data access management best-practices
+
+![Raito Overview](/assets/images/cloud/dashboard.png)
+
+
+{% include cloud_navigation.html %}
+
+## Why Raito Cloud?
+
+Use Raito Cloud to scale data access management and enable true data ownership.
+
+- Allow data consumers to seek for data they require and request access to it.
+- Enable data owners to manage access to the data assets within their responsibility.
+- Define and enforce central policies to ensure regulatory compliance
+- Empower data owners and data governance specialists via insights in data access and data usage to increase data access maturity
+- Provide consistent data access to your users across all data sources
+- Automatically recommend actions to improve your data access maturity
+
+## Core concepts
+
+Raito uses a combination of common and custom terminology. The core concepts are listed [here](/docs/overview/concepts) and include the following terms, 
+* Data source
+* Data object
+* Identity store
+* Account
+* User
+* Access provider
