@@ -41,6 +41,16 @@ $> raito --help
 
 Find out more about the different actions you can perform with the CLI [here](/docs/cli/commands). 
 
+### Using Docker
+To run the Raito CLI **run** command continuously, a docker container can be used.
+Download the latest Docker image by using the following command:
+
+```bash
+$> docker pull ghcr.io/raito-io/raito-cli-runner:latest
+```
+
+Find out more about how to run the Docker Raito CLI runner [here](/docs/cli/docker).
+
 ## Further reading
 
 Next, you can take a look at the different [commands](/docs/cli/commands) the Raito CLI has to offer or learn how to [configure](/docs/cli/configuration) the CLI to start connecting it to your data warehouse(s) and Raito Cloud.
