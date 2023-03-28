@@ -3,6 +3,7 @@ title: Installation
 parent: Raito CLI
 nav_order: 20
 permalink: /docs/cli/installation
+has_children: true
 ---
 # Installation
 
@@ -15,6 +16,16 @@ Simply execute the following in a terminal window:
 ```bash
 $> brew install raito-io/tap/cli
 ```
+
+### Using Docker
+To run the Raito CLI **run** command continuously, a docker container can be used.
+Download the latest Docker image by using the following command:
+
+```bash
+$> docker pull ghcr.io/raito-io/raito-cli-runner:latest
+```
+
+Find out more about how to run the Docker Raito CLI runner [here](/docs/cli/installation/docker).
 
 ### Manual installation
 
@@ -40,16 +51,6 @@ $> raito --help
 ```
 
 Find out more about the different actions you can perform with the CLI [here](/docs/cli/commands). 
-
-### Using Docker
-To run the Raito CLI **run** command continuously, a docker container can be used.
-Download the latest Docker image by using the following command:
-
-```bash
-$> docker pull ghcr.io/raito-io/raito-cli-runner:latest
-```
-
-Find out more about how to run the Docker Raito CLI runner [here](/docs/cli/docker).
 
 ## Further reading
 

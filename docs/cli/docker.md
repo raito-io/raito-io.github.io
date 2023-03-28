@@ -1,8 +1,9 @@
 ---
 title: Docker
-parent: Raito CLI
+parent: Installation
+grand_parent: Raito CLI
 nav_order: 23
-permalink: /docs/cli/docker
+permalink: /docs/cli/installation/docker
 ---
 # Docker Raito CLI Runner
 
@@ -34,13 +35,23 @@ ENTRYPOINT /raito-cli-runner run -f $CLI_FREQUENCY --config-file /config/raito.y
 
 You can override the default entrypoint by using the `--entrypoint` option when execution `docker run`
 
+## Logs
+By default, the log output of the Raito CLI are forwarded to `/dev/stdout` and `/dev/stderr`. 
+If you like to forward to a specific (mounted) file, override the default locations by configuring `RAITO_CLI_CONTAINER_STDOUT_FILE` and `RAITO_CLI_CONTAINER_STDERR_FILE` environment variables.
+
+```bash
+$> docker run --mount type=bind,source="<Your local Raito configuration file>",target="/config/raito.yml",readonly -v <Directory to store logs>:/logs/ --env "RAITO_CLI_CONTAINER_STDOUT_FILE=/logs/output.txt" --env "RAITO_CLI_CONTAINER_STDERR_FILE=/logs/err.txt" raito-cli-runner:latest
+```
+
 ## Environment variables
 The following environment variables are used in the default entrypoint:
 
-| Environment variable    | Description                                                                              | Default Value   |
-|-------------------------|------------------------------------------------------------------------------------------|-----------------|
-| `TZ`                    | Timezone used by the container                                                           | Etc/UTC         |
-| `CLI_FREQUENCY`         | The frequency used to do the sync (in minutes).                                          | 60              |
-| `RAITO_CLI_UPDATE_CRON` | The cronjob definition for when the container needs to check if a newer CLI version is available. | `0 2 * * *`     |
+| Environment variable              | Description                                                                                       | Default Value |
+|-----------------------------------|---------------------------------------------------------------------------------------------------|---------------|
+| `TZ`                              | Timezone used by the container                                                                    | Etc/UTC       |
+| `CLI_FREQUENCY`                   | The frequency used to do the sync (in minutes).                                                   | 60            |
+| `RAITO_CLI_UPDATE_CRON`           | The cronjob definition for when the container needs to check if a newer CLI version is available. | `0 2 * * *`   |
+| `RAITO_CLI_CONTAINER_STDOUT_FILE` | Output file stdout of the Raito CLI                                                               | `/dev/stdout` |
+| `RAITO_CLI_CONTAINER_STDERR_FILE` | Output file stderr of the Raito CLI                                                               | `/dev/stderr` |
 
 Additional environment variables, that could be referred in your Raito configuration file, can be mounted by using the existing docker environment arguments `--env` and `--env-file`.
