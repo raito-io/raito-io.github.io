@@ -1,12 +1,12 @@
 ---
 title: Google Cloud BigQuery
-parent: Connectors
-grand_parent: Raito CLI
-nav_order: 1
-permalink: /docs/cli/connectors/bigquery
+parent: Google Cloud
+grand_parent: Connectors
+nav_order: 2
+permalink: /docs/cli/connectors/googlecloud/bigquery
 ---
 
-# Google Cloud BigQuery
+# BigQuery
 
 [Google Cloud BigQuery](https://cloud.google.com/bigquery){:target="_blank"} is fully managed serverless data warehouse, part of the Google Cloud Platform, that enables scalable analysis over petabytes of data.
 
@@ -36,7 +36,7 @@ The service account needs to have the following roles on the GCP project
 A detailed step-by-step guide on how to create a service account, IAM role and execute the connector can be found within our [GCP And BigQuery guide](/docs/guide/bigquery).
 
 ### GSuite domain-wide delegation (optional)
-This prerequisite is optional and only necessary if you are only synchronizing a single BigQuery project. If you use the BigQuery connector in conjunction with the [Google Cloud Platform](/docs/cli/connectors/gcp) you can skip this.
+This prerequisite is optional and only necessary if you are only synchronizing a single BigQuery project. If you use the BigQuery connector in conjunction with the [Google Cloud Platform](/docs/cli/connectors/googlecloud/platform) you can skip this.
 
 As part of the Identity Store Synchronization, the GCP CLI plugin can leverage GSuite to pull in all your users, groups and group memberships. To achieve this, the service account used during the sync needs to have domain-wide delgation set up. A complete guide on how to do that is provided [here](https://apps.google.com/supportwidget/articlehome?hl=en&article_url=https%3A%2F%2Fsupport.google.com%2Fa%2Fanswer%2F162106%3Fhl%3Den&assistant_id=generic-unu&product_context=162106&product_name=UnuFlow&trigger_context=a){:target="_blank"}.
 
@@ -47,7 +47,7 @@ The following oAuth scopes are required
 
 Please take note of your "Customer ID" listed under Account > Account Settings in the admin console as you'll need this to set up the CLI later on.
 
-## GCP-specific CLI parameters
+## BigQuery-specific CLI parameters
 
 To see all parameters, type 
 ```bash
@@ -57,6 +57,7 @@ in a terminal window.
 
 Currently, the following configuration parameters are available:
 * **gcp-project-id** (mandatory): The id of your GCP project for which you want to sync BigQueryy.
+* **gcp-serviceaccount-json-location** (optoional): The location of the GCP ServiceAccount Key file (if not set `GOOGLE_APPLICATION_CREDENTIALS` environment variable is used)
 * **bq-include-hidden-datasets** (optional): when set to `true, hidden datasets will also be imported into Raito
 * **skip-unmanaged-iam-roles** (optional): If set to `false` (default `true`), we will import all IAM roles even the ones that are `not applicable`. They are then imported as not internalizable and used for observability purpose only. 
 * **gsuite-identity-store-sync** (optional): If set to `true` (default `false`), the identity store sync step will also pull information from GSuite.

@@ -1,9 +1,9 @@
 ---
 title: Google Cloud Platform
-parent: Connectors
-grand_parent: Raito CLI
+parent: Google Cloud
+grand_parent: Connectors
 nav_order: 1
-permalink: /docs/cli/connectors/gcp
+permalink: /docs/cli/connectors/googlecloud/platform
 ---
 
 # Google Cloud
@@ -78,6 +78,7 @@ in a terminal window.
 
 Currently, the following configuration parameters are available:
 * **gcp-organization-id** (mandatory): The id of your GCP organization.
+* **gcp-serviceaccount-json-location** (optoional): The location of the GCP ServiceAccount Key file (if not set `GOOGLE_APPLICATION_CREDENTIALS` environment variable is used)
 * **skip-unmanaged-iam-roles** (optional): If set to `false` (default `true`), we will import all IAM roles even the ones that are `not applicable`. They are then imported as not internalizable and used for observability purpose only. 
 * **gsuite-identity-store-sync** (optional): If set to `true` (default `false`), the identity store sync step will also pull information from GSuite.
 * **gsuite-customer-id** (optional): When `gsuite-identity-store-sync` is set to `true`, use this parameter to set the GSuite Customer ID.
