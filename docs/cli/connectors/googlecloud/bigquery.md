@@ -8,7 +8,7 @@ permalink: /docs/cli/connectors/googlecloud/bigquery
 
 # BigQuery
 
-[Google Cloud BigQuery](https://cloud.google.com/bigquery){:target="_blank"} is fully managed serverless data warehouse, part of the Google Cloud Platform, that enables scalable analysis over petabytes of data.
+[Google Cloud BigQuery](https://cloud.google.com/bigquery){:target="_blank"} is fully-managed serverless data warehouse, part of the Google Cloud Platform, that enables scalable analysis over petabytes of data.
 
 The connector is available [here](https://github.com/raito-io/cli-plugin-bigquery){:target="_blank"} and supports
 * Import of BigQuery Datasets, Tables and Columns as Data Objects into Raito Cloud

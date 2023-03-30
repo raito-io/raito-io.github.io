@@ -8,7 +8,7 @@ permalink: /docs/cli/connectors/googlecloud/platform
 
 # Google Cloud
 
-[Google Cloud](https://cloud.google.com){:target="_blank"} is a suite of cloud computing services offered by Google. It contains data storage services like Google Cloud Storage (GCS) and BigQuery. The goal of this connector is to provide an overarching data source when you for example manage multiple BigQuery data sources in Raito. In this way, the users, groups etc are shared among those data sources and we generate visibility in organization level access controls.
+[Google Cloud](https://cloud.google.com){:target="_blank"} is a suite of cloud computing services offered by Google. It contains data storage services like Google Cloud Storage (GCS) and BigQuery. The goal of this connector is to provide an overarching data source when you for example manage multiple BigQuery data sources in Raito. In this way, the users, groups, etc. are shared among those data sources and we generate visibility in organization level access controls.
 
 The connector is available [here](https://github.com/raito-io/cli-plugin-gcp){:target="_blank"} and supports
 * Import of the GCP Organization structure (Folders, Projects) as Data Objects into Raito Cloud

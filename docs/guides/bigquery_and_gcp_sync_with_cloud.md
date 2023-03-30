@@ -5,7 +5,7 @@ parent: Guides
 permalink: /docs/guide/bigquery
 ---
 
-# Synchronising Google Bigquery got the first time
+# Synchronising Google Bigquery for the first time
 
 In this guide we'll walk you through an example of how to connect Raito Cloud to your BigQuery data warehouse through the Raito CLI. We'll 
 - make sure that Raito CLI is installed and available
