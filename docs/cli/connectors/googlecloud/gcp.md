@@ -8,7 +8,7 @@ permalink: /docs/cli/connectors/googlecloud/platform
 
 # Google Cloud
 
-[Google Cloud](https://cloud.google.com){:target="_blank"} is a suite of cloud computing services offered by Google. It contains data storage services like Google Cloud Storage (GCS) and BigQuery. The goal of this connector is to provide an overarching data source when you for example manage multiple BigQuery data sources in Raito. In this way, the users, groups, etc. are shared among those data sources and we generate visibility in organization level access controls.
+[Google Cloud](https://cloud.google.com){:target="_blank"} is a suite of cloud computing services offered by Google. It contains data storage services like Google Cloud Storage (GCS) and BigQuery. The goal of this connector is to provide an overarching data source in case you want to manage multiple data storage service (e.g. multiple BigQuery data sources) in Raito. In this way, the users, groups, etc. are shared among those data sources and we generate visibility in organization level access controls.
 
 The connector is available [here](https://github.com/raito-io/cli-plugin-gcp){:target="_blank"} and supports
 * Import of the GCP Organization structure (Folders, Projects) as Data Objects into Raito Cloud
@@ -18,36 +18,36 @@ The connector is available [here](https://github.com/raito-io/cli-plugin-gcp){:t
 * Import of existing IAM Role grants on all levels (org, folder, project) as Access Providers  
 * Granting/Revoking IAM Role bindings on resources for users, groups and service accounts based on Access Providers defined in Raito Cloud
 
-Currently, during import of IAM bindings into Raito Cloud Access providers will only be created for the following IAM roles:
+Currently, during import of IAM bindings into Raito Cloud, Access Providers will only be created for the following IAM roles:
 * roles/owner
 * roles/editor
 * roles/viewer
 
-IAM bindings for roles other than the ones listed will be skipped unles `skip-unmanaged-iam-roles` is set to `false` in the connector configuration. In this case they will be imported but as not internalizable Access Providers meaning we only report on them but do not allow managing them within Raito Cloud.
+IAM bindings for roles other than the ones listed will be skipped unless `skip-unmanaged-iam-roles` is set to `false` in the connector configuration. In this case they will be imported, but as not-internalizable Access Providers, meaning we only report on them, but do not allow managing them within Raito Cloud.
 
 ## Prerequisites
 ### IAM Permissions
-The Google Cloud connector requires a GCP Service Account that has the necessary permissions to retrieve projects, folders, the GCP organizatop and their respective IAM policies.
+The Google Cloud connector requires a GCP Service Account that has the necessary permissions to retrieve projects, folders, the GCP organization and their respective IAM policies.
 
-The table below describes the IAM permissions needed for the plugin to function. These permissions can be assigned either through a custom IAM role or through existing roles that contain these.
+The table below describes the IAM permissions needed for the plugin to function. These permissions can be assigned either through a custom IAM role or through existing roles that contain them:
 
 | Permission  | Purpose  |
 |---|---|
 | resourcemanager.organizations.get | Retrieve the organization |
-| resourcemanager.organizations.getIamPolicy | Retreive who has IAM roles on the Organization level |
+| resourcemanager.organizations.getIamPolicy | Retrieve who has IAM roles on the Organization level |
 | resourcemanager.organizations.setIamPolicy | Revoke/Create IAM Role bindings based on Raito Access Providers. |
 |---|---|
-| resourcemanager.folders.get | To be able to detect folders within the organization and/or a folder. |
-| resourcemanager.folders.list | To be able to detect folders within the organization and/or a folder. |
-| resourcemanager.folders.getIamPolicy | Retreive who has IAM roles at the Folder level. |
-| resourcemanager.folders.setIamPolicy | Revoke/Create IAM Role bindings based on Raito Access Providers. |
+| resourcemanager.folders.get | To detect folders within the organization and/or a folder |
+| resourcemanager.folders.list | To detect folders within the organization and/or a folder |
+| resourcemanager.folders.getIamPolicy | Retrieve who has IAM roles at the Folder level |
+| resourcemanager.folders.setIamPolicy | Revoke/Create IAM Role bindings based on Raito Access Providers |
 |---|---|
-| resourcemanager.projects.get| To retrieve projects. |
-| resourcemanager.projects.list | To retreive projects. |
-| resourcemanager.projects.getIamPolicy | Retreive who has IAM roles at the Project level |
-| resourcemanager.projects.setIamPolicy | Revoke/Create IAM Role bindings based on Raito Access Providers. |
+| resourcemanager.projects.get| To retrieve projects |
+| resourcemanager.projects.list | To retrieve projects |
+| resourcemanager.projects.getIamPolicy | Retrieve who has IAM roles at the Project level |
+| resourcemanager.projects.setIamPolicy | Revoke/Create IAM Role bindings based on Raito Access Providers |
 
-Depending on where the role containing these permissions is bound to the serive account used in the CLI Sync, the scope of that sync will be different
+Depending on where the role containing these permissions is bound to, the scope of that sync will be different:
 
 | IAM Policy | Sync scope |
 |---|---|
@@ -66,7 +66,7 @@ The following oAuth scopes are required
 * https://www.googleapis.com/auth/admin.directory.group.member.readonly
 * https://www.googleapis.com/auth/admin.directory.user.readonly
 
-Please take note of your "Customer ID" listed under Account > Account Settings in the admin console as you'll need this to set up the CLI later on.
+Please take note of your `Customer ID` listed under `Account > Account Settings` in the admin console as you'll need this to set up the CLI later on.
 
 ## GCP-specific CLI parameters
 
@@ -77,9 +77,9 @@ $> raito info raito-io/cli-plugin-gcp
 in a terminal window.
 
 Currently, the following configuration parameters are available:
-* **gcp-organization-id** (mandatory): The id of your GCP organization.
-* **gcp-serviceaccount-json-location** (optoional): The location of the GCP ServiceAccount Key file (if not set `GOOGLE_APPLICATION_CREDENTIALS` environment variable is used)
-* **skip-unmanaged-iam-roles** (optional): If set to `false` (default `true`), we will import all IAM roles even the ones that are `not applicable`. They are then imported as not internalizable and used for observability purpose only. 
+* **gcp-organization-id** (mandatory): The ID of your GCP organization.
+* **gcp-serviceaccount-json-location** (optional): The location of the GCP ServiceAccount Key file (if not set, the `GOOGLE_APPLICATION_CREDENTIALS` environment variable is used)
+* **skip-unmanaged-iam-roles** (optional): If set to `false` (default `true`), all IAM roles will be imported, even the ones that are `not applicable`. They are then imported as not-internalizable and used for observability purposes only. 
 * **gsuite-identity-store-sync** (optional): If set to `true` (default `false`), the identity store sync step will also pull information from GSuite.
 * **gsuite-customer-id** (optional): When `gsuite-identity-store-sync` is set to `true`, use this parameter to set the GSuite Customer ID.
-* **gsuite-impersonate-subject** (optional): When `gsuite-identity-store-sync` is set to `true`, use this parameter to the email address of the Admin Console User to be used for domain wide delegation.
+* **gsuite-impersonate-subject** (optional): When `gsuite-identity-store-sync` is set to `true`, use this parameter to the email address of the Admin Console User to be used for domain-wide delegation.
