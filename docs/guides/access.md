@@ -1,6 +1,6 @@
 ---
 title: Access-as-code
-nav_order: 20
+nav_order: 30
 parent: Guides
 permalink: /docs/guide/access
 ---

@@ -5,18 +5,18 @@ parent: Guides
 permalink: /docs/guide/bigquery
 ---
 
-# Synchronising Google Bigquery for the first time
+# Synchronizing Google Bigquery for the first time
 
-In this guide we'll walk you through an example of how to connect Raito Cloud to your BigQuery data warehouse through the Raito CLI. We'll 
+In this guide, we'll walk you through an example of how to connect Raito Cloud to your BigQuery data warehouse through the Raito CLI. We'll 
 - make sure that Raito CLI is installed and available
 - log into Raito Cloud and create a data source
 - create a service account and assign the correct IAM Roles
 - configure Raito CLI to connect to Raito Cloud and synchronize with the previously-created data source
 - run a first sync
   
-For this guide you will need access to Raito Cloud and you also need access to GCP and optionally GSuite
-If you don't have the latter, you can request a 30-day free trial. 
-If you don't have access to Raito Cloud, [request a trial](https://www.raito.io/trial){:target="_blank"}. 
+For this guide, you will need access to Raito Cloud and you also need access to GCP and optionally GSuite
+If you don't have access to Raito Cloud yet, [request a trial](https://www.raito.io/trial){:target="_blank"}. 
+If you don't have access to GCP, you can [request a 30-day free trial](https://cloud.google.com/docs/get-started){:target="_blank"}. 
 
 
 ## Raito CLI installation
@@ -37,12 +37,12 @@ If you want more information about the installation process, or you need to trou
 
 Now that the CLI is working, sign in to your Raito Cloud instance. 
 
-In the left navigation pane go to `Data Sources` > `All data sources`. You should see a button on the top right, `Add data source`. This will guide you through a short wizard to create a new data source. The main things that you will need to configure are 
+In the left navigation pane, go to `Data Sources` > `All data sources`. You should see a button on the top-right named `Add data source`. This will guide you through a short wizard to create a new data source. The main things that you will need to configure are: 
 
 * `Data source type`. Select Google Cloud Platform.
-* `Data source name`. Give your data source a good descriptive name, separating it from other data sources. For this example we'll choose 'Google Cloud Test'. 
+* `Data source name`. Give your data source a good descriptive name, separating it from other data sources. For this example, we'll choose 'Google Cloud Test'. 
 
-Now that we have our GCP Data Source set up, repeat the same step to create a datasource of type BigQuery. You will notice that this time the wizard has an additional step `Select a Google Cloud Platform data source` where you will have to select the data source created in the previous step. This will ensure proper sharing of identities across your various BigQuery projects as well as other GCP service data sources.
+Now that we have our GCP Data Source set up, repeat the same step to create a data source of type BigQuery. You will notice that this time, the wizard has an additional step `Select a Google Cloud Platform data source` where you will have to select the data source created in the previous step. This will ensure proper sharing of identities across your various BigQuery projects as well as other GCP service data sources.
 
 ## Create a GCP service account 
 
@@ -58,7 +58,7 @@ Then obtain a key file for that service account
 gcloud iam service-accounts keys create ${JSON_KEY_PATH} --iam-account=raito-clit@${PROJECT_ID}.iam.gserviceaccount.com
 ```
 
-Now we need to assign this service account the correct roles so it can run the Raito BigQuery and GCP connectors/ For the GCP connector, we create a custom role with the necessary permissions (or you can choose to use an existing role with these permissions):
+Now we need to assign this service account the correct roles so it can run the Raito BigQuery and GCP connectors. For the GCP connector, we create a custom role with the necessary permissions (or you can choose to use an existing role with these permissions):
 
 Add the following to raito-role.yaml
 
@@ -80,7 +80,7 @@ includedPermissions:
 - resourcemanager.projects.setIamPolicy
 ```
 
-Now create the role using this definition using your GCP organization id, and assign it to the service account
+Now create the role using this definition using your GCP organization ID, and assign it to the service account
 
 ```sh
 gcloud iam roles create RaitoGcpRole --organization=${ORGANIZATION_ID} --file=${YAML_FILE_PATH}
@@ -100,19 +100,19 @@ gcloud projects add-iam-policy-binding ${PROJECT_ID} \
 
 ## Set up domain-wide delegation in GSuite
 
-Domain wide delegation is required for the service account created in the previous step to access the GSuite directory api on behalf of one of your administrators. This is needed to read users, groups and group memberships and import them into Raito Cloud. To do this 
+Domain-wide delegation is required for the service account created in the previous step to access the GSuite directory API on behalf of one of your administrators. This is needed to read users, groups and group memberships and import them into Raito Cloud. To do this, 
 * Visit https://admin.google.com/
 * Go to Security >> Access and data control >> API controls
 * Under Domain wide delegation go to `Manage domain wide delegation`
 * Click on add new
 * As client ID,  provide the service account email address for the account previously created
 * As oAuth scopes, provide `https://www.googleapis.com/auth/admin.directory.group.readonly,https://www.googleapis.com/auth/admin.directory.group.member.readonly,ttps://www.googleapis.com/auth/admin.directory.user.readonly`
-* Click authorize and verify your new entry is present in the API clients table. 
-* Finally go to Account >> Account Settings and take note of the Customer ID
+* Click `authorize` and verify if your new entry is present in the API clients table
+* Finally go to `Account >> Account Settings` and take note of the Customer ID
 
 ## Raito CLI Configuration
 
-To configure your Raito CLI to synchronise your GCP organization and BigQuery assets, start by creating a file with the name `raito.yml` and edit it to look like this:
+To configure your Raito CLI to synchronize your GCP organization and BigQuery assets, start by creating a file with the name `raito.yml` and edit it to look like this:
 
 {% raw %}
 ```yaml
@@ -166,12 +166,11 @@ See [here](/docs/cli/intro) for more information about what happens exactly.
 
 ## Check results in Raito Cloud
 
-When the `raito run` command finished successfully, go back to 
-Raito Cloud. 
+When the `raito run` command finished successfully, go back to Raito Cloud. 
 
-On the dashboard you will now see some initial insights that we extract from the data that was synchronized. If you go to *Data Sources* and visit the data sources that you have created before, you should be able to see when the last sync was done in the *General information* section. When you scroll down you can also navigate through the data objects in your Snowflake warehouse.
+On the dashboard you will now see some initial insights that we extract from the data that was synchronized. If you go to `Data Sources`*` and visit the data sources that you have created before, you should be able to see when the last sync was done in the `General information` section. When you scroll down, you can also navigate through the data objects in your BigQuery warehouse.
 
-When you go to *Users* in the navigation bar, you can see all the users imported from GSuite andin *Access Providers* you have an overview of all the IAM Role grants both on GCP organization level as well as your Bigquery tables and datasets. If you click on one, you get a detailed view of who belongs to that role, and what they have access to with which permissions. 
+When you go to `Users` in the navigation bar, you can see all the users imported from GSuite. Under `Access Providers` you have an overview of all the IAM Role grants both on GCP organization level as well as your BigQuery tables and datasets. If you click on one, you get a detailed view of who belongs to that role, and what they have access to with which permissions. 
 
 Now that you have synchronized your GCP organization and the first BigQuery project, you can repeat the steps to connect all your other BigQuery projects to the same GCP data source by creating new BigQuery data sources in Raito and configuring them using the same steps as before.
 
