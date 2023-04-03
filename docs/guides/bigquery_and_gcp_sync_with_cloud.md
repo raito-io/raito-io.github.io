@@ -15,8 +15,8 @@ In this guide, we'll walk you through an example of how to connect Raito Cloud t
 - run a first sync
   
 For this guide, you will need access to Raito Cloud and you also need access to GCP and optionally GSuite
-If you don't have the former, you can request a 30-day free trial. 
 If you don't have access to Raito Cloud yet, [request a trial](https://www.raito.io/trial){:target="_blank"}. 
+If you don't have access to GCP, you can [request a 30-day free trial](https://cloud.google.com/docs/get-started){:target="_blank"}. 
 
 
 ## Raito CLI installation
