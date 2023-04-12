@@ -212,13 +212,6 @@ a.main-grid-card:hover {
   text-decoration: none;
 }
 
-p.note {
-  background-color: #eee;
-  padding: 20px;
-  border-left: solid #999 5px;
-}
-
-
 h1 {
   font-size: $typography-font-size-5 !important;
   font-weight: $typography-font-weights-700 !important;
@@ -247,7 +240,12 @@ p {
   font-weight: $typography-font-weights-400 !important;
   line-height: $typography-line-heights-4;  
   color: $colors-grey-11;
+}
 
+p.note {
+  background-color: $colors-grey-4 !important;
+  padding: 20px !important;
+  border-left: solid $colors-grey-10 5px !important;
 }
 
 .breadcrumb-nav .breadcrumb-nav-list-item {
