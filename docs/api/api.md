@@ -8,12 +8,13 @@ permalink: /docs/api
 
 ## Using the Raito API
 
-Raito uses [GraphQL](https://graphql.org/) as its API paradigm. No official public API is available at this point. However, this document describes some GraphQL queries that can be used to do retrieve some standard information and perform standard tasks.
+Raito uses [GraphQL](https://graphql.org/) as its API paradigm. No official public API is available at this point. However, this document describes some GraphQL queries that can be used to retrieve some standard information and perform standard tasks.
+
 We will use [Postman](https://www.postman.com/) to describe how queries should be executed.
 
 ## Setting up Postman
 
-Raito uses token based authentication. This means that a token needs to be acquired from the identity store first. This token is then used to authentication against the API.
+Raito uses token-based authentication. This means that a token needs to be acquired first. This token is then used to authentication against the API.
 
 To make things easier, we will do this by using Pre-request Scripts in Postman.
 
@@ -29,11 +30,11 @@ The cleanest way, is to use environments in Postman. Environments are a set of v
     3. PASSWORD: set the type to ‘secret’. The Initial Value should be the password for the user.
         ![Environment](/assets/images/api/environment.png)
         
-4. Make sure to `Save` the environment like this
+4. Make sure to `Save` the environment.
 
 ### Creating a collection
 
-Next, we’ll create a Collection and implement the script to fetch the authentication token to pass on every request.
+Next, we’ll create a `Collection` and implement the script to fetch the authentication token to pass with every request.
 
 1. In Postman, go to `Collections`
 2. Click on `+` to add a new Collection and give it a good name. For example, `Raito`
@@ -103,7 +104,7 @@ Now, we are ready to try out a first request.
     
     ![Headers](/assets/images/api/headers.png)
     
-8. In the Body tab, select the type ‘GraphQL’ and enter your first GraphQL query. For example:
+8. In the Body tab, select the type ‘GraphQL’ and enter your first GraphQL query. For example,
 
 ```graphql
 query Test {
@@ -112,6 +113,7 @@ query Test {
     }
 }
 ```
+will return the name of the currently authenticated user.
 
 Postman also supports fetching the GraphQL schema so that it can provide auto-complete functionality while editing the request body. You can do this by clicking the ‘refresh’ icon as seen on the bottom-right of this screenshot (if it didn’t already automatically fetch it):
 
@@ -119,7 +121,7 @@ Postman also supports fetching the GraphQL schema so that it can provide auto-co
 
 ## Fetching the Schema
 
-Outside of the Postman auto-complete feature, you can also do an introspection query to know what queries, mutations, fields, … are available. We do this in exactly the same way as any other GraphQL query. Instead of the request body of the text example above, now use this query instead:
+Outside of the Postman auto-complete feature, you can also do an introspection query to know what queries, mutations, fields, ... are available. This can be done in exactly the same way as any other GraphQL query. Instead of the request body of the test example above, now use this query instead:
 
 ```graphql
 # eslint-disable @graphql-eslint/naming-convention
@@ -219,10 +221,8 @@ fragment TypeRef on __Type {
 }
 ```
 
-<aside>
-🚫 Please note that most of these queries, mutations, and types are not public API and so are subject to change.
-
-</aside>
+{: .note }
+Please note that most of these queries, mutations, and types are not public API and so are subject to change.
 
 ## Examples
 
