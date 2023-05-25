@@ -48,7 +48,7 @@ in a terminal window.
 Currently, the following configuration parameters are available:
 * **sf-account** (mandatory): The account name of the Snowflake account to connect to. For example, xy123456.eu-central-1
 * **sf-user** (mandatory): The username to authenticate against the Snowflake account.
-* **sf-password** (mandatory): The username to authenticate against the Snowflake account.
+* **sf-password** (mandatory): The password to authenticate against the Snowflake account.
 * **sf-role** (optional): The name of the role to use for executing the necessary queries. If not specified, `ACCOUNTADMIN` is used.
 * **sf-excluded-databases** (optional): The optional comma-separated list of databases that should be skipped.
 * **sf-excluded-schemas** (optional): The optional comma-separated list of schemas that should be skipped. This can either be in a specific database (as <database>.<schema>) or a just a schema name that should be skipped in all databases (e.g. `INFORMATION_SCHEMA`).
