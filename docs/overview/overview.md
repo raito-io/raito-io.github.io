@@ -26,7 +26,7 @@ The Raito CLI component, shown in the middle of the diagram, is the link between
 
 Alternatively, there is an option to run the CLI from within Raito Cloud. This is a good option to get started with Raito quickly, but not recommended for production environments.
 
-While synchronizing with Raito Cloud, the CLI extracts information from the data source. This includes the meta data structure (e.g. the databases, schemas, tables, ... present), the users and groups, the existing access controls (e.g. Snowflake roles) and the data usage information.
+While synchronizing with Raito Cloud, the CLI extracts information from the data source. This includes the metadata structure (e.g. the databases, schemas, tables, ... present), the users and groups, the existing access controls (e.g. Snowflake roles) and the data usage information.
 In the other direction, the access controls defined in Raito Cloud are pushed to the data source (e.g. by creating and updating Snowflake roles).
 
 The Raito CLI is fully open-source to provide full transparency into what information is extracted from the data sources and sent to Raito Cloud.

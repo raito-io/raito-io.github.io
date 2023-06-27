@@ -18,7 +18,7 @@ Alternatively, there is an option to run the CLI from within Raito Cloud. This i
 <!-- 
 re-enable when it's available in the UI
 ### Tags
-Meta data is highly important in Raito. Within *Raito Cloud* meta data is represented as tags. 
+Meta data is highly important in Raito. Within *Raito Cloud* metadata is represented as tags. 
 
 Tags can be specified on most elements in the *Raito Graph*. Tags will be inherited by other nodes in the graph where it makes sense. 
 -->
@@ -63,4 +63,4 @@ Next to that, new *internal* access providers can be defined within Raito Cloud 
 For example, an *internal* access provider in Raito would translate to a role in Snowflake. If the role already exists, it gets updated, otherwise a new role is created.
 
 ### Raito Graph 
-The *Raito Graph* is the graph structure that is built inside of Raito Cloud. It contains and interconnects the meta data of all data sources, the users and groups from the identity stores, the access controls, data usage, ... This graph allows us to extract knowlegde and actionable insights out of all the meta data supplied. 
+The *Raito Graph* is the graph structure that is built inside of Raito Cloud. It contains and interconnects the metadata of all data sources, the users and groups from the identity stores, the access controls, data usage, ... This graph allows us to extract knowlegde and actionable insights out of all the metadata supplied. 

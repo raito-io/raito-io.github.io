@@ -12,7 +12,7 @@ The Raito Command-Line Interface (CLI) has two main purposes:
 Basically, the run command will execute a list of actions on each of the targets:
     1. Fetch all users and groups from the identity store (e.g. Okta, Active Directory, ...) or from the data source (which will also have accounts and possibly groups) and synchronize this with the matching identity store in Raito Cloud.<br>
     *Step 1 and 2 in the picture*<br><br>
-    2. Fetch all the meta data from data source (which can be done through a data catalog) and update the appropriate data source in Raito Cloud.<br>
+    2. Fetch all the metadata from data source (which can be done through a data catalog) and update the appropriate data source in Raito Cloud.<br>
     *Step 3 and 4 in the picture*<br><br>
     3. Fetch the access controls defined in the data sources and push them to Raito Cloud. This will only look at the access controls that are not managed from within Raito Cloud (see next step). This way a full 360° of all access controls will be available in Raito Cloud from day one.<br>
     *Step 5 and 6 in the picture*<br><br>
@@ -34,4 +34,4 @@ A [connector](/docs/cli/connectors) is the part of the CLI that connects to a sp
 
 For example, the [*Snowflake* connector](/docs/cli/connectors/snowflake) is used to connect to Snowflake targets.
 
-Connectors are implemented as plugins for the CLI. A connector plugin is basically a small application, implementing a specific API to make sure the CLI can communicate with it to execute the necessary target-specific work (e.g. fetch the Snowflake meta data or push the access controls to Snowflake).
+Connectors are implemented as plugins for the CLI. A connector plugin is basically a small application, implementing a specific API to make sure the CLI can communicate with it to execute the necessary target-specific work (e.g. fetch the Snowflake metadata or push the access controls to Snowflake).

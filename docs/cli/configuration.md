@@ -57,7 +57,7 @@ $> raito <command> --help
 
  - **frequency**: The frequency used to do the sync (in minutes). When not set, the default value '0' is used, which means the sync will run once and quit after.
 - **skip-data-access-sync**: If set, the data access information from Raito Cloud will not be synced to the data sources in the target list, and no data access information will be sent to Raito Cloud.
-- **skip-data-source-sync**: If set, the data source meta data synchronization step to Raito Cloud will be skipped for each of the targets.
+- **skip-data-source-sync**: If set, the data source metadata synchronization step to Raito Cloud will be skipped for each of the targets.
 - **skip-data-usage-sync**: If set, the data usage information synchronization step to Raito Cloud  will be skipped for each of the targets.
 - **skip-identity-store-sync**: If set, the identity store synchronization step to Raito Cloud will be skipped for each of the targets.
 - **disable-websocket**: When the frequency parameter is defined, by default, the CLI will set up a websocket connection to Raito Cloud to continuously listen to changes to access providers to be able to apply them within seconds. If this flag is set, the websocket connection will not be created and only the full syncs will run regularly. This flag has only effect if **frequency** is set.
