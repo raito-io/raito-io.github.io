@@ -33,7 +33,7 @@ The table below describes the permissions that are required by this role.
 | MANAGE GRANTS  | ACCOUNT  | To configure the roles in Snowflake  |
 | APPLY MASKING POLICY  | ACCOUNT  | To read and apply column masking policies + provides permission to fetch database,schema and table metadata  |
 | APPLY ROW ACCESS POLICY  | ACCOUNT  | To read and apply row-level security policies + provides permission to fetch database,schema and table metadata  |
-| USAGE  | Warehouse  | To run queries for fetching all the meta data. This permission should be set on the default warehouse for this user  |
+| USAGE  | Warehouse  | To run queries for fetching all the metadata. This permission should be set on the default warehouse for this user  |
 
 A step-by-step guide on how to create the role and user can be found in the [Snowflake guide](/docs/guide/cloud).
 
