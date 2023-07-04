@@ -11,4 +11,4 @@ permalink: /docs/cli/connectors
 The Raito CLI is built to be extensible with different connectors. 
 
 
-Don't see what you're looking for? [Contribute](https://github.com/raito-io/cli/blob/main/CONTRIBUTING.md){:target="_blank"} or [reach out](https://join.slack.com/t/raitocommunity/shared_invite/zt-13ti14ezm-RsGFyJq4FU9IEfjqg_POag){:target="_blank"} to us.
+Don't see what you're looking for? [Contribute](https://github.com/raito-io/cli/blob/main/CONTRIBUTING.md){:target="_blank"} or [reach out](https://www.raito.io/slack){:target="_blank"} to us.
