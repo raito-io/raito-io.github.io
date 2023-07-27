@@ -23,6 +23,8 @@ Meta data is highly important in Raito. Within *Raito Cloud* metadata is represe
 Tags can be specified on most elements in the *Raito Graph*. Tags will be inherited by other nodes in the graph where it makes sense. 
 -->
 
+## What
+
 ### Data Source
 A data source is an instance of a data warehouse, database, reporting tool, …, or any other source of data in your data landscape. Some examples are, Snowflake and BigQuery. You can have multiple data sources of the same type (e.g. multiple Snowflake accounts).
 
@@ -34,6 +36,9 @@ For example, for a Snowflake data source, the hierarchy of data objects would lo
 
 ### Data
 Data refers to the granular level of a data object for which you want to obtain insights. This is configurable within the usage metadata of the data source connector. As a default, Raito uses tables or views for data warehouses, files for file systems and reports or dashboards for reporting tools
+
+## Who
+![Accounts versus users](/assets/images/cloud/uservsaccount.png)
 
 ### Identity Store
 An identity store, literally represents a store of identities. It contains accounts and (optionally) groups.<br>
@@ -55,6 +60,9 @@ An account can be transfered to another or new user manually if needed.
 
 ### Group
 A group is a group of accounts as defined in the identity stores.
+
+## Access
+![Access control](/assets/images/cloud/accesscontrol.png)
 
 ### Access Control
 An Access Control is what actually controls access to data objects for one or more defined users.
