@@ -1,14 +1,15 @@
 ---
-title: Databricks
+title: Databricks - Unity Catalog
 parent: Connectors
 grand_parent: Raito CLI
 nav_order: 1
 permalink: /docs/cli/connectors/databricks
 ---
 
-# Databricks
+# Databricks - Unity Catalog
 
 [Databricks](https://www.databricks.com/){:target=_blank} is a cloud-based data analytics platform that integrates data engineering, data science, and machine learning tools to enable seamless processing, analysis, and exploration of large datasets, offering services like Databricks Delta Lake and Databricks Runtime.
+[Unity Catalog](https://www.databricks.com/product/unity-catalog){:target=_blank} is a unified governance solution build on top of Databricks.
 
 The connector is available [here](https://github.com/raito-io/cli-plugin-databricks){:target="_blank"} and supports
 * Synchronizing databrick users to an identity store in Raito Cloud.
@@ -17,6 +18,9 @@ The connector is available [here](https://github.com/raito-io/cli-plugin-databri
 * Synchronize the data usage information to Raito Cloud.
 
 ## Prerequisites
+### Unity Catalog
+Databricks Unity Catalog should be enabled on the account and workspaces, as this is essential to the Raito Databricks plugin.
+
 ### Authentication
 For the Raito CLI to authenticate to the Databricks account valid user credentials are required. 
 The associated user should be admin in the Databricks account and on all workspaces.
