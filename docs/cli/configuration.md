@@ -55,7 +55,9 @@ $> raito <command> --help
 
 ### *run*
 
- - **frequency**: The frequency used to do the sync (in minutes). When not set, the default value '0' is used, which means the sync will run once and quit after.
+- **cron**: If set, the cron expression will define when a sync should run. When not set (and no frequency is defined), the sync will run once and quit after.
+- **sync-at-startup**: If set, a sync will be run at startup independent of the cron expression. Only applicable if cron expression is defined.
+- **frequency**: The frequency used to do the sync (in minutes). When not set (and no cron expression is defined), the default value '0' is used, which means the sync will run once and quit after.
 - **skip-data-access-sync**: If set, the data access information from Raito Cloud will not be synced to the data sources in the target list, and no data access information will be sent to Raito Cloud.
 - **skip-data-source-sync**: If set, the data source metadata synchronization step to Raito Cloud will be skipped for each of the targets.
 - **skip-data-usage-sync**: If set, the data usage information synchronization step to Raito Cloud  will be skipped for each of the targets.
