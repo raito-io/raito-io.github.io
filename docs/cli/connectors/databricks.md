@@ -22,9 +22,17 @@ The connector is available [here](https://github.com/raito-io/cli-plugin-databri
 Databricks Unity Catalog should be enabled on the account and workspaces, as this is essential to the Raito Databricks plugin.
 
 ### Authentication
-For the Raito CLI to authenticate to the Databricks account valid user credentials are required. 
-The associated user should be admin in the Databricks account and on all workspaces.
+Currently, we support OAuth authentication (recommended), as well as, basic authentication by email and password.
+The associated account should be admin in the Databricks account and on all workspaces.
 There are no required permissions within the Databricks Unity catalog.
+
+#### OAuth
+Authentication using OAuth, requires a valid `client_id` and `client_secret`.
+The `client_id` and `client_secret` should be provided in the `databricks-client-id` and `databricks-client-secret` parameter respectively.
+
+#### Basic Authentication
+To authenticate by email and password, email and password can be provided in the `databricks-user` and `databricks-password` parameters respectively.
+We recommend to use basic authentication only for testing purposes.
 
 ## Databricks-specific CLI parameters
 
@@ -36,5 +44,7 @@ in a terminal window.
 
 Currently, the following configuration parameters are available:
 * **databricks-account-id** (mandatory): The ID of your Databricks account.
-* **databricks-user** (mandatory): The email-address of the user that should be used within the plugin.
-* **databricks-password:** (mandatory): The password of the user that should be used within the plugin. 
+* **databricks-client-id**: The client ID of the databricks account used within the plugin, to authenticate by using oauth.
+* **databricks-client-secret**: The client secret of the databricks account used within, to authenticate by using oauth. 
+* **databricks-user**: The email-address of the user that should be used within the plugin, to authenticate by using basic authentication.
+* **databricks-password:**: The password of the user that should be used within the plugin, to authenticate by using basic authentication.
