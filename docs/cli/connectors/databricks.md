@@ -30,6 +30,8 @@ There are no required permissions within the Databricks Unity catalog.
 Authentication using OAuth, requires a valid `client_id` and `client_secret`.
 The `client_id` and `client_secret` should be provided in the `databricks-client-id` and `databricks-client-secret` parameter respectively.
 
+If using a service principal, the service principal should be admin of the account and all workspaces. On top of that, he should be (included) as owner to all metastores.
+
 #### Basic Authentication
 To authenticate by email and password, email and password can be provided in the `databricks-user` and `databricks-password` parameters respectively.
 We recommend to use basic authentication only for testing purposes.
