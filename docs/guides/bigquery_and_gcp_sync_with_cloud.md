@@ -102,11 +102,11 @@ gcloud projects add-iam-policy-binding ${PROJECT_ID} \
 
 Domain-wide delegation is required for the service account created in the previous step to access the GSuite directory API on behalf of one of your administrators. This is needed to read users, groups and group memberships and import them into Raito Cloud. To do this, 
 * Visit https://admin.google.com/
-* Go to Security >> Access and data control >> API controls
+* Go to Security >> Access and data control >> API controls 
 * Under Domain wide delegation go to `Manage domain wide delegation`
 * Click on add new
-* As client ID,  provide the service account email address for the account previously created
-* As oAuth scopes, provide `https://www.googleapis.com/auth/admin.directory.group.readonly,https://www.googleapis.com/auth/admin.directory.group.member.readonly,ttps://www.googleapis.com/auth/admin.directory.user.readonly`
+* Fill in the client ID of the service account you previously created (typically a number with 21 digits)
+* As oAuth scopes, provide `https://www.googleapis.com/auth/admin.directory.group.readonly,https://www.googleapis.com/auth/admin.directory.group.member.readonly,https://www.googleapis.com/auth/admin.directory.user.readonly`
 * Click `authorize` and verify if your new entry is present in the API clients table
 * Finally go to `Account >> Account Settings` and take note of the Customer ID
 
