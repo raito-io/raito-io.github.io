@@ -136,8 +136,8 @@ targets:
   - name: snowflake_global
     connector-name: raito-io/cli-plugin-snowflake
     connector-version: latest
-    data-source-id: <ds_id> # fetch from Raito Cloud
-    identity-store-id: <is_id> # fetch from Raito Cloud
+    data-source-id: "<data-source-id>" # fetch from Raito Cloud
+    identity-store-id: "<identity-store-id>" # fetch from Raito Cloud
 
     # The connector specific parameters
     sf-account: yyyyyy.eu-central-1

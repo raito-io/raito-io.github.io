@@ -124,8 +124,8 @@ targets:
   - name: gcp
     connector-name: raito-io/cli-plugin-gcp
     connector-version: latest
-    data-source-id: <data-source-id>
-    identity-store-id: <identity-store-id>
+    data-source-id: "<data-source-id>"
+    identity-store-id: "<identity-store-id>"
     
     gcp-serviceaccount-json-location: <gcp-service-account-json>
     gcp-organization-id: <organization-id>
@@ -137,8 +137,8 @@ targets:
   - name: bigquery1
     connector-name: raito-io/cli-plugin-bigquery
     connector-version: latest
-    data-source-id: <data-source-id>
-    identity-store-id: <identity-store-id>
+    data-source-id: "<data-source-id>"
+    identity-store-id: "<identity-store-id>"
     
     gcp-serviceaccount-json-location: <gcp-service-account-json>
     gcp-project-id: <project-id>    

@@ -90,8 +90,8 @@ targets:
   - name: Snowflake Test 
     connector-name: raito-io/cli-plugin-snowflake
     connector-version: latest
-    data-source-id: <data-source-id>
-    identity-store-id: <identity-store-id>
+    data-source-id: "<data-source-id>"
+    identity-store-id: "<identity-store-id>"
     
     # Specifying the Snowflake specific config parameters
     sf-account: "{{SF_ACCOUNT}}"
