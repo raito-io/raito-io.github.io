@@ -7,9 +7,9 @@ permalink: /docs/cli/intro
 # Introduction
 The Raito Command-Line Interface (CLI) has two main purposes:
 
-1. To synchronize data between your data sources and identity stores, and Raito Cloud. For this, you can use the *run* command.
+1. To synchronize data between your data sources and identity stores, and Raito Cloud. For this, you can use the **run** command.
 [![CLI GitOps Overview](/assets/images/raito-integration-overview.png)](/assets/images/raito-integration-overview.png){:target="_blank"}
-Basically, the *run* command will execute a list of actions on each of the targets:
+Basically, the **run** command will execute a list of actions on each of the targets:
     1. Fetch all users and groups from the identity store (e.g. Okta, Microsoft Entra ID, ...) or from the data source (which will also have accounts and possibly groups) and synchronize this with the matching identity store in Raito Cloud.<br>
     *Step 1 and 2 in the picture*<br><br>
     2. Fetch all the metadata from data source (which can be done through a data catalog) and update the appropriate data source in Raito Cloud.<br>
