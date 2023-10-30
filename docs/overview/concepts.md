@@ -73,6 +73,13 @@ Next to that, new *managed by Raito* access controls can be defined within Raito
 
 For example, a *managed by Raito* access control in Raito would translate to a role in Snowflake. If the role already exists, it gets updated, otherwise a new role is created.
 
+### Access Control actions
+Raito supports multiple actions for access controls, which behave differently
+ - Grant: single data source access control which can have data objects in the what-list and be used in the who-list of other grants.
+ - Purpose: multi data source access control which do not have data objects the what-list, but can be used in the who-list of grants and other purposes.
+ - Mask: single data source access control which mask data for the columns in its what-list
+ - Filter: single data source access control which filters data for the tables in its what-list
+
 ### Access
 Someone or something has access to a data object when it at least has one permission towards that data object via an unpacked grant access control.
 
