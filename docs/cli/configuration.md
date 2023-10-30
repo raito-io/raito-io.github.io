@@ -107,7 +107,7 @@ The value for `<connector-name>` is as defined in the target configuration, e.g.
 
 These can either be specified under the target definition in the configuration file, as seen in the [example configuration file](#configuration-file), or directly on the command line (when the single target is specified there).
 
-The latter is done by adding these parameters at the end of the command, by placing ' -- ' after the last normal parameter. This is the standard way in Bash to mark the end of the command parameters. Everything behind that, will be pass as key-value pairs to the connector plugin.
+The latter is done by adding these parameters at the end of the command, by placing ' -- ' after the last normal parameter. This is the standard way in Bash to mark the end of the command parameters. Everything behind that, will be passed as key-value pairs to the connector plugin.
 
 For example:
 ```bash
