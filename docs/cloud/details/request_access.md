@@ -9,7 +9,7 @@ permalink: /docs/cloud/request_access
 
 # Request access to data
 
-Raito enables collaboration in data access management. This starts from the request to access data. Every user, regardless of its role in Raito, can request access to data. An access request is initiated by clicking the button “Request access” on the dashboard or on the access request page.
+Raito enables collaboration in data access management. This starts from the request to access data. Every user, regardless of its role in Raito, can request access to data. An access request is initiated by clicking the button “Request access” on the dashboard or on the access request page or by shopping for data directly on a data object or access control page.
 
 Requesting access to data can be done in 5 easy steps:
 
@@ -20,16 +20,14 @@ To start a request, you need to select which type of request you want to raise. 
 - **Access to an access control**: you know to which access control(s) you want to be added
 - **Access to a data object:** you know to which data object(s) you want to obtain access to
 
-## Why
-
-Here, you should explain the reason why you require access to the data. This is important for the data owners or access control owners to be able to make an informed decision about the approval and implementation of your request.
+This step is ignored when you shop for data directly, as the type of the page (access control or data object) will be selected by default.
 
 ## What
 
 Now you will be selecting what data you want access to. Depending on the type of request, this step will be slightly different:
 
-- **Access to an access control**: select 1 or more access controls
-- **Access to a data object:** select 1 or more data objects and define the permissions you want to obtain.
+- **Access to an access control**: select 1 or more access controls. You can combine multiple actions (grants and purposes) from multiple data sources at once
+- **Access to a data object:** select 1 or more data objects from one or more data sources and define the permissions you want to obtain.
 
 ## Who
 
@@ -37,9 +35,14 @@ Next, you have to select the beneficiaries for whom you are requesting access. R
 
 - Users:  By default, Raito pre-selects your name. You can however raise a request on behalf of anyone and you can even remove yourself from this who-list.
 - Groups: You can select groups from Identity stores which are linked to the Data Sources you are asking access to.
-- Access controls: The request on behalf of access controls is mainly advised when using the Purpose-Based Access Control (PBAC) framework
+
+*Note* Raito has the concept of an access request on behalf of an access control. These are created by updating the what-list of the beneficiary access control with data objects or access controls which you do not own.
 
 Raito also requires a validity period. Access will be revoked after expiration of this time period which is the same for all users, groups and access controls in the request. You can either pick an exact date or a timeframe. The timeframe starts as from the implementation of the request, not from the request itself.
+
+## Why
+
+Here, you should explain the reason why you require access to the data. This is important for the data owners or access control owners to be able to make an informed decision about the approval and implementation of your request.
 
 ## Review
 
