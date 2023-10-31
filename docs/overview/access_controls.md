@@ -40,3 +40,9 @@ A mask applies a masking definition on the columns listed in its what-list. The 
 A filter filters a single table based on a filter statement.
 
 [![Filters](/assets/images/Filters.jpg)](/assets/images/Filters.jpg){:target="_blank"}
+
+## Access Control grants
+
+An access control can grant the access, which means that it is implemented in the data source, or be available on request, which means that the owner has pre-approved that a user can consume the access control, but that it only gets implemented when the beneficiary requests to actually consume this access. This concept is also referred to as a promise. A user can see the on-request access which is available for him both on the dashboard as on his own controls tab on his user page. In both cases, the user has a short-cut to consume the access.
+
+During an access request, a user will be prompted to consume a promise rather than requesting the access, when a promise covers the entire request. This to benefit from the pre-approval.
