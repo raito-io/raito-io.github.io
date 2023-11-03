@@ -96,4 +96,4 @@ datacatalog.taxonomies.setIamPolicy
 datacatalog.taxonomies.update
 ```
 
-Once the APIs are enabled and the service account has provided the above defined permissions, you can enable masking by setting **bq-catalog-enabled** to `true`.   
+Once the APIs are enabled and the service account has the above defined permissions, you can enable masking by setting **bq-catalog-enabled** to `true`.   
