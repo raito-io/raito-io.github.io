@@ -20,7 +20,7 @@ To start a request, you need to select which type of request you want to raise. 
 - **Access to an access control**: you know to which access control(s) you want to be added
 - **Access to a data object:** you know to which data object(s) you want to obtain access to
 
-This step is ignored when you shop for data directly, as the type of the page (access control or data object) will be selected by default.
+This step is ignored when you shop for data directly, as the type of the request (access control or data object) will already be preselected for you.
 
 ## What
 
@@ -36,9 +36,9 @@ Next, you have to select the beneficiaries for whom you are requesting access. R
 - Users:  By default, Raito pre-selects your name. You can however raise a request on behalf of anyone and you can even remove yourself from this who-list.
 - Groups: You can select groups from Identity stores which are linked to the Data Sources you are asking access to.
 
-*Note* Raito has the concept of an access request on behalf of an access control. These are created by updating the what-list of the beneficiary access control with data objects or access controls which you do not own.
+*Note* The beneficiary of an access request, can also be an access control. This option is not available when directly creating an access request, but is automatically created when you add an access control, that you don't own yourself, in the what-list of another access control.
 
-Raito also requires a validity period. Access will be revoked after expiration of this time period which is the same for all users, groups and access controls in the request. You can either pick an exact date or a timeframe. The timeframe starts as from the implementation of the request, not from the request itself.
+Raito also allows you to define a validity period. Access will be revoked automatically after expiration of this time period which is the same for all users, groups and access controls in the request.
 
 ## Why
 

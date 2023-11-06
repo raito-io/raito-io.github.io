@@ -28,7 +28,7 @@ To add a new data source in Raito Cloud, take the following steps:
 Note: This choice is purely meant to guide you through setting up this specific data source type. If your data source type is not in the list (for example, when you built your own Raito CLI plugin), you can pick any type to continue.
 - Provide a name for your data source. This name will be the display name for this data source within Raito Cloud and will be visible to all the users in the system.
 - Next, provide an optional description for your data source to describe in more detail what this data source contains and what it is meant for.
-- Select your connection method by choosing between a Raito managed CLI (Quick start) or self-managed CLI, which is recommended.
+- Select your connection method by choosing between a Raito managed CLI (Quick start) or self-managed CLI, which is recommended. Note: This option is not available for all data source types.
 - When done, you will land on the initial page of your data source. Because it hasn’t been connected to the actual data source yet, instructions will be shown on how to proceed.
 
 ![Data Source details](/assets/images/cloud/ds_config.png)
