@@ -16,7 +16,7 @@ The Raito Cloud component on the right of the diagram, is the SaaS web applicati
  - an overview of *who* has access to *what*
  - smart insights into the state of your data sources by looking at the access controls and how they compare to the actual usage
  - a simple way to update the access to your data sources
- - an easy way to request access to data and a guided and automated flows to resolve the requests
+ - an easy way to request access to data and a guided and automated flow to resolve the requests
  - and much more...
 
 More details can be found in the [Raito Cloud](/docs/cloud) section.
@@ -31,6 +31,7 @@ In the other direction, the access controls defined in Raito Cloud are pushed to
 
 The Raito CLI is fully open-source to provide full transparency into what information is extracted from the data sources and sent to Raito Cloud.
 
+## Connector
 The connection to a data source itself happens in a `connector`, which is a plugin of the CLI. Each type of data source will have its own connector. Raito will provide some connectors as open-source, but it's perfectly possible to implement your own connector for data sources that are not supported by Raito yet.
 
 On the left of the diagram, we see the data sources (also called `targets`) that the connectors will connect with.

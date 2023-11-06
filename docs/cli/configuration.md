@@ -63,7 +63,7 @@ $> raito <command> --help
 - **skip-data-source-sync**: If set, the data source metadata synchronization step to Raito Cloud will be skipped for each of the targets.
 - **skip-data-usage-sync**: If set, the data usage information synchronization step to Raito Cloud  will be skipped for each of the targets.
 - **skip-identity-store-sync**: If set, the identity store synchronization step to Raito Cloud will be skipped for each of the targets.
-- **disable-websocket**: When the frequency parameter is defined, by default, the CLI will set up a websocket connection to Raito Cloud to continuously listen to changes to access providers to be able to apply them within seconds. If this flag is set, the websocket connection will not be created and only the full syncs will run regularly. This flag has only effect if **frequency** is set.
+- **disable-websocket**: When the frequency parameter is defined, by default, the CLI will set up a websocket connection to Raito Cloud to continuously listen to changes to access controls to be able to apply them within seconds. If this flag is set, the websocket connection will not be created and only the full syncs will run regularly. This flag has only effect if **frequency** is set.
 <!-- - **delete-untouched**: false by default. Removes objects that have not been updated during the CLI sync. For instance, if set to false during a data source sync, data objects that do not exist anymore in the target will not be removed from Raito Cloud.  -->
 <!-- - **replace-tags**:  TODO: should we document this as we do not support groups right now?  -->
 <!-- - **delete-temp-files**: false by default. Delete temporary files that contain the information extracted from the  target and are uploaded to Raito Cloud.  -->
@@ -85,7 +85,7 @@ To connect the CLI to your Raito instance, you'll also need to specify the follo
 
 ## Target parameters
 
-The Raito CLI works against one or more [targets](/docs/cli/intro#targets). A target is a system or server like a data warehouse, identity provider, etc.
+The Raito CLI works against one or more [targets](/docs/cli/intro#targets). A target is a system or server like a data warehouse, identity store, etc.
 
 A target has the following parameters:
 - **name** *(optional)*: a name you can choose for this specific target. This name is used during logging to understand which target is active at that time. If not specified, the *target-connector* value is used.
@@ -107,7 +107,7 @@ The value for `<connector-name>` is as defined in the target configuration, e.g.
 
 These can either be specified under the target definition in the configuration file, as seen in the [example configuration file](#configuration-file), or directly on the command line (when the single target is specified there).
 
-The latter is done by adding these parameters at the end of the command, by placing ' -- ' after the last normal parameter. This is the standard way in Bash to mark the end of the command parameters. Everything behind that, will be pass as key-value pairs to the connector plugin.
+The latter is done by adding these parameters at the end of the command, by placing ' -- ' after the last normal parameter. This is the standard way in Bash to mark the end of the command parameters. Everything behind that, will be passed as key-value pairs to the connector plugin.
 
 For example:
 ```bash

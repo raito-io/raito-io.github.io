@@ -33,7 +33,7 @@ The default entrypoint of the container is defined as
 ENTRYPOINT /raito-cli-runner run -c "$CLI_CRON" --config-file /config/raito.yml --log-output
 ```
 
-You can override the default entrypoint by using the `--entrypoint` option when execution `docker run`
+You can override the default entrypoint by using the `--entrypoint` option when executing `docker run`
 
 ## Logs
 By default, the log output of the Raito CLI are forwarded to `/dev/stdout` and `/dev/stderr`. 

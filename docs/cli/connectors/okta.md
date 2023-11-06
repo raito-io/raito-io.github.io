@@ -8,7 +8,7 @@ permalink: /docs/cli/connectors/okta
 
 # Okta
 
-[Okta](https://www.okta.com/){:target="_blank"} is a cloud-based identity provider. 
+[Okta](https://www.okta.com/){:target="_blank"} is a cloud-based identity store. 
 
 Because Okta is not a data source, the connector is limited to only importing users and groups into Raito Cloud.
 

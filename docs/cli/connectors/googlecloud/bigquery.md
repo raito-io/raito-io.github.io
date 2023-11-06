@@ -15,15 +15,15 @@ The connector is available [here](https://github.com/raito-io/cli-plugin-bigquer
 * Import users, groups and service accounts access rights from the Project, Dataset and Table IAM policies
 * Import of GSuite users, groups and group membership into Raito Cloud (optional)
 * Import of GCP Service Accounts from the GCP project
-* Granting/Revoking IAM Role bindings on resources for users, groups and service accounts based on Access Providers defined in Raito Cloud
+* Granting/Revoking IAM Role bindings on resources for users, groups and service accounts based on Access Controls defined in Raito Cloud
 
-Currently, during import of IAM bindings into Raito Cloud Access providers will only be created for the following IAM roles:
+Currently, during import of IAM bindings into Raito Cloud Access Controls will only be created for the following IAM roles:
 * roles/owner
 * roles/editor
 * roles/viewer
 * roles/bigquery.*
 
-IAM bindings for roles other than the ones listed will be skipped unless `skip-unmanaged-iam-roles` is set to `false` in the connector configuration. In this case they will be imported, but as not-internalizable Access Providers, meaning we only report on them, but do not allow managing them within Raito Cloud.
+IAM bindings for roles other than the ones listed will be skipped unless `skip-unmanaged-iam-roles` is set to `false` in the connector configuration. In this case they will be imported, but as not-internalizable Access Controls, meaning we only report on them, but do not allow managing them within Raito Cloud.
 
 ## Prerequisites
 ### IAM Permissions

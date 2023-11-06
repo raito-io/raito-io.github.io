@@ -12,7 +12,7 @@ permalink: /docs/cloud/access_observability
 Managing data access starts with observing existing access to data. Raito Cloud displays the existing access from day 1 and continues to do so. These insights are provided in multiple places within Raito Cloud, as they all cover a different angle:
 
 - **Data objects**: all access to a single data object is grouped on the `Access` tab of a data object
-- **Users**: all access for a given user is grouped on the `Access` tab of a user
+- **Users**: all access to data objects for a given user is grouped on the `Access` tab of a user, and access to access controls for a given user is grouped on the `Controls` tab of a user
 - **Dashboard**: the dashboard provides an aggregated overview of access, both based on data objects and users.
 
 
@@ -27,9 +27,9 @@ Within this section, we only describe the overview of existing access, not insig
 
 ### User page
 
-Every user known in the system has a dedicated page. It contains an `Access` and an `Insights` tab for an individual user. These tabs will only be visible if you have the necessary permissions.
+Every user known in the system has a dedicated page. It contains a `Controls`, an `Access` and an `Insights` tab for an individual user. These tabs will only be visible if you have the necessary permissions.
 
-On the `Access` tab you find an overview of all data objects the user can access and via which access control(s). Note that Raito expands access control inheritance and groups to show this list. This tab also provides the permissions per data object. A full lineage is shown via the link “view lineage”, including validity periods.
+On the `Controls` tab you find an overview of all access controls the user is part of. On the `Access` tab you find an overview of all data objects the user can access and via which access control(s). Note that Raito expands access control inheritance and groups to show this list. This tab also provides the permissions per data object. A full lineage is shown via the link “view lineage”, including validity periods.
 
 ### Data object page
 
