@@ -30,10 +30,10 @@ $> docker run --mount type=bind,source="<Your local Raito configuration file>",t
 
 The default entrypoint of the container is defined as
 ```dockerfile
-ENTRYPOINT /raito-cli-runner run -f $CLI_FREQUENCY -c $CLI_CRON --config-file /config/raito.yml --log-output
+ENTRYPOINT /raito-cli-runner run -c "$CLI_CRON" --config-file /config/raito.yml --log-output
 ```
 
-You can override the default entrypoint by using the `--entrypoint` option when execution `docker run`
+You can override the default entrypoint by using the `--entrypoint` option when executing `docker run`
 
 ## Logs
 By default, the log output of the Raito CLI are forwarded to `/dev/stdout` and `/dev/stderr`. 
@@ -49,10 +49,19 @@ The following environment variables are used in the default entrypoint:
 | Environment variable              | Description                                                                                       | Default Value |
 |-----------------------------------|---------------------------------------------------------------------------------------------------|---------------|
 | `TZ`                              | Timezone used by the container                                                                    | Etc/UTC       |
-| `CLI_FREQUENCY`                   | The frequency used to do the sync (in minutes).                                                   | 1440          |
-| `CLI_CRON`                        | Cron expression that defines when  to execute a sync (overwrite `CLI_FREQ`)                       |               |
-| `RAITO_CLI_UPDATE_CRON`           | The cronjob definition for when the container needs to check if a newer CLI version is available. | `0 2 * * *`   |
+| `CLI_CRON`                        | Cron expression that defines when  to execute a sync                                              | `0 2 * * *`   |
+| `RAITO_CLI_UPDATE_CRON`           | The cronjob definition for when the container needs to check if a newer CLI version is available. | `0 1 * * *`   |
 | `RAITO_CLI_CONTAINER_STDOUT_FILE` | Output file stdout of the Raito CLI                                                               | `/dev/stdout` |
 | `RAITO_CLI_CONTAINER_STDERR_FILE` | Output file stderr of the Raito CLI                                                               | `/dev/stderr` |
 
 Additional environment variables, that could be referred in your Raito configuration file, can be mounted by using the existing docker environment arguments `--env` and `--env-file`.
+
+## Entrypoint override
+In some cases it can be useful to override the default entrypoint. This could be required if you want to add the `--debug` or `--sync-at-startup` flag. 
+This could easily be done as follows:
+
+```bash
+$> docker run --mount type=bind,source="<Your local Raito configuration file>",target="/config/raito.yml",readonly --entrypoint /raito-cli-runner ghcr.io/raito-io/raito-cli-runner:latest -c "$CLI_CRON" --config-file /config/raito.yml --log-output --debug --sync-at-startup
+```
+
+Note that in most cases, additional config could be set in the configuration file.

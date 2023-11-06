@@ -14,6 +14,8 @@ permalink: /docs/cloud
 
 ✅ Manage access across all your data sources through collaboration
 
+✅ Audit trail of all your data access changes
+
 ✅ Guidance towards data access management best-practices
 
 ![Raito Overview](/assets/images/cloud/dashboard.png)
@@ -31,6 +33,7 @@ Use Raito Cloud to scale data access management and enable true data ownership.
 - Empower data owners and data governance specialists via insights in data access and data usage to increase data access maturity
 - Provide consistent data access to your users across all data sources
 - Automatically recommend actions to improve your data access maturity
+- Constantly monitor all changes to your data access and allow for regulatory reporting
 
 ## Core concepts
 

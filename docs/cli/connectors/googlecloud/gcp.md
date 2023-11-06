@@ -12,18 +12,18 @@ permalink: /docs/cli/connectors/googlecloud/platform
 
 The connector is available [here](https://github.com/raito-io/cli-plugin-gcp){:target="_blank"} and supports
 * Import of the GCP Organization structure (Folders, Projects) as Data Objects into Raito Cloud
-* Import users, groups and service accounts from all IAM policies in the organization
+* Import users, groups and service accounts from all IAM policies in the organization into Raito Cloud
 * Import of GSuite users, groups and group membership into Raito Cloud
 * Import of GCP Service Accounts on all projects as users into Raito Cloud
-* Import of existing IAM Role grants on all levels (org, folder, project) as Access Providers  
-* Granting/Revoking IAM Role bindings on resources for users, groups and service accounts based on Access Providers defined in Raito Cloud
+* Import of existing IAM Role grants on all levels (org, folder, project) as Access Controls  
+* Granting/Revoking IAM Role bindings on resources for users, groups and service accounts based on Access Controls defined in Raito Cloud
 
-Currently, during import of IAM bindings into Raito Cloud, Access Providers will only be created for the following IAM roles:
+Currently, during import of IAM bindings into Raito Cloud, Access Controls will only be created for the following IAM roles:
 * roles/owner
 * roles/editor
 * roles/viewer
 
-IAM bindings for roles other than the ones listed will be skipped unless `skip-unmanaged-iam-roles` is set to `false` in the connector configuration. In this case they will be imported, but as not-internalizable Access Providers, meaning we only report on them, but do not allow managing them within Raito Cloud.
+IAM bindings for roles other than the ones listed will be skipped unless `skip-unmanaged-iam-roles` is set to `false` in the connector configuration. In this case they will be imported, but as not-internalizable Access Controls, meaning we only report on them, but do not allow managing them within Raito Cloud.
 
 ## Prerequisites
 ### IAM Permissions
@@ -35,17 +35,17 @@ The table below describes the IAM permissions needed for the plugin to function.
 |---|---|
 | resourcemanager.organizations.get | Retrieve the organization |
 | resourcemanager.organizations.getIamPolicy | Retrieve who has IAM roles on the Organization level |
-| resourcemanager.organizations.setIamPolicy | Revoke/Create IAM Role bindings based on Raito Access Providers. |
+| resourcemanager.organizations.setIamPolicy | Revoke/Create IAM Role bindings based on Raito Access Controls |
 |---|---|
 | resourcemanager.folders.get | To detect folders within the organization and/or a folder |
 | resourcemanager.folders.list | To detect folders within the organization and/or a folder |
 | resourcemanager.folders.getIamPolicy | Retrieve who has IAM roles at the Folder level |
-| resourcemanager.folders.setIamPolicy | Revoke/Create IAM Role bindings based on Raito Access Providers |
+| resourcemanager.folders.setIamPolicy | Revoke/Create IAM Role bindings based on Raito Access Controls |
 |---|---|
 | resourcemanager.projects.get| To retrieve projects |
 | resourcemanager.projects.list | To retrieve projects |
 | resourcemanager.projects.getIamPolicy | Retrieve who has IAM roles at the Project level |
-| resourcemanager.projects.setIamPolicy | Revoke/Create IAM Role bindings based on Raito Access Providers |
+| resourcemanager.projects.setIamPolicy | Revoke/Create IAM Role bindings based on Raito Access Controls |
 
 Depending on where the role containing these permissions is bound to, the scope of that sync will be different:
 

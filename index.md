@@ -10,7 +10,7 @@ permalink: /
     <div class="main-section-row">
         <div class="mainpage-topmatter">
             <h1>Raito documentation</h1>
-            This documentation is your Raito reference manual. It should cover everything you need to know — from setting up Raito CLI, to managing access requests with Raito Cloud.<br><br>
+            This documentation is your Raito reference manual. It should cover everything you need to know — from setting up Raito CLI, over managing access requests with Raito Cloud, to leveraging its insights.<br><br>
         </div>
         <div class="main-grid-3cols">    
             <a class="main-grid-card" href="/docs/guide">       
@@ -36,7 +36,7 @@ permalink: /
                 <div>
                     <img src="/assets/icons/internet/outline.svg" alt="" class="main-icon icon-red">
                     <h2>Raito Cloud</h2>
-                    Manage Least Privilege principles at scale with our web interface.
+                    Manage and monitor Least Privilege principles at scale with our web interface.
                     <!-- <a href="https://www.raito.io/slack" target="_blank">Talk to us on Slack</a>
                     <a href="https://github.com/raito-io/cli/blob/main/CONTRIBUTING.md" target="_blank">Contribute to Raito CLI</a>
                     <a href="https://raito.io"  target="_blank">Raito website</a> -->
