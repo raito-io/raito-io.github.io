@@ -40,9 +40,11 @@ Now that the CLI is working, sign in to your Raito Cloud instance.
 In the left navigation pane, go to `Data Sources` > `All data sources`. You should see a button on the top-right named `Add data source`. This will guide you through a short wizard to create a new data source. The main things that you will need to configure are: 
 
 * `Data source type`. Select Google Cloud Platform.
-* `Data source name`. Give your data source a good descriptive name, separating it from other data sources. For this example, we'll choose 'Google Cloud Test'. 
+* `Data source name`. Give your data source a good descriptive name, separating it from other data sources. For this example, we'll choose 'Google Cloud Test'.
+* `Data source description`. Accompany your data source with a meaningful description.
+* `Connection method`. Select whether you want to use the Raito hosted cloud version of the CLI or one managed by yourself, which is recommended. In this example we indeed select 'CLI'
 
-Now that we have our GCP Data Source set up, repeat the same step to create a data source of type BigQuery. You will notice that this time, the wizard has an additional step `Select a Google Cloud Platform data source` where you will have to select the data source created in the previous step. This will ensure proper sharing of identities across your various BigQuery projects as well as other GCP service data sources.
+Now that we have our GCP Data Source set up, repeat the same step to create a data source of type BigQuery. You will notice that this time, the wizard has an additional step `Select a Google Cloud Platform data source` where you will have to select the data source created in the previous step. This will ensure proper sharing of identities across your various BigQuery projects as well as other GCP service data sources. Note that this selection is optional.
 
 ## Create a GCP service account 
 
@@ -160,7 +162,7 @@ Now that our data source is set up and we have our Raito CLI configuration file,
 $> raito run
 ```
 
-This will download all data objects, users, access providers (roles) and data usage information from Snowflake and upload it to Raito Cloud. It will also get the access providers created in Raito Cloud and push them as roles to Snowflake, but since you've started out with an empty instance, this is not relevant at this point. 
+This will download all data objects, users, access controls (nameless bindings) and data usage information from BigQuery and GCP and upload it to Raito Cloud. It will also get the access controls created in Raito Cloud and push them as nameless bindings to BigQuery and GCP, but since you've started out with an empty instance, this is not relevant at this point. 
 
 See [here](/docs/cli/intro) for more information about what happens exactly. 
 
@@ -168,9 +170,9 @@ See [here](/docs/cli/intro) for more information about what happens exactly.
 
 When the `raito run` command finished successfully, go back to Raito Cloud. 
 
-On the dashboard you will now see some initial insights that we extract from the data that was synchronized. If you go to `Data Sources`*` and visit the data sources that you have created before, you should be able to see when the last sync was done in the `General information` section. When you scroll down, you can also navigate through the data objects in your BigQuery warehouse.
+On the dashboard you will now see some initial insights that we extract from the data that was synchronized. If you go to `Data Sources` and visit the data sources that you have created before, you should be able to see when the last sync was done in the `General information` section. When you scroll down, you can also navigate through the data objects in your BigQuery warehouse.
 
-When you go to `Users` in the navigation bar, you can see all the users imported from GSuite. Under `Access Providers` you have an overview of all the IAM Role grants both on GCP organization level as well as your BigQuery tables and datasets. If you click on one, you get a detailed view of who belongs to that role, and what they have access to with which permissions. 
+When you go to `Identities` in the navigation bar, you can see all the users imported from GSuite. Under `Access Controls`, under grants, you have an overview of all the IAM Role grants both on GCP organization level as well as your BigQuery tables and datasets. If you click on one, you get a detailed view of who belongs to that access control, and what they have access to with which permissions. 
 
 Now that you have synchronized your GCP organization and the first BigQuery project, you can repeat the steps to connect all your other BigQuery projects to the same GCP data source by creating new BigQuery data sources in Raito and configuring them using the same steps as before.
 

@@ -32,7 +32,7 @@ An access control owner can hit the implement button next to the access control 
 
 ### Data object
 
-A Data Object owner needs to manually implement the requested access by editing existing or creating new access controls. This is the reason why the request to access controls is recommended.
+A data object owner needs to manually implement the requested access by editing existing or creating new access controls. This is the reason why the request to access controls is recommended. Raito offers suggested access controls to implement the request to the data object owner. An access control is selected as a suggestion when he covers all data object-permission combinations of the request. Raito will also show the side-effects which would be implemented when selecting one of the suggestions.
 
 ## Statuses
 

@@ -40,10 +40,12 @@ Now that the CLI is working, sign in to your Raito Cloud instance.
 
 In the left navigation pane go to `Data Sources` > `All data sources`. You should see a button on the top right, `Add data source`. This will guide you through a short wizard to create a new data source. The main things that you will need to configure are 
 
-* `Data source type`. Select your data warehouse type. Right now, we only support Snowflake, but we'll create more connectors in the future, and you will be able to create and use your own if needed. 
-* `Data source name`. Give your data source a good descriptive name, separating it from other data sources. For this example we'll choose 'Snowflake Test'. 
+* `Data source type`. Select your data warehouse type. We are constantly adding new connectors, and you will be able to create and use your own if needed. 
+* `Data source name`. Give your data source a good descriptive name, separating it from other data sources. For this example we'll choose 'Snowflake Test'.
+* `Data source description`. Accompany your data source with a meaningful description.
+* `Connection method`. Select whether you want to use the Raito hosted cloud version of the CLI or one managed by yourself, which is recommended. In this example we indeed select 'CLI'
 
-Once the data source has been created, you are ready to connect the Raito CLI with it. 
+Once the data source has been created, you are ready to connect the Raito CLI with it. When you would have selected the Cloud CLI version, you will be prompted for the Snowflake account information, username and password, which will not be stored, and optionally a Snowflake role. This information is all similar to what is listed below.
 
 ## Create Snowflake role and user
 
@@ -116,7 +118,7 @@ Now that our data source is set up and we have our Raito CLI configuration file,
 $> raito run
 ```
 
-This will download all data objects, users, access providers (roles) and data usage information from Snowflake and upload it to Raito Cloud. It will also get the access providers created in Raito Cloud and push them as roles to Snowflake, but since you've started out with an empty instance, this is not relevant at this point. 
+This will download all data objects, users, access controls (roles) and data usage information from Snowflake and upload it to Raito Cloud. It will also get the access controls created in Raito Cloud and push them as roles to Snowflake, but since you've started out with an empty instance, this is not relevant at this point. 
 
 See [here](/docs/cli/intro) for more information about what happens exactly. 
 
@@ -127,7 +129,7 @@ Raito Cloud.
 
 On the dashboard you will now see some initial insights that we extract from the data that was synchronized. If you go to `Data Sources > Snowflake Test` (i.e. the data source that you have created before), you should be able to see when the last sync was done in the `General information` section. When you scroll down you can also navigate through the data objects in your Snowflake warehouse.
 
-When you go to `Users` in the navigation bar, you can see all the users of the Snowflake instance under `Identity Store` 'Snowflake Test'. Finally, in `Access Providers` you have an overview of all the roles in your Snowflake instance. If you click on one, you get a detailed view of who belongs to that role, and what they have access to with which permissions. 
+When you go to `Identities` in the navigation bar, you can see all the users of the Snowflake instance under `Identity Store` 'Snowflake Test'. Finally, in `Access Controls` under grants, you have an overview of all the roles in your Snowflake instance. If you click on one, you get a detailed view of who belongs to that role, and what they have access to with which permissions. 
 
 ## GitHub Actions workflow
 

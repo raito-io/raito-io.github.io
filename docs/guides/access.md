@@ -11,7 +11,7 @@ In this guide we'll walk you through an end-to-end example of how to use the Rai
 - set up a new repository in GitHub
 - set up the configuration of the Raito CLI
 - test and bring everything together locally
-- synchronize the defined access providers using GitHub Actions
+- synchronize the defined access controls using GitHub Actions
   
 We will assume some familiarity with Git and GitHub. These steps, except for the GitHub Actions step, can easily be reproduced using another version control system (or no version control system at all). You also need access to a Snowflake data warehouse. 
 If you don't have that, you can request a 30-day free trial. For this access-as-code usecase, you don't need access to Raito Cloud.
@@ -91,13 +91,11 @@ accessProviders:
               - select
 ```
 
-The access file contains a list of access providers. You can give it a *name* and *description*. They are purely for documentation reasons and will be used to generate a comment on the created role. 
+The access file contains a list of access controls. You can give it a *name* and *description*. They are purely for documentation reasons and will be used to generate a comment on the created role. 
 The *namingHint* will help determine the name of the role that will be created in Snowflake.
-Every access provider contains a list of Access elements (which correspond to roles in Snowflake). Each of those defines *who* has access to *what*, with which permissions. The *who list* can be a list of users or other access elements.
+Every access control defines *who* has access to *what*, with which permissions. The *who list* can be a list of users, groups, or other access controls.
  <!-- (TODO: these can't be groups, right?).  -->
  The *what list* is a list of data objects with their full name, and associated permissions. 
-
- Note: for this use case, it is recommended to only define one Access element under eacht access provider. Otherwise the naming hint will be suffixed with a random string to make it unique for each access element.
 
 In the Snowflake connector 'boilerplate permissions' don't need to be specified. E.g. if you want to give SELECT permissions on a table, you don't need to specify USAGE on the schema or database, this is handled by the Snowflake connector internally. This can, however, vary by connector.
 
