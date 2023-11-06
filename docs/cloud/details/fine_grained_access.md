@@ -9,7 +9,7 @@ permalink: /docs/cloud/finegrained_access
 
 # Fine-grained access
 
-Raito supports this visualization of both masking and filter policies as well as the management of masking policies. Both are access controls within Raito with respectively a mask or filter action. These actions have separated pages accessible under access controls in the main navigation.
+Raito supports the visualization of column masking rules and row-level filter policies as well as the management of masking policies. Masks and filters have a very similar structure as grants.
 
 ## Masking policies
 
