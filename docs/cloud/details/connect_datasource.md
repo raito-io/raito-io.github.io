@@ -35,3 +35,7 @@ Note: This choice is purely meant to guide you through setting up this specific 
 
 Once your data source is connected and a first synchronization ran successfully, you’ll be able to start exploring the current state of your access controls and [usage](/docs/cloud/usage_observability).
 <!-- TODO: add link to access controls when available -->
+
+## Add a new identity store in Raito Cloud
+
+Setting up a new identity store in Raito Cloud is similar to setting up a new data source. The entry point can be found by admins under Identities and Identity Stores in the main navigation. The only difference with the flow to connect a data source, is that we currently do not support the cloud CLI to connect an Identity Store.
