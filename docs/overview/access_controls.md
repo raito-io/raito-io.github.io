@@ -7,7 +7,7 @@ permalink: /docs/overview/access_controls
 
 # Access Controls
 
-Access Controls are the core concept in Raito. An access control is the link between who (user) has which permissions to access what (data object) for how long. Most access controls are tied to a single data source.
+Access Controls are the core concept in Raito. An access control is the link between who (user) has which permissions to access what (data object) for how long.
 
 [![Access Controls](/assets/images/Access_Controls.jpg)](/assets/images/Access_Controls.jpg){:target="_blank"}
 
