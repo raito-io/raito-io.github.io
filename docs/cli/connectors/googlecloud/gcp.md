@@ -72,7 +72,7 @@ Please take note of your `Customer ID` listed under `Account > Account Settings`
 
 To see all parameters, type 
 ```bash
-$> raito info raito-io/cli-plugin-gcp
+$> raito info raito-io/cli-plugin-gcp/gcp
 ```
 in a terminal window.
 
