@@ -59,7 +59,41 @@ Currently, the following configuration parameters are available:
 * **gcp-project-id** (mandatory): The ID of your GCP project for which you want to sync BigQueryy.
 * **gcp-serviceaccount-json-location** (optional): The location of the GCP ServiceAccount Key file (if not set, the `GOOGLE_APPLICATION_CREDENTIALS` environment variable is used)
 * **bq-include-hidden-datasets** (optional): when set to `true`, hidden datasets will also be imported into Raito
+* **bq-catalog-enabled** (optional): when set to `true`, support for masking would be enabled
 * **skip-unmanaged-iam-roles** (optional): If set to `false` (default `true`), we will import all IAM roles even the ones that are `not applicable`. They are then imported as not internalizable and used for observability purpose only. 
 * **gsuite-identity-store-sync** (optional): If set to `true` (default `false`), the identity store sync step will also pull information from GSuite.
 * **gsuite-customer-id** (optional): When `gsuite-identity-store-sync` is set to `true`, use this parameter to set the GSuite Customer ID.
 * **gsuite-impersonate-subject** (optional): When `gsuite-identity-store-sync` is set to `true`, use this parameter to the email address of the Admin Console User to be used for domain wide delegation.
+
+## Enable masking for BigQuery
+To enable support for masking in BigQuery, the [Google Cloud Data Catalog AP](https://cloud.google.com/data-catalog/docs) and [BigQuery Data Policy API](https://cloud.google.com/bigquery/docs/reference/bigquerydatapolicy/rest) should be enabled within the GCP project.
+
+Furthermore, the service account should be configured to have the following permissions
+```
+bigquery.dataPolicies.create
+bigquery.dataPolicies.delete
+bigquery.dataPolicies.get
+bigquery.dataPolicies.getIamPolicy
+bigquery.dataPolicies.list
+bigquery.dataPolicies.setIamPolicy
+bigquery.dataPolicies.update
+datacatalog.categories.getIamPolicy
+datacatalog.categories.setIamPolicy
+datacatalog.entries.create
+datacatalog.entries.delete
+datacatalog.entries.get
+datacatalog.entries.getIamPolicy
+datacatalog.entries.list
+datacatalog.entries.setIamPolicy
+datacatalog.entries.update
+datacatalog.entries.updateTag
+datacatalog.taxonomies.create
+datacatalog.taxonomies.delete
+datacatalog.taxonomies.get
+datacatalog.taxonomies.getIamPolicy
+datacatalog.taxonomies.list
+datacatalog.taxonomies.setIamPolicy
+datacatalog.taxonomies.update
+```
+
+Once the APIs are enabled and the service account has the above defined permissions, you can enable masking by setting **bq-catalog-enabled** to `true`.   
