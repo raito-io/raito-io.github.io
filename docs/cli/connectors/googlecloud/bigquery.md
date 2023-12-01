@@ -10,7 +10,7 @@ permalink: /docs/cli/connectors/googlecloud/bigquery
 
 [Google Cloud BigQuery](https://cloud.google.com/bigquery){:target="_blank"} is a fully-managed serverless data warehouse, part of the Google Cloud Platform, that enables scalable analysis over petabytes of data.
 
-The connector is available [here](https://github.com/raito-io/cli-plugin-bigquery){:target="_blank"} and supports
+The connector is available [here](https://github.com/raito-io/cli-plugin-gcp){:target="_blank"} and supports
 * Import of BigQuery Datasets, Tables and Columns as Data Objects into Raito Cloud
 * Import users, groups and service accounts access rights from the Project, Dataset and Table IAM policies
 * Import of GSuite users, groups and group membership into Raito Cloud (optional)
@@ -51,7 +51,7 @@ Please take note of your `Customer ID` listed under `Account > Account Settings`
 
 To see all parameters, type 
 ```bash
-$> raito info raito-io/cli-plugin-bigquery
+$> raito info raito-io/cli-plugin-gcp/bigquery
 ```
 in a terminal window.
 
