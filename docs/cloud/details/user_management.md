@@ -92,3 +92,13 @@ Owners of Data Objects can manage Access Controls within the scope of the Data O
 ☑️ Can add/remove data objects he/she owns
 
 ⛔  Cannot edit name, WHY and WHO
+
+
+## Type of users
+
+There are two distinct types of users in our platform: "Person" and "Machine" (ex: service-account) users. This distinction allows us to better understand and analyze user behavior based on their user type.
+If there is no specific type of user set, we will by default mark it as a "Person".
+
+By categorizing users as either "Human" or "Machine," we can now tailor our dashboards with an additional filter, that empowers us to analyze and monitor user activity more effectively, allowing us to gain deeper insights into how each user type interacts with your data.
+
+The primary motivation behind implementing this user-type classification is to ensure the accuracy and reliability of our insights dashboard. "Machine" users typically exhibit distinct access patterns compared to "Human" users. Including them in the combined view of all users could potentially distort the overall insights we derive from the data. By separating these user types, we can maintain a clearer and more precise understanding of user behavior, enabling us to make data-driven decisions based on accurate and reliable information.
