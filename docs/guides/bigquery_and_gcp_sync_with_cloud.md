@@ -124,7 +124,7 @@ domain: "{{DOMAIN}}"
 
 targets:
   - name: gcp
-    connector-name: raito-io/cli-plugin-gcp
+    connector-name: raito-io/cli-plugin-gcp/gcp
     connector-version: latest
     data-source-id: "<data-source-id>"
     identity-store-id: "<identity-store-id>"
@@ -137,7 +137,7 @@ targets:
     gsuite-impersonate-subject: <admin@gsuite.domain>
 
   - name: bigquery1
-    connector-name: raito-io/cli-plugin-bigquery
+    connector-name: raito-io/cli-plugin-gcp/bigquery
     connector-version: latest
     data-source-id: "<data-source-id>"
     identity-store-id: "<identity-store-id>"
