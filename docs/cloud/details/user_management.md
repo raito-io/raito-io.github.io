@@ -96,7 +96,7 @@ Owners of Data Objects can manage Access Controls within the scope of the Data O
 
 ## Type of users
 
-There are two distinct types of users in Raito `Person` and `Machine` (e.g. service-account). This distinction allows us to better understand and analyze user behavior based on their user type.
+There are two distinct types of users in Raito: `Person` and `Machine` (e.g. service-account). This distinction allows us to better understand and analyze user behavior based on their type.
 If there is no specific type of user set, `Person` is used as the default.
 
-The primary motivation behind implementing this user-type classification is to ensure the accuracy and reliability of our insights. `Machine` users typically exhibit distinct access patterns compared to `Person` users. Including them in the combined view of all users could potentially distort the overall insights we derive from the data. By separating these user types, we can maintain a clearer and more precise understanding of user behavior, enabling us to make data-driven decisions based on accurate and reliable information.
+The primary motivation behind implementing this user-type classification is to ensure the accuracy and reliability of the Insights pages. `Machine` users typically exhibit distinct access patterns compared to `Person` users. Including them in the combined view of all users could potentially distort the overall insights we derive from the data. By separating these user types, we can maintain a clearer and more precise understanding of user behavior, enabling us to make data-driven decisions based on accurate and reliable information.
