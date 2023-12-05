@@ -28,39 +28,41 @@ Raito considers the following global roles:
 - **Admin**: an admin is responsible to manage Raito for the organization. He manages users and roles withing Raito and connects Data Sources and Identity Stores. Raito has a full separation of concerns, which means that an admin by default does not manage access to data objects.
 - **Integrator**: an integrator is the role used to perform a CLI sync. The integrator role is hence often assigned to a service account.
 - **Access manager**: an access manager is a super-user with respect to Raito functionality. An access manager can manage access for all data objects.
+- **Access creator**: an access creator can create new access controls. This role is typically used for users that don't own any data objects, but still need to be able to create acess controls (e.g. purposes). 
 - **Observer**: an observer has access to all insights in Raito, but has no rights to perform actions in Raito.
 - **User**: a user is the minimum level of access to Raito which provides you all functionality to request access to data and see your personal information.
 
-Next to these global roles, Raito also has resource role, named `owner``. An owner can own one of the following assets:
+Next to these global roles, Raito also has a resource role, named `owner`. An owner can own one of the following assets:
 
-- **Owner of a data source**: an owner of the data source is the only one that can rename or remove the data source
-- **Owner of an identity store**: an owner of the identity store is the only one that can rename or remove the identity store
-- **Owner of a data object**: an owner of a data object is the one responsible to manage the access to the data object. He can approve data object access requests and can add or remove his data object to the what-list of an access control.
-- **Owner of a access control**: an owner of an access control can edit that access control and approve access requests to that access control.
+- **Data Source**: an owner of the data source is the only one that can rename or remove the data source and is also owner of all the data objects in the data source and of the native identity store of the data source.
+- **Identity Store**: an owner of the identity store is the only one that can rename or remove the identity store
+- **Data Object**: an owner of a data object is the one responsible for managing the access to the data object. He can approve data object access requests and can add or remove his data object to the what-list of an access control.
+- **Access Control**: an owner of an access control can see all the access control details, edit the access control and approve access requests to that access control.
 
 ### Role assignment
 
-Global roles can be assigned through the user management page in the admin pane by clicking the three dots next to someones name. Resource roles, like ownership of a data object, can be assigned on the page of the resource itself. This assignment can be performed by an admin or an existing owner of the resource.
+Global roles can be assigned through the user management page in the admin pane by clicking the three dots next to someones name. 
+
+Resource roles, like ownership of a data object, can be assigned on the page of the resource itself. This assignment can be performed by an admin or an existing owner of the resource.
 
 ### Role permissions - global roles
 
-| Permission | Admin | Integrator | Access Manager | Observer | User |
-| --- | --- | --- | --- | --- | --- |
-| Manage Data Sources: add, delete, update metadata | ✅ | ⛔️ | ⛔️ | ⛔️ | ⛔️ |
-| Manage Identity Stores: add, delete, update metadata | ✅ | ⛔️ | ⛔️ | ⛔️ | ⛔️ |
-| Manage users: invite to Raito and assign roles (global and local) | ✅ | ⛔️ | ⛔️ | ⛔️ | ⛔️ |
-| View Data Object tree | ✅ | ✅ | ✅ | ✅ | ✅ |
-| View Users | ✅ | ✅ | ✅ | ✅ | ✅ |
-| View Access Control name, purpose and WHAT-list | ✅ | ✅ | ✅ | ✅ | ✅ |
-| View Access Control WHO-list | ⛔️ | ✅ | ✅ | ✅ | ⛔️ |
-| View existing access: Data Object and User | ⛔️ | ⛔️ | ✅ | ✅ | ⛔️ |
-| View usage information: Data Object and User | ⛔️ | ⛔️ | ✅ | ✅ | ⛔️ |
-| View usage information: Access Control | ⛔️ | ⛔️ | ✅ | ✅ | ⛔️ |
-| View dashboard metrics | ⛔️ | ⛔️ | ✅ | ✅ | ⛔️ |
-| Request access | ✅ | ✅ | ✅ | ✅ | ✅ |
-| Approve an access request | ⛔️ | ⛔️ | ⛔️ | ⛔️ | ⛔️ |
-| Manage Access Controls | ⛔️ | ✅ | ✅ | ⛔️ | ⛔️ |
-| View audit trail | ⛔️ | ⛔️ | ✅ | ✅ | ⛔️ |
+| Permission | Admin | Integrator | Access Manager | Access Creator | Observer | User |
+| --- | --- | --- | --- | --- | --- | --- |
+| Manage Data Sources: add, delete, update metadata | ✅ | ⛔️ | ⛔️ | ⛔️ | ⛔️ | ⛔️ |
+| Manage Identity Stores: add, delete, update metadata | ✅ | ⛔️ | ⛔️ | ⛔️ | ⛔️ | ⛔️ |
+| Manage users: invite to Raito and assign roles (global and local) | ✅ | ⛔️ | ⛔️ | ⛔️ | ⛔️ | ⛔️ |
+| View Data Object tree | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| View Users | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| View name, purpose and WHAT-list of all Access Controls | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| View WHO-list of all Access Controls | ⛔️ | ✅ | ✅ | ⛔️ | ✅ | ⛔️ |
+| View access of all Data Objects and Users | ⛔️ | ⛔️ | ✅ | ⛔️ | ✅ | ⛔️ |
+| View usage information of all Data Objects, Access Controls and Users | ⛔️ | ⛔️ | ✅ | ⛔️ | ✅ | ⛔️ |
+| View dashboard metrics | ⛔️ | ⛔️ | ✅ | ⛔️ | ✅ | ⛔️ |
+| Request access | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Approve any access request | ⛔️ | ⛔️ | ⛔️ | ⛔️ | ⛔️ | ⛔️ |
+| Manage all Access Controls | ⛔️ | ⛔️ | ✅ | ⛔️ | ⛔️ | ⛔️ |
+| View global Audit trail | ⛔️ | ⛔️ | ✅ | ⛔️ | ✅ | ⛔️ |
 
 ### Role permissions - local roles
 
@@ -71,6 +73,7 @@ Global roles can be assigned through the user management page in the admin pane 
 | Approve an access request | Limited to the Data Source | ⛔️ | Limited to the Data Object | Limited to the Access Control |
 | View Access Control WHO-list | ✅ | ⛔️ | ✅ | ✅ |
 | Manage Access Controls | ✅ (*) | ⛔️ | ✅ (*) | ✅ |
+| View Access Control audit trail | ⛔️ | ⛔️ | ⛔️ | ✅ |
 | Assign ownership | Limited to the Data Source | Limited to the Identity Store | Limited to the Data Object | Limited to the Access Control |
 
 (*) Explained in the following section
