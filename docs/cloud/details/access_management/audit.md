@@ -1,6 +1,7 @@
 ---
-# title: Audit
-parent: Raito Cloud
+title: Audit
+parent: Access Management
+grand_parent: Raito Cloud
 nav_order: 90
 has_children: false
 has_toc: false
@@ -8,7 +9,7 @@ permalink: /docs/cloud/audit
 ---
 
 # Audit
-Raito preserves a full audit log of changes made on access controls, no matter whether these changes were done in Raito cloud itself or directly on the data source. A full audit trail is available on the `Audit` page, accessible through the main navigation on the left for access managers and admins. An audit trail per access control is availbe under the audit tab of the access control page, again for access managers and admins, but also for the access control owners themselves.
+Raito preserves a full audit log of changes made on access controls, no matter whether these changes were done in Raito cloud itself or directly on the data source. A full audit trail is available on the `Audit` page, accessible through the main navigation on the left for access managers and admins. An audit trail per access control is available under the audit tab of the access control page, again for access managers and admins, but also for the access control owners themselves.
 
 The audit trail contains the following entries:
 
