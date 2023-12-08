@@ -37,12 +37,4 @@ Use Raito Cloud to scale data access management and enable true data ownership.
 
 ## Core concepts
 
-Raito uses a combination of common and custom terminology. The core concepts are listed [here](/docs/overview/concepts) and include the following terms, 
-* Data source
-* Data object
-* Data
-* Identity store
-* Account
-* User
-* Access control
-* Access
+Raito uses a combination of common and custom terminology. The core concepts are listed [here](/docs/overview/concepts).

@@ -1,24 +1,27 @@
 ---
-title: Access and usage insights
-parent: Raito Cloud
-nav_order: 30
+title: Usage Insights
+parent: Insights
+grand_parent: Raito Cloud
+nav_order: 20
 has_children: false
 has_toc: false
-permalink: /docs/cloud/usage_observability
+permalink: /docs/cloud/insights/usage
 ---
 
-# Access and usage insights
+# Usage Insights
 
-You can add intelligence to managing data access by observing data usage. Raito Cloud displays the data usage from day 1 and continues to do so. These insights are provided on multiple places within Raito Cloud, as they all cover a different angle:
+On top of showing [who has access to what](/docs/cloud/insights/access), Raito also enriches these insights with data usage information. This allows you to monitor who has (not) been using the data they have access to and take the necessary actions immediately.
 
+These insights are provided on multiple places within Raito Cloud, as they all cover a different angle:
+
+- **Dashboard**: provides an aggregated overview of usage, both based on data objects, access controls, as users.
+- **Insights**: provides an overview of users, data objects and access controls.
 - **Data objects**: all usage of a single data object is grouped on the `Insights` tab of the data object
 - **Users**: all usage from a given user is grouped on the `Insights` tab of the user
 - **Access Controls**: all usage from a given access control is grouped on the `Insights` tab of the access control
-- **Dashboard**: the dashboard provides an aggregated overview of usage, both based on data objects, access controls, as users.
-- **Insights**: the insights page provides insights for users, data objects and access controls.
 
 {: .info }
-> ℹ️ To view access and usage insights, you need the necessary permissions. See [Raito user management](/docs/cloud/user_management) for more information on which roles can see what in Raito.
+> ℹ️ To view access and usage insights, you need the necessary permissions. See [User Management](/docs/cloud/admin/user_management) for more information on which roles can see what in Raito.
 
 
 ## Definitions
@@ -33,9 +36,9 @@ You can add intelligence to managing data access by observing data usage. Raito 
 - **Utility** - The percentage of users that have access to data and use it
 - **Active users** - percentage of exposed users that have actually used their access
 
-## Usage insights
+## Usage Insights
 
-Most insights provided by Raito cloud, combine data access and data usage. The overview of existing access can be found on [Access observability](/docs/cloud/access_observability).
+Most insights provided by Raito cloud, combine data access and data usage. The overview of existing access can be found on [Access Insights](/docs/cloud/insights/access).
 
 ### Dashboard
 

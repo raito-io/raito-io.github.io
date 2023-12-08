@@ -1,10 +1,11 @@
 ---
-title: Raito user management
-parent: Raito Cloud
-nav_order: 80
+title: User Management
+parent: Administration
+grand_parent: Raito Cloud
+nav_order: 10
 has_children: false
 has_toc: false
-permalink: /docs/cloud/user_management
+permalink: /docs/cloud/admin/user_management
 ---
 
 # Raito user management

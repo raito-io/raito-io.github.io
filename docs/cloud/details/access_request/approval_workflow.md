@@ -1,10 +1,10 @@
 ---
-title: Approval workflow
-parent: Raito Cloud
-nav_order: 60
+title: Implementing Access Requests
+parent: Access Requests
+grand_parent: Raito Cloud
+nav_order: 2
 has_children: false
-has_toc: false
-permalink: /docs/cloud/approval_workflow
+permalink: /docs/cloud/requests/approval
 ---
 
 # Approval workflow
@@ -15,7 +15,7 @@ The approval process for data access requests is designed to ensure that only au
 
 ## Request access
 
-The request phase of this process can be found in detail on [Request access to data](/docs/cloud/request_access).
+The request phase of this process can be found in detail on [Request Access](/docs/cloud/requests/request_access).
 
 ## Review and Approval
 

@@ -1,10 +1,10 @@
 ---
-title: Request access to data
-parent: Raito Cloud
-nav_order: 50
+title: Request Access
+parent: Access Requests
+grand_parent: Raito Cloud
+nav_order: 1
 has_children: false
-has_toc: false
-permalink: /docs/cloud/request_access
+permalink: /docs/cloud/requests/request_access
 ---
 
 # Request access to data
