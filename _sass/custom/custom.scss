@@ -619,6 +619,21 @@ p.note {
   }
 }
 
+.main-content main img {
+  padding: 20px 0px;
+  margin: auto;
+  display: block;
+}
+
+.main-content main img.main-icon {
+  padding: 8px;
+}
+
+.main-content main .slack-icon img {
+  padding: 0px;
+  display: inline;
+}
+
 .main-content h1,
 .main-content h2,
 .main-content h3,
