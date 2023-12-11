@@ -12,7 +12,7 @@ permalink: /docs/cloud/datasources/create
 ![Data Source overview](/assets/images/cloud/ds_overview_add.png)
 
 {: .info }
-> ℹ️ To add a data source, you need have the `Admin` role in Raito. See [User Management](/docs/cloud/admin/user_management) for more information on roles in Raito.
+> ℹ️ To add a data source, you need to have the global `Admin` role in Raito. See [User Management](/docs/cloud/admin/user_management) for more information on roles in Raito.
 
 To add a new data source in Raito Cloud, follow these steps:
 

@@ -21,7 +21,7 @@ When defining the who-links, you have the option to immediately grant the access
 To create a new grant, navigate to `Access controls > Grants` and click `Create grant` in the top right corner of the page.
 
 {: .info }
-> ℹ️ To create a new grant, you need be at least owner of one or more data objects or have the `Access Manager` or `Access Creator` role in Raito. See [User Management](/docs/cloud/admin/user_management) for more information on roles in Raito.
+> ℹ️ To create a new grant, you need be at least owner of one or more data objects or have the global `Access Manager` or `Access Creator` role in Raito. See [User Management](/docs/cloud/admin/user_management) for more information on roles in Raito.
 
 A wizard will be shown to guide you through the different steps to create a new grant.
 

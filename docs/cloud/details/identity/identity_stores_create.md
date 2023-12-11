@@ -24,6 +24,6 @@ Note: This choice is purely meant to guide you through setting up this specific 
 
 
 {: .info }
-> ℹ️ To add a identity store, you need the have `Admin` role in Raito. See [User Management](/docs/cloud/admin/user_management) for more information on roles in Raito.
+> ℹ️ To add a identity store, you need to have the global `Admin` role in Raito. See [User Management](/docs/cloud/admin/user_management) for more information on roles in Raito.
 
 Once the identity store is created, you will be the default owner. You can assign additional owners to make changes when necessary.

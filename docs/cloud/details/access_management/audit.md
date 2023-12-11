@@ -19,3 +19,6 @@ The audit trail contains the following entries:
 - Changes to the who and/or what-list of the access control; only changed items will be listed in the audit log.
 
 Per entry, Raito provides information about who has performed this action and when. You can filter on the actor by applying the user-filter on top of the page.
+
+{: .info }
+> ℹ️ To view the Audit of a specific Access Control, you need to have the global `Access Manager` or `Observer` role in Raito or be `Owner` of the Access Control. To see the global Audit overview page, you need to have the global `Access Manager` or `Observer` role in Raito. See [User Management](/docs/cloud/admin/user_management) for more information on roles in Raito.
