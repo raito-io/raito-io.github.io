@@ -31,7 +31,7 @@ Additionally, an optional description of the grant can be provided in this step 
 [![Create Grant - Step 1](/assets/images/cloud/access_management/create-step1.png)](/assets/images/cloud/access_management/create-step1.png){:target="_blank"}
 2. In step 2, you must select the data source this grant is for. Grants are always part of a single data source. To provide access to multiple data sources with the same access control, use a [purpose](/docs/cloud/access_management/purposes) instead.
 3. Once you selected the data source, step 3 will become available to select the data objects you want to grant access to.
-   1. To add a data object, click the `Add` button in the `Data objects` panel.
+   1. To add a data object, click the `+ Add Data object` link.
    2. In the panel that pops up, select the type of data object(s) you want to add and then search for the actual data objects.  
 [![Create Grant - Select What](/assets/images/cloud/access_management/create-select-what.png)](/assets/images/cloud/access_management/create-select-what.png){:target="_blank"}
    3. Now click `Add data object` to add the data object to the what-list of you new grant.  
@@ -41,7 +41,7 @@ Additionally, an optional description of the grant can be provided in this step 
    4. For each data object in the list, you can select which permissions should be granted.
 
 4. In the last step, you can select the beneficiaries (who-list) of this grant.
-   1. Click the `Add` button in the `Beneficiaries` panel
+   1. Click the `+ Add Beneficiary` link.
    2. First, you will be asked to choose whether you want to grant the access immediately or only want to pre-approve access in case the user creates an access request for this grant. When the user creates the access request, access will automatically be granted for the timeframe you predefined. This mechanism is a great way to implement a least-privilege access mindset.  
 [![Create Grant - Select Who Type](/assets/images/cloud/access_management/create-select-who-type.png)](/assets/images/cloud/access_management/create-select-who-type.png){:target="_blank"}
    3. In the next step, you can then select the users, groups, grants and/or purposes you want to provide access to this grant.  
@@ -51,4 +51,5 @@ Additionally, an optional description of the grant can be provided in this step 
    5. For each beneficiary, a date can be chosen until which this grant (or pre-approval) remains valid. After this time, the access will automatically be revoked again.
 
 5. Click `Publish grant`. A dialog will pop up showing an overview of the changes that will be made. 
-6. Choose `Publish grant` again to store the changes.
+6. Choose `Publish grant` again to store the changes.  
+When a CLI is running against the data source you picked, your new (or updated) grant will automatically be synchronized with the data source.
