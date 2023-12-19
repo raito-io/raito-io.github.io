@@ -57,7 +57,7 @@ gcloud iam service-accounts create raito-cli --display-name="Service account for
 Then obtain a key file for that service account
 
 ```sh
-gcloud iam service-accounts keys create ${JSON_KEY_PATH} --iam-account=raito-clit@${PROJECT_ID}.iam.gserviceaccount.com
+gcloud iam service-accounts keys create ${JSON_KEY_PATH} --iam-account=raito-cli@${PROJECT_ID}.iam.gserviceaccount.com
 ```
 
 Now we need to assign this service account the correct roles so it can run the Raito BigQuery and GCP connectors. For the GCP connector, we create a custom role with the necessary permissions (or you can choose to use an existing role with these permissions):
@@ -88,7 +88,7 @@ Now create the role using this definition using your GCP organization ID, and as
 gcloud iam roles create RaitoGcpRole --organization=${ORGANIZATION_ID} --file=${YAML_FILE_PATH}
 
 gcloud organizations add-iam-policy-binding ${ORGANIZATION_ID} \
-    --member=serviceAccount:raito-clit@${PROJECT_ID}.iam.gserviceaccount.com \
+    --member=serviceAccount:raito-cli@${PROJECT_ID}.iam.gserviceaccount.com \
     --role=organizations/${ORGANIZATION_ID}/roles/RaitoGcpRole
 ```
 
@@ -96,7 +96,7 @@ In the GCP project containing the BigQuery assets to be imported into Raito clou
 
 ```sh
 gcloud projects add-iam-policy-binding ${PROJECT_ID} \
-    --member=serviceAccount:raito-clit@${PROJECT_ID}.iam.gserviceaccount.com \
+    --member=serviceAccount:raito-cli@${PROJECT_ID}.iam.gserviceaccount.com \
     --role=roles/bigquery.admin
 ```
 
