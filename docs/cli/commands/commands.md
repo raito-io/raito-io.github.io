@@ -9,16 +9,6 @@ permalink: /docs/cli/commands
 # Commands
 As described in the [introduction](/docs/cli/intro), the Raito CLI provides different commands to serve different use cases.
 
-## Access 
-The **access** command can be used to implement an access-as-code workflow. It will read access controls from a YAML file and configure these in your data warehouse(s). This command is typically used in a CI/CD workflow.
-
-A full step-by-step guide on how to use this command can be found [here](/docs/guide/access). Specific configuration for this command can be found [here](/docs/cli/configuration#access)
-
-To get more information in a terminal window:
-```bash
-$> raito access --help
-```
-
 ## Run
 The **run** command is used to do a full synchronization between your data warehouse(s) and Raito Cloud as shown on the [Introduction page](/docs/cli/intro). 
 
