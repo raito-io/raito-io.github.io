@@ -83,3 +83,6 @@ Currently, the following configuration parameters are available:
 * **gsuite-identity-store-sync** (optional): If set to `true` (default `false`), the identity store sync step will also pull information from GSuite.
 * **gsuite-customer-id** (optional): When `gsuite-identity-store-sync` is set to `true`, use this parameter to set the GSuite Customer ID.
 * **gsuite-impersonate-subject** (optional): When `gsuite-identity-store-sync` is set to `true`, use this parameter to the email address of the Admin Console User to be used for domain-wide delegation.
+* **gcp-roles-to-group-by-identity** (optional): The optional comma-separate list of role names. When set, the bindings with these roles will be grouped by identity (user or group) instead of by resource. Note that the resulting Access Controls will not be editable from Raito Cloud. This can be used to lower the amount of imported Access Controls for roles like 'roles/owner' and 'roles/bigquery.dataOwner'.
+* **gcp-include-paths** (optional): Optional comma-separated list of paths to include. If specified, only these paths will be handled. For example: /folder1/subfolder,/folder2
+* **gcp-exclude-paths** (optional): Optional comma-separated list of paths to exclude. If specified, these paths will not be handled. Excludes have preference over includes. For example: /folder2/subfolder

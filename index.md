@@ -26,7 +26,7 @@ permalink: /
                 <div>
                     <img src="/assets/icons/code/outline.svg" alt="" class="main-icon icon-purple">
                     <h2>Raito CLI</h2>
-                    Get up and running with Raito. Learn how to install and configure our CLI and manage access as code. 
+                    Get up and running with Raito. Learn how to install and configure our CLI. 
                     <!-- <a href="/docs/cli/installation">Get started</a>                    
                     <a href="/docs/cli/configuration">Configuration</a>
                     <a href="/docs/cli/connectors">Connectors</a> -->

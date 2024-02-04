@@ -132,42 +132,4 @@ On the dashboard you will now see some initial insights that we extract from the
 
 When you go to `Identities` in the navigation bar, you can see all the users of the Snowflake instance under `Identity Store` 'Snowflake Test'. Finally, in `Access Controls` under grants, you have an overview of all the roles in your Snowflake instance. If you click on one, you get a detailed view of who belongs to that role, and what they have access to with which permissions. 
 
-## GitHub Actions workflow
-
-There is a [GitHub Action available](https://github.com/raito-io/cli-setup){:target="_blank"} which allows you to easily use the Raito CLI in your own pipelines. 
-
-You can use this GitHub Action to store access information in a repository and automatically deploy it to your data warehouse through the `raito access` command (as explained in [this guide](/docs/guide/access)), but also for example, to run a nightly sync of your warehouse environment through the `raito run` command.
-
-In this case, the near real-time sync (using websockets) will not be active as the CLI will only run one full synchronization.
-
-In the example GitHub Actions workflow YAML file below, we run the `raito run` command every night at 3am.
-The version of the Raito CLI can be specified with `with: version` in the `Setup Raito CLI` step, but if not specified, it will use the latest available version. We show it, but commented it out, for completeness.
-
-{% raw %}
-```yaml
-name: cli-on-demand
-on: 
-  schedule:    
-    - cron: '0 3 * * *'
-  push:
-    branches:
-      - main
-  workflow_dispatch:
-
-jobs:
-  cli-sync:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Check out repository code
-        uses: actions/checkout@v3
-
-      - name: Setup Raito CLI
-        uses: raito-io/cli-setup@v1.0.3
-
-      - name: warehouse sync 
-        run: raito run
-``` 
-{% endraw %}
-
-
 {% include slack.html %}
