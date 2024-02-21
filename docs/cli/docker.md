@@ -46,13 +46,14 @@ $> docker run --mount type=bind,source="<Your local Raito configuration file>",t
 ## Environment variables
 The following environment variables are used in the default entrypoint:
 
-| Environment variable              | Description                                                                                       | Default Value |
-|-----------------------------------|---------------------------------------------------------------------------------------------------|---------------|
-| `TZ`                              | Timezone used by the container                                                                    | Etc/UTC       |
-| `CLI_CRON`                        | Cron expression that defines when  to execute a sync                                              | `0 2 * * *`   |
-| `RAITO_CLI_UPDATE_CRON`           | The cronjob definition for when the container needs to check if a newer CLI version is available. | `0 1 * * *`   |
-| `RAITO_CLI_CONTAINER_STDOUT_FILE` | Output file stdout of the Raito CLI                                                               | `/dev/stdout` |
-| `RAITO_CLI_CONTAINER_STDERR_FILE` | Output file stderr of the Raito CLI                                                               | `/dev/stderr` |
+| Environment variable              | Description                                                                                         | Default Value |
+|-----------------------------------|-----------------------------------------------------------------------------------------------------|---------------|
+| `TZ`                              | Timezone used by the container                                                                      | Etc/UTC       |
+| `CLI_CRON`                        | Cron expression that defines when  to execute a sync                                                | `0 2 * * *`   |
+| `RAITO_CLI_VERSION`               | If provided, this fixed version of the raito CLI will be used instead of the "latest" CLI version.  |               |
+| `RAITO_CLI_UPDATE_CRON`           | The cronjob definition for when the container needs to check if a newer CLI version is available.   | `0 1 * * *`   |
+| `RAITO_CLI_CONTAINER_STDOUT_FILE` | Output file stdout of the Raito CLI                                                                 | `/dev/stdout` |
+| `RAITO_CLI_CONTAINER_STDERR_FILE` | Output file stderr of the Raito CLI                                                                 | `/dev/stderr` |
 
 Additional environment variables, that could be referred in your Raito configuration file, can be mounted by using the existing docker environment arguments `--env` and `--env-file`.
 
@@ -65,3 +66,11 @@ $> docker run --mount type=bind,source="<Your local Raito configuration file>",t
 ```
 
 Note that in most cases, additional config could be set in the configuration file.
+
+## Kubernetes
+
+The provided docker container is basically a long-running process that will do an `exit 1` on an unrecoverable error within in the synchronization process.
+Because of this behavior and the fact that our container is never directly called by users/services, there is no benefit for providing a `livenessProbe` and `readinessProbe` within the configuration of this pod.
+
+In an ideal world, a CLI instance is not killed during a sync. To prevent as much as possible that a redeployment/re-balance of the pod has an impact during the sync, we made sure that our container support graceful termination. When a graceful termination is requested during the sync, the CLI (and container) will shut down after the sync is done.
+To ensure that the graceful termination is completely respected, the [terminationGracePeriodSeconds](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#lifecycle) should be equal to the maximum sync time in seconds (+ some buffer). 
