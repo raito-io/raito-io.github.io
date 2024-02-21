@@ -12,7 +12,7 @@ permalink: /docs/cli/connectors/databricks
 [Unity Catalog](https://www.databricks.com/product/unity-catalog){:target=_blank} is a unified governance solution build on top of Databricks.
 
 The connector is available [here](https://github.com/raito-io/cli-plugin-databricks){:target="_blank"} and supports
-* Synchronizing databrick users to an identity store in Raito Cloud.
+* Synchronizing Databricks users to an identity store in Raito Cloud.
 * Synchronizing Databricks Unity Catalog meta data (data structure, known permissions, ...) to a data source in Raito Cloud.
 * Synchronizing Databricks Unity Catalog grants from an to Raito.
 * Synchronize the data usage information to Raito Cloud.
