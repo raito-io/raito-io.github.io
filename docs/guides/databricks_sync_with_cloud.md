@@ -7,15 +7,15 @@ permalink: /docs/guide/databricks
 
 # First sync with Raito Cloud
 
-In this guide we'll walk you through an example of how to connect Raito Cloud to a DataBricks data warehouse thought the Raito CLI.
+In this guide we'll walk you through an example of how to connect Raito Cloud to a Databricks data warehouse thought the Raito CLI.
 We'll
 - make sure that Raito CLI is installed and avaialable
 - log into Raito Cloud an create a data source
-- create a service principal in databricks to use with the CLI
+- create a service principal in Databricks to use with the CLI
 - configure Raito CLI to connect to Raito Cloud and synchronize with the previously-created data source
 - run a first sync
 
-For this guide you will need access to Raito Cloud and you also need access to a DataBricks account.
+For this guide you will need access to Raito Cloud and you also need access to a Databricks account.
 
 ## Raito CLI installation
 
@@ -44,12 +44,12 @@ In the left navigation pane go to `Data Sources` > `All data sources`. You shoul
 
 Once the data source has been created, you are ready to connect the Raito CLI with it. When you would have selected the Cloud CLI version, you will be prompted for the Snowflake account information, username and password, which will not be stored, and optionally a Snowflake role. This information is all similar to what is listed below.
 
-## Create a DataBricks Service principal
+## Create a Databricks Service principal
 
-While it is possible to use user credentials to execute a Raito sync, it is highly recommended to create a dedicated DataBricks service principle to be used by the DataBricks CLI connector.
+While it is possible to use user credentials to execute a Raito sync, it is highly recommended to create a dedicated Databricks service principle to be used by the Databricks CLI connector.
 
 Therefor, we'll create a Service Principle (named `RaitoSync`) and provide it with the necessary permissions. 
-- Navigate to the `User management` page in your DataBricks account admin page. 
+- Navigate to the `User management` page in your Databricks account admin page. 
     Under the tab `Service principals`, click `Add Service Principal`. 
 - Fill in the name (in our example `RaitoSync`). Click on the newly created service principal to create a new `OAuth secret`. 
 - A client ID and secret will be generated, save those credentials for later use. 
