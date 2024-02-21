@@ -69,8 +69,8 @@ Note that in most cases, additional config could be set in the configuration fil
 
 ## Kubernetes
 
-Our docker container is actually a long-running process that will exit 1 on an unrecoverable error within the sync.
-Because of this behavior and the fact that our container is never directly called by users/services, it doesn't add that much benefit for providing an `livenessProbe` and `readinessProbe` within the configuration of this pod.
+The provided docker container is basically a long-running process that will do an `exit 1` on an unrecoverable error within in the synchronization process.
+Because of this behavior and the fact that our container is never directly called by users/services, there is no benefit for providing a `livenessProbe` and `readinessProbe` within the configuration of this pod.
 
-In an ideal world a CLI instance is not killed during a sync, to prevent as much as possible that a redeployment/re-balance of the pod haven an impact during the sync, we made sure that our container support graceful termination. 
-To ensure that the graceful termination is completely respected, the [terminationGracePeriodSeconds](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#lifecycle) should be equal to the average sync time in seconds (+ some buffer). 
+In an ideal world, a CLI instance is not killed during a sync. To prevent as much as possible that a redeployment/re-balance of the pod has an impact during the sync, we made sure that our container support graceful termination. When a graceful termination is requested during the sync, the CLI (and container) will shut down after the sync is done.
+To ensure that the graceful termination is completely respected, the [terminationGracePeriodSeconds](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#lifecycle) should be equal to the maximum sync time in seconds (+ some buffer). 
