@@ -66,3 +66,11 @@ $> docker run --mount type=bind,source="<Your local Raito configuration file>",t
 ```
 
 Note that in most cases, additional config could be set in the configuration file.
+
+## Kubernetes
+
+Our docker container is actually a long-running process that will exit 1 on an unrecoverable error within the sync.
+Because of this behavior and the fact that our container is never directly called by users/services, it doesn't add that much benefit for providing an `livenessProbe` and `readinessProbe` within the configuration of this pod.
+
+In an ideal world a CLI instance is not killed during a sync, to prevent as much as possible that a redeployment/re-balance of the pod haven an impact during the sync, we made sure that our container support graceful termination. 
+To ensure that the graceful termination is completely respected, the [terminationGracePeriodSeconds](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#lifecycle) should be equal to the average sync time in seconds (+ some buffer). 
