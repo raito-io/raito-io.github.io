@@ -25,7 +25,7 @@ Read more about the Raito CLI configuration [here](/docs/cli/configuration).
 
 You can easily start the container using the following command:
 ```bash
-$> docker run --mount type=bind,source="<Your local Raito configuration file>",target="/config/raito.yml",readonly ghcr.io/raito-io/raito-cli-runner:latest
+docker run --mount type=bind,source="<Your local Raito configuration file>",target="/config/raito.yml",readonly ghcr.io/raito-io/raito-cli-runner:latest
 ```
 
 The default entrypoint of the container is defined as
@@ -40,7 +40,7 @@ By default, the log output of the Raito CLI are forwarded to `/dev/stdout` and `
 If you like to forward to a specific (mounted) file, override the default locations by configuring `RAITO_CLI_CONTAINER_STDOUT_FILE` and `RAITO_CLI_CONTAINER_STDERR_FILE` environment variables.
 
 ```bash
-$> docker run --mount type=bind,source="<Your local Raito configuration file>",target="/config/raito.yml",readonly -v <Directory to store logs>:/logs/ --env "RAITO_CLI_CONTAINER_STDOUT_FILE=/logs/output.txt" --env "RAITO_CLI_CONTAINER_STDERR_FILE=/logs/err.txt" raito-cli-runner:latest
+docker run --mount type=bind,source="<Your local Raito configuration file>",target="/config/raito.yml",readonly -v <Directory to store logs>:/logs/ --env "RAITO_CLI_CONTAINER_STDOUT_FILE=/logs/output.txt" --env "RAITO_CLI_CONTAINER_STDERR_FILE=/logs/err.txt" raito-cli-runner:latest
 ```
 
 ## Environment variables
@@ -62,7 +62,7 @@ In some cases it can be useful to override the default entrypoint. This could be
 This could easily be done as follows:
 
 ```bash
-$> docker run --mount type=bind,source="<Your local Raito configuration file>",target="/config/raito.yml",readonly --entrypoint /raito-cli-runner ghcr.io/raito-io/raito-cli-runner:latest -c "$CLI_CRON" --config-file /config/raito.yml --log-output --debug --sync-at-startup
+docker run --mount type=bind,source="<Your local Raito configuration file>",target="/config/raito.yml",readonly --entrypoint /raito-cli-runner ghcr.io/raito-io/raito-cli-runner:latest run -c "$CLI_CRON" --config-file /config/raito.yml --log-output --debug --sync-at-startup
 ```
 
 Note that in most cases, additional config could be set in the configuration file.

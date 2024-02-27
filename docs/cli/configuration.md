@@ -114,6 +114,12 @@ For example:
 $> raito <command> --connector raito-io/cli-plugin-snowflake --name snowflake1 --data-source-id <ds_id> -- --sf-account yyyyyy.eu-central-1 --sf-user <youruser> --sf-password <yourpassword>
 ```
 
+## Config reloading
+When using the `run` command, the Raito CLI will reload configuration parameters from the configuration file before each sync. 
+
+This functionality is mainly meant for changing individual parameters (e.g. the password to connect to Raito or to your data source to allow password rotation).  
+It is recommended to restart the CLI when you do larger changes to the configuration (like adding/removing targets).
+
 ## Examples
 
 There are two options to specify targets:

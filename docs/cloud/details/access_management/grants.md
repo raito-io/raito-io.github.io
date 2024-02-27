@@ -16,6 +16,16 @@ When defining the who-links, you have the option to immediately grant the access
 
 [![Grants](/assets/images/Grants.jpg)](/assets/images/Grants.jpg){:target="_blank"}
 
+## Permissions
+When adding a data object in the what-list of a grant, you also have to specify which permissions you want to grant on this data object.
+
+The available permissions are determined by the type of data object and the data source that the data object is in. For example: on a Snowflake table, permissions like `SELECT`, `INSERT`, ... will be available.  
+Data objects on a higher level will also show the permissions that are available on all its descendants. For example: on a Snowflake schema, you will also see the `SELECT` permission, which means that the `SELECT` permission will be applied on all tables and views in that schema.
+
+On top of these, 3 additional permissions are always available to provide a high-level abstraction on top of the data source specific permissions: `Read`, `Write` and `Admin`.  
+These global permissions will be unpacked to data source specific permissions when the access control is synced to the data source.  
+For example: on a Snowflake table, the `Read` permission will translate into the `SELECT` permission, while the `Write` permission is unpacked to the `INSERT`, `UPDATE`, `DELETE` and `TRUNCATE` permissions. This mapping is determined by the CLI connector plugin.
+
 ## Creating a Grant
 
 To create a new grant, navigate to `Access controls > Grants` and click `Create grant` in the top right corner of the page.

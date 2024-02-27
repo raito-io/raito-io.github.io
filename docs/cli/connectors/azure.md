@@ -4,6 +4,7 @@ parent: Connectors
 grand_parent: Raito CLI
 nav_order: 1
 permalink: /docs/cli/connectors/azure
+nav_exclude: true
 ---
 
 # Azure
