@@ -4,10 +4,11 @@ parent: Raito CLI
 nav_order: 30
 permalink: /docs/cli/configuration
 ---
-# Configuration
-## Introduction
-Configuration parameters can be passed into the CLI in two different ways:
 
+# Configuration
+
+## Introduction
+Configuration parameters can be passed into the CLI in two different ways:  
 
 1. **File**: you can specify the configuration parameters in a YAML file. By default, *raito.yml* or *raito.yaml* (in the working directory or '~/.raito') is used.<br>
 The configuration file allows you to specify multiple targets instead of only 1 (see later). Environment variables can be used in the configuration file by using double curly brackets, e.g. {% raw %} `sf-password: "{{SNOWFLAKE_PASSWORD}}"` {% endraw %}<br>
