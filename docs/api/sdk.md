@@ -9,4 +9,4 @@ permalink: /docs/api/sdk
 To make integration work easier, an SDK for Go is provided.  
 The SDK handles all of the authentication logic and provides a simple layer on top of the GraphQL API.
 
-All details can be found in the [SDK Git repository](https://github.com/raito-io/sdk){:target="_blank"}.
+All details can be found in the [SDK Git repository](https://github.com/raito-io/sdk-go){:target="_blank"}.
