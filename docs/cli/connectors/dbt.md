@@ -8,4 +8,4 @@ permalink: /docs/cli/connectors/dbt
 
 # Dbt
 
-Coming soon
+*Coming soon*
