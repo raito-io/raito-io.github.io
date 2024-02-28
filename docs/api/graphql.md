@@ -10,7 +10,7 @@ permalink: /docs/api/graphql
 Raito uses [GraphQL](https://graphql.org/) as its API paradigm to programmatically query and manipulate the model in [Raito Cloud](/docs/cloud). This document explains how to use the GraphQL API, based on a couple of examples.
 
 {: .warning }
-> ℹ️ At this time, the GraphQL API is not fully stabilized and is subject for change. So while it is allowed to use it, your code can break at any point in time. 
+At this time, the GraphQL API is not fully stabilized and is subject for change. So while it is allowed to use it, your code can break at any point in time. 
 
 We will use [Postman](https://www.postman.com/) to describe how queries should be executed.
 

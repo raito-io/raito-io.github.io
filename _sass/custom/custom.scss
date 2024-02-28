@@ -242,6 +242,12 @@ p {
   color: $colors-grey-11;
 }
 
+p.warning {
+  background-color: $colors-orange-3 !important;
+  padding: 20px !important;
+  border-left: solid $colors-orange-8 5px !important;
+}
+
 p.note {
   background-color: $colors-grey-4 !important;
   padding: 20px !important;
