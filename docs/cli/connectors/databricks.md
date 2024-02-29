@@ -46,6 +46,7 @@ in a terminal window.
 
 Currently, the following configuration parameters are available:
 * **databricks-account-id** (mandatory): The ID of your Databricks account.
+* **databricks-platform:** (mandatory): The used Databricks platform (Azure, AWS, GCP).
 * **databricks-client-id**: The client ID of the databricks account used within the plugin, to authenticate by using oauth.
 * **databricks-client-secret**: The client secret of the databricks account used within, to authenticate by using oauth. 
 * **databricks-user**: The email-address of the user that should be used within the plugin, to authenticate by using basic authentication.
