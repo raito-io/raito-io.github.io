@@ -70,7 +70,24 @@ Note that in most cases, additional config could be set in the configuration fil
 ## Kubernetes
 
 The provided docker container is basically a long-running process that will do an `exit 1` on an unrecoverable error within in the synchronization process.
-Because of this behavior and the fact that our container is never directly called by users/services, there is no benefit for providing a `livenessProbe` and `readinessProbe` within the configuration of this pod.
 
+As you may know our CLI can run in 2 modes and from a health-check standpoint, there are some difference between both run modes.
+
+### Single run mode
+
+As the container is only running during a single sync, we will just exit the container if the sync is done or if there was an error during the sync.
+
+In this case, there is little added benefit for adding additional health checks as we just want to keep the container running during that sync.
+
+### Continuous run mode
+If there is a [cron](/docs/cli/configuration#global-parameters) defined we will also start a webhook and in this case it makes sense to add additional health check based on the status of this connection. 
+
+To enable this feature you need to pass an environment variable `RAITO_CLI_CONTAINER_LIVENESS_FILE` to the container with as value a file in a writable directory.
+When this file is available on the file system, it means that the websocket connection is active and running.
+When this file is not available on the file system, it means that the websocket connection is closed for a reason.
+
+As a `livenessProbe` command you can use a simple `cat` on the file path passed with the environment variable `RAITO_CLI_CONTAINER_LIVENESS_FILE` to check if the container is healthy or not.
+
+### Termination grace period
 In an ideal world, a CLI instance is not killed during a sync. To prevent as much as possible that a redeployment/re-balance of the pod has an impact during the sync, we made sure that our container support graceful termination. When a graceful termination is requested during the sync, the CLI (and container) will shut down after the sync is done.
 To ensure that the graceful termination is completely respected, the [terminationGracePeriodSeconds](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#lifecycle) should be equal to the maximum sync time in seconds (+ some buffer). 
