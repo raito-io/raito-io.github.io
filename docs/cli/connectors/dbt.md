@@ -104,7 +104,7 @@ SELECT ...
 ```
 
 ### Filters
-(Feature no supported yet)
+(Feature coming soon)
 
 ### Masks
 Masks can be defined on columns of models, seeds and snapshots. Within the `raito` object, defined in the [meta](https://docs.getdbt.com/reference/resource-configs/meta){:target=_blank} property, a `mask` can be defined.
