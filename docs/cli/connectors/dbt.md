@@ -89,7 +89,7 @@ models:
 ```
 
 The next example shows how to define grants within the model (`sql`) file.
-```sql
+```
 {{ config(meta = {
     'raito': {
         'grant': [
