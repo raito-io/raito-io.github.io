@@ -26,7 +26,7 @@ jobs:
       - name: Checkout master branch
         uses: actions/checkout@v3
         with:
-          ref: master
+          ref: fdca18d82ea9d8c448a11058823fd2e12f5858b3
           path: master
       - name: Checkout preview branch
         uses: actions/checkout@v3
