@@ -80,6 +80,7 @@ includedPermissions:
 - resourcemanager.projects.list
 - resourcemanager.projects.getIamPolicy
 - resourcemanager.projects.setIamPolicy
+- iam.serviceAccounts.list
 ```
 
 Now create the role using this definition using your GCP organization ID, and assign it to the service account
