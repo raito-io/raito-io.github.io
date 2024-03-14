@@ -65,15 +65,20 @@ $> raito <command> --help
 - **skip-data-usage-sync**: If set, the data usage information synchronization step to Raito Cloud  will be skipped for each of the targets.
 - **skip-identity-store-sync**: If set, the identity store synchronization step to Raito Cloud will be skipped for each of the targets.
 - **disable-websocket**: When the frequency parameter is defined, by default, the CLI will set up a websocket connection to Raito Cloud to continuously listen to changes to access controls to be able to apply them within seconds. If this flag is set, the websocket connection will not be created and only the full syncs will run regularly. This flag has only effect if **frequency** is set.
-<!-- - **delete-untouched**: false by default. Removes objects that have not been updated during the CLI sync. For instance, if set to false during a data source sync, data objects that do not exist anymore in the target will not be removed from Raito Cloud.  -->
-<!-- - **replace-tags**:  TODO: should we document this as we do not support groups right now?  -->
-<!-- - **delete-temp-files**: false by default. Delete temporary files that contain the information extracted from the  target and are uploaded to Raito Cloud.  -->
-<!-- - **replace-groups**: TODO: should we document this as we do not support groups right now?  -->
 
-### *access*
+Locking parameters can be used to lock certain parts of an access provider, which means that this part of the access provider will always be managed from within the data source. Concretely, this means that this part will not be editable in the Raito Cloud UI and that this part of the access provider will never be pushed back to the data source, but still imported from the data source during a sync, even if the access provider has been internalized in Raito Cloud. The following options are available to lock a specific part of all the imported access controls: 
+- **lock-all-who**: If set, the 'who' (users and groups) of all access providers imported into Raito Cloud will be locked.
+- **lock-all-inheritance**: If set, the inheritance of all access providers imported into Raito Cloud will be locked.
+- **lock-all-what**: If set, the 'what' of all access providers imported into Raito Cloud will be locked.
+- **lock-all-names**: f set, the names of all access providers imported into Raito Cloud will be locked.
+- **lock-all-delete**: If set, the deletion of all access providers imported into Raito Cloud will be locked.
+- **lock-all-owners**: If set, the owners of all access providers imported into Raito Cloud will be locked.
+- **make-not-internalizable**: Allows you to specify a comma-separated list of access provider names that should be made not-internalizable when imported into Raito Cloud. This means that these access providers will not be editable in Raito Cloud. The names in the list are interpreted as regular expressions so allow for partial matches. (e.g. '.+-prod,.+-dev' will match all access providers ending with '-prod' or '-dev')
 
-One extra option:
-- **access-file**. If set, specify a custom file path to use for the location of the access definition file. Default is "access.yml". This can also be specified under the target in the configuration file. That way, you can specify access to multiple targets to be provisioned in one run. 
+Tags which are read from the data source by the connector can be used to set specific properties of access providers and data objects during import. Note that not all data sources support tags on access providers and/or data objects. The following parameters are available:
+- **tag-overwrite-key-for-access-provider-name**: If set, this will determine the tag-key used for overwriting the display-name of the access provider when imported in Raito Cloud. The display-name should be defined in the value of the tag. When no tag with this key is found on the access provider, the default behavior is used.
+- **tag-overwrite-key-for-access-provider-owners**: If set, will determine the tag-key used for assigning owners of the access provider when imported in to Raito Cloud. The owners are then found in the value of the tag. This value should be a comma-separated list of account names (e.g. 'accountName1,accountName2') or emails prefixed with 'email:' (e.g. 'email:test@company.com,email:test2@company.com').  
+- **tag-overwrite-key-for-data-object-owners**: If set, will determine the tag-key used for assigning owners of the Data Objects when imported in to Raito Cloud. The owners are then found in the value of the tag and should be formatted in the same way as described in the `tag-overwrite-key-for-access-provider-owners` parameter.
 
 ## Raito parameters
 To connect the CLI to your Raito instance, you'll also need to specify the following parameters, globally or in the configuration file under the specific target section:
