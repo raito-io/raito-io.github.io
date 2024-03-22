@@ -7,7 +7,7 @@ permalink: /docs/cli/installation/docker
 ---
 # Docker Images
 To run the CLI in Docker, two possibilities are provided:
-1. Recommended: The `CLI Runner`**` image contains a small wrapper around the actual Raito CLI to make sure that the latest CLI version is downloaded on a regular basis. This way, you can be sure to always run the latest version. See the `Docker Raito CLI Runner` section below.
+1. Recommended: The `CLI Runner` image contains a small wrapper around the actual Raito CLI to make sure that the latest CLI version is downloaded on a regular basis. This way, you can be sure to always run the latest version. See the `Docker Raito CLI Runner` section below.
 2. The `CLI` image directly has a fixed version of the CLI embedded. For each new version of the CLI that is released, a corresponding CLI Docker image is released as well. See the `Docker Raito CLI` section below.
 
 ## Docker Raito CLI Runner
