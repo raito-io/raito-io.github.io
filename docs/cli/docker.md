@@ -66,8 +66,11 @@ In some cases it can be useful to override the default entrypoint. This could be
 This could easily be done as follows:
 
 ```bash
-docker run --mount type=bind,source="<Your local Raito configuration file>",target="/config/raito.yml",readonly --entrypoint "/raito-cli-runner run -c \"$CLI_CRON\" --config-file /config/raito.yml --log-output --debug --sync-at-startup" ghcr.io/raito-io/raito-cli-runner:latest
+docker run --mount type=bind,source="<Your local Raito configuration file>",target="/config/raito.yml",readonly --entrypoint /raito-cli-runner ghcr.io/raito-io/raito-cli-runner:latest run -c "$CLI_CRON" --config-file /config/raito.yml --log-output --debug --sync-at-startup 
 ```
+
+{.note}
+As you can see in the example above, overriding the entrypoint with docker run is done in a very strange way. After the entrypoint flag, only the main command is given ('/raito-cli-runner'), followed by the docker image to use ('ghcr.io/raito-io/raito-cli-runner:latest') and only after that are the parameters for the entrypoint command ('run ...').
 
 Note that in most cases, additional config could be set in the configuration file.
 
@@ -115,8 +118,11 @@ In some cases it can be useful to override the default entrypoint. This could be
 This could easily be done as follows:
 
 ```bash
-docker run --mount type=bind,source="<Your local Raito configuration file>",target="/config/raito.yml",readonly --entrypoint "/raito run -c \"$CLI_CRON\" --config-file /config/raito.yml --log-output --debug --sync-at-startup" ghcr.io/raito-io/raito-cli:latest
+docker run --mount type=bind,source="<Your local Raito configuration file>",target="/config/raito.yml",readonly --entrypoint /raito ghcr.io/raito-io/raito-cli:latest run -c "$CLI_CRON" --config-file /config/raito.yml --log-output --debug --sync-at-startup
 ```
+
+{.note}
+As you can see in the example above, overriding the entrypoint with docker run is done in a very strange way. After the entrypoint flag, only the main command is given ('/raito'), followed by the docker image to use ('ghcr.io/raito-io/raito-cli:latest') and only after that are the parameters for the entrypoint command ('run ...').
 
 Note that in most cases, additional config could be set in the configuration file.
 
