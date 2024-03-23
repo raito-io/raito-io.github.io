@@ -37,7 +37,7 @@ The default entrypoint of the container is defined as
 ENTRYPOINT /raito-cli-runner run -c "$CLI_CRON" --config-file /config/raito.yml --log-output
 ```
 
-You can override the default entrypoint by using the `--entrypoint` option when executing `docker run`
+See the `Entrypoint override` section to learn how to override this to specify different parameters.
 
 ### Logs
 By default, the log output of the Raito CLI are forwarded to `/dev/stdout` and `/dev/stderr`. 
@@ -69,7 +69,7 @@ This could easily be done as follows:
 docker run --mount type=bind,source="<Your local Raito configuration file>",target="/config/raito.yml",readonly --entrypoint /raito-cli-runner ghcr.io/raito-io/raito-cli-runner:latest run -c "$CLI_CRON" --config-file /config/raito.yml --log-output --debug --sync-at-startup 
 ```
 
-{.note}
+{: .note }
 As you can see in the example above, overriding the entrypoint with docker run is done in a very strange way. After the entrypoint flag, only the main command is given ('/raito-cli-runner'), followed by the docker image to use ('ghcr.io/raito-io/raito-cli-runner:latest') and only after that are the parameters for the entrypoint command ('run ...').
 
 Note that in most cases, additional config could be set in the configuration file.
@@ -101,7 +101,7 @@ The default entrypoint of the container is defined as
 ENTRYPOINT /raito run -c "$CLI_CRON" --config-file /config/raito.yml --log-output
 ```
 
-You can override the default entrypoint by using the `--entrypoint` option when executing `docker run`
+See the `Entrypoint override` section to learn how to override this to specify different parameters.
 
 ### Environment variables
 The following environment variables are used in the default entrypoint:
@@ -121,7 +121,7 @@ This could easily be done as follows:
 docker run --mount type=bind,source="<Your local Raito configuration file>",target="/config/raito.yml",readonly --entrypoint /raito ghcr.io/raito-io/raito-cli:latest run -c "$CLI_CRON" --config-file /config/raito.yml --log-output --debug --sync-at-startup
 ```
 
-{.note}
+{: .note }
 As you can see in the example above, overriding the entrypoint with docker run is done in a very strange way. After the entrypoint flag, only the main command is given ('/raito'), followed by the docker image to use ('ghcr.io/raito-io/raito-cli:latest') and only after that are the parameters for the entrypoint command ('run ...').
 
 Note that in most cases, additional config could be set in the configuration file.
