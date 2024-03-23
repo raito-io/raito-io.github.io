@@ -36,7 +36,6 @@ In the case of configuration through a file; some of the global, command-specifi
  - **config-file** *(optional)*: the file path of the configuration YAML file to use. By default, the system will look for a file called 'raito.yml' or 'raito.yaml' in the working directory or under directory '~/.raito/'.
  - **log-file** *(optional)*: the file path of the log file to use. If not specified, no logging to file is done.
  - **debug** *(optional)*: a boolean flag to request extra debug output. Can be useful when building a plugin or when something is wrong.
- - **only-targets** *(optional)*: comma-separated list of targets that need to be run. If left empty, all targets will be run. 
  - **log-output** enable full line-by-line logging instead of the logging summary.
  - **repositories** allows you to specity a Github Personal Account Token to download a connector from a private repository. It can be configured like
 
@@ -65,6 +64,7 @@ $> raito <command> --help
 - **skip-data-usage-sync**: If set, the data usage information synchronization step to Raito Cloud  will be skipped for each of the targets.
 - **skip-identity-store-sync**: If set, the identity store synchronization step to Raito Cloud will be skipped for each of the targets.
 - **disable-websocket**: When the frequency parameter is defined, by default, the CLI will set up a websocket connection to Raito Cloud to continuously listen to changes to access controls to be able to apply them within seconds. If this flag is set, the websocket connection will not be created and only the full syncs will run regularly. This flag has only effect if **frequency** is set.
+- **only-targets** *(optional)*: comma-separated list of targets that need to be run. If left empty, all targets will be run. 
 
 Locking parameters can be used to lock certain parts of an access provider, which means that this part of the access provider will always be managed from within the data source. Concretely, this means that this part will not be editable in the Raito Cloud UI and that this part of the access provider will never be pushed back to the data source, but still imported from the data source during a sync, even if the access provider has been internalized in Raito Cloud. The following options are available to lock a specific part of all the imported access controls: 
 - **lock-all-who**: If set, the 'who' (users and groups) of all access providers imported into Raito Cloud will be locked.
