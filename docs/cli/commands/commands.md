@@ -53,11 +53,11 @@ The command is used by providing the name of the target you want to apply this t
 $> raito apply-access <target-name> <file-path>
 ```
 
-It is possible to only apply a subset of the access providers that are in this file, by providing the `--filter-access` flag followed by a comma separated list of access provider names to apply. This can contain regular expression to more easily match a set of access providers.  
+It is possible to only apply a subset of the access providers that are in this file, by providing the `--filter-access` flag followed by a comma separated list of access provider names to apply. This can contain regular expressions to more easily match a set of access providers.  
 For example, you may do something like this:
 
 ```bash
-$> raito apply-access mytarget mytarget-toTarget-access-2024-03-25T11-45-11.555.yaml --filter-access "TEST_.*,PROD_*"
+$> raito apply-access mytarget mytarget-toTarget-access-2024-03-25T11-45-11.555.yaml --filter-access "TEST_.*,PROD_.*"
 ```
 
 This will apply the access providers that start with either `TEST_` or `PROD_` in the given file to target `mytarget`.  
