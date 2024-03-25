@@ -80,6 +80,11 @@ Tags which are read from the data source by the connector can be used to set spe
 - **tag-overwrite-key-for-access-provider-owners**: If set, will determine the tag-key used for assigning owners of the access provider when imported in to Raito Cloud. The owners are then found in the value of the tag. This value should be a comma-separated list of account names (e.g. 'accountName1,accountName2') or emails prefixed with 'email:' (e.g. 'email:test@company.com,email:test2@company.com').  
 - **tag-overwrite-key-for-data-object-owners**: If set, will determine the tag-key used for assigning owners of the Data Objects when imported in to Raito Cloud. The owners are then found in the value of the tag and should be formatted in the same way as described in the `tag-overwrite-key-for-access-provider-owners` parameter.
 
+Files that are generated (either by the CLI or by Raito Cloud) are deleted by default when they are not needed anymore by the process. This behavior can be manipulated with the following parameters. These can be either defined on the top-level of the configuration file or under each target separately:
+- **delete-temp-files**: By default, this is 'true'. When set to 'false', the temporary files will not be deleted after a synchronization run. This can be used for debugging reasons.
+- **file-backup-location**: This parameter can be used to specify a path to store backups of the temporary files that are generated during a synchronization run. A sub-folder is created per target, using the target name + the type of run (full, manual or webhook) as name for the folder. Underneath that, another sub-folder is created per run, using a timestamp as the folder name. The backed up files are then stored in that folder. See [here](/docs/cli/commands#apply-access) on how this could be used in a disaster recovery scenario.
+- **maximum-backups-per-target**: When the `file-backup-location` is defined, this parameter can be used to control how many backups should be kept per target+type. When this number is exceeded, older backups will be removed automatically. By default, this is 0, which means there is no maximum.
+
 ## Raito parameters
 To connect the CLI to your Raito instance, you'll also need to specify the following parameters, globally or in the configuration file under the specific target section:
 
