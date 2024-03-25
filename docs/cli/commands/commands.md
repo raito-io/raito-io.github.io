@@ -40,7 +40,7 @@ $> raito info raito-io/cli-plugin-snowflake
 ```
 
 ## Apply Access
-{: .warning}
+{: .warning }
 This command should be used with extreme caution by somebody that knows what they are doing.
 This is typically used for disaster recovery reasons.
 
