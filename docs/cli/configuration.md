@@ -66,14 +66,34 @@ $> raito <command> --help
 - **disable-websocket**: When the frequency parameter is defined, by default, the CLI will set up a websocket connection to Raito Cloud to continuously listen to changes to access controls to be able to apply them within seconds. If this flag is set, the websocket connection will not be created and only the full syncs will run regularly. This flag has only effect if **frequency** is set.
 - **only-targets** *(optional)*: comma-separated list of targets that need to be run. If left empty, all targets will be run. 
 
-Locking parameters can be used to lock certain parts of an access provider, which means that this part of the access provider will always be managed from within the data source. Concretely, this means that this part will not be editable in the Raito Cloud UI and that this part of the access provider will never be pushed back to the data source, but still imported from the data source during a sync, even if the access provider has been internalized in Raito Cloud. The following options are available to lock a specific part of all the imported access controls: 
-- **lock-all-who**: If set, the 'who' (users and groups) of all access providers imported into Raito Cloud will be locked.
-- **lock-all-inheritance**: If set, the inheritance of all access providers imported into Raito Cloud will be locked.
-- **lock-all-what**: If set, the 'what' of all access providers imported into Raito Cloud will be locked.
-- **lock-all-names**: f set, the names of all access providers imported into Raito Cloud will be locked.
-- **lock-all-delete**: If set, the deletion of all access providers imported into Raito Cloud will be locked.
-- **lock-all-owners**: If set, the owners of all access providers imported into Raito Cloud will be locked.
-- **make-not-internalizable**: Allows you to specify a comma-separated list of access provider names that should be made not-internalizable when imported into Raito Cloud. This means that these access providers will not be editable in Raito Cloud. The names in the list are interpreted as regular expressions so allow for partial matches. (e.g. '.+-prod,.+-dev' will match all access providers ending with '-prod' or '-dev')
+Locking parameters can be used to lock certain parts of an access provider, which means that this part of the access provider will always be managed from within the data source. Concretely, this means that this part will not be editable in the Raito Cloud UI and that this part of the access provider will never be pushed back to the data source, but still imported from the data source during a sync, even if the access provider has been internalized in Raito Cloud.  
+Note that this only makes sense for access providers that represent a named entity (like a Snowflake Role or AWS Policy).  
+The following options are available to lock a specific part of all the imported access controls: 
+
+- **lock-all-who**: If set to true, the 'who' (users and groups) of all access providers imported into Raito Cloud will be locked.
+- **lock-who-by-name**: Allows you to specify a comma-separated list of access provider names for which the 'who' (users and groups) should be locked when imported into Raito Cloud. The names in the list are interpreted as regular expressions which allows for partial matches (e.g. '.+-prod,.+-dev' will match all access providers ending with '-prod' or '-dev').
+- **lock-who-by-tag**: Allows you to specify a comma-separated list of access provider tags for which the 'who' (users and groups) should be locked when imported into Raito Cloud. The tags in the list are interpreted as regular expressions which allows for partial matches. The format for an item should be in the form 'key:value' (e.g. 'key1:value1,key2:.+' will match all access providers that have the tag 'key1:value1' or have the tag with key 'key2'). 
+- **lock-who-when-incomplete**: If set to true, the 'who' (users and groups) of all access providers imported into Raito Cloud will be locked if the access provider is incomplete (not all elements could be understood by Raito). This can be used to protect accidental removal of permissions unknown to Raito by blocking the possibility to edit it. 
+- **lock-all-inheritance**: Same as `lock-all-who`, but for the 'inheritance' of the access providers.
+- **lock-inheritance-by-name**: Same as `lock-who-by-name`, but for the 'inheritance' of the access providers.
+- **lock-inheritance-by-tag**: Same as `lock-who-by-tag`, but for the 'inheritance' of the access providers.
+- **lock-inheritance-when-incomplete**: Same as `lock-who-when-incomplete`, but for the 'inheritance' of the access providers.
+- **lock-all-what**: Same as `lock-all-who`, but for the 'what' of the access providers.
+- **lock-what-by-name**: Same as `lock-who-by-name`, but for the 'what' of the access providers.
+- **lock-what-by-tag**: Same as `lock-who-by-tag`, but for the 'what' of the access providers.
+- **lock-what-when-incomplete**: Same as `lock-who-when-incomplete`, but for the 'what' of the access providers.
+- **lock-all-names**: Same as `lock-all-who`, but for the name of the access providers.
+- **lock-names-by-name**: Same as `lock-who-by-name`, but for the name of the access providers.
+- **lock-names-by-tag**: Same as `lock-who-by-tag`, but for the name of the access providers.
+- **lock-names-when-incomplete**: Same as `lock-who-when-incomplete`, but for the name of the access providers.
+- **lock-all-delete**: Same as `lock-all-who`, but for deleting the access providers.
+- **lock-delete-by-name**: Same as `lock-who-by-name`, but for deleting the access providers.
+- **lock-delete-by-tag**: Same as `lock-who-by-tag`, but for deleting the access providers.
+- **lock-delete-when-incomplete**: Same as `lock-who-when-incomplete`, but for deleting the access providers.
+- **fully-lock-all**: Same as `lock-all-who`, but this will fully lock the access providers from being edited in Raito Cloud.
+- **fully-lock-by-name**: Same as `lock-who-by-name`, but this will fully lock the access providers from being edited in Raito Cloud.
+- **fully-lock-by-tag**: Same as `lock-who-by-tag`, but this will fully lock the access providers from being edited in Raito Cloud.
+- **fully-lock-when-incomplete**: Same as `lock-who-when-incomplete`, but this will fully lock the access providers from being edited in Raito Cloud.
 
 Tags which are read from the data source by the connector can be used to set specific properties of access providers and data objects during import. Note that not all data sources support tags on access providers and/or data objects. The following parameters are available:
 - **tag-overwrite-key-for-access-provider-name**: If set, this will determine the tag-key used for overwriting the display-name of the access provider when imported in Raito Cloud. The display-name should be defined in the value of the tag. When no tag with this key is found on the access provider, the default behavior is used.
