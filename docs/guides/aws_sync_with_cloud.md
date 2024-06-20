@@ -1,5 +1,5 @@
 ---
-title: Google Cloud BigQuery - First sync with Raito Cloud
+title: AWS - First sync with Raito Cloud
 nav_order: 40
 parent: Guides
 permalink: /docs/guide/aws
