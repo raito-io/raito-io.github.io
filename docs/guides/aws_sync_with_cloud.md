@@ -1,5 +1,5 @@
 ---
-title: AWS - First sync with Raito Cloud
+title: AWS S3 - First sync with Raito Cloud
 nav_order: 40
 parent: Guides
 permalink: /docs/guide/aws
@@ -14,7 +14,7 @@ In this guide, we'll walk you through an example of how to connect Raito Cloud t
 - run a first sync
 
 For this guide, you will need access to Raito Cloud and you also need access to AWS.
-We assume that you're able to create an AWS IAM user or AWS IAM role that can be used by the RAITO CLI.
+We assume that you're able to create an AWS IAM user or AWS IAM role that can be used by the Raito CLI.
 
 ## Raito CLI installation
 
@@ -32,7 +32,7 @@ If you want more information about the installation process, or you need to trou
 
 ## Create an organization identity store (optional)
 
-If you are using AWS organization, you may want to sync the users and groups defined in the organization. 
+If you have an AWS organization set up and want to use permission sets to manage access, you have to sync the users and groups defined in IAM Identity Center. 
 In that case, are required to create a new Identity Store. 
 
 In the left navigation pane, go to `Identities` > `Identity Stores`. You should see a button on the top-right named `Add Identity Store`. This will guide you through a short wizard to create a new identity store. The main things that you will need to configure are:
@@ -50,21 +50,21 @@ To create a new Raito Data source, go to `Data Sources` > `All data sources`, in
 * `Data source description`. Accompany your data source with a meaningful description.
 * `Connection method`. Select whether you want to use the Raito hosted cloud version of the CLI or one managed by yourself, which is recommended. In this example we indeed select 'CLI'.
 
-When you created an organization identity store, you need to link the previously created IS with the newly created data source.
-Navigate to the newly created data source. In the menu you can open on the right top of the page, you should see the ability to `Link to indeitity stores`.
-Add the aws organization identity store and apply the changes.
+If you created an organization identity store, you need to link the previously created IS with the newly created data source.
+Navigate to the newly created data source. In the action menu (clicking the 3 dots on the top right), you should see the ability to `Link to identity stores`.
+Add the AWS organization identity store you created in the section before and apply the changes.
 
 ## AWS credentials
 
 To connect to AWS, you need to provide the Raito CLI with the necessary credentials.
-The AWS account connector requires at credentials to the account where you want to sync S3/glue. 
+The AWS Account connector requires credentials to the account containing the S3 resources you want to manage access to. 
 Preferably you create a new profile in your `~/.aws/credentials` file. More information can be found [here](https://docs.aws.amazon.com/cli/v1/userguide/cli-configure-files.html){:target="_blank"}
 
 Ensure the policy defined on the [AWS Account connector](/docs/cli/connectors/aws/account#AWS-Credentials) is attached to the role/user.
 
 When using the optional AWS organization sync, credentials to the master account are required. 
-Those credentials should be available by using another profile
-The following policy should be attached to the user/role connecting to the master account:
+Those credentials should be available by using another profile.
+The following policy should be attached to the user/role connecting to the master account of your organization:
 
 {% raw %}
 ```json
@@ -277,7 +277,7 @@ The following policy should be attached to the user/role connecting to the maste
 
 # Raito CLI Configuration
 
-To configure the Raito CLI to synchronize your AWS S3 (Glue) warehouse, start by creating a file with the name `raito.yml` and edit it to look like this:
+To configure the Raito CLI to synchronize your AWS S3 warehouse, start by creating a file with the name `raito.yml` and edit it to look like this:
 
 {% raw %}
 ```yaml
@@ -313,10 +313,14 @@ targets:
     aws-organization-identity-store: "<identity store id of the organization identity store>"
     # End optional config
 
+    # Pointing to the S3 bucket where cloudtrail data is stored. Data usage information will be fetched from here
     aws-s3-cloudtrail-bucket: "raito-cloudtrail"
+    # Optionally exclude buckets to be handled
     aws-s3-exclude-buckets: "raito-cloudtrail,cdk-hnb659fds-assets-077954824694-eu-central-1"
+    # Enabled either the S3 or the glue option to fetch the data objects from one of these sources
     aws-s3-enabled: false
     aws-glue-enabled: true
+    # Optionally, exclude managed policies and roles matching certain patterns. Other filtering options are available too
     aws-access-managed-policy-excludes: Amazon.+,AWS.+,cdk.+,AdministratorAccess,AccessAnalyzer.+
     aws-access-role-excludes: AWS.+,aws.+,cdk.+,AccessAnalyzer.+
 ```
@@ -337,7 +341,7 @@ Now that our data source is set up and we have our Raito CLI configuration file,
 $> raito run
 ```
 
-This will download all data objects, users, access controls (nameless bindings) and data usage information from BigQuery and GCP and upload it to Raito Cloud. It will also get the access controls created in Raito Cloud and push them as nameless bindings to BigQuery and GCP, but since you've started out with an empty instance, this is not relevant at this point.
+This will download all data objects, users, access controls and data usage information from AWS and upload it to Raito Cloud. It will also get the access controls created in Raito Cloud and push them back into AWS (as IAM role, IAM policy, S3 Access point or Permission set), but since you've started out with an empty instance, this is not relevant at this point.
 
 See [here](/docs/cli/intro) for more information about what happens exactly. 
 
@@ -345,10 +349,10 @@ See [here](/docs/cli/intro) for more information about what happens exactly.
 
 When the `raito run` command finished successfully, go back to Raito Cloud.
 
-On the dashboard you will now see some initial insights that we extract from the data that was synchronized. If you go to `Data Sources` and visit the data sources that you have created before, you should be able to see when the last sync was done in the `General information` section. When you scroll down, you can also navigate through the data objects in your BigQuery warehouse.
+On the dashboard you will now see some initial insights that we extract from the data that was synchronized. If you go to `Data Sources` and visit the data sources that you have created before, you should be able to see when the last sync was done in the `General information` section. When you scroll down, you can also navigate through the data objects in your AWS S3 warehouse.
 
-When you go to `Identities` in the navigation bar, you can see all the users imported from GSuite. Under `Access Controls`, under grants, you have an overview of all the IAM Role grants both on GCP organization level as well as your BigQuery tables and datasets. If you click on one, you get a detailed view of who belongs to that access control, and what they have access to with which permissions.
+When you go to `Identities` in the navigation bar, you can see all the users and groups imported from your AWS organization and/or AWS account. Under `Access Controls`, under grants, you have an overview of all the access controls. If you click on one, you get a detailed view of who belongs to that access control, and what they have access to with which permissions.
 
-Now that you have synchronized your GCP organization and the first BigQuery project, you can repeat the steps to connect all your other BigQuery projects to the same GCP data source by creating new BigQuery data sources in Raito and configuring them using the same steps as before.
+Now that you have synchronized your AWS organization and the first AWS Account, you can repeat the steps to connect other AWS Accounts by creating new AWS Account data sources in Raito and configuring them using the same steps as before.
 
 {% include slack.html %}

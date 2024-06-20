@@ -9,7 +9,7 @@ permalink: /docs/cli/connectors/aws/organization
 # AWS Organization
 
 [AWS](https://aws.amazon.com/){:target="_blank"} is a cloud-based infrastructure provider.
-This Raito CLI plugin is used to synchronize the identity store information of an [AWS organization (IAM Identity Center)](https://aws.amazon.com/iam/identity-center/){:target="_blank"}.
+This Raito CLI plugin is used to synchronize the identity store information (i.e. users and groups) of an [AWS organization (IAM Identity Center)](https://aws.amazon.com/iam/identity-center/){:target="_blank"}.
 This identity store can then be linked to AWS Account data sources (or set as Master Identity Store) so that permission sets can be visualized correctly.
 
 

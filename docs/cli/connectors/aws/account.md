@@ -9,13 +9,13 @@ permalink: /docs/cli/connectors/aws/account
 # AWS Account
 
 [AWS](https://aws.amazon.com/){:target="_blank"} is a cloud-based infrastructure provider. 
-This Raito plugin enables access management for [AWS Glue](https://aws.amazon.com/glue/){:target="_blank"} and [AWS S3](https://aws.amazon.com/s3/){:target="_blank"}.
+This Raito plugin enables access management for [AWS S3](https://aws.amazon.com/s3/){:target="_blank"}.
 
-The connector is available [here](https://github.com/raito-io/cli-plugin-aws-account){:target="_blank"} ad supports
+The connector is available [here](https://github.com/raito-io/cli-plugin-aws-account){:target="_blank"} and supports
 * Import users and groups from IAM in the AWS account to an identity store in Raito Cloud.
-* Import AWS S3 meta data (S3 buckets, objects inside those buckets, ...) to a data source in Raito Cloud.
-* Export access controls from Raito Cloud into IAM/S3 permissions.
-* Import access controls from IAM/S3 permissions Raito Cloud .
+* Import AWS S3 meta data (S3 buckets, objects inside those buckets, ...) via S3 itself or via Glue to a data source in Raito Cloud.
+* Export access controls from Raito Cloud into IAM/S3 permissions (as IAM roles, IAM policies, S3 Access Points and Permission Sets).
+* Import access controls from IAM/S3 permissions Raito Cloud (IAM roles, IAM policies, S3 Access Points and Permission Sets).
 * Import the data usage from CloudTrail to Raito Cloud.
 
 ## Prerequisites
@@ -191,13 +191,13 @@ Ensure the role/user has the following policy document attached:
 Replace `${Account}` with the AWS account ID.
 
 ### AWS Organization (optional)
-The prerequisite is optional and only necessary if you want to elaborate SSO roles and permission sets on an organizational level.
-You need to setup an [AWS Organization connector](/docs/cli/connectors/aws/organization) first.
-It is also required to link the organization identity store to the AWS account data source in Raito Cloud.
+This prerequisite is optional and only necessary if you use IAM Identity Center and want to use Permission Sets (typically, to manage access across multiple AWS accounts).
+You need to set up an [AWS Organization connector](/docs/cli/connectors/aws/organization) first, to import the users and groups into an AWS Organization identity store.
+In Raito cloud, this identity store then needs to be linked to each AWS Account data source that you would like to manage access for.
 
-As the AWS account connector should be able to modify permission sets on the master account, the following cku config parameters are required:
-* `aws-organization-profile`: The AWS SDK profile where the organization is defined (e.g. where permission sets are defined in AWS Identity Center).
-* `aws-organization-region`: The AWS SDK profile where the organization is defined (e.g. where permission sets are defined in AWS Identity Center).
+As the AWS account connector should be able to modify permission sets on the master account, the following CLI config parameters are required:
+* `aws-organization-profile`: The AWS SDK profile where the organization is defined (i.e. where permission sets are defined in AWS Identity Center).
+* `aws-organization-region`: The region where the organization is defined (i.e. where permission sets are defined in AWS Identity Center).
 * `aws-organization-identity-center-instance-arn`: The ARN of the AWS IAM Identity Center instance. Required if aws `aws-organization-profile` is defined.
 * `aws-organization-identity-store`: The ARN of the AWS Identity Store. Required if aws `aws-organization-profile` is defined.
 

@@ -9,4 +9,4 @@ permalink: /docs/cli/connectors/aws
 
 # AWS
 
-This section contains documentation on the various AWS related connectors currently available on Raito
+This section contains documentation on the various AWS related connectors currently available on Raito.
