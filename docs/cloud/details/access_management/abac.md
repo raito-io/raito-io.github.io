@@ -48,9 +48,11 @@ Currently, two operators are available:
 More operators and options will be supported later.
 
 ## Dynamic Users
-To specify the beneficiaries dynamically when editing an existing or creating a new access control, in step 3 of the wizard, choose `Dynamic`.
+To specify the beneficiaries dynamically, in step 3 of the wizard, choose `Dynamic`.
 
+{: .note }
 Currently, you can only dynamically select users (not groups).  
+
 First, you can choose to immediately Grant the access or to do it On Request (as pre-approval).
 
 Next, you define the boolean expression to select the users you want.
