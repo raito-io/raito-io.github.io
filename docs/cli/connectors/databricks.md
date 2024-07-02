@@ -22,15 +22,33 @@ The connector is available [here](https://github.com/raito-io/cli-plugin-databri
 Databricks Unity Catalog should be enabled on the account and workspaces, as this is essential to the Raito Databricks plugin.
 
 ### Authentication
-Currently, we support OAuth authentication (recommended), as well as, basic authentication by email and password.
+We support the following authentication methods:
+- OAuth 
+- Personal Access Token
+- Azure managed identities
+- GCP ID authentication
+
 The associated account should be admin in the Databricks account and on all workspaces.
 There are no required permissions within the Databricks Unity catalog.
 
-#### OAuth
+#### OAuth (Azure, AWS, GCP)
 Authentication using OAuth, requires a valid `client_id` and `client_secret`.
 The `client_id` and `client_secret` should be provided in the `databricks-client-id` and `databricks-client-secret` parameter respectively.
+More information can be found on the following pages: [azure](https://learn.microsoft.com/en-us/azure/databricks/dev-tools/auth/oauth-m2m){:target=_blank}, [aws](https://docs.databricks.com/en/dev-tools/auth/oauth-m2m.html){:target=_blank}, [gcp](https://docs.gcp.databricks.com/en/dev-tools/auth/oauth-m2m.html){:target=_blank}.
 
-If using a service principal, the service principal should be admin of the account and all workspaces. On top of that, he should be (included) as owner to all metastores.
+#### Personal Access Token (Azure, AWS, GCP)
+To authenticate using a personal access token, the token should be provided in the `databricks-token` parameter.
+More information can be found on the following pages: [azure](https://learn.microsoft.com/en-us/azure/databricks/dev-tools/auth/pat){:target=_blank}, [aws](https://docs.databricks.com/en/dev-tools/auth/pat.html){:target=_blank}, [gcp](https://docs.gcp.databricks.com/en/dev-tools/auth/pat.html){:target=_blank}.
+
+#### Azure managed identities
+A Microsoft Entra ID service principal can be used to authenticate against the Databricks account.
+To use this authentication method, `databricks-azure-client-id`, `databricks-azure-client-secret ` and `databricks-azure-tenant-id` should be provided.
+More information can be found on the following [here](https://learn.microsoft.com/en-us/azure/databricks/dev-tools/auth/azure-sp){:target=_blank}.
+
+#### GCP ID authentication
+To authenticate using GCP ID authentication, the GCP Service Account Credentials JSON or the location of these credentials on the local filesystem should be provided in the `databricks-google-credentials` parameter.
+Additionally, a GCP service account e-mail should be provided in the `databricks-google-service-account` parameter.
+More information can be found on the following [here](https://docs.gcp.databricks.com/en/dev-tools/google-creds-auth.html){:target=_blank}.
 
 #### Basic Authentication
 To authenticate by email and password, email and password can be provided in the `databricks-user` and `databricks-password` parameters respectively.
@@ -45,9 +63,19 @@ $> raito info raito-io/cli-plugin-databricks
 in a terminal window.
 
 Currently, the following configuration parameters are available:
-* **databricks-account-id** (mandatory): The ID of your Databricks account.
-* **databricks-platform:** (mandatory): The used Databricks platform (Azure, AWS, GCP).
-* **databricks-client-id**: The client ID of the databricks account used within the plugin, to authenticate by using oauth.
-* **databricks-client-secret**: The client secret of the databricks account used within, to authenticate by using oauth. 
-* **databricks-user**: The email-address of the user that should be used within the plugin, to authenticate by using basic authentication.
-* **databricks-password:**: The password of the user that should be used within the plugin, to authenticate by using basic authentication.
+
+| Configuration name                  | Description                                                                                                                                                 | Mandatory | Default value |
+|-------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------|---------------|
+| `databricks-account-id`             | The Databricks account to connect to.                                                                                                                       | True      |               |
+| `databricks-platform`               | The Databricks platform to connect to (AWS/GCP/Azure).                                                                                                      | True      |               |
+| `databricks-client-id`              | The (oauth) client ID to use when authenticating against the Databricks account.                                                                            | False     |               |
+| `databricks-client-secret `         | The (oauth) client Secret to use when authentic against the Databricks account.                                                                             | False     |               |
+| `databricks-token`                  | The Databricks personal access token (PAT) (AWS, Azure, and GCP) or Azure Active Directory (Azure AD) token (Azure).                                        | False     |               |
+| `databricks-azure-use-msi `         | `true` to use Azure Managed Service Identity passwordless authentication flow for service principals. Requires AzureResourceID to be set.                   | False     | `false`       |
+| `databricks-azure-client-id`        | The Azure AD service principal's client secret.                                                                                                             | False     |               |
+| `databricks-azure-client-secret `   | The Azure AD service principal's application ID.                                                                                                            | False     |               |
+| `databricks-azure-tenant-id`        | The Azure AD service principal's tenant ID.                                                                                                                 | False     |               |
+| `databricks-azure-environment`      | The Azure environment type (such as Public, UsGov, China, and Germany) for a specific set of API endpoints.                                                 | False     | `PUBLIC`      |
+| `databricks-google-credentials`     | GCP Service Account Credentials JSON or the location of these credentials on the local filesystem.                                                          | False     |               |
+| `databricks-google-service-account` | The Google Cloud Platform (GCP) service account e-mail used for impersonation in the Default Application Credentials Flow that does not require a password. | False     |               |
+| `databricks-data-usage-window`      | The maximum number of days of usage data to retrieve. Maximum is 90 days.                                                                                   | False     | 90            |
