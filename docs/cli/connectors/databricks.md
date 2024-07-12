@@ -64,18 +64,35 @@ in a terminal window.
 
 Currently, the following configuration parameters are available:
 
-| Configuration name                  | Description                                                                                                                                                 | Mandatory | Default value |
-|-------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------|---------------|
-| `databricks-account-id`             | The Databricks account to connect to.                                                                                                                       | True      |               |
-| `databricks-platform`               | The Databricks platform to connect to (AWS/GCP/Azure).                                                                                                      | True      |               |
-| `databricks-client-id`              | The (oauth) client ID to use when authenticating against the Databricks account.                                                                            | False     |               |
-| `databricks-client-secret `         | The (oauth) client Secret to use when authentic against the Databricks account.                                                                             | False     |               |
-| `databricks-token`                  | The Databricks personal access token (PAT) (AWS, Azure, and GCP) or Azure Active Directory (Azure AD) token (Azure).                                        | False     |               |
-| `databricks-azure-use-msi `         | `true` to use Azure Managed Service Identity passwordless authentication flow for service principals. Requires AzureResourceID to be set.                   | False     | `false`       |
-| `databricks-azure-client-id`        | The Azure AD service principal's client secret.                                                                                                             | False     |               |
-| `databricks-azure-client-secret `   | The Azure AD service principal's application ID.                                                                                                            | False     |               |
-| `databricks-azure-tenant-id`        | The Azure AD service principal's tenant ID.                                                                                                                 | False     |               |
-| `databricks-azure-environment`      | The Azure environment type (such as Public, UsGov, China, and Germany) for a specific set of API endpoints.                                                 | False     | `PUBLIC`      |
-| `databricks-google-credentials`     | GCP Service Account Credentials JSON or the location of these credentials on the local filesystem.                                                          | False     |               |
-| `databricks-google-service-account` | The Google Cloud Platform (GCP) service account e-mail used for impersonation in the Default Application Credentials Flow that does not require a password. | False     |               |
-| `databricks-data-usage-window`      | The maximum number of days of usage data to retrieve. Maximum is 90 days.                                                                                   | False     | 90            |
+| Configuration name                  | Description                                                                                                                                                               | Mandatory | Default value |
+|-------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------|---------------|
+| `databricks-account-id`             | The Databricks account to connect to.                                                                                                                                     | True      |               |
+| `databricks-platform`               | The Databricks platform to connect to (AWS/GCP/Azure).                                                                                                                    | True      |               |
+| `databricks-client-id`              | The (oauth) client ID to use when authenticating against the Databricks account.                                                                                          | False     |               |
+| `databricks-client-secret `         | The (oauth) client Secret to use when authentic against the Databricks account.                                                                                           | False     |               |
+| `databricks-token`                  | The Databricks personal access token (PAT) (AWS, Azure, and GCP) or Azure Active Directory (Azure AD) token (Azure).                                                      | False     |               |
+| `databricks-azure-use-msi `         | `true` to use Azure Managed Service Identity passwordless authentication flow for service principals. Requires AzureResourceID to be set.                                 | False     | `false`       |
+| `databricks-azure-client-id`        | The Azure AD service principal's client secret.                                                                                                                           | False     |               |
+| `databricks-azure-client-secret `   | The Azure AD service principal's application ID.                                                                                                                          | False     |               |
+| `databricks-azure-tenant-id`        | The Azure AD service principal's tenant ID.                                                                                                                               | False     |               |
+| `databricks-azure-environment`      | The Azure environment type (such as Public, UsGov, China, and Germany) for a specific set of API endpoints.                                                               | False     | `PUBLIC`      |
+| `databricks-google-credentials`     | GCP Service Account Credentials JSON or the location of these credentials on the local filesystem.                                                                        | False     |               |
+| `databricks-google-service-account` | The Google Cloud Platform (GCP) service account e-mail used for impersonation in the Default Application Credentials Flow that does not require a password.               | False     |               |
+| `databricks-data-usage-window`      | The maximum number of days of usage data to retrieve. Maximum is 90 days.                                                                                                 | False     | 90            |
+| `databricks-sql-warehouses`         | A map of deployment IDs to workspace and warehouse IDs, required to support data object tags, row level filtering and column masking (see [sql-warehouse](#sqlwarehouses) | False     |               |
+
+## SQL Warehouses
+To enable row filtering and column masking, the plugin needs access to a SQL warehouse to manage those filters and masks.
+The configuration file should be update in such a way that the `databricks-sql-warehouses` parameter is set to a map of deployment IDs to workspace and warehouse IDs.
+
+For example:
+```yaml
+    databricks-sql-warehouses:
+      abcdef0-1234-5678-9abc-def123456789:
+        workspace-id: abc-12345678-fedc
+        warehouse-id: 1234567891234567  
+      1234578-9abc-def0-1234-56789abcdef0:
+        workspace-id: 123-12345678-fedc
+        warehouse-id: 9234567891234567  
+```
+Where `abcdef0-1234-5678-9abc-def123456789` is the deployment ID, where `abc-12345678-fedc` is the workspace ID and `1234567891234567` is the SQL warehouse ID available in the given deployment.
