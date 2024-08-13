@@ -66,7 +66,7 @@ GRANT USAGE ON WAREHOUSE COMPUTE_WH TO ROLE RAITO_SYNC;
 
 Note: we're using the `COMPUTE_WH` warehouse here. You can use another warehouse as long as this is the default warehouse for the user.
 
-Next, we'll create a user (named `raito`) and assign it to the newly created role:
+Next, we'll create a user (named `raito`) and assign it to the newly created role. We'll use password authentication here. Alternatively, you can use [public/private key authentication](https://docs.snowflake.com/en/user-guide/key-pair-auth) by setting the `sf-private-key` parameter instead of `sf-password`: 
 
 ```sql
 CREATE USER raito PASSWORD='abc123' MUST_CHANGE_PASSWORD = false DEFAULT_WAREHOUSE=COMPUTE_WH;
