@@ -46,7 +46,7 @@ $> raito info raito-io/cli-plugin-snowflake
 in a terminal window.
 
 Currently, the following configuration parameters are available:
-* **sf-account** (mandatory): The account name of the Snowflake account to connect to. For example, xy123456.eu-central-1
+* **sf-account** (mandatory): The account name of the Snowflake account to connect to. See the [Snowflake documentation](https://docs.snowflake.com/en/user-guide/admin-account-identifier) on how to get this identifier. Typically this is in the form `<org-name>-<account-name>`.
 * **sf-user** (mandatory): The username to authenticate against the Snowflake account.
 * **sf-password**: The password to authenticate against the Snowflake account. Either this or sf-private-key must be specified.
 * **sf-private-key**: The path of the file containing the private key to authenticate against the Snowflake account. Either this or sf-password must be specified.

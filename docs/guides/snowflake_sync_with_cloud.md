@@ -108,7 +108,7 @@ It contains
 - a section to configure the connection to Raito Cloud: `api-user`, `api-secret`, and `domain`. `domain` is the part of the URL from your Raito Cloud instance (e.g. https://`domain`.raito.cloud). `api-user` and `api-secret` are the login credentials for your Raito Cloud instance.
 - `targets` has one Snowflake target defined. You can copy paste this section from the snippet that is shown on the page of the newly created data source in Raito cloud. The first part defines the target, connector and corresponding object ID's in Raito Cloud (i.e. `data-source-id` and `identity-store-id`). The second part is the configuration to connect to your Snowflake instance. We're using the newly created `raito` user and `RAITO_SYNC` role.
 
-Feel free to customize this configuration further. Find more information in the sections about [general configuration](/docs/cli/configuration#command-specific-parameters) and [Snowflake-specific configuration](/docs/cli/connectors/snowflake#snowflake-specific-parameters). 
+Feel free to customize this configuration further. Find more information in the sections about [general configuration](/docs/cli/configuration#command-specific-parameters) and [Snowflake-specific configuration](/docs/cli/connectors/snowflake#snowflake-specific-parameters), for example on how to find the right value for the `sf-account` parameter. 
 Remember that you can use double curly brackets to reference environment variables, like we did for the `api-user` field and others in the example.
 
 ## Raito run
