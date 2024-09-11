@@ -39,4 +39,6 @@ The user you are delegating the ownership to, will receive a notification when
  - you remove the delegation while it's not expired yet
  - the delegation period starts
 
-During the period that the delegation is active, an information box will indicate this on your profile page and the profile page of the person you delegated to. 
+During the period that the delegation is active, an information box will indicate this on your profile page and the profile page of the person you delegated to.
+
+As administrator, you can also manage the delegation settings for other users. You can do this by opening the user context menu and choosing the `Delegate` entry. This will open a dialog box providing you the same delegation configuration options as described above.
