@@ -49,7 +49,7 @@ A group is a group of accounts as defined in the identity stores.
 Often, groups are defined in an identity management system on the organizational level, like Azure Entra ID or Okta. It is then often logical to use these centrally managed groups to manage access. With Raito, you can leverage these groups to grant access to resources in data sources, even if these groups are not defined in the data source itself.  
 When access is assigned to a group, Raito will make sure that the users in this group are assigned the necessary permissions and that this remains in sync whenever changes happen to the group.
 
-## Data (Resources)
+## Data
 The data resources represent the entities to which access can be granted and requested.
 
 ### Data Source
