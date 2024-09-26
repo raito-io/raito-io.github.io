@@ -83,16 +83,14 @@ Currently, the following configuration parameters are available:
 
 ## SQL Warehouses
 To enable row filtering and column masking, the plugin needs access to a SQL warehouse to manage those filters and masks.
-The configuration file should be update in such a way that the `databricks-sql-warehouses` parameter is set to a map of deployment IDs to workspace and warehouse IDs.
+The configuration file should be update in such a way that the `databricks-sql-warehouses` parameter is a list that defines the workspace deployment ID and warehouse ID. Note that no duplicate workspace IDs are allowed.
 
 For example:
 ```yaml
     databricks-sql-warehouses:
-      abcdef0-1234-5678-9abc-def123456789:
-        workspace-id: abc-12345678-fedc
+      - workspace-id: abc-12345678-fedc
         warehouse-id: 1234567891234567  
-      1234578-9abc-def0-1234-56789abcdef0:
-        workspace-id: 123-12345678-fedc
+      - workspace-id: 123-12345678-fedc
         warehouse-id: 9234567891234567  
 ```
-Where `abcdef0-1234-5678-9abc-def123456789` is the deployment ID, where `abc-12345678-fedc` is the workspace ID and `1234567891234567` is the SQL warehouse ID available in the given deployment.
+Where `abc-12345678-fedc` and `123-12345678-fedc` are the workspace IDs and `1234567891234567` and `9234567891234567` are the corresponding SQL warehouse IDs.
