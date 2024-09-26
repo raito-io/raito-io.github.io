@@ -110,9 +110,9 @@ Before, we spoke about access controls being `Managed in Data Source` or `Manage
 In this case, the access control needs to be `Managed in Raito`, but in reality it is partially managed in Raito and partially outside.
 
 For example:
-- You use Terraform to create Snowflake roles and want to keep doing that as part of your data engineering pipeline. The Terraform script defines what the Snowflake role gives access to, but you want to control 'who gets access to the role' in Raito.
+- You use Terraform to create Snowflake roles and want to keep doing that as part of your data engineering pipeline. The Terraform script defines what the Snowflake role provides access to, but you want to control 'who gets access to the role' in Raito.
 - You want to use the [Raito dbt integration](/docs/cli/connectors/dbt) to automatically create access controls for your newly created data sets, but you want to control 'who gets access to the role' in Raito.
-- You want to define access controls in Raito Cloud, but already have another system to assign them to users.
+- You want to define access controls in Raito Cloud, but already have another tool in place to assign them to users.
 - The owners of the access control are managed through tags set on the data source itself and should not be overridden in Raito Cloud. 
 
 Different parts of an access control can be locked:
@@ -129,6 +129,9 @@ Two types of locking are possible:
 {: .note }
 The 'full locking' functionality is only available for certain data source types. Especially on ACL-based systems this is *not* possible as the 'who' and the 'what' are fully coupled. 
 
+{: .note }
+All locking is configured through the CLI connectors or by using the API.
+
 ## Tags
 To provide more context to entities, Raito supports tags, represented as key-value pairs. These tags are imported from the data sources and identity stores, but can also come from different sources, like a Data Catalog, Dbt, an HR tool ...
 
@@ -139,7 +142,7 @@ For example:
   - A department indication like HR, Sales, Finance, ...
 - Tags can be set on access controls to categorize them or define owners.
   
-Tags can be used to defined [attributes-based access controls](/docs/cloud/abac), to filter entities during search, to do reporting, ...
+Tags can be used to define [attributes-based access controls](/docs/cloud/abac), to filter entities during search, to do reporting, ...
 
 ## Usage
 Raito will also gather usage information from data sources that support it.  
