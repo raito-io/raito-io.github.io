@@ -39,7 +39,7 @@ An account is a representation of a user in a single Identity Store.
 ### User
 A user is a collection of accounts across multiple Identity Stores (e.g. Snowflake, Azure Entra ID, AWS IAM ...), typically representing a single (physical) person or service.
 
-When new accounts are imported (when the identity store is synced by the Raito CLI) these accounts are automatically attached under an existing user when the email address matches or to a new user when no user was found with that email address. 
+When new accounts are imported into Raito, these accounts are automatically attached to an existing user when the email address matches or to a new user when no user was found with that email address. 
 
 An account can be transferred to another or new user manually if needed.
 
@@ -81,18 +81,18 @@ Access controls can look very differently, depending on the data source. For exa
 - In Bigquery (Google Cloud), access is managed by directly assigning users and groups to data objects. This is called an ACL-based (Access Control List) system. When importing, the ACL rules are grouped together to form access controls in Raito. Depending on the specific data source, this can be grouped by user or group, or by data object (+ permission). Defining more properly structured access controls in Raito is then highly recommended. This way, Raito puts an RBAC (role-based) or ABAC (attribute-based) layer on top of the ACL-based system for easier access management.
 - In AWS, there are many different ways to managed access to resource, like IAM policies, IAM roles, S3 Access Points, CloudFormation, ... Each of these get converted into access controls in Raito.
 
-Access controls that get imported from the data source are marked as `Managed in Data Source`. This means that, on each next synchronization, changes that are made on the data source will be imported again so that these changes are also represented in Raito. The [Audit](/docs/cloud/audit) log of this access control will then also show the changes that were made since last synchronization. 
+Access controls that get imported from the data source are marked as `Managed in Data Source`. This means that, on each synchronization, changes that are made on the data source will be imported again so that these changes are also represented in Raito. The [Audit](/docs/cloud/audit) log of this access control will then also show the changes that were made since the last synchronization. 
 
-As mentioned, access controls can also be created and edited from within Raito Cloud. You can either create new access controls, or edit imported ones. When editing an imported one, it will go from `Managed in Data Source` to `Managed in Raito`. From this point on, changes that are made to this access control in Raito will be pushed to the data source. If changes are still made directly on the data source to this access control, they will *not* be imported. The exact behavior depends on the type of data source (for example, role-based vs ACL-based).
+As mentioned, access controls can also be created and edited from within Raito Cloud. You can either create new access controls, or edit imported ones. When editing an imported one, it will go from `Managed in Data Source` to `Managed in Raito`. From this point on, changes that are made to this access control in Raito will be pushed to the data source. If changes are still made directly on the data source to this access control directly on the data source, they will *not* be imported. The exact behavior depends on the type of data source (for example, role-based vs ACL-based).
 
-More information on how to work with access controls can be found the [Access Management](/docs/cloud/access_management) documentation.
+More information on how to work with access controls can be found in the [Access Management](/docs/cloud/access_management) documentation.
 
 ### Access Control actions
 To manage access, an access control defines the *action* that is performs. The following actions are available:
 
  - **Grant**: this is the most common access control and is used to grant users access to data objects. More information on how to manage grants case found [here](/docs/cloud/access_management/grants).
  - **Purpose**: similar to grants, but used as a higher-level concept to group multiple grants together.
- - **Mask**: used to mask the data in certain columns. These are often referred to as *Data Masking Policies*. This functionality is only available for data sources that provide support for it. More information on how to manage column masks can be found [here](/docs/cloud/access_management/masks).
+ - **Mask**: used to mask the data in the specified columns. These are often referred to as *Data Masking Policies*. This functionality is only available for data sources that provide support for it. More information on how to manage column masks can be found [here](/docs/cloud/access_management/masks).
  - **Filter**: used to filter the rows of a view or table by defining a condition statement deciding wether the row should be available to the user or not. These are often referred to as *Row Filter Policies*. This functionality is only available for data sources that provide support for it. More information on how to manage row filters can be found [here](/docs/cloud/access_management/row_filters).
 
 ### Inheritance
