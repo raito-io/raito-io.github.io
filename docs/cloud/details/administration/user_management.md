@@ -10,41 +10,46 @@ permalink: /docs/cloud/admin/user_management
 
 # Raito user management
 
-Raito user management in Raito is the responsibility of an admin. Such an admin can provide access to users on the user management page in the admin pane. An admin can provide access via:
+Raito user management in Raito is the responsibility of an Admin. Such an Admin can provide access to users on the `User Management` page in the `Admin` pane. From the User Management page, the Admin can:
 
-- Setting up SSO to Raito
-- Granting access to domains: e.g. everyone with a *@raito.io address
-- Personal invite on email
+- Invite new users to Raito
+- Manage [Global Roles](#raito_roles) for a user
+- Remove access to Raito for users
 
-By default, every new user has no Raito roles assigned, which means he/she is a plain user in the system, and will only be able to request access.
+{: .note}
+There are more user management options available which are currently not configurable in the user interface. This includes SSO integration and automated pre-provisioning of Raito users. To set this up, please contact <a href="mailto:support\@raito.io">Raito Support</a>.
+
+The `User Management` page is only meant to manage users that have access to Raito. All users, including the ones that cannot sign in to Raito, are visible under `Identities > Users`.
 
 ## Roles and rights
 
-Raito has two types of roles, namely global and local roles. A global role provides you certain permissions within Raito, a local role provides you certain permissions with regards to a specific asset.
+Raito has two types of roles, namely global and resource roles. A global role provides you certain permissions within Raito, while a resource role provides you certain permissions with regards to a specific resource (e.g. Data Object, Access Control, ...).
 
 ### Raito roles
 
 Raito considers the following global roles:
 
-- **Admin**: an admin is responsible to manage Raito for the organization. He manages users and roles withing Raito and connects Data Sources and Identity Stores. Raito has a full separation of concerns, which means that an admin by default does not manage access to data objects.
-- **Integrator**: an integrator is the role used to perform a CLI sync. The integrator role is hence often assigned to a service account.
-- **Access manager**: an access manager is a super-user with respect to Raito functionality. An access manager can manage access for all data objects.
-- **Access creator**: an access creator can create new access controls. This role is typically used for users that don't own any data objects, but still need to be able to create acess controls (e.g. purposes). 
+- **Admin**: an Admin is responsible to manage Raito for the organization. He manages users and roles within Raito and initially creates Data Sources and Identity Stores.
+- **Integrator**: an Integrator is the role used to perform a [CLI](/docs/cli) sync. It is advised to set up 1 or more dedicated (non-human) Raito users with only this global role to use for this purpose.
+- **Access Creator**: an Access Creator can create new Access Controls. So each user that needs to be able to create new Access Controls, will need to have this role.
 - **Observer**: an observer has access to all insights in Raito, but has no rights to perform actions in Raito.
-- **User**: a user is the minimum level of access to Raito which provides you all functionality to request access to data and see your personal information.
+- **Access Manager**: an Access Manager is a super-user with respect to Raito functionality. An Access Manager can manage access for all Data Objects, can edit any Access Control, see all Insights, ... So the Access Manager also has all the permissions of the Access Creator and Observer global roles. For reasons of separation of concert, it does NOT give permissions to do CLI syncs (Integrator) or to access the Admin section of Raito.
+- **User**: Raito users without any global roles have the minimum level of access which provides them the possibility to request access to data, see the available data and see their own current access.
 
-Next to these global roles, Raito also has a resource role, named `owner`. An owner can own one of the following assets:
+Next to these global roles, Raito also has a resource role, named `Owner`. An owner can own one of the following assets:
 
-- **Data Source**: an owner of the data source is the only one that can rename or remove the data source and is also owner of all the data objects in the data source and of the native identity store of the data source.
-- **Identity Store**: an owner of the identity store is the only one that can rename or remove the identity store
-- **Data Object**: an owner of a data object is the one responsible for managing the access to the data object. He can approve data object access requests and can add or remove his data object to the what-list of an access control.
-- **Access Control**: an owner of an access control can see all the access control details, edit the access control and approve access requests to that access control.
+- **Data Source**: an Owner of the Data Source is the only one that can rename or remove the Data Source and is also Owner of all the Data Objects in the Data Source and of the native Identity Store of that Data Source.
+- **Identity Store**: an Owner of the Identity Store is the only one that can rename or remove the Identity Store.
+- **Data Object**: an Owner of a Data Object is the one responsible for managing the access to the Data Object. He can approve Access Requests to this Data Object and can add or remove his Data Object to an (existing) Access Control.
+- **Access Control**: an Owner of an Access Control can see all the Access Control details, edit the Access Control and approve Access Requests to that Access Control.
+
+Resource roles are inherited on all the descendant resources. Concretely, this means that when you are Owner of a Data Source, you also own all the Data Objects in that Data Source. Or, if you are Owner of a Data Object, you are also owner of all the Data Objects underneath it.
 
 ### Role assignment
 
-Global roles can be assigned through the user management page in the admin pane by clicking the three dots next to someones name. 
+Global roles can be assigned through the User Management page in the Admin pane by clicking the three dots next to someones name and choosing `Edit Raito roles`. 
 
-Resource roles, like ownership of a data object, can be assigned on the page of the resource itself. This assignment can be performed by an admin or an existing owner of the resource.
+Resource roles  (e.g. ownership of a Data Object) can be assigned on the page of the resource itself. This assignment can be performed by an Admin or an existing Owner of the resource.
 
 ### Role permissions - global roles
 
@@ -67,35 +72,23 @@ Resource roles, like ownership of a data object, can be assigned on the page of 
 
 ### Role permissions - local roles
 
-| Permission | Data Source owner | Identity Store owner | Data Object owner | Access Control owner |
+| Permission | Data Source Owner | Identity Store Owner | Data Object Owner | Access Control Owner |
 | --- | --- | --- | --- | --- |
 | Delete the asset you own | ✅ | ✅ | ⛔️ | ✅ |
 | View existing access: Data Object and User | Limited to the Data Source | ⛔️ | Limited to the Data Object | ✅ |
-| Approve an access request | Limited to the Data Source | ⛔️ | Limited to the Data Object | Limited to the Access Control |
+| Approve an Access Request | Limited to the Data Source | ⛔️ | Limited to the Data Object | Limited to the Access Control |
 | View Access Control WHO-list | ✅ | ⛔️ | ✅ | ✅ |
 | Manage Access Controls | ✅ (*) | ⛔️ | ✅ (*) | ✅ |
 | View Access Control audit trail | ⛔️ | ⛔️ | ⛔️ | ✅ |
 | Assign ownership | Limited to the Data Source | Limited to the Identity Store | Limited to the Data Object | Limited to the Access Control |
 
-(*) Explained in the following section
+(*) Explained below:
 
-### Data Object owners & Access Controls
+Owners of Data Objects can manage Access Controls within the scope of the Data Objects they own. The same applies for a Data Source Owner, as he or she also owns all Data Objects in the Data Source.
 
-Owners of Data Objects can manage Access Controls within the scope of the Data Objects they own. The same applies for a Data Source owner, as he or she also owns all Data Objects in the Data Source.
+When user owns at least 1 Data Object, he will be able to add and remove the Data Objects he owns to existing Access Controls. 
 
-#### An owner owns all Data Objects of an Access Control
-
-✅ Sees everything 
-
-☑️ Can edit everything, but cannot add Data Objects which he does not own
-
-#### An owner owns at least 1 Data Object anywhere in the system
-
-✅ Sees everything
-
-☑️ Can add/remove data objects he/she owns
-
-⛔  Cannot edit name, WHY and WHO
+When an Owner owns all Data Objects of an Access Control, he will be able to see everything in that Access Control and edit everything (similar to the Owner of the Access Control), but cannot add Data Objects which he does not own.
 
 
 ## Type of users
