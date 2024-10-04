@@ -19,10 +19,7 @@ Raito user management in Raito is the responsibility of an Admin. Such an Admin 
 {: .note}
 There are more user management options available which are currently not configurable in the user interface. This includes SSO integration and automated pre-provisioning of Raito users. To set this up, please contact <a href="mailto:support\@raito.io">Raito Support</a>.
 
-{: .note}
 The `User Management` page is only meant to manage users that have access to Raito. All users, including the ones that cannot sign in to Raito, are visible under `Identities > Users`.
-
-By default, new users have no Raito roles assigned, which means he/she is a plain user in the system, and will only be able to request access.
 
 ## Roles and rights
 
