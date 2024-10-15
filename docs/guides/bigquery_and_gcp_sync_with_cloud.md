@@ -93,12 +93,64 @@ gcloud organizations add-iam-policy-binding ${ORGANIZATION_ID} \
     --role=organizations/${ORGANIZATION_ID}/roles/RaitoGcpRole
 ```
 
-In the GCP project containing the BigQuery assets to be imported into Raito cloud, you will also need to grant the ServiceAccount the BigQueryAdmin role
+In the GCP project containing the BigQuery assets to be imported into Raito cloud, you will also need to grant the ServiceAccount BigQuery permissions.
+To do so we create an additional custom role.
+
+Add the following to raito-bigquery-role.yaml
+
+```yaml
+title: "RaitoBigQueryRole"
+description: "Role for the Raito BigQuery connector"
+stage: GA
+includedPermissions:
+- bigquery.datasets.createTagBinding
+- bigquery.datasets.deleteTagBinding
+- bigquery.datasets.get
+- bigquery.datasets.getIamPolicy
+- bigquery.datasets.listEffectiveTags
+- bigquery.datasets.listSharedDatasetUsage
+- bigquery.datasets.listTagBindings
+- bigquery.datasets.setIamPolicy
+- bigquery.datasets.updateTag
+- bigquery.jobs.create
+- bigquery.jobs.get
+- bigquery.jobs.list
+- bigquery.jobs.listAll
+- bigquery.jobs.listExecutionMetadata
+- bigquery.jobs.update
+- bigquery.routines.get
+- bigquery.routines.list
+- bigquery.rowAccessPolicies.create
+- bigquery.rowAccessPolicies.delete
+- bigquery.rowAccessPolicies.getIamPolicy
+- bigquery.rowAccessPolicies.list
+- bigquery.rowAccessPolicies.setIamPolicy
+- bigquery.rowAccessPolicies.update
+- bigquery.tables.createSnapshot
+- bigquery.tables.createTagBinding
+- bigquery.tables.deleteTagBinding
+- bigquery.tables.get
+- bigquery.tables.getData
+- bigquery.tables.getIamPolicy
+- bigquery.tables.list
+- bigquery.tables.listEffectiveTags
+- bigquery.tables.listTagBindings
+- bigquery.tables.setCategory
+- bigquery.tables.setColumnDataPolicy
+- bigquery.tables.setIamPolicy
+- bigquery.tables.updateTag
+- resourcemanager.projects.get
+- resourcemanager.projects.list
+```
+
+Now create the role using this definition using your GCP organization ID, and assign it to the service account
 
 ```sh
-gcloud projects add-iam-policy-binding ${PROJECT_ID} \
+gcloud iam roles create RaitoBigQueryRole --organization=${ORGANIZATION_ID} --file=${YAML_FILE_PATH_BIGQUERY}
+
+gcloud organizations add-iam-policy-binding ${ORGANIZATION_ID} \
     --member=serviceAccount:raito-cli@${PROJECT_ID}.iam.gserviceaccount.com \
-    --role=roles/bigquery.admin
+    --role=organizations/${ORGANIZATION_ID}/roles/RaitoBigQueryRole
 ```
 
 ## Set up domain-wide delegation in GSuite
