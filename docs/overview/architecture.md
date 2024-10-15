@@ -10,7 +10,7 @@ permalink: /docs/overview/architecture
 # Overview
 The diagram below provides a simple overview of the different components in the Raito ecosystem.
 
-[![Raito Overview](/assets/images/raito-overview.png)](/assets/images/raito-overview.png){:target="_blank"}
+![Raito Overview](/assets/images/raito-overview.png)
 
 ## Raito Cloud
 The Raito Cloud component on the right of the diagram, is the SaaS web application that most Raito users will interact with. It provides

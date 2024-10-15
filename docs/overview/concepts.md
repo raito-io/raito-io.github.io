@@ -23,6 +23,7 @@ All other functionalities (e.g. access and usage insights, access requests etc.)
 Identities are entities that can gain access to resources. This can be a physical person, a group of people, a service account (i.e. machine user) ...
 
 To model these identities, we distinguish several elements in the Raito model:
+
 ![Identities Model](/assets/images/cloud/identities.png)
 
 ### Identity Stores
