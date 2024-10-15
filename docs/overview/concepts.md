@@ -12,9 +12,9 @@ To explain the core concepts of how Raito works, we'll start with a highly simpl
 
 ![Access control](/assets/images/cloud/accesscontrol.png)
 
-- **Identities**: On the left side, we have the identities, which include users and groups that can request and obtain access to data resources.
-- **Data Objects**: On the right side, we have the available data resources, referred to as Data Objects, to which users can gain access.
-- **Access Controls**: In the middle, we have the access controls that define who has access to what.
+- **Identities**: On the bottom left side, we have the identities, which include users and groups that can request and obtain access to data resources.
+- **Data Objects**: On the bottom right side, we have the available data resources, referred to as Data Objects, to which users can gain access.
+- **Access Controls**: In the middle/top, we have the access controls that define who has access to what.
 
 In the following sections we'll go deeper into each of these components to explain them in more detail.  
 All other functionalities (e.g. access and usage insights, access requests etc.) build upon this core model.
