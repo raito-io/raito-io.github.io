@@ -12,9 +12,9 @@ To explain the core concepts of how Raito works, we'll start with a highly simpl
 
 ![Access control](/assets/images/cloud/accesscontrol.png)
 
-- **Identities**: On the left side, we have the identities, which include users and groups that can request and obtain access to data resources.
-- **Data Objects**: On the right side, we have the available data resources, referred to as Data Objects, to which users can gain access.
-- **Access Controls**: In the middle, we have the access controls that define who has access to what.
+- **Identities**: On the bottom left side, we have the identities, which include users and groups that can request and obtain access to data resources.
+- **Data Objects**: On the bottom right side, we have the available data resources, referred to as Data Objects, to which users can gain access.
+- **Access Controls**: In the middle/top, we have the access controls that define who has access to what.
 
 In the following sections we'll go deeper into each of these components to explain them in more detail.  
 All other functionalities (e.g. access and usage insights, access requests etc.) build upon this core model.
@@ -23,7 +23,8 @@ All other functionalities (e.g. access and usage insights, access requests etc.)
 Identities are entities that can gain access to resources. This can be a physical person, a group of people, a service account (i.e. machine user) ...
 
 To model these identities, we distinguish several elements in the Raito model:
-![Identities Model](/assets/images/cloud/uservsaccount.png)
+
+![Identities Model](/assets/images/cloud/identities.png)
 
 ### Identity Stores
 An identity store literally represents a store of identities. It contains accounts and, optionally, groups.<br>
@@ -73,6 +74,8 @@ Data objects are organized in a hierarchy under its data source. For example, fo
 ## Access Controls
 In Raito, an access control is the abstract representation of 'who gets access to what', independent of how this gets implemented in the underlying data source.
 
+![Access control](/assets/images/cloud/accesscontrol.png)
+
 Access controls are the only entities that are synchronized in two directions. Existing access controls are pulled in from the data source and access controls that get created and updated in Raito are pushed back to the data source.  
 This unique bi-directional approach allows you to get insights into your current situation on the first day of using Raito and allows you to start managing access in a more structured way, step-by-step, across all your data sources. 
 
@@ -99,6 +102,7 @@ To manage access, an access control defines the *action* that is performs. The f
 Access controls can be linked together in an inheritance structure to provide more powerful access management capabilities. Concretely, this means that, when defining the 'who' of an access control, you can also point to a Grant (or Purpose) access control. This means that the access control will be applicable for all the users of that Grant as well. For example:
 
 - You define a *Mask* access control that should be applicable to all users except for the users from a certain *Grant*.
+  ![Mask Inheritance](/assets/images/cloud/inheritance.png)
 - You want a *Row Filter* to be applied for the users of a certain *Grant*.
 - The users of one *Grant* should also get access to the data defined in another *Grant*.
 
