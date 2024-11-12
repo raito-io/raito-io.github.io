@@ -88,9 +88,9 @@ The configuration file should be update in such a way that the `databricks-sql-w
 For example:
 ```yaml
     databricks-sql-warehouses:
-      - workspace-id: abc-12345678-fedc
-        warehouse-id: 1234567891234567  
-      - workspace-id: 123-12345678-fedc
-        warehouse-id: 9234567891234567  
+      - workspace: abc-12345678-fedc
+        warehouse: 1234567891234567  
+      - workspace: 123-12345678-fedc
+        warehouse: 9234567891234567  
 ```
-Where `abc-12345678-fedc` and `123-12345678-fedc` are the workspace IDs and `1234567891234567` and `9234567891234567` are the corresponding SQL warehouse IDs.
+Where `abc-12345678-fedc` and `123-12345678-fedc` are the workspace deployment names, and `1234567891234567` and `9234567891234567` are the corresponding SQL warehouse IDs.

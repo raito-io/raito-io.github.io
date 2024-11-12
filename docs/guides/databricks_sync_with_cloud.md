@@ -112,7 +112,7 @@ This can be configured by adding the following parameter to the target configura
 ```yaml
     databricks-sql-warehouses:
       <metastore-ID>:
-        workspace: <workspace-id>
+        workspace: <workspace-deployment-name>
         warehouse: <sql-warehouse-id>
 ```
 {% endraw %}
