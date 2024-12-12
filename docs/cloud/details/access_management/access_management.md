@@ -15,7 +15,7 @@ When a data source is synchronized, the existing access controls are imported in
 
 [![Access Controls](/assets/images/Access_Controls.jpg)](/assets/images/Access_Controls.jpg){:target="_blank"}
 
-On one side, the Access Control points to the Data Objects it applies to (the `WHAT`) and on the other side it points to `WHO` it applies to. The exact meaning of these links, and which links are possible depends on the Access Control action.
+On one side, the Access Control points to the Data Objects it applies to (the `WHAT`) and on the other side it points to `WHO` it applies to. The exact meaning of these links, and which links are possible depends on the Access Control action (and Grant Category).
 
 The WHO links can point to users, groups (of users) and other access controls. The latter allows you to set up an inheritance to allow for a more structured organization of your access controls. This also allows you to achieve similar goals as what you can do with groups. While groups are only read-only in Raito (typically imported from an identity store), these access controls can be easily managed from within Raito to provide full flexibility and a clear structure.
 

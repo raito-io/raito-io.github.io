@@ -93,10 +93,20 @@ More information on how to work with access controls can be found in the [Access
 ### Access Control actions
 To manage access, an access control defines the *action* that is performs. The following actions are available:
 
- - **Grant**: this is the most common access control and is used to grant users access to data objects. More information on how to manage grants case found [here](/docs/cloud/access_management/grants).
- - **Purpose**: similar to grants, but used as a higher-level concept to group multiple grants together.
+ - **Grant**: this is the most common access control and is used to grant users access to data objects. More information on how to manage grants can be found [here](/docs/cloud/access_management/grants). To organize grants better and to configure their behavior, a grant has a Category. More on that below.
  - **Mask**: used to mask the data in the specified columns. These are often referred to as *Data Masking Policies*. This functionality is only available for data sources that provide support for it. More information on how to manage column masks can be found [here](/docs/cloud/access_management/masks).
  - **Filter**: used to filter the rows of a view or table by defining a condition statement deciding wether the row should be available to the user or not. These are often referred to as *Row Filter Policies*. This functionality is only available for data sources that provide support for it. More information on how to manage row filters can be found [here](/docs/cloud/access_management/row_filters).
+
+### Grant Categories
+Grant categories are meant to distinguish different types of grants you may want to manage. There is always a default grant category (typically just called 'Grant') which is also used to import the access controls that are managed in the data source. 
+
+You can configure Grant categories to adapt the Raito UI to your needs.
+
+Some other examples of Grant categories that are typically used:
+- **Data Product**: if you work with data products, you could create a grant category to represent these data products as a grant. This way, your users can easily find the available data products and request access to them.
+- **Purpose**: if you want to implement a Purpose-Based Access Control mechanism, you could create grant category for this as well. 
+
+Over time, more configuration options will be provided for these grant categories to allow you to tailor them more to your specific needs.
 
 ### Inheritance
 Access controls can be linked together in an inheritance structure to provide more powerful access management capabilities. Concretely, this means that, when defining the 'who' of an access control, you can also point to a Grant (or Purpose) access control. This means that the access control will be applicable for all the users of that Grant as well. For example:
