@@ -48,8 +48,8 @@ Once you selected the data source, you can add items to provide access to to usi
 [![Create Grant - Select Data Source](/assets/images/cloud/access_management/create-step3a.png)](/assets/images/cloud/access_management/create-step3a.png){:target="_blank"}
    1. If this is the first element you add, you have to choose between defining a Static list or defining a Dynamic rule to calculate the items based on attributes. For more information on attribute-based grants, see [Attribute-Based Access Controls](/docs/cloud/abac).  
    For now, pick `Static list` and click `Continue`. 
-   2. Next, you pick what you want to provide access to. This can be Data Objects (e.g. tables, schemas, files, folders ... ) or other grants (to set up inheritance). You can also add Masking rules and Row level filters that should apply to your grant.  
-   Let's just choose `Data object` now and click `Continue`.
+   2. Next, you pick what you want to provide access to. This can be Data Objects (e.g. tables, schemas, files, folders ... ) or other grants (to set up inheritance). You can also add Masking rules and Row-level filters that should apply to your grant.  
+   Let's just choose `Data objects` now and click `Continue`.
 [![Create Grant - Select What Type](/assets/images/cloud/access_management/create-step3b.png)](/assets/images/cloud/access_management/create-step3b.png){:target="_blank"}
    1. Now you can easily select the data objects you want to provide access to. Use the search bar on top to search and filter for what you need, select the data objects you want and click `Add`.
    [![Create Grant - Select Data Objects](/assets/images/cloud/access_management/create-step3c.png)](/assets/images/cloud/access_management/create-step3c.png){:target="_blank"}  
@@ -72,4 +72,4 @@ Once you selected the data source, you can add items to provide access to to usi
 
 
 1. When your grant is ready, click `Publish`. 
-2. When a CLI is running against the data source you picked, your new (or updated) grant will automatically be synchronized with the data source.
+2. When a CLI is running against the data source you picked, your new (or updated) grant will automatically be create/updated in the data source.
