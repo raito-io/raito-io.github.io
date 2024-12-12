@@ -58,7 +58,7 @@ Once you selected the data source, you can add items to provide access to to usi
    [![Create Grant - Select Permissions](/assets/images/cloud/access_management/create-step3d.png)](/assets/images/cloud/access_management/create-step3d.png){:target="_blank"}
 
 1. In the last step, you can select who you want to provide this access to.
-2. [![Create Grant - Add Beneficiaries](/assets/images/cloud/access_management/create-step4a.png)](/assets/images/cloud/access_management/create-step4a.png){:target="_blank"}
+[![Create Grant - Add Beneficiaries](/assets/images/cloud/access_management/create-step4a.png)](/assets/images/cloud/access_management/create-step4a.png){:target="_blank"}
    1. Click the `Add` link.
    2. Also here, you have to choose between defining a Static list or defining a Dynamic rule to calculate the items based on attributes when you add the first item. For more information on attribute-based grants, see [Attribute-Based Access Controls](/docs/cloud/abac). For now, pick `Static list` and click `Continue`.
    3. Next, you'll need to choose the type of beneficiary you want to add. This can be Users, Groups or other Grants (to set up inheritance). For this example, select `Users` and click `Continue`.
