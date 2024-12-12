@@ -43,20 +43,22 @@ For data sources where grants are represented by named entities (e.g. roles), th
 Additionally, an optional description of the grant can be provided in this step as well. It is recommended to do this to make clear what this grant is for.  
 [![Create Grant - Step 1](/assets/images/cloud/access_management/create-step1.png)](/assets/images/cloud/access_management/create-step1.png){:target="_blank"}
 2. In step 2, you specify what this grant provides access to.
-For a single-data source grant (depending on the category), you will have specify the data source first. The data sources for multi-data source grants will be added automatically when you specify the items to grant access to.
-3. Once you selected the data source, you can add items to add access to to using the `Add` button
+For a single-data source grant (depending on the category), you will have specify the data source first. The data sources for multi-data source grants will be added automatically when you specify the items to grant access to.  
+Once you selected the data source, you can add items to provide access to to using the `Add` button.
 [![Create Grant - Select Data Source](/assets/images/cloud/access_management/create-step3a.png)](/assets/images/cloud/access_management/create-step3a.png){:target="_blank"}
-   1. If this is the first element you add, you have to choose between defining a Static list or defining a Dynamic rule to calculate the items based on attributes. For more information on attribute-based grants, see [Attribute-Based Access Controls](/docs/cloud/abac). For now, pick `Static list` and click `Continue`. 
-   2. Next, you pick what you want to provide access to. This can be Data Objects (e.g. tables, schemas, files, folders ... ) or other grants (to set up inheritance). You can also add Masking rules and Row level filters that should apply to your grant. Let's just choose `Data object` now and click `Continue`.
+   1. If this is the first element you add, you have to choose between defining a Static list or defining a Dynamic rule to calculate the items based on attributes. For more information on attribute-based grants, see [Attribute-Based Access Controls](/docs/cloud/abac).  
+   For now, pick `Static list` and click `Continue`. 
+   2. Next, you pick what you want to provide access to. This can be Data Objects (e.g. tables, schemas, files, folders ... ) or other grants (to set up inheritance). You can also add Masking rules and Row level filters that should apply to your grant.  
+   Let's just choose `Data object` now and click `Continue`.
 [![Create Grant - Select What Type](/assets/images/cloud/access_management/create-step3b.png)](/assets/images/cloud/access_management/create-step3b.png){:target="_blank"}
    1. Now you can easily select the data objects you want to provide access to. Use the search bar on top to search and filter for what you need, select the data objects you want and click `Add`.
    [![Create Grant - Select Data Objects](/assets/images/cloud/access_management/create-step3c.png)](/assets/images/cloud/access_management/create-step3c.png){:target="_blank"}  
-   You can also add other grants here to inherit the what-list from those.  
    Note: If you do not own the data objects or grants you would like to add, an access request will be started and assigned to the owners to add these to your grant.
    2. By default, the objects are added with 'Read' access. You can easily update the permissions you would like to provide.
+   [![Create Grant - Select Permissions](/assets/images/cloud/access_management/create-step3d.png)](/assets/images/cloud/access_management/create-step3d.png){:target="_blank"}
 
 1. In the last step, you can select who you want to provide this access to.
-[![Create Grant - Add Beneficiaries](/assets/images/cloud/access_management/create-step4a.png)](/assets/images/cloud/access_management/create-step4a.png){:target="_blank"}
+2. [![Create Grant - Add Beneficiaries](/assets/images/cloud/access_management/create-step4a.png)](/assets/images/cloud/access_management/create-step4a.png){:target="_blank"}
    1. Click the `Add` link.
    2. Also here, you have to choose between defining a Static list or defining a Dynamic rule to calculate the items based on attributes when you add the first item. For more information on attribute-based grants, see [Attribute-Based Access Controls](/docs/cloud/abac). For now, pick `Static list` and click `Continue`.
    3. Next, you'll need to choose the type of beneficiary you want to add. This can be Users, Groups or other Grants (to set up inheritance). For this example, select `Users` and click `Continue`.
