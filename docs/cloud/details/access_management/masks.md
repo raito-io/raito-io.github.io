@@ -27,6 +27,6 @@ Note: Column masks imported from data sources cannot be edited within Raito. It 
 
 Creating a mask is similar to [creating a grant](/docs/cloud/access_management/grants), with a few key differences:
 
- - Only columns can be selected for the what-list.
- - An additional step is available to choose the type of masking you want to apply.  
+ - Only columns can be selected for the what-list. You'll need to select the parent table first and then pick the columns you would like to mask.
+ - In the section `Where does the mask apply?' you can select the type of masking that needs to be applied for each data source by clicking the Edit button next to it.  
  [![Create Mask - Select Type](/assets/images/cloud/access_management/create-mask-type.png)](/assets/images/cloud/access_management/create-mask-type.png){:target="_blank"}
