@@ -43,12 +43,12 @@ For data sources where grants are represented by named entities (e.g. roles), th
 Additionally, an optional description of the grant can be provided in this step as well. It is recommended to do this to make clear what this grant is for.  
 [![Create Grant - Step 1](/assets/images/cloud/access_management/create-step1.png)](/assets/images/cloud/access_management/create-step1.png){:target="_blank"}
 2. In step 2, you specify what this grant provides access to.
-For a single-data source grant (depending on the category), you will have specify the data source first. The data sources for multi-data source grants will be added automatically when you specify the items to grant access to.  
-Once you selected the data source, you can add items to provide access to to using the `Add` button.
+To get started, click the `Add` button in the `Access granted on` section.
 [![Create Grant - Select Data Source](/assets/images/cloud/access_management/create-step3a.png)](/assets/images/cloud/access_management/create-step3a.png){:target="_blank"}
-   1. If this is the first element you add, you have to choose between defining a Static list or defining a Dynamic rule to calculate the items based on attributes. For more information on attribute-based grants, see [Attribute-Based Access Controls](/docs/cloud/abac).  
+   1. If this is the first element you add and the grant category you picked is a single-data source category, you'll be asked to pick your data source first. Pick one and click `Continue`.
+   2. If this is the first element you add, you have to choose between defining a Static list or defining a Dynamic rule to calculate the items based on attributes. For more information on attribute-based grants, see [Attribute-Based Access Controls](/docs/cloud/abac).  
    For now, pick `Static list` and click `Continue`. 
-   2. Next, you pick what you want to provide access to. This can be Data Objects (e.g. tables, schemas, files, folders ... ) or other grants (to set up inheritance). You can also add Masking rules and Row-level filters that should apply to your grant.  
+   3. Next, you pick what you want to provide access to. This can be Data Objects (e.g. tables, schemas, files, folders ... ) or other grants (to set up inheritance). You can also add Masking rules and Row-level filters that should apply to your grant.  
    Let's just choose `Data objects` now and click `Continue`.
 [![Create Grant - Select What Type](/assets/images/cloud/access_management/create-step3b.png)](/assets/images/cloud/access_management/create-step3b.png){:target="_blank"}
    1. Now you can easily select the data objects you want to provide access to. Use the search bar on top to search and filter for what you need, select the data objects you want and click `Add`.
