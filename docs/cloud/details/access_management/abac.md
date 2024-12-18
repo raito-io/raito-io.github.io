@@ -13,7 +13,7 @@ permalink: /docs/cloud/abac
 {: .note }
 This feature may not be available in your environment. Please contact sales.
 
-Grants, column masks and row-level filters can all be made dynamic. This means that you can define boolean expressions to dynamically calculate the data objects (for grants and masks) and beneficiaries (for all) that should be included in the access control.
+Grants, Masks and Filters can all be made dynamic. This means that you can define boolean expressions to dynamically calculate the data objects (for grants and masks) and beneficiaries (for all) that should be included in the access control.
 
 These expressions are based on the metadata tags that are imported from the different source systems (data sources, catalogs, identity stores, dbt ...).
 
