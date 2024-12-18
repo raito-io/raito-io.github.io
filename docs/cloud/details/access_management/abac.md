@@ -27,7 +27,7 @@ Dynamic Data Objects can currently not be used for row-level filters. The explan
 
 To specify the data objects dynamically when creating a grant or column mask, in step 2 ('Access granted on') of the wizard, click `Add`. When it's a single-data source grant, you'll first be asked to pick your data source. In the next step, choose `Dynamic rule` and click `Continue`.
 
-[![Filters](/assets/images/cloud/access_management/dynamic-what-title.png)](/assets/images/cloud/access_management/dynamic-what-choice.png){:target="_blank"}
+[![Filters](/assets/images/cloud/access_management/dynamic-what-choice.png)](/assets/images/cloud/access_management/dynamic-what-choice.png){:target="_blank"}
 
 New, you will be asked to pick one or more data objects that act as the scope for the ABAC rule. This scope determines which part of the data source(s) the rule will apply to, meaning that only descendants of these data objects can be in the result of this ABAC rule. You can apply filters to more easily find what you are looking for.
 
@@ -38,7 +38,7 @@ First, you'll need to pick the type(s) of data object you want to search for and
 
 [![Filters](/assets/images/cloud/access_management/dynamic-what-permission.png)](/assets/images/cloud/access_management/dynamic-what-permission.png){:target="_blank"}
 
-As the last step, you can now define the boolean expression to filter out the data objects you want (within the previously selected scope and types).
+As the last step, you can now define the boolean expression to specify the data objects you want (within the previously selected scope and types).
 
 [![Filters](/assets/images/cloud/access_management/dynamic-what-condition.png)](/assets/images/cloud/access_management/dynamic-what-condition.png){:target="_blank"}
 
