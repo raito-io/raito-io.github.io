@@ -53,10 +53,10 @@ To get started, click the `Add` button in the `Access granted on` section.
 [![Create Grant - Select What Type](/assets/images/cloud/access_management/create-step3b.png)](/assets/images/cloud/access_management/create-step3b.png){:target="_blank"}
    1. Now you can easily select the data objects you want to provide access to. Use the search bar on top to search and filter for what you need, select the data objects you want and click `Add`.
    [![Create Grant - Select Data Objects](/assets/images/cloud/access_management/create-step3c.png)](/assets/images/cloud/access_management/create-step3c.png){:target="_blank"}  
-   Note: If you do not own the data objects or grants you would like to add, an access request will be started and assigned to the owners to add these to your grant.
+   Note: If you are not the owner of the data objects or grants you would like to add, an access request will be started and assigned to the owners to add these to your grant.
    2. By default, the objects are added with 'Read' access. You can easily update the permissions you would like to provide.
+   Below the list of selected Data Objects, you will automatically get a list of the Data Sources that this grant will be deployed to. You can select a different type of access per data source, if needed. 
    [![Create Grant - Select Permissions](/assets/images/cloud/access_management/create-step3d.png)](/assets/images/cloud/access_management/create-step3d.png){:target="_blank"}
-   3. Below the list of selected Data Objects, you will automatically get a list of the Data Sources that this grant will be deployed to. You can select a different type of access per data source, if needed. 
 
 1. In the last step, you can select who you want to provide this access to.
 [![Create Grant - Add Beneficiaries](/assets/images/cloud/access_management/create-step4a.png)](/assets/images/cloud/access_management/create-step4a.png){:target="_blank"}
