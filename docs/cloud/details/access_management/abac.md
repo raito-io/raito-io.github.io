@@ -29,11 +29,11 @@ To specify the data objects dynamically when creating a grant or column mask, in
 
 [![Filters](/assets/images/cloud/access_management/dynamic-what-choice.png)](/assets/images/cloud/access_management/dynamic-what-choice.png){:target="_blank"}
 
-New, you will be asked to pick one or more data objects that act as the scope for the ABAC rule. This scope determines which part of the data source(s) the rule will apply to, meaning that only descendants of these data objects can be in the result of this ABAC rule. You can apply filters to more easily find what you are looking for.
+Now, you will be asked to pick one or more data objects that act as the scope for the ABAC rule. This scope determines which part of the data source(s) the rule will apply to, meaning that only descendants of these data objects can be in the result of this ABAC rule. You can apply filters to more easily find the scope data objects you are looking for.
 
 [![Filters](/assets/images/cloud/access_management/dynamic-what-scope.png)](/assets/images/cloud/access_management/dynamic-what-scope.png){:target="_blank"}
 
-When the scope is added, you can now specify the details of the rule to determine which data objects to select.  
+After the scope is added, you can specify the details of the rule to determine which data objects to select.  
 First, you'll need to pick the type(s) of data object you want to search for and which permissions you would like to provide. In the example below we'll be selecting tables and views and provide Read permissions on them.
 
 [![Filters](/assets/images/cloud/access_management/dynamic-what-permission.png)](/assets/images/cloud/access_management/dynamic-what-permission.png){:target="_blank"}
