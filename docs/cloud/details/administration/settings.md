@@ -54,7 +54,8 @@ Warning: changing certain parameters may cause some existing grants to not compl
 ### Removing a grant category
 To delete an existing grant category, simply click the context menu next to the grant category (three dots icon) and select `Delete`.
 
-Note: you cannot delete a category when grants still existing in this category. You'll need to delete these first before you can delete the category. Note that it may take up to 48 hours after the synchronization before the grants are actually deleted.
+Note: you cannot delete a category when grants still existing in this category. You'll need to delete these first before you can delete the category. Note that it may take up to 48 hours after the synchronization before the grants are actually deleted.  
+Also the default category and system categories cannot be deleted.
 
 ### The default category
 There will always be a fixed default category. All imported grants will be put in this category. 
