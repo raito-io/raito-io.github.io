@@ -48,7 +48,7 @@ jobs:
       - name: Substitutions in _preview site        
         run: sudo /bin/bash ./generate_preview_site.sh
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
+        uses: actions/upload-pages-artifact@v3
 
   # Publication job
   publish:
