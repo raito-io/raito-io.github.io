@@ -4,7 +4,7 @@ parent: Administration
 grand_parent: Raito Cloud
 nav_order: 20
 has_children: false
-has_toc: true
+has_toc: false
 permalink: /docs/cloud/admin/settings
 ---
 
