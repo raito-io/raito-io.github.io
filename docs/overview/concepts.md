@@ -106,8 +106,6 @@ Some other examples of Grant categories that are typically used:
 - **Data Product**: if you work with data products, you could create a grant category to represent these data products as a grant. This way, your users can easily find the available data products and request access to them.
 - **Purpose**: if you want to implement a Purpose-Based Access Control mechanism, you could create a grant category for this as well. 
 
-Over time, more configuration options will be provided for these grant categories to allow you to tailor them more to your specific needs.
-
 ### Inheritance
 Access controls can be linked together in an inheritance structure to provide more powerful access management capabilities. Concretely, this means that, when defining the 'who' of an access control, you can also point to a Grant (or Purpose) access control. This means that the access control will be applicable for all the users of that Grant as well. For example:
 
