@@ -10,7 +10,15 @@ permalink: /docs/cloud/integrations/slack
 
 # Slack Integration
 ## Introduction
-TODO: what can you do with it? And what are the main steps for people to set it up
+The Raito Slack integration allow you to:
+- Receive notifications from Raito directly in Slack
+- Request access to data right from within your Slack workspace
+
+The setup of the Raito Slack integration requires two steps:
+1. An administrator needs to connect your Raito instance with your Slack workspace.
+2. Each Raito user needs to connect their Raito user account to their Slack user account.
+
+These steps are described in more detail in the following two sections.
 
 ## Connecting your Slack Workspace
 The first step to start using the Slack Integration is to connect your Raito instance to your Slack workspace. 
