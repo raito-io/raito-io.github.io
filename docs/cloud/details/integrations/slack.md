@@ -10,24 +10,24 @@ permalink: /docs/cloud/integrations/slack
 
 # Slack Integration
 ## Introduction
-The Raito Slack integration allow you to:
-- Receive notifications from Raito directly in Slack
-- Request access to data right from within your Slack workspace
+The Raito Slack integration allows you to:
+- Receive notifications from Raito directly in Slack.
+- Request access to data right from within your Slack workspace.
 
-The setup of the Raito Slack integration requires two steps:
+Setting up the Raito Slack integration requires two steps:
 1. An administrator needs to connect your Raito instance with your Slack workspace.
 2. Each Raito user needs to connect their Raito user account to their Slack user account.
 
-These steps are described in more detail in the following two sections.
+These steps are described in more detail in the sections below.
 
 ## Connecting your Slack Workspace
-The first step to start using the Slack Integration is to connect your Raito instance to your Slack workspace. 
+The first step is to connect your Raito instance to your Slack workspace.
 
-To do this, as a user with the global `Admin` role, go to `Administration > Settings` and click the `Slack integration` option.  
-Now click the `Install` button on the right.  
+To do this, as a user with the global `Admin` role, navigate to `Administration > Settings` and click the `Slack integration` option.  
+Then click the `Install` button on the right.  
 You will be redirected to the a Slack page requesting to connect with your Slack workspace. If you are not the owner of the Slack workspace, a request will be sent to the owners of your Slack workspace to approve this.
 
-Once the connection is set up, Raito users will now be able to connect their account to their Slack account.
+Once the connection is established, Raito users can now connect their account to their Slack account.
 
 ## Connecting your Slack account
 After an admin has connected Raito with your Slack workspace, you can connect your Raito user account to your Slack user account.
