@@ -61,3 +61,6 @@ Also the default category and system categories cannot be deleted.
 There will always be a fixed default category. All imported grants will be put in this category. 
 
 While you can update most settings of the default category, some settings will be locked.
+
+## Slack Integration
+More information on this can be found on the [Slack Integration](/docs/cloud/integrations/slack) page.
