@@ -54,3 +54,6 @@ At all times, involved users can close the task, which will result in:
 - Close as implemented: when all elements have been implemented
 
 When implementing the last access control from a request, you will be prompted to close the request.
+
+## Comments
+Throughout the entire process, participants of the Access Request can leave comments for the other users involved. The comment section can be found at the bottom of the Access Request page. 
