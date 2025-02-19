@@ -11,7 +11,7 @@ permalink: /docs/cloud/abac
 # Attribute-Based Access Controls (ABAC)
 
 {: .note }
-This feature may not be available in your environment. Please contact sales.
+This feature may not be available in your environment. Please contact Raito support if you are interested.
 
 Grants, Masks and Filters can all be made dynamic. This means that you can define boolean expressions to dynamically calculate the data objects (for grants and masks) and beneficiaries (for all) that should be included in the access control.
 

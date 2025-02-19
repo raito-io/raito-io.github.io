@@ -10,7 +10,7 @@ permalink: /docs/cloud/access_management/direct_access
 
 # Direct Access
 {: .note }
-This feature may not be available in your environment. Please contact sales.
+This feature may not be available in your environment. Please contact Raito support if you are interested.
 
 Some data sources don't implement RBAC (role-based access controls), but instead directly assign permissions to users on resources. Google BigQuery and Databricks are examples of such data sources.
 

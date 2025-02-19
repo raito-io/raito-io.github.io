@@ -11,7 +11,7 @@ permalink: /docs/cloud/access_management/masks
 # Column Masks
 
 {: .note }
-This feature may not be available in your environment. Please contact sales.
+This feature may not be available in your environment. Please contact Raito support if you are interested.
 
 A column mask allows you to limit the visibility of data in specific columns. With column masks, users will only see a limited version of the data in those columns, unless they have the permission to see the data unmasked.
 

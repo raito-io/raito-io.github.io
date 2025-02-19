@@ -11,7 +11,7 @@ permalink: /docs/cloud/access_management/row_filters
 # Row-Level Filters
 
 {: .note }
-This feature may not be available in your environment. Please contact sales.
+This feature may not be available in your environment. Please contact Raito support if you are interested.
 
 A row-level filter allows you to limit the visibility of data in specific tables. With row-level filters, users will only be able to query the rows that match predefined criteria.
 
