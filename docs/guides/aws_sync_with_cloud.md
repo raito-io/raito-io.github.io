@@ -278,6 +278,7 @@ The following policy should be attached to the user/role connecting to the maste
 {% endraw %}
 
 # Raito CLI Configuration
+In this case, we'll directly create and edit the Raito CLI configuration file, instead of using the `add-target` command. 
 
 To configure the Raito CLI to synchronize your AWS S3 warehouse, start by creating a file with the name `raito.yml` and edit it to look like this:
 
