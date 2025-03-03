@@ -92,19 +92,20 @@ In the left navigation pane go to `Data Sources` > `All data sources`. You shoul
 * `Data source description`. Accompany your data source with a meaningful description.
 * `Connection method`. Select whether you want to use the Raito hosted cloud version of the CLI or one managed by yourself, which is recommended. In this example we indeed select 'CLI'
 
-Once the data source has been created, you are ready to connect the Raito CLI with it. When you would have selected the Cloud CLI version, you will be prompted for the Snowflake account information, username and password, which will not be stored, and optionally a Snowflake role. This information is all similar to what is listed below.
+Once the data source has been created, you are ready to connect the Raito CLI with it.
 
 ## Raito CLI Configuration
 
 On the main page of the newly created data source, you will see two options to set up the CLI for this new data source. In this guide, we'll follow the first (recommended) option.
 
-Simply copy the command-line command by clicking the `Copy to clipboard` button under option 1.  
-Next, simply paste it in a terminal window.
+Simply copy the command presented in the first option by clicking the `Copy to clipboard` button.  
+Next, simply paste it in a terminal window and press Enter.
 
-The Raito CLI `add-target` tool will now guide you through the process to add the data source as a target for the CLI.  
+The Raito CLI `add-target` command will now guide you through the process to add your newly created data source as a target in the Raito CLI configuration.
+
 If this is the first time configuring the CLI, you will first be asked for some additional information to connect the Raito CLI to Raito Cloud. In these steps, you'll need the email and password of the user you created in Raito Cloud in a previous step. 
 
-At the end of the flow, you will be asked which optional parameters for the Snowflake connector you would like to set. You can use this helper tool to set this or edit them later on in the generated Raito CLI configuration YAML file.
+At the end of the flow, you will be asked which optional parameters for the Snowflake connector you would like to set. You can use this helper tool to set them or edit them later in the generated Raito CLI configuration YAML file.
 
 More information on all the parameters can be found in [Snowflake-specific configuration](/docs/cli/connectors/snowflake#snowflake-specific-cli-parameters). For example, how to find the right value for the `sf-account` parameter. 
 
