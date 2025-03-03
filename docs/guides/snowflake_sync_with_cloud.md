@@ -11,7 +11,7 @@ In this guide we'll walk you through an example of how to connect Raito Cloud to
 - make sure that Raito CLI is installed and available
 - create a role and user in Snowflake to use with the CLI
 - create a user in Raito Cloud for the CLI connection
-- log into Raito Cloud and create a data source
+- create a new data source in Raito Cloud
 - configure Raito CLI to connect to Raito Cloud and synchronize with the previously-created data source
 - run a first sync
 - run the synchronization periodically using GitHb Actions
