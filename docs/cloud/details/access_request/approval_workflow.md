@@ -56,4 +56,9 @@ At all times, involved users can close the task, which will result in:
 When implementing the last access control from a request, you will be prompted to close the request.
 
 ## Comments
-Throughout the entire process, participants of the Access Request can leave comments for the other users involved. The comment section can be found at the bottom of the Access Request page. 
+Throughout the entire process, participants of the Access Request can leave comments for the other users involved. The comment section can be found at the bottom of the Access Request page.
+
+When posting a comment, you can mention other users to involve them in the process.  
+To do this, simply type the '@' character followed by the first letters from the user's name. Next, select the user from the list.
+
+Mentioned users will be able to see the Access Request to make sure they can respond to your message.
