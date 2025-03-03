@@ -11,8 +11,8 @@ In this guide, we'll walk you through an example of how to connect Raito Cloud t
 - make sure that Raito CLI is installed and available
 - create a service account and assign the correct IAM Roles
 - create a user in Raito Cloud for the CLI connection
-- create a new data source in Raito Cloud
-- configure Raito CLI to connect to Raito Cloud and synchronize with the previously-created data source
+- create a new Data Source in Raito Cloud
+- configure Raito CLI to connect to Raito Cloud and synchronize with the previously-created Data Source
 - run a first sync
   
 For this guide, you will need access to Raito Cloud and you also need access to GCP and optionally GSuite
@@ -158,29 +158,29 @@ This step is only needed if this is the first time you connect the Raito CLI to 
 
 To do this, check out the section in the [Snowflake guide](/docs/guide/cloud#create-a-raito-cloud-user-for-the-cli-connection).
 
-## Create a data source in Raito Cloud
+## Create a Data Source in Raito Cloud
 
 Now that the CLI is working, sign in to your Raito Cloud instance. 
 
-In the left navigation pane, go to `Data Sources` > `All data sources`. You should see a button on the top-right named `Add data source`. This will guide you through a short wizard to create a new data source. The main things that you will need to configure are: 
+In the left navigation pane, go to `Data Sources` > `All data sources`. You should see a button on the top-right named `Add data source`. This will guide you through a short wizard to create a new Data Source. The main things that you will need to configure are: 
 
 * `Data source type`. Select Google Cloud Platform.
-* `Data source name`. Give your data source a good descriptive name, separating it from other data sources. For this example, we'll choose 'Google Cloud Test'.
-* `Data source description`. Accompany your data source with a meaningful description.
+* `Data source name`. Give your Data Source a good descriptive name, separating it from other data sources. For this example, we'll choose 'Google Cloud Test'.
+* `Data source description`. Accompany your Data Source with a meaningful description.
 * `Connection method`. Select whether you want to use the Raito hosted cloud version of the CLI or one managed by yourself, which is recommended. In this example we indeed select 'CLI'
 
-Now that we have our GCP Data Source set up, repeat the same step to create a data source of type BigQuery. You will notice that this time, the wizard has an additional step `Select a Google Cloud Platform data source` where you will have to select the data source created in the previous step. This will ensure proper sharing of identities across your various BigQuery projects as well as other GCP service data sources.
+Now that we have our GCP Data Source set up, repeat the same step to create a Data Source of type BigQuery. You will notice that this time, the wizard has an additional step `Select a Google Cloud Platform data source` where you will have to select the Data Source created in the previous step. This will ensure proper sharing of identities across your various BigQuery projects as well as other GCP service data sources.
 
 ## Raito CLI Configuration
 
 Now, we'll need to add the 2 newly created Data Sources to the Raito CLI configuration.
 
-On the main page of the newly created data source, you will see two options to set up the CLI for this new data source. In this guide, we'll follow the first (recommended) option.
+On the main page of the newly created Data Source, you will see two options to set up the CLI for this new Data Source. In this guide, we'll follow the first (recommended) option.
 
 Simply copy the command presented in the first option by clicking the `Copy to clipboard` button.  
 Next, simply paste it in a terminal window and press Enter.
 
-The Raito CLI `add-target` command will now guide you through the process to add your newly created data source as a target in the Raito CLI configuration.
+The Raito CLI `add-target` command will now guide you through the process to add your newly created Data Source as a target in the Raito CLI configuration.
 
 If this is the first time configuring the CLI, you will first be asked for some additional information to connect the Raito CLI to Raito Cloud. In these steps, you'll need the email and password of the user you created in Raito Cloud in a previous step. 
 
@@ -190,7 +190,7 @@ More information on all the parameters can be found in [GCP-specific configurati
 
 ## Raito run
 
-Now that our data source is set up and we have our Raito CLI configuration file, we can run the Raito CLI with:
+Now that our Data Source is set up and we have our Raito CLI configuration file, we can run the Raito CLI with:
 
 ```bash
 $> raito run
@@ -208,6 +208,6 @@ On the dashboard you will now see some initial insights that we extract from the
 
 When you go to `Identities` in the navigation bar, you can see all the users imported from GSuite. Under `Access Controls`, under grants, you have an overview of all the IAM Role grants both on GCP organization level as well as your BigQuery tables and datasets. If you click on one, you get a detailed view of who belongs to that access control, and what they have access to with which permissions. 
 
-Now that you have synchronized your GCP organization and the first BigQuery project, you can repeat the steps to connect all your other BigQuery projects to the same GCP data source by creating new BigQuery data sources in Raito and configuring them using the same steps as before.
+Now that you have synchronized your GCP organization and the first BigQuery project, you can repeat the steps to connect all your other BigQuery projects to the same GCP Data Source by creating new BigQuery data sources in Raito and configuring them using the same steps as before.
 
 {% include slack.html %}
