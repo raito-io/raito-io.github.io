@@ -9,7 +9,9 @@ permalink: /docs/guide/aws
 
 In this guide, we'll walk you through an example of how to connect Raito Cloud to your AWS S3 (Glue) warehouse through the Raito CLI. We'll
 - make sure that Raito CLI is installed and available
+- create a user in Raito Cloud for the CLI connection
 - log into Raito Cloud and create a data source. Optionally we create an organization identity store
+- get the right AWS credentials and permissions
 - configure Raito CLI to connect to Raito Cloud and synchronize with the previously-created data source
 - run a first sync
 
@@ -30,7 +32,7 @@ $> raito --version
 
 If you want more information about the installation process, or you need to troubleshoot an issue, you can find [more information here](/docs/cli/installation).
 
-## Create an organization identity store (optional)
+## Create an organization Identity Store (optional)
 
 If you have an AWS organization set up and want to use permission sets to manage access, you have to sync the users and groups defined in IAM Identity Center. 
 In that case, are required to create a new Identity Store. 
