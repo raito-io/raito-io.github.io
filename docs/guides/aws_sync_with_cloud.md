@@ -9,8 +9,10 @@ permalink: /docs/guide/aws
 
 In this guide, we'll walk you through an example of how to connect Raito Cloud to your AWS S3 (Glue) warehouse through the Raito CLI. We'll
 - make sure that Raito CLI is installed and available
-- log into Raito Cloud and create a data source. Optionally we create an organization identity store
-- configure Raito CLI to connect to Raito Cloud and synchronize with the previously-created data source
+- create a user in Raito Cloud for the CLI connection
+- log into Raito Cloud and create a Data Source. Optionally we create an organization identity store
+- get the right AWS credentials and permissions
+- configure Raito CLI to connect to Raito Cloud and synchronize with the previously-created Data Source
 - run a first sync
 
 For this guide, you will need access to Raito Cloud and you also need access to AWS.
@@ -30,7 +32,7 @@ $> raito --version
 
 If you want more information about the installation process, or you need to troubleshoot an issue, you can find [more information here](/docs/cli/installation).
 
-## Create an organization identity store (optional)
+## Create an organization Identity Store (optional)
 
 If you have an AWS organization set up and want to use permission sets to manage access, you have to sync the users and groups defined in IAM Identity Center. 
 In that case, are required to create a new Identity Store. 
@@ -43,15 +45,15 @@ In the left navigation pane, go to `Identities` > `Identity Stores`. You should 
 
 ## Create an AWS account Data Source
 
-To create a new Raito Data source, go to `Data Sources` > `All data sources`, in the left navigation pane. You should see a button on the top-right named `Add data source`. This will guide you through a short wizard to create a new data source. The main things that you will need to configure are:
+To create a new Raito Data source, go to `Data Sources` > `All data sources`, in the left navigation pane. You should see a button on the top-right named `Add data source`. This will guide you through a short wizard to create a new Data Source. The main things that you will need to configure are:
 
 * `Data source type`. Select AWS.
-* `Data source name`. Give your data source a good descriptive name, separating it from other data sources. For this example, we'll choose 'AWS Test account'.
-* `Data source description`. Accompany your data source with a meaningful description.
+* `Data source name`. Give your Data Source a good descriptive name, separating it from other data sources. For this example, we'll choose 'AWS Test account'.
+* `Data source description`. Accompany your Data Source with a meaningful description.
 * `Connection method`. Select whether you want to use the Raito hosted cloud version of the CLI or one managed by yourself, which is recommended. In this example we indeed select 'CLI'.
 
-If you created an organization identity store, you need to link the previously created IS with the newly created data source.
-Navigate to the newly created data source. In the action menu (clicking the 3 dots on the top right), you should see the ability to `Link to identity stores`.
+If you created an organization identity store, you need to link the previously created IS with the newly created Data Source.
+Navigate to the newly created Data Source. In the action menu (clicking the 3 dots on the top right), you should see the ability to `Link to identity stores`.
 Add the AWS organization identity store you created in the section before and apply the changes.
 
 ## AWS credentials
@@ -276,6 +278,7 @@ The following policy should be attached to the user/role connecting to the maste
 {% endraw %}
 
 # Raito CLI Configuration
+In this case, we'll directly create and edit the Raito CLI configuration file, instead of using the `add-target` command. 
 
 To configure the Raito CLI to synchronize your AWS S3 warehouse, start by creating a file with the name `raito.yml` and edit it to look like this:
 
@@ -328,14 +331,14 @@ targets:
 
 It contains
 - a section to configure the connection to Raito Cloud: `api-user`, `api-secret`, and `domain`. `domain` is the part of the URL from your Raito Cloud instance (e.g. https://`domain`.raito.cloud). `api-user` and `api-secret` are the login credentials for your Raito Cloud instance.
-- `targets` has one optional target defined for the AWS organization connector and one for AWS account connector. You can copy paste this section from the snippet that is shown on the page of the respective newly created data source in Raito cloud. The first part defines the target, connector and corresponding object ID's in Raito Cloud (i.e. `data-source-id` and `identity-store-id`). The second part is the configuration specific to the connectors.
+- `targets` has one optional target defined for the AWS organization connector and one for AWS account connector. You can copy paste this section from the snippet that is shown on the page of the respective newly created Data Source in Raito cloud. The first part defines the target, connector and corresponding object ID's in Raito Cloud (i.e. `data-source-id` and `identity-store-id`). The second part is the configuration specific to the connectors.
 
 Feel free to customize this configuration further. Find more information in the sections about [general configuration](/docs/cli/configuration#command-specific-parameters),  [AWS organization-specific configuration](/docs/cli/connectors/aws/organization#AWS-Organization-specific-CLI-parameters) and [AWS account-specific configuration](/docs/cli/connectors/aws/account#AWS-Account-specific-CLI-parameters).
 Remember that you can use double curly brackets to reference environment variables, like we did for the `api-user` field and others in the example.
 
 ## Raito run
 
-Now that our data source is set up and we have our Raito CLI configuration file, we can run the Raito CLI with:
+Now that our Data Source is set up and we have our Raito CLI configuration file, we can run the Raito CLI with:
 
 ```bash
 $> raito run

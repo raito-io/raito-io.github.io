@@ -9,9 +9,10 @@ permalink: /docs/guide/cloud
 
 In this guide we'll walk you through an example of how to connect Raito Cloud to a Snowflake data warehouse through the Raito CLI. We'll 
 - make sure that Raito CLI is installed and available
-- log into Raito Cloud and create a data source
 - create a role and user in Snowflake to use with the CLI
-- configure Raito CLI to connect to Raito Cloud and synchronize with the previously-created data source
+- create a user in Raito Cloud for the CLI connection
+- create a new Data Source in Raito Cloud
+- configure Raito CLI to connect to Raito Cloud and synchronize with the previously-created Data Source
 - run a first sync
 - run the synchronization periodically using GitHb Actions
   
@@ -34,20 +35,8 @@ $> raito --version
 
 If you want more information about the installation process, or you need to troubleshoot an issue, you can find [more information here](/docs/cli/installation). 
 
-## Create a data source in Raito Cloud
-
-Now that the CLI is working, sign in to your Raito Cloud instance. 
-
-In the left navigation pane go to `Data Sources` > `All data sources`. You should see a button on the top right, `Add data source`. This will guide you through a short wizard to create a new data source. The main things that you will need to configure are 
-
-* `Data source type`. Select your data warehouse type. We are constantly adding new connectors, and you will be able to create and use your own if needed. 
-* `Data source name`. Give your data source a good descriptive name, separating it from other data sources. For this example we'll choose 'Snowflake Test'.
-* `Data source description`. Accompany your data source with a meaningful description.
-* `Connection method`. Select whether you want to use the Raito hosted cloud version of the CLI or one managed by yourself, which is recommended. In this example we indeed select 'CLI'
-
-Once the data source has been created, you are ready to connect the Raito CLI with it. When you would have selected the Cloud CLI version, you will be prompted for the Snowflake account information, username and password, which will not be stored, and optionally a Snowflake role. This information is all similar to what is listed below.
-
 ## Create Snowflake role and user
+Now we'll make sure to create the necessary Snowflake role and user for the Raito CLI to use.
 
 While it is possible (and the default) to use the `ACCOUNTADMIN` role, it is highly recommended to create a custom role and accompanying user in Snowflake to be used by the Snowflake CLI connector.
 
@@ -76,44 +65,53 @@ GRANT ROLE RAITO_SYNC TO USER raito;
 You should, of course, pick a secure password instead of `abc123` to protect the user account. 
 As described above, you can also use another warehouse.
 
+## Create a Raito Cloud user for the CLI connection
+This step is only needed if this is the first time you connect the Raito CLI to Raito Cloud.
+
+To connect the Raito CLI to Raito Cloud, it is advised to use a dedicated user. To create it, follow the following steps in Raito Cloud as an Admin:
+
+ - In the left navigation pane, go to `User Management` in the Admin section.
+ - Click `Add user` at the top right.
+ - Provide an email address for the new user. This doesn't have to be an existing email address, but it should be using your company domain name. For example: raito-cli@mycompany.com 
+ -  Click `Confirm` to create the actual user. The user should now be created and available in the list. 
+ -  Find the newly created user in the list, open the context menu (using the three dots button) and choose `Set new password`.
+ -  Enter a new **strong** password.
+ -  Again, find the newly created user in the list, open the context menu and choose `Edit Raito roles`.
+ -  Make sure to select the `Integrator` role in the list and click the `Update` button. This role allows the user to be used to connect the Raito CLI to Raito Cloud.
+
+You'll need the email address and password later on to set up the Raito CLI connection.
+
+## Create a Data Source in Raito Cloud
+
+Next, we'll create our Data Source in Raito Cloud.
+
+In the left navigation pane go to `Data Sources` > `All data sources`. You should see a button on the top right, `Add Data Source`. This will guide you through a short wizard to create a new Data Source. The main things that you will need to configure are 
+
+* `Data source type`. Select your data warehouse type. We are constantly adding new connectors, and you will be able to create and use your own if needed. 
+* `Data source name`. Give your Data Source a good descriptive name, separating it from other data sources. For this example we'll choose 'Snowflake Test'.
+* `Data source description`. Accompany your Data Source with a meaningful description.
+* `Connection method`. Select whether you want to use the Raito hosted cloud version of the CLI or one managed by yourself, which is recommended. In this example we indeed select 'CLI'
+
+Once the Data Source has been created, you are ready to connect the Raito CLI with it.
+
 ## Raito CLI Configuration
 
-On the main page of the newly created data source, you will see a configuration snippet with the necessary information to connect the Raito CLI to this data source.
+On the main page of the newly created Data Source, you will see two options to set up the CLI for this new Data Source. In this guide, we'll follow the first (recommended) option.
 
-To do this, create a file with the name `raito.yml` and edit it to look like this:
+Simply copy the command presented in the first option by clicking the `Copy to clipboard` button.  
+Next, simply paste it in a terminal window and press Enter.
 
-{% raw %}
-```yaml
-api-user: "{{RAITO_USER}}"
-api-secret: "{{RAITO_API_KEY}}"
-domain: "{{DOMAIN}}"
+The Raito CLI `add-target` command will now guide you through the process to add your newly created Data Source as a target in the Raito CLI configuration.
 
-targets:
-  # snippet from Raito Cloud (watch the indentation)
-  - name: Snowflake Test 
-    connector-name: raito-io/cli-plugin-snowflake
-    connector-version: latest
-    data-source-id: "<data-source-id>"
-    identity-store-id: "<identity-store-id>"
-    
-    # Specifying the Snowflake specific config parameters
-    sf-account: "{{SF_ACCOUNT}}"
-    sf-user: "raito"
-    sf-password: "{{SF_PASSWORD}}"
-    sf-role: "RAITO_SYNC"
-```
-{% endraw %}
+If this is the first time configuring the CLI, you will first be asked for some additional information to connect the Raito CLI to Raito Cloud. In these steps, you'll need the email and password of the user you created in Raito Cloud in a previous step. 
 
-It contains
-- a section to configure the connection to Raito Cloud: `api-user`, `api-secret`, and `domain`. `domain` is the part of the URL from your Raito Cloud instance (e.g. https://`domain`.raito.cloud). `api-user` and `api-secret` are the login credentials for your Raito Cloud instance.
-- `targets` has one Snowflake target defined. You can copy paste this section from the snippet that is shown on the page of the newly created data source in Raito cloud. The first part defines the target, connector and corresponding object ID's in Raito Cloud (i.e. `data-source-id` and `identity-store-id`). The second part is the configuration to connect to your Snowflake instance. We're using the newly created `raito` user and `RAITO_SYNC` role.
+At the end of the flow, you will be asked which optional parameters for the Snowflake connector you would like to set. You can use this helper tool to set them or edit them later in the generated Raito CLI configuration YAML file.
 
-Feel free to customize this configuration further. Find more information in the sections about [general configuration](/docs/cli/configuration#command-specific-parameters) and [Snowflake-specific configuration](/docs/cli/connectors/snowflake#snowflake-specific-cli-parameters), for example on how to find the right value for the `sf-account` parameter. 
-Remember that you can use double curly brackets to reference environment variables, like we did for the `api-user` field and others in the example.
+More information on all the parameters can be found in [Snowflake-specific configuration](/docs/cli/connectors/snowflake#snowflake-specific-cli-parameters). For example, how to find the right value for the `sf-account` parameter. 
 
 ## Raito run
 
-Now that our data source is set up and we have our Raito CLI configuration file, we can run the Raito CLI with:
+Now that our Data Source is set up and we have our Raito CLI configuration file, we can run the Raito CLI with:
 
 ```bash
 $> raito run
@@ -128,7 +126,7 @@ See [here](/docs/cli/intro) for more information about what happens exactly.
 When the `raito run` command finished successfully, go back to 
 Raito Cloud. 
 
-On the dashboard you will now see some initial insights that we extract from the data that was synchronized. If you go to `Data Sources > Snowflake Test` (i.e. the data source that you have created before), you should be able to see when the last sync was done in the `General information` section. When you scroll down you can also navigate through the data objects in your Snowflake warehouse.
+On the dashboard you will now see some initial insights that we extract from the data that was synchronized. If you go to `Data Sources > Snowflake Test` (i.e. the Data Source that you have created before), you should be able to see when the last sync was done in the `General information` section. When you scroll down you can also navigate through the data objects in your Snowflake warehouse.
 
 When you go to `Identities` in the navigation bar, you can see all the users of the Snowflake instance under `Identity Store` 'Snowflake Test'. Finally, in `Access Controls` under grants, you have an overview of all the roles in your Snowflake instance. If you click on one, you get a detailed view of who belongs to that role, and what they have access to with which permissions. 
 

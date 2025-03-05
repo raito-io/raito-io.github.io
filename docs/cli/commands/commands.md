@@ -39,6 +39,17 @@ For example, to get more information about the Snowflake connector you can run
 $> raito info raito-io/cli-plugin-snowflake
 ```
 
+## Add Target
+The `add-target` command helps you set up your Raito CLI configuration file.  
+It will ask the necessary questions to add a new target to your configuration file. If you are starting from scratch, it will first ask for some information to set up the connection to Raito Cloud.
+
+To get started simply run
+```bash
+$> raito add-target
+```
+
+When you create a new data source in Raito Cloud, you will be given a command-line command using this `add-target` method with some values from Raito Cloud already prefilled.
+
 ## Apply Access
 
 {: .warning }
